@@ -1,33 +1,12 @@
 @extends('sites.layout.app')
 @section('content')
-	<!-- <nav class="navbar navbar-inverse">
-	  	<div class="container-fluid">
-	    	<div class="navbar-header">
-	      		<a class="navbar-brand" href="#">{{ Html::image('img/privatecar.png')}}</a>
-	    	</div>
-		    <ul class="nav navbar-nav">
-		      	<li class="active"><a href="#">Home</a></li>
-		      	<li class="dropdown">
-		        	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
-		        	<span class="caret"></span></a>
-			        <ul class="dropdown-menu">
-			          	<li><a href="#">Page 1-1</a></li>
-			          	<li><a href="#">Page 1-2</a></li>
-			          	<li><a href="#">Page 1-3</a></li>
-			        </ul>
-		      	</li>
-			    <li><a href="#">Page 2</a></li>
-			    <li><a href="#">Page 3</a></li>
-		    </ul>
-	  	</div>
-	</nav> -->
-	<div class="container">
+	<div class="container-fluid">
 		<div class="logo-head">
 			<div class="logo col-xs-12 col-md-4 col-lg-4">
-				<a class="navbar-brand" href="#">{{ Html::image('img/privatecar1.jpg') }}</a>
+				<a class="navbar-brand" href="#">{{ Html::image('img/logo-vmtravel.png') }}</a>
 			</div>
 			<div class="slogan col-xs-12 col-md-4 col-lg-4">
-				Slogan
+				<h2>Let Us Show You VietNam</h2>
 			</div>
 			<div class="contact col-xs-12 col-md-4 col-lg-4">
 				<p class="language clearfix">
@@ -35,96 +14,99 @@
 		           <a href="http://www.orientalsails.com" class="flag en" hreflang="en"></a>
 		           <a href="http://www.vietnamese.orientalsails.com/" class="flag vi" hreflang="vi"></a> 
 		        </p>
-		        <p class="text">CONTACT YOUR CRUISE PLANNER</p>
-		        <p class="email">Email: sales@orientalsails.com</p>
+		        <p class="text">CONTACT YOUR TRIP PLANNER</p>
+		        <p class="email">Email: info@privatecarvietnam.com</p>
 		        <p><span class="phone"></span>Book online or call <b>84-4-39264009</b></p>
 			</div>
 		</div>
+		<div class="menu clearfix">
+			<a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a>
+		    <a class="navigation" href="http://luxurysimplifiedretreats.com/#">
+		        <span class="bar"></span>
+		        <span class="bar"></span>
+		        <span class="bar"></span>
+		        &nbsp;
+		        <span class="txt">MENU</span>
+		    </a>
+		</div>
+		<div class="navigation-overlay">
+			<ul class="list-unstyled">
+				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112">
+					<a href="http://bookings.luxurysimplifiedretreats.com/">Properties</a>
+				</li>
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136">
+					<a href="http://luxurysimplifiedretreats.com/charleston/">Charleston</a>
+				</li>
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-134">
+					<a href="http://luxurysimplifiedretreats.com/about/">About</a>
+				</li>
+				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-138">
+					<a target="_blank" href="http://blog.luxurysimplifiedretreats.com/">Blog</a>
+				</li>
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-135">
+					<a href="http://luxurysimplifiedretreats.com/list-your-property/">List Your Property</a>
+				</li>
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133">
+					<a href="http://luxurysimplifiedretreats.com/contact/">Contact</a>
+				</li>
+			</ul>		<!---  <ul class="list-unstyled">
+		        <li><a href="?pagina=properties">View Rentals</a></li>
+		        <li><a href="?pagina=charleston">Charleston</a></li>
+		        <li><a href="?pagina=about">About</a></li>
+		    </ul> -->
+				
+		    <!--<ul class="list-unstyled">
+		        <li><a href="?pagina=list-your-property">List Your Property</a></li>
+		        <li><a href="http://blog.luxurysimplifiedretreats.com/" target="_blank">Blog</a></li>
+		        <li><a href="?pagina=contact">Contact</a></li>
+		    </ul> -->
+		</div>
+		<div class="desktop-menu" data-spy="affix" data-offset-top="197">
+			<div class="clearfix">
+		        <!-- <a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a> -->
+		        <div class="">
+					<ul id="menu-left" class="list-inline">
+						<li id="menu-item-1113" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1113">
+							<a href="http://privatecarvietnam.com/">Home</a>
+						</li>
+						<li id="menu-item-131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131">
+							<a href="http://luxurysimplifiedretreats.com/charleston/">PrivatTransfer</a>
+						</li>
+						<li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
+							<a href="http://luxurysimplifiedretreats.com/about/">AirPortTransfer</a>
+						</li>
+						<li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
+							<a href="http://luxurysimplifiedretreats.com/about/">Blog</a>
+						</li>
+						<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
+							<a href="http://luxurysimplifiedretreats.com/about/">Contact us</a>
+						</li>
+					</ul>	            <!--<ul class="list-inline">
+		                <li><a href="?pagina=properties">View Rentals</a></li>
+		                <li><a href="?pagina=charleston">Charleston</a></li>
+		                <li><a href="?pagina=about">About</a></li>
+		            </ul> -->
+		        </div> 
+		        <!-- <div class="nav-right">
+					<ul id="menu-right" class="list-inline">
+						<li id="menu-item-29" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29">
+							<a href="http://luxurysimplifiedretreats.com/list-your-property/">List Your Property</a>
+						</li>
+						<li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30">
+							<a target="_blank" href="http://blog.luxurysimplifiedretreats.com/">Blog</a>
+						</li>
+						<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28">
+							<a href="http://luxurysimplifiedretreats.com/contact/">Contact</a>
+						</li>
+					</ul>
+		        </div> -->
+		    </div>
+		</div>
+		<a href="http://luxurysimplifiedretreats.com/##" class="back-to-top" style="display: none;">
+			<i class="fa fa-arrow-up" aria-hidden="true"></i>
+		</a>
 	</div>
-	<div class="menu clearfix">
-		<a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a>
-	    <a class="navigation" href="http://luxurysimplifiedretreats.com/#">
-	        <span class="bar"></span>
-	        <span class="bar"></span>
-	        <span class="bar"></span>
-	        &nbsp;
-	        <span class="txt">MENU</span>
-	    </a>
-	</div>
-	<div class="navigation-overlay">
-		<ul class="list-unstyled">
-			<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112">
-				<a href="http://bookings.luxurysimplifiedretreats.com/">Properties</a>
-			</li>
-			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136">
-				<a href="http://luxurysimplifiedretreats.com/charleston/">Charleston</a>
-			</li>
-			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-134">
-				<a href="http://luxurysimplifiedretreats.com/about/">About</a>
-			</li>
-			<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-138">
-				<a target="_blank" href="http://blog.luxurysimplifiedretreats.com/">Blog</a>
-			</li>
-			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-135">
-				<a href="http://luxurysimplifiedretreats.com/list-your-property/">List Your Property</a>
-			</li>
-			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133">
-				<a href="http://luxurysimplifiedretreats.com/contact/">Contact</a>
-			</li>
-		</ul>		<!---  <ul class="list-unstyled">
-	        <li><a href="?pagina=properties">View Rentals</a></li>
-	        <li><a href="?pagina=charleston">Charleston</a></li>
-	        <li><a href="?pagina=about">About</a></li>
-	    </ul> -->
-			
-	    <!--<ul class="list-unstyled">
-	        <li><a href="?pagina=list-your-property">List Your Property</a></li>
-	        <li><a href="http://blog.luxurysimplifiedretreats.com/" target="_blank">Blog</a></li>
-	        <li><a href="?pagina=contact">Contact</a></li>
-	    </ul> -->
-	</div>
-	<div class="desktop-menu">
-		<div class="clearfix">
-	        <a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a>
-	        <div class="nav-left">
-				<ul id="menu-left" class="list-inline">
-					<li id="menu-item-1113" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1113">
-						<a href="http://bookings.luxurysimplifiedretreats.com/">Properties</a>
-					</li>
-					<li id="menu-item-131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131">
-						<a href="http://luxurysimplifiedretreats.com/charleston/">Charleston</a>
-					</li>
-					<li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
-						<a href="http://luxurysimplifiedretreats.com/about/">About</a>
-					</li>
-				</ul>	            <!--<ul class="list-inline">
-	                <li><a href="?pagina=properties">View Rentals</a></li>
-	                <li><a href="?pagina=charleston">Charleston</a></li>
-	                <li><a href="?pagina=about">About</a></li>
-	            </ul> -->
-	        </div> 
-	        <div class="nav-right">
-				<ul id="menu-right" class="list-inline">
-					<li id="menu-item-29" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29">
-						<a href="http://luxurysimplifiedretreats.com/list-your-property/">List Your Property</a>
-					</li>
-					<li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30">
-						<a target="_blank" href="http://blog.luxurysimplifiedretreats.com/">Blog</a>
-					</li>
-					<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28">
-						<a href="http://luxurysimplifiedretreats.com/contact/">Contact</a>
-					</li>
-				</ul>	          <!--  <ul class="list-inline">
-	                <li><a href="?pagina=list-your-property">List Your Property</a></li>
-	                <li><a href="http://blog.luxurysimplifiedretreats.com/" target="_blank">Blog</a></li>
-	                <li><a href="?pagina=contact">Contact</a></li>
-	            </ul> -->
-	        </div>
-	    </div>
-	</div>
-	<a href="http://luxurysimplifiedretreats.com/##" class="back-to-top" style="display: none;">
-		<i class="fa fa-arrow-up" aria-hidden="true"></i>
-	</a>
+	
 	<!-- HOME CONTENT -->
 	<div class="home-banner">
 		<div class="main-slider-wrapper actived">
@@ -203,10 +185,16 @@
 					</ul>
 				</div>
 				<div class="custom-arrows">
-					<a href="http://luxurysimplifiedretreats.com/##" class="prev slick-arrow" style="display: block;">
+					<!-- <button type="button" class="slick-prev slick-arrow">
+						<i class="fa fa-angle-left" aria-hidden="true"></i>
+					</button>
+					<button type="button" class="slick-next slick-arrow">
+						<i class="fa fa-angle-right" aria-hidden="true"></i>
+					</button> -->
+					<a href="##" class="prev slick-arrow" style="display: block;">
 						<i class="fa fa-angle-left" aria-hidden="true"></i>
 					</a>
-					<a href="http://luxurysimplifiedretreats.com/##" class="next slick-arrow" style="display: block;">
+					<a href="##" class="next slick-arrow" style="display: block;">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>
 					</a>
 				</div>
@@ -214,6 +202,9 @@
 		</div>
 	</div>
 	<!-- Slick Slider -->
+	{!! Html::script('js/jquery-migrate.min.js') !!}
+	{!! Html::script('js/slick.min.js') !!}
+    {!! Html::script('js/custome.slick.js') !!}
 	<div class="default-content home-lyfestyle">
 		<div class="container">
 	    	<div class="row">

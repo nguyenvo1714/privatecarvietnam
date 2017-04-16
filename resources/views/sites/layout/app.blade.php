@@ -32,6 +32,7 @@
         {!! Html::script('js/backbone-min.js') !!}
         {!! Html::script('js/backbone.localStorage-min.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
+        {!! Html::script('js/script.js') !!}
         <style type="text/css">
             @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700|Montserrat:400,700|Open+Sans+Condensed:300,700|PT+Sans:400,400i,700|PT+Serif:400,400i,700|Satisfy');
         </style>
@@ -73,6 +74,17 @@
             ]); ?>
 
         </script>
+        <style>
+  /* Note: Try to remove the following lines to see the effect of CSS positioning */
+  .affix {
+      top: 0;
+      width: 97.6%;
+  }
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+  }
+  </style>
     </head>
     <body>
         <div id="app">

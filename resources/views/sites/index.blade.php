@@ -111,86 +111,13 @@
 	<div class="home-banner">
 		<div class="main-slider-wrapper actived">
 			<div class="custom-arrows-wrapper">
-				<div class="slick slick-initialized slick-slider slick-dotted" role="toolbar">
-					<div aria-live="polite" class="slick-list">
-						<div class="slick-track" role="listbox" style="opacity: 1; width: 7902px; transform: translate3d(-1317px, 0px, 0px);">
-							<div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1" style="width: 1317px;">
-								<div class="background" style="background-image: url(&quot;http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/img/Home_Slider2.jpg&quot;); height: 557px;">
-									<div class="text-center clearfix" style="top: 188.5px;">
-										<h3>Maison Des Fleurs</h3>
-										<h2>FRENCH QUARTERS</h2>
-										<a href="http://luxurysimplifiedretreats.com/properties/maison-des-fleurs/" class="btn-layout" tabindex="-1">Read More</a>
-									</div>
-								</div>
-							</div>
-							<div class="slick-slide slick-current slick-active actived" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 1317px;">
-								<div class="background" style="background-image: url(&quot;http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/img/bnn-01.jpg&quot;); height: 557px;">
-									<div class="text-center clearfix" style="top: 233.5px;">
-										<h2>RELAXED. REFRESHED. REFINED.</h2>
-										<a href="http://luxurysimplifiedretreats.com/about/" class="btn-layout" tabindex="0">Read More</a>
-									</div>
-								</div>
-							</div>
-							<div class="slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide01" style="width: 1317px;">
-								<div class="background" style="background-image: url(&quot;http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/img/bnn-02.jpg&quot;); height: 557px;">
-									<div class="text-center clearfix" style="top: 188.5px;">
-										<h3>"The View" at Folly Beach</h3>
-										<h2>AWAY FROM IT ALL</h2>
-										<a href="http://luxurysimplifiedretreats.com/the-view/" class="btn-layout" tabindex="-1">Read More</a>
-									</div>
-								</div>
-							</div>
-							<div class="slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide02" style="width: 1317px;">
-								<div class="background" style="background-image: url(&quot;http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/img/Home_Slider1.jpg&quot;); height: 557px;">
-									<div class="text-center clearfix" style="top: 188.5px;">
-										<h3>Upstairs at Studio 36</h3>
-										<h2>AN IDEAL ESCAPE</h2>
-										<a href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/" class="btn-layout" tabindex="-1">Read More</a>
-									</div>
-								</div>
-							</div>
-							<div class="slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide03" style="width: 1317px;">
-								<div class="background" style="background-image: url(&quot;http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/img/Home_Slider2.jpg&quot;); height: 557px;">
-									<div class="text-center clearfix" style="top: 188.5px;">
-										<h3>Maison Des Fleurs</h3>
-										<h2>FRENCH QUARTERS</h2>
-										<a href="http://luxurysimplifiedretreats.com/properties/maison-des-fleurs/" class="btn-layout" tabindex="-1">Read More</a>
-									</div>
-								</div>
-							</div>
-							<div class="slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" tabindex="-1" style="width: 1317px;">
-								<div class="background" style="background-image: url(&quot;http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/img/bnn-01.jpg&quot;); height: 557px;">
-									<div class="text-center clearfix" style="top: 213.5px;">
-										<h2>RELAXED. REFRESHED. REFINED.</h2>
-										<a href="http://luxurysimplifiedretreats.com/about/" class="btn-layout" tabindex="-1">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<ul class="slick-dots" style="display: block;" role="tablist">
-						<li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation00" id="slick-slide00">
-							<button type="button" data-role="none" role="button" tabindex="0">1</button>
-						</li>
-						<li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation01" id="slick-slide01" class="">
-							<button type="button" data-role="none" role="button" tabindex="0">2</button>
-						</li>
-						<li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation02" id="slick-slide02" class="">
-							<button type="button" data-role="none" role="button" tabindex="0">3</button>
-						</li>
-						<li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation03" id="slick-slide03" class="">
-							<button type="button" data-role="none" role="button" tabindex="0">4</button>
-						</li>
-					</ul>
-				</div>
+				<div class="slick slick-slider slick-dotted" role="toolbar">
+					<div>{{ Html::image('img/Home_Slider2.jpg') }}</div>
+					<div>{{ Html::image('img/bnn-01.jpg') }}</div>
+					<div>{{ Html::image('img/bnn-02.jpg') }}</div>
+					<div>{{ Html::image('img/Home_Slider1.jpg') }}</div>
+				</div>	
 				<div class="custom-arrows">
-					<!-- <button type="button" class="slick-prev slick-arrow">
-						<i class="fa fa-angle-left" aria-hidden="true"></i>
-					</button>
-					<button type="button" class="slick-next slick-arrow">
-						<i class="fa fa-angle-right" aria-hidden="true"></i>
-					</button> -->
 					<a href="##" class="prev slick-arrow" style="display: block;">
 						<i class="fa fa-angle-left" aria-hidden="true"></i>
 					</a>
@@ -202,9 +129,16 @@
 		</div>
 	</div>
 	<!-- Slick Slider -->
+	<!-- {!! Html::script('js/jquery.js') !!} -->
 	{!! Html::script('js/jquery-migrate.min.js') !!}
 	{!! Html::script('js/slick.min.js') !!}
-    {!! Html::script('js/custome.slick.js') !!}
+	{!! Html::script('js/custome.slick.js') !!}
+
+	<div class="container">
+		<form>
+			
+		</form>
+	</div>
 	<div class="default-content home-lyfestyle">
 		<div class="container">
 	    	<div class="row">

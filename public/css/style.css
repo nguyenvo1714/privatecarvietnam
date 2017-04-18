@@ -394,6 +394,10 @@ ul.hs-error-msgs li label {
 .logo-head .contact, .logo-head .slogan {
 	margin-top: 15px;
 }
+.logo-head .slogan h2 {
+	font-family: 'Lucida Calligraphy';
+	font-size: 2.3em;
+}
 .logo-head p {
 	padding: unset;
 	margin-bottom: 5px;

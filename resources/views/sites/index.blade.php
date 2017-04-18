@@ -49,17 +49,7 @@
 				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133">
 					<a href="http://luxurysimplifiedretreats.com/contact/">Contact</a>
 				</li>
-			</ul>		<!---  <ul class="list-unstyled">
-		        <li><a href="?pagina=properties">View Rentals</a></li>
-		        <li><a href="?pagina=charleston">Charleston</a></li>
-		        <li><a href="?pagina=about">About</a></li>
-		    </ul> -->
-				
-		    <!--<ul class="list-unstyled">
-		        <li><a href="?pagina=list-your-property">List Your Property</a></li>
-		        <li><a href="http://blog.luxurysimplifiedretreats.com/" target="_blank">Blog</a></li>
-		        <li><a href="?pagina=contact">Contact</a></li>
-		    </ul> -->
+			</ul>
 		</div>
 		<div class="desktop-menu" data-spy="affix" data-offset-top="197">
 			<div class="clearfix">
@@ -129,7 +119,6 @@
 		</div>
 	</div>
 	<!-- Slick Slider -->
-	<!-- {!! Html::script('js/jquery.js') !!} -->
 	{!! Html::script('js/jquery-migrate.min.js') !!}
 	{!! Html::script('js/slick.min.js') !!}
 	{!! Html::script('js/custome.slick.js') !!}
@@ -264,57 +253,27 @@
 	        	<div class="col-sm-12">
 					<h2>Happy Customers<span><i class="fa fa-quote-right" aria-hidden="true"></i></span></h2>
 	                <div class="custom-arrows-wrapper">
-	                    <div class="slick-testimonials slick-initialized slick-slider">
-							<div aria-live="polite" class="slick-list draggable">
-								<div class="slick-track" role="listbox" style="opacity: 1; width: 7980px; transform: translate3d(-5700px, 0px, 0px); transition: transform 800ms ease;">
-									<div class="slide slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1" style="width: 1140px;">
-										<div>
-			                                <p class="text">This was the perfect place to stay. Incredible view and well equipped. The management team did an excellent job making us feel comfortable as well as recommending charter services and dining. We will definitely be booking this location again.</p>
-			                                <p class="author">Guest, Sea La Vie, Summer 2016</p>
-										</div>
-									</div>
-									<div class="slide slick-slide actived" data-slick-index="0" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide10" style="width: 1140px;">
-										<div>
-			                                <p class="text">I arrived late in a pouring rain storm. The host, Luke, waited patiently and graciously. He then helped carry our suitcases in and directed us to the included parking garage. The location is incredible for walking. Great restaurants, City Market, Waterfront Park, Carriage rides, art galleries and much more are just a few blocks away. I would highly recommend “Downtown Charleston”. I hope it’s available next time I visit Charleston!</p>
-			                                <p class="author">Guest, Maison Des Fluers, October 7, 2016</p>
-										</div>
-									</div>
-									<div class="slide slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide11" style="width: 1140px;">
-										<div>
-											<p class="text">The apartment was beautiful and clean.. Better than the photos. Sophie was very accommodating especially with my flight difficulties. Fantastic place!</p>
-											<p class="author">Guest, The King’s Line, October 10, 2016</p>
-										</div>
-									</div>
-									<div class="slide slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide12" style="width: 1140px;">
-										<div>
-			                                <p class="text">We had a wonderful beach holiday at the View last week. The property was as described and more! Your attention to detail was appreciated by all 3 families. It was a home away from home and we especially enjoyed the fresh bed and bath linens. We would recommend this property to anyone, especially families! It was great to walk out the back door onto the beach to enjoy and return at lunch for food and naps. The adults enjoyed happy hour and sunset on the decks overlooking the amazing view.. The kids enjoyed the 2 minute walk to restaurants and shops. We are already discussing our next visit!</p>
-			                                <p class="author">Guest, The View, June 21, 2016</p>
-										</div>
-									</div>
-									<div class="slide slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide13" style="width: 1140px;">
-										<div>
-			                                <p class="text">I am new to the “Owner” role, and I interviewed a number of management companies before I decided which one was the best to manage my property in downtown Charleston. After speaking to Sophie Leigh-Jones and the team at Luxury Simplified Retreats, it was clear to me that they would be the best in helping me care for my property, and maximizing the rentals. They have been managing my property for over a year now, and I could not be more pleased with their performance. They are responsive, professional, and really make our guests feel at home. The comments so far on our rentals have been unbelievable, and I truly believe that is just as much about the service they give our guests as the state of the property. If you are considering hiring a management team for your vacation rental, I would highly recommend Luxury Simplified Retreats.</p>
-			                                <p class="author">Owner, Studio 36 &amp; Upstairs Studio 36, Fall 2016</p>
-										</div>
-									</div>
-									<div class="slide slick-slide slick-current slick-active" data-slick-index="4" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide14" style="width: 1140px;">
-										<div>
-			                                <p class="text">This was the perfect place to stay. Incredible view and well equipped. The management team did an excellent job making us feel comfortable as well as recommending charter services and dining. We will definitely be booking this location again.</p>
-			                                <p class="author">Guest, Sea La Vie, Summer 2016</p>
-										</div>
-									</div>
-									<div class="slide slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 1140px;">
-										<div>
-			                                <p class="text">I arrived late in a pouring rain storm. The host, Luke, waited patiently and graciously. He then helped carry our suitcases in and directed us to the included parking garage. The location is incredible for walking. Great restaurants, City Market, Waterfront Park, Carriage rides, art galleries and much more are just a few blocks away. I would highly recommend “Downtown Charleston”. I hope it’s available next time I visit Charleston!</p>
-			                                <p class="author">Guest, Maison Des Fluers, October 7, 2016</p>
-										</div>
-									</div>
-								</div>
+	                    <div class="slick-testimonials slick-slider">
+							<div>
+								<p class="text">This was the perfect place to stay. Incredible view and well equipped. The management team did an excellent job making us feel comfortable as well as recommending charter services and dining. We will definitely be booking this location again.</p>
+			                    <p class="author">Guest, Sea La Vie, Summer 2016</p>
+							</div>
+							<div>
+								<p class="text">I arrived late in a pouring rain storm. The host, Luke, waited patiently and graciously. He then helped carry our suitcases in and directed us to the included parking garage. The location is incredible for walking. Great restaurants, City Market, Waterfront Park, Carriage rides, art galleries and much more are just a few blocks away. I would highly recommend “Downtown Charleston”. I hope it’s available next time I visit Charleston!</p>
+                                <p class="author">Guest, Maison Des Fluers, October 7, 2016</p>
+							</div>
+							<div>
+								<p class="text">The apartment was beautiful and clean.. Better than the photos. Sophie was very accommodating especially with my flight difficulties. Fantastic place!</p>
+								<p class="author">Guest, The King’s Line, October 10, 2016</p>
+							</div>
+							<div>
+								<p class="text">I am new to the “Owner” role, and I interviewed a number of management companies before I decided which one was the best to manage my property in downtown Charleston. After speaking to Sophie Leigh-Jones and the team at Luxury Simplified Retreats, it was clear to me that they would be the best in helping me care for my property, and maximizing the rentals. They have been managing my property for over a year now, and I could not be more pleased with their performance. They are responsive, professional, and really make our guests feel at home. The comments so far on our rentals have been unbelievable, and I truly believe that is just as much about the service they give our guests as the state of the property. If you are considering hiring a management team for your vacation rental, I would highly recommend Luxury Simplified Retreats.</p>
+                                <p class="author">Owner, Studio 36 &amp; Upstairs Studio 36, Fall 2016</p>
 							</div>
 						</div>
 	                    <div class="custom-arrows">
-	                        <a href="http://luxurysimplifiedretreats.com/##" class="prev slick-arrow" style="display: inline-block;"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-	                        <a href="http://luxurysimplifiedretreats.com/##" class="next slick-arrow" style="display: inline-block;"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	                        <a href="##" class="prev slick-arrow" style="display: inline-block;"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+	                        <a href="##" class="next slick-arrow" style="display: inline-block;"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	                    </div>
 		       		</div>
 	        	</div>

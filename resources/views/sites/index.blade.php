@@ -250,7 +250,19 @@
 	<div class="default-content happy-customers">
 		<div class="container">
 	    	<div class="row">
-	        	<div class="col-sm-12">
+				<div class="col-sm-6">
+					<div class="why-us">
+						<h2 class="pull-left">Why us?</h2>
+						<div class="custom-arrows-wrapper clear">
+							<p class="text">
+								With eight years full of professional experiences organizing numerous Ha Long Bay tours for international guests, Oriental Sails Co., Ltd has set a new standard for deluxe cruising with The Oriental Sails & Calypso Cruiser and luxury cruising with The Starlight Cruise. 
+								While Oriental Sails and Calypso Cruiser are designed in time- honored traditional style, Starlight Cruise is the most modern ship with contemporary and luxurious cabins and facilities compared to the rest of Halong Bay cruises. The entire cruise fleet is well equipped with safety guidelines.
+								Being one of the leading companies in Halong Bay tours, we are now widely known as the favorite choice of many travelers. What better way to experience the natural beauty and spectacular seascape of this UNESCO World Heritage site than onboard an Oriental Sails.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
 					<h2>Happy Customers<span><i class="fa fa-quote-right" aria-hidden="true"></i></span></h2>
 	                <div class="custom-arrows-wrapper">
 	                    <div class="slick-testimonials slick-slider">
@@ -353,7 +365,7 @@
 	        </div>
 	    </div>
 	</div>
-	<div class="footer-wrapper">
+	<!-- <div class="footer-wrapper">
 	    <div class="footer">
 	        <div class="container">
 	        	<div class="row">
@@ -393,7 +405,7 @@
 	                    <!--[if lte IE 8]>
 						<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
 						<![endif]-->
-						<div class="hbspt-form" id="hbspt-form-1492222636636">
+						<!-- <div class="hbspt-form" id="hbspt-form-1492222636636">
 							<form novalidate="" accept-charset="UTF-8" action="https://forms.hubspot.com/uploads/form/v2/320289/22398efe-daf8-4fcd-8f61-ca8e02f91cb8" enctype="multipart/form-data" id="hsForm_22398efe-daf8-4fcd-8f61-ca8e02f91cb8" method="POST" class="theNewClassName hs-form hs-form-private hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f" data-form-id="22398efe-daf8-4fcd-8f61-ca8e02f91cb8" data-portal-id="320289" data-reactid=".hbspt-forms-0">
 								<div class="hs_email field hs-form-field" data-reactid=".hbspt-forms-0.0:$0">
 									<label class="" placeholder="Enter your " for="email-22398efe-daf8-4fcd-8f61-ca8e02f91cb8" data-reactid=".hbspt-forms-0.0:$0.0"><span data-reactid=".hbspt-forms-0.0:$0.0.0"></span><span class="hs-form-required" data-reactid=".hbspt-forms-0.0:$0.0.1">*</span>
@@ -411,9 +423,9 @@
 								</div>
 								<input name="hs_context" type="hidden" value="{&quot;rumScriptExecuteTime&quot;:6441.185,&quot;rumServiceResponseTime&quot;:8206.355,&quot;rumFormRenderTime&quot;:548.2149999999983,&quot;rumTotalRenderTime&quot;:8207.305,&quot;rumTotalRequestTime&quot;:544.6899999999987,&quot;css&quot;:&quot;&quot;,&quot;pageUrl&quot;:&quot;http://luxurysimplifiedretreats.com/&quot;,&quot;source&quot;:&quot;FormsNext-static-1.455&quot;,&quot;timestamp&quot;:1492222640391,&quot;userAgent&quot;:&quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36&quot;,&quot;referrer&quot;:&quot;&quot;,&quot;hutk&quot;:{},&quot;originalEmbedContext&quot;:{&quot;css&quot;:&quot;&quot;,&quot;cssClass&quot;:&quot;theNewClassName&quot;,&quot;portalId&quot;:&quot;320289&quot;,&quot;formId&quot;:&quot;22398efe-daf8-4fcd-8f61-ca8e02f91cb8&quot;,&quot;target&quot;:&quot;#hbspt-form-1492222636636&quot;},&quot;recentFieldsCookie&quot;:{},&quot;boolCheckBoxFields&quot;:&quot;&quot;,&quot;dateFields&quot;:&quot;&quot;,&quot;smartFields&quot;:{},&quot;urlParams&quot;:{},&quot;formValidity&quot;:{},&quot;correlationId&quot;:&quot;218dbbdb-794b-416c-98cc-cf8192f658a0&quot;,&quot;disableCookieSubmission&quot;:false}" data-reactid=".hbspt-forms-0.3">
 							</form>
-						</div>
+						</div> -->
 		                <!-- /// -->
-	                </div>
+	                <!--</div>
 	            </div>
 	            <div class="row">
 	                <div class="col-sm-12 footer-bottom">
@@ -424,5 +436,5 @@
 	            </div>
 	        </div>
 	    </div>
-	</div>
+	</div> -->
 @endsection

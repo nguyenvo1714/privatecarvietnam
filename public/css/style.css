@@ -1419,25 +1419,32 @@ div.wpcr3_review div.wpcr3_review_title {
 	padding: 15px 0;
 	text-align: center;
 }
+.happy-customers .why-us {
+	display: block;
+	position: relative;
+}
+.happy-customers .clear {
+	clear: both;
+}
 .happy-customers h2 {
 	color: #fff;
 	margin-top: 0;
-	margin-bottom: 58px;
+	/*margin-bottom: 38px;*/
 }
 .happy-customers h2 span {
 	display: block;
-	margin-top: 38px;
-	font-size: 125%;
+	margin-top: 22px;
+	font-size: 120%;
 }
-.happy-customers .slick-slide p.text {
-	font-size: 17px;
+.happy-customers .slick-slide p.text, .happy-customers .clear p.text {
+	/*font-size: 17px;*/
 	font-style: italic;
 	color: #fff;
 }
 .happy-customers .slick-slide p.author {
 	font-family: Satisfy;
 	color: #bbcdd9;
-	font-size: 30px;
+	font-size: 25px;
 	font-weight: 500;
     line-height: 64px;
 	margin-top: 22px;
@@ -1993,6 +2000,11 @@ div.wpcr3_review div.wpcr3_review_title {
 .footer {
 	padding: 72px 0 10px;
 	background-color: #444;
+}
+.footer .contact-us img {
+	display: inline-block;
+	width: 20px;
+	vertical-align: middle;
 }
 .footer .footer-margin-bottom {
 	margin-bottom: 30px;

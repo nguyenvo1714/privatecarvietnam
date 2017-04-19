@@ -20,8 +20,8 @@
 			</div>
 		</div>
 		<div class="menu clearfix">
-			<a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a>
-		    <a class="navigation" href="http://luxurysimplifiedretreats.com/#">
+			<!-- <a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a> -->
+		    <a class="navigation" href="#">
 		        <span class="bar"></span>
 		        <span class="bar"></span>
 		        <span class="bar"></span>
@@ -32,22 +32,19 @@
 		<div class="navigation-overlay">
 			<ul class="list-unstyled">
 				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112">
-					<a href="http://bookings.luxurysimplifiedretreats.com/">Properties</a>
+					<a href="http://bookings.luxurysimplifiedretreats.com/">Home</a>
 				</li>
 				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136">
-					<a href="http://luxurysimplifiedretreats.com/charleston/">Charleston</a>
+					<a href="http://luxurysimplifiedretreats.com/charleston/">PrivateTransfer</a>
 				</li>
 				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-134">
-					<a href="http://luxurysimplifiedretreats.com/about/">About</a>
+					<a href="http://luxurysimplifiedretreats.com/about/">AirTransfer</a>
 				</li>
 				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-138">
 					<a target="_blank" href="http://blog.luxurysimplifiedretreats.com/">Blog</a>
 				</li>
-				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-135">
-					<a href="http://luxurysimplifiedretreats.com/list-your-property/">List Your Property</a>
-				</li>
 				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133">
-					<a href="http://luxurysimplifiedretreats.com/contact/">Contact</a>
+					<a href="http://luxurysimplifiedretreats.com/contact/">Contact us</a>
 				</li>
 			</ul>
 		</div>
@@ -55,15 +52,41 @@
 			<div class="clearfix">
 		        <!-- <a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a> -->
 		        <div class="">
-					<ul id="menu-left" class="list-inline">
-						<li id="menu-item-1113" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1113">
+		        	<ul class="top-menu">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Private Transfer</a>
+							<ul>
+								<li><a href="#">Hue Transfer</a></li>
+								<li><a href="#">Quang Binh Transfer</a></li>
+								<li><a href="#">Da Nang Transfer</a></li>
+								<li><a href="#">Hoi An Transfer</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Airport Transfer</a>
+							<ul>
+								<li><a href="#">Phu Bai Transfer</a></li>
+								<li><a href="#">Dong Hoi Transfer</a></li>
+								<li><a href="#">Da Nang Transfer</a></li>
+								<li><a href="#">Chu Lai Transfer</a></li>
+							</ul>
+						</li>
+						<li><a href="3">Blog</a></li>
+						<li><a href="3">Contact us</a></li>
+					</ul>
+					<!-- <ul id="menu-left nav navbar-nav" class="list-inline">
+						<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1113">
 							<a href="http://privatecarvietnam.com/">Home</a>
 						</li>
-						<li id="menu-item-131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131">
-							<a href="http://luxurysimplifiedretreats.com/charleston/">PrivatTransfer</a>
+						<li class="dropdown">
+							<a href="http://luxurysimplifiedretreats.com/charleston/" class="dropdown-toggle" data-toggle="dropdown">PrivateTransfer</a>
 						</li>
 						<li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
 							<a href="http://luxurysimplifiedretreats.com/about/">AirPortTransfer</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">PhuBai Transfer</a></li>
+								<li><a href="#">DaNang Transfer</a></li>
+								<li><a href="#">ChuLai Transfer</a></li>
+							</ul>
 						</li>
 						<li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
 							<a href="http://luxurysimplifiedretreats.com/about/">Blog</a>
@@ -71,7 +94,7 @@
 						<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
 							<a href="http://luxurysimplifiedretreats.com/about/">Contact us</a>
 						</li>
-					</ul>	            <!--<ul class="list-inline">
+					</ul> -->	            <!--<ul class="list-inline">
 		                <li><a href="?pagina=properties">View Rentals</a></li>
 		                <li><a href="?pagina=charleston">Charleston</a></li>
 		                <li><a href="?pagina=about">About</a></li>

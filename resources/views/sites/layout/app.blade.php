@@ -9,7 +9,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+        <!-- this tag to detect screen size -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="shortcut icon" type="image/x-icon" href="http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/ico/favicon.ico">
             <!-- MAKE SURE IT WORKS ON IE WITH COMPATIBILITY -->
@@ -32,6 +32,7 @@
         {!! Html::script('js/backbone-min.js') !!}
         {!! Html::script('js/backbone.localStorage-min.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
+        {!! Html::script('js/menu-addon.js') !!}
         {!! Html::script('js/script.js') !!}
         <style type="text/css">
             @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700|Montserrat:400,700|Open+Sans+Condensed:300,700|PT+Sans:400,400i,700|PT+Serif:400,400i,700|Satisfy');

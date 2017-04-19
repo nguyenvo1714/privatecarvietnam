@@ -55,6 +55,7 @@ a{
 	color:#5B5664;
 	text-decoration: none;
 	display: inline-block;
+	outline: 0;
 	
 	-o-transition:color .2s ease-out, background .2s ease-in;
 	-ms-transition:color .2s ease-out, background .2s ease-in;
@@ -2024,7 +2025,7 @@ div.wpcr3_review div.wpcr3_review_title {
 }
 .footer li {
 	font-family: 'Montserrat', sans-serif;
-	text-transform: uppercase;	
+	/*text-transform: uppercase;	*/
 	font-size: 12px;
 	line-height: 27px;
 	color: #fff;
@@ -2035,6 +2036,26 @@ div.wpcr3_review div.wpcr3_review_title {
 }
 .footer a:hover {
 	color: #acbdc7;
+}
+.footer .our-blog .media .media-left img {
+	max-width: unset;
+	width: 80px;
+}
+.footer .our-blog .media .media-body h5 {
+	color: #fff;
+	text-transform: capitalize;
+	font-weight: 500;
+	font-size: 1.1em;
+	line-height: 17px;
+	margin: unset;
+	letter-spacing: unset;
+}
+.footer .our-blog .media .media-body h5 a {
+	color: #F0870A;
+}
+.footer .our-blog .media .media-body p {
+	font-size: 0.9em;
+	line-height: 1.5em;
 }
 .footer .footer-bottom {
 	text-align: center;
@@ -2059,6 +2080,44 @@ div.wpcr3_review div.wpcr3_review_title {
 	.footer-wrapper {
 		padding: 0 6px 6px;
 	}
+}
+.footer .tripadvisor-wrapper {
+	border: 1px solid #589442;
+}
+.footer .tripadvisor-wrapper .tripadvisor-header,
+.footer .tripadvisor-wrapper .tripadvisor-experience,
+.footer .tripadvisor-wrapper .tripadvisor-review {
+	padding: 7px 10px 7px;
+	background-color: #fff;
+	display: block;
+}
+p.normal-text {
+	color: #000;
+	font-size: 11px;
+	border-bottom: 1px solid #CCCCCC;
+	padding-bottom: 12px;
+}
+p.strong-text {
+	color: #000;
+	font-size: 1.2em;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-weight: 600;
+	font-family: Tahoma;
+}
+h5.tripadvisor-title {
+	text-transform: capitalize;
+	margin-bottom: unset;
+	margin-top: -15px;
+	font-weight: 600;
+	font-size: 1.2em;
+	line-height: 15px;
+	letter-spacing: unset;
+}
+h5.tripadvisor-title a {
+	color: #000;
+	text-decoration: underline;
+	font-family: Verdana,Tahoma,Arial,'Bitstream Vera Sans',sans-serif;
 }
 /*===========================================================================================================*/
 /*=========================================== MEDIA QUERIES =================================================*/

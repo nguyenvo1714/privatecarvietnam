@@ -98,81 +98,97 @@
                     <div class="col-sm-3">
                         <div class="contact-us">
                             <h3>Contact Us</h3>
-                            <p class="contact">{{ Html::image('img/phone.png') }} Contact.</p>
+                            <p class="contact">{{ Html::image('img/phone.png') }} +84-911 611 246</p>
                             <p class="email">{{ Html::image('img/email.png') }} info@privatecarvietnam.com</p>
                             <p class="address">{{ Html::image('img/paper-plane.png') }} info@privatecarvietnam.com</p>
-                            <p>
-                                <big>
-                                <a href="http://www.facebook.com/LuxurySimplifiedRetreats" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                                <a href="http://instagram.com/luxurysimplifiedretreats/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                                <a href="http://www.pinterest.com/luxsimpretreats/" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                </big>
-                            </p>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-3 our-blog">
                         <h3>Our blog</h3>
                         <ul class="list-unstyled">
                             <li>
                                 <div class="media">
                                     <div class="media-left">
-                                        {{ Html::image('img/admin.png') }}
+                                        {{ Html::image('img/admin.jpg') }}
                                     </div>
                                     <div class="media-body">
-                                        <h4>Title</h4>
-                                        <p>Content</p>
+                                        <h5><a href="#">Oriental Sails fleet – Certificate of Excellence in The Guide Awards 2016</a></h5>
+                                        <p>With much attempt in building a professional team...</p>
                                     </div>
                                 </div>
                             </li>
-                            <li><a href="http://bookings.luxurysimplifiedretreats.com/">Properties</a></li>
-                            <li><a href="http://luxurysimplifiedretreats.com/sun-seekers/">– Sun Seekers</a></li>
-                            <li><a href="http://luxurysimplifiedretreats.com/historic-havens/">– Historic Havens</a></li>
-                            <li><a href="http://luxurysimplifiedretreats.com/extended-holiday/">– Extended holiday</a></li>
-                            <li><a href="http://luxurysimplifiedretreats.com/upscale-urban/">– upscale Urban</a></li>
-                            <li><a href="http://luxurysimplifiedretreats.com/about/">About</a></li>
-                            <li><a href="http://luxurysimplifiedretreats.com/charleston/">Charleston</a></li>
-                            <li><a href="http://luxurysimplifiedretreats.com/contact/">Contact</a></li>
+                            <li>
+                                <div class="media">
+                                    <div class="media-left">
+                                        {{ Html::image('img/admin.jpg') }}
+                                    </div>
+                                    <div class="media-body">
+                                        <h5><a href="#">Oriental Sails fleet – Certificate of Excellence in The Guide Awards 2016</a></h5>
+                                        <p>With much attempt in building a professional team...</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="media">
+                                    <div class="media-left">
+                                        {{ Html::image('img/admin.jpg') }}
+                                    </div>
+                                    <div class="media-body">
+                                        <h5><a href="#">Oriental Sails fleet – Certificate of Excellence in The Guide Awards 2016</a></h5>
+                                        <p>With much attempt in building a professional team...</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="media">
+                                    <div class="media-left">
+                                        {{ Html::image('img/admin.jpg') }}
+                                    </div>
+                                    <div class="media-body">
+                                        <h5><a href="#">Oriental Sails fleet – Certificate of Excellence in The Guide Awards 2016</a></h5>
+                                        <p>With much attempt in building a professional team...</p>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-sm-3">
                         <h3>TripAdVisor</h3>
-                        <p class="footer-margin-bottom"><a href="tel:+18438536055">+1 843-853-6055</a><br>
-                            <a href="meilto:info@luxurysimplifiedretreats.com">info@luxurysimplifiedretreats.com</a><br>
-                            95 Broad Street,<br>Charleston, SC 29401
-                        </p>
-                        <h3>Stay In the Loop</h3>
-                        <!-- /// -->
-                        <!--[if lte IE 8]>
-                        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-                        <![endif]-->
-                        <div class="hbspt-form" id="hbspt-form-1492222636636">
-                            <form novalidate="" accept-charset="UTF-8" action="https://forms.hubspot.com/uploads/form/v2/320289/22398efe-daf8-4fcd-8f61-ca8e02f91cb8" enctype="multipart/form-data" id="hsForm_22398efe-daf8-4fcd-8f61-ca8e02f91cb8" method="POST" class="theNewClassName hs-form hs-form-private hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f" data-form-id="22398efe-daf8-4fcd-8f61-ca8e02f91cb8" data-portal-id="320289" data-reactid=".hbspt-forms-0">
-                                <div class="hs_email field hs-form-field" data-reactid=".hbspt-forms-0.0:$0">
-                                    <label class="" placeholder="Enter your " for="email-22398efe-daf8-4fcd-8f61-ca8e02f91cb8" data-reactid=".hbspt-forms-0.0:$0.0"><span data-reactid=".hbspt-forms-0.0:$0.0.0"></span><span class="hs-form-required" data-reactid=".hbspt-forms-0.0:$0.0.1">*</span>
-                                    </label>
-                                    <legend class="hs-field-desc" style="display:none;" data-reactid=".hbspt-forms-0.0:$0.1"></legend>
-                                    <div class="input" data-reactid=".hbspt-forms-0.0:$0.$email">
-                                        <input id="email-22398efe-daf8-4fcd-8f61-ca8e02f91cb8" class="hs-input" type="email" name="email" required="" placeholder="Enter Your Email Address" value="" data-reactid=".hbspt-forms-0.0:$0.$email.0">
-                                    </div>
-                                </div>
-                                <div class="hs_submit" data-reactid=".hbspt-forms-0.2">
-                                    <div class="hs-field-desc" style="display:none;" data-reactid=".hbspt-forms-0.2.0"></div>
-                                    <div class="actions" data-reactid=".hbspt-forms-0.2.1">
-                                        <input type="submit" value="Sign-up!" class="hs-button primary large" data-reactid=".hbspt-forms-0.2.1.0">
-                                    </div>
-                                </div>
-                                <input name="hs_context" type="hidden" value="{&quot;rumScriptExecuteTime&quot;:6441.185,&quot;rumServiceResponseTime&quot;:8206.355,&quot;rumFormRenderTime&quot;:548.2149999999983,&quot;rumTotalRenderTime&quot;:8207.305,&quot;rumTotalRequestTime&quot;:544.6899999999987,&quot;css&quot;:&quot;&quot;,&quot;pageUrl&quot;:&quot;http://luxurysimplifiedretreats.com/&quot;,&quot;source&quot;:&quot;FormsNext-static-1.455&quot;,&quot;timestamp&quot;:1492222640391,&quot;userAgent&quot;:&quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36&quot;,&quot;referrer&quot;:&quot;&quot;,&quot;hutk&quot;:{},&quot;originalEmbedContext&quot;:{&quot;css&quot;:&quot;&quot;,&quot;cssClass&quot;:&quot;theNewClassName&quot;,&quot;portalId&quot;:&quot;320289&quot;,&quot;formId&quot;:&quot;22398efe-daf8-4fcd-8f61-ca8e02f91cb8&quot;,&quot;target&quot;:&quot;#hbspt-form-1492222636636&quot;},&quot;recentFieldsCookie&quot;:{},&quot;boolCheckBoxFields&quot;:&quot;&quot;,&quot;dateFields&quot;:&quot;&quot;,&quot;smartFields&quot;:{},&quot;urlParams&quot;:{},&quot;formValidity&quot;:{},&quot;correlationId&quot;:&quot;218dbbdb-794b-416c-98cc-cf8192f658a0&quot;,&quot;disableCookieSubmission&quot;:false}" data-reactid=".hbspt-forms-0.3">
-                            </form>
+                        <div class="tripadvisor-wrapper">
+                            <div class="tripadvisor-header">
+                                <a href="https://www.tripadvisor.com/" target="_blank">
+                                    {{ Html::image('img/tripadvisor.png') }}
+                                </a>
+                                <p class="normal-text">Know better. Book better. Go better.</p>
+                            </div>
+                            <div class="tripadvisor-experience">
+                                <h5 class="tripadvisor-title"><a href="https://www.tripadvisor.com/" target="_blank">Private Car VietNam Experience</a></h5>
+                                <p class="strong-text">TripAdvisor Traveler Rating</p>
+                                {{ Html::image('img/visor.gif') }}
+                                <p class="normal-text">Based on 401 traveler reviews</p>
+                            </div>
+                            <div class="tripadvisor-review">
+                                <h5 class="tripadvisor-title"><a href="https://www.tripadvisor.com/" target="_blank">Review VietNam Private Car</a></h5>
+                                <a href="https://www.tripadvisor.com/" target="_blank">
+                                    {{ Html::image('img/tripadvisor_green_background.png') }}
+                                </a>
+                            </div>
                         </div>
-                        <!-- /// -->
                     </div>
                     <div class="col-sm-3">
                         <h3>Facebook</h3>
+                        <p>
+                            <big>
+                            <a href="http://www.facebook.com/LuxurySimplifiedRetreats" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                            <a href="http://instagram.com/luxurysimplifiedretreats/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                            <a href="http://www.pinterest.com/luxsimpretreats/" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                            </big>
+                        </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12 footer-bottom">
-                        <p>Luxury Simplified Retreats is managed by Luxury Simplified Real Estate. Luxury Simplified Real Estate is a licensed brokerage company in the State of South Carolina.</p>
+                        <p>Private Car VietName - Let Us Show You VietNam</p>
                         <p>Broker in Charge – Rob Wilson, Cell: <a href="tel:8432966585">(843) 296-6585</a></p>
                         <p>©2017&nbsp;Luxury Simplified Retreats. <a href="http://cnmwebsite.com/" target="_blank">Web Design, Development &amp; Hosting by Colophon</a></p>
                     </div>

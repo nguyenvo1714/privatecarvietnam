@@ -342,7 +342,7 @@
 @media screen and (max-width: 768px) {
 	/*.home-banner .slick .slick-slide {*/
 	.home-banner {
-		margin: 6px 6px 0;
+		margin: 16px 16px 0;
 	}
 	.home-banner .slick .slick-slide .background {
 		min-height: 350px;

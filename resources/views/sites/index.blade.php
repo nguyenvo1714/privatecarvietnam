@@ -3,7 +3,7 @@
 	<div class="container-fluid">
 		<div class="logo-head">
 			<div class="logo col-xs-12 col-md-4 col-lg-4">
-				<a class="navbar-brand" href="#">{{ Html::image('img/logo-vmtravel.png') }}</a>
+				<a class="logo-link" href="#">{{ Html::image('img/logo-vmtravel.png') }}</a>
 			</div>
 			<div class="slogan col-xs-12 col-md-4 col-lg-4">
 				<h2>Let Us Show You VietNam</h2>
@@ -29,27 +29,31 @@
 		        <span class="txt">MENU</span>
 		    </a>
 		</div>
-		<div class="navigation-overlay">
-			<ul class="list-unstyled">
-				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112">
-					<a href="http://bookings.luxurysimplifiedretreats.com/">Home</a>
+		<!-- <div class="navigation-overlay">
+			<ul class="mobile-menu">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Private Transfer</a>
+					<ul>
+						<li><a href="#">Hue Transfer</a></li>
+						<li><a href="#">Quang Binh Transfer</a></li>
+						<li><a href="#">Da Nang Transfer</a></li>
+						<li><a href="#">Hoi An Transfer</a></li>
+					</ul>
 				</li>
-				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136">
-					<a href="http://luxurysimplifiedretreats.com/charleston/">PrivateTransfer</a>
+				<li><a href="#">Airport Transfer</a>
+					<ul>
+						<li><a href="#">Phu Bai Transfer</a></li>
+						<li><a href="#">Dong Hoi Transfer</a></li>
+						<li><a href="#">Da Nang Transfer</a></li>
+						<li><a href="#">Chu Lai Transfer</a></li>
+					</ul>
 				</li>
-				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-134">
-					<a href="http://luxurysimplifiedretreats.com/about/">AirTransfer</a>
-				</li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-138">
-					<a target="_blank" href="http://blog.luxurysimplifiedretreats.com/">Blog</a>
-				</li>
-				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133">
-					<a href="http://luxurysimplifiedretreats.com/contact/">Contact us</a>
-				</li>
+				<li><a href="3">Blog</a></li>
+				<li><a href="3">Contact us</a></li>
 			</ul>
-		</div>
+		</div> -->
 		<div class="desktop-menu" data-spy="affix" data-offset-top="197">
-			<div class="clearfix">
+			<!-- <div class="clearfix"> -->
 		        <!-- <a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a> -->
 		        <div class="">
 		        	<ul class="top-menu">
@@ -113,7 +117,7 @@
 						</li>
 					</ul>
 		        </div> -->
-		    </div>
+		    <!-- </div> -->
 		</div>
 		<a href="http://luxurysimplifiedretreats.com/##" class="back-to-top" style="display: none;">
 			<i class="fa fa-arrow-up" aria-hidden="true"></i>
@@ -248,33 +252,33 @@
 	        </div>
 	    </div>
 	    <div class="listings-strip clearfix">
-	        <div class="col-sm-4">
+	        <div class="col-md-4 col-xs-12">
 	            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">
 	            {{ Html::image('img/the-cotton-house.jpg') }}</a>
 	            <h5><a href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">THE COTTON HOUSE</a></h5>
 	            <p>Beautifully restored 1840’s Downtown Charleston home available to you as your perfect Historic getaway.</p>
 	        </div>
-	        <div class="col-sm-4">
+	        <div class="col-md-4 col-xs-12">
 	            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">
 	            {{ Html::image('img/27.jpg') }}
 	            </a>
 	            <h5><a href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">UPSTAIRS AT STUDIO 36</a></h5>
 	            <p>Enjoy your morning coffee from the private balcony and then explore the city by bike—a feature provided for your stay.</p>
 	        </div>
-	        <div class="col-sm-4">
+	        <div class="col-md-4 col-xs-12">
 	            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/the-okeanos/">
 	            {{ Html::image('img/the-okeanos-10.jpg') }}
 	            </a>
 	            <h5><a href="http://luxurysimplifiedretreats.com/properties/the-okeanos/">THE OKEANOS</a></h5>
 	            <p>Enjoy life at the beach in this beautifully appointed Folly Beach home – just one row back from the ocean.</p>
 	        </div>
-	        <div class="col-sm-4">
+	        <div class="col-md-4 col-xs-12">
 	            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">
 	            {{ Html::image('img/the-cotton-house.jpg') }}</a>
 	            <h5><a href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">THE COTTON HOUSE</a></h5>
 	            <p>Beautifully restored 1840’s Downtown Charleston home available to you as your perfect Historic getaway.</p>
 	        </div>
-	        <div class="col-sm-4">
+	        <div class="col-md-4 col-xs-12">
 	            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">
 	            {{ Html::image('img/27.jpg') }}
 	            </a>

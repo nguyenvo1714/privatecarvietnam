@@ -10,4 +10,8 @@ $(function() {
 	        top: 200
 	    }
 	});
+
+	// $(window).scroll(function () {
+	// 	$('.desktop-menu').attr('data-offset-top', 0);
+	// });
 });

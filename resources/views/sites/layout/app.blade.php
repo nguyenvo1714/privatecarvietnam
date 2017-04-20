@@ -96,7 +96,7 @@
         <div class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-md-3 col-sm-6">
                         <div class="contact-us">
                             <h3>Contact Us</h3>
                             <p class="contact">{{ Html::image('img/phone.png') }} +84-911 611 246</p>
@@ -104,7 +104,7 @@
                             <p class="address">{{ Html::image('img/paper-plane.png') }} info@privatecarvietnam.com</p>
                         </div>
                     </div>
-                    <div class="col-sm-3 our-blog">
+                    <div class="col-md-3 col-sm-6 our-blog">
                         <h3>Our blog</h3>
                         <ul class="list-unstyled">
                             <li>
@@ -153,7 +153,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-md-3 col-sm-6">
                         <h3>TripAdVisor</h3>
                         <div class="tripadvisor-wrapper">
                             <div class="tripadvisor-header">
@@ -176,7 +176,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-md-3 col-sm-6">
                         <h3>Facebook</h3>
                         <p>
                             <big>

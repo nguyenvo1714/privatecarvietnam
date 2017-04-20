@@ -11,9 +11,9 @@ $(function() {
 
   	/* Mobile */
 	// $('.desktop-menu').prepend('<div class="menu-trigger">Menu</div>');       
-	// $(".menu-trigger").on("click", function(){
-	//     $(".top-menu").slideToggle();
-	// });
+	$(".navigation").on("click", function(){
+	    $(".top-menu").slideToggle();
+	});
 
 	// iPad
 	// var isiPad = navigator.userAgent.match(/iPad/i) != null;

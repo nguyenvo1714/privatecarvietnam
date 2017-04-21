@@ -15,8 +15,12 @@
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('sites/index');
+// Route::get('/', function () {
+//     return view('sites/index');
+// });
+
+Route::group(['namespace' => 'V1'], function() {
+	Route::get('/', 'TransferController@index');
 });
 
 Route::get('/admin', 'TransferController@index');

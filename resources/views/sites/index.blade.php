@@ -183,7 +183,7 @@
             </div>
 		</form>
 	</div>
-	<div class="default-content home-lyfestyle">
+	<!-- <div class="default-content home-lyfestyle">
 		<div class="container">
 	    	<div class="row">
 	        	<div class="col-sm-offset-1 col-sm-10 text-center">
@@ -242,7 +242,7 @@
 	            </div>
 	        </div>
 	    </div>
-	</div>
+	</div> -->
 	<div class="default-content home-properties">
 		<div class="container">
 	    	<div class="row">
@@ -252,39 +252,43 @@
 	        </div>
 	    </div>
 	    <div class="listings-strip clearfix">
-	        <div class="col-md-4 col-xs-12">
-	            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">
-	            {{ Html::image('img/the-cotton-house.jpg') }}</a>
-	            <h5><a href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">THE COTTON HOUSE</a></h5>
-	            <p>Beautifully restored 1840’s Downtown Charleston home available to you as your perfect Historic getaway.</p>
-	        </div>
-	        <div class="col-md-4 col-xs-12">
-	            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">
-	            {{ Html::image('img/27.jpg') }}
-	            </a>
-	            <h5><a href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">UPSTAIRS AT STUDIO 36</a></h5>
-	            <p>Enjoy your morning coffee from the private balcony and then explore the city by bike—a feature provided for your stay.</p>
-	        </div>
-	        <div class="col-md-4 col-xs-12">
-	            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/the-okeanos/">
-	            {{ Html::image('img/the-okeanos-10.jpg') }}
-	            </a>
-	            <h5><a href="http://luxurysimplifiedretreats.com/properties/the-okeanos/">THE OKEANOS</a></h5>
-	            <p>Enjoy life at the beach in this beautifully appointed Folly Beach home – just one row back from the ocean.</p>
-	        </div>
-	        <div class="col-md-4 col-xs-12">
-	            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">
-	            {{ Html::image('img/the-cotton-house.jpg') }}</a>
-	            <h5><a href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">THE COTTON HOUSE</a></h5>
-	            <p>Beautifully restored 1840’s Downtown Charleston home available to you as your perfect Historic getaway.</p>
-	        </div>
-	        <div class="col-md-4 col-xs-12">
-	            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">
-	            {{ Html::image('img/27.jpg') }}
-	            </a>
-	            <h5><a href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">UPSTAIRS AT STUDIO 36</a></h5>
-	            <p>Enjoy your morning coffee from the private balcony and then explore the city by bike—a feature provided for your stay.</p>
-	        </div>
+			@foreach($transfers as $transfer)
+		        <div class="col-md-4 col-xs-12">
+		            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">
+		            {{ Html::image('/storage/' . $transfer->image_thumb) }}</a>
+		            <h5>
+				    	<a href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">{{ $transfer->title }}</a>
+		            </h5>
+		            <p>{{ $transfer->description }}</p>
+		        </div>
+		        <!-- <div class="col-md-4 col-xs-12">
+		            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">
+		            {{ Html::image('img/27.jpg') }}
+		            </a>
+		            <h5><a href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">UPSTAIRS AT STUDIO 36</a></h5>
+		            <p>Enjoy your morning coffee from the private balcony and then explore the city by bike—a feature provided for your stay.</p>
+		        </div>
+		        <div class="col-md-4 col-xs-12">
+		            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/the-okeanos/">
+		            {{ Html::image('img/the-okeanos-10.jpg') }}
+		            </a>
+		            <h5><a href="http://luxurysimplifiedretreats.com/properties/the-okeanos/">THE OKEANOS</a></h5>
+		            <p>Enjoy life at the beach in this beautifully appointed Folly Beach home – just one row back from the ocean.</p>
+		        </div>
+		        <div class="col-md-4 col-xs-12">
+		            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">
+		            {{ Html::image('img/the-cotton-house.jpg') }}</a>
+		            <h5><a href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">THE COTTON HOUSE</a></h5>
+		            <p>Beautifully restored 1840’s Downtown Charleston home available to you as your perfect Historic getaway.</p>
+		        </div>
+		        <div class="col-md-4 col-xs-12">
+		            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">
+		            {{ Html::image('img/27.jpg') }}
+		            </a>
+		            <h5><a href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">UPSTAIRS AT STUDIO 36</a></h5>
+		            <p>Enjoy your morning coffee from the private balcony and then explore the city by bike—a feature provided for your stay.</p>
+		        </div> -->
+		    @endforeach
 	    </div>
 	</div>
 	<div class="default-content happy-customers">

@@ -119,7 +119,7 @@
 		        </div> -->
 		    <!-- </div> -->
 		</div>
-		<a href="http://luxurysimplifiedretreats.com/##" class="back-to-top" style="display: none;">
+		<a href="#" class="back-to-top" style="display: none;">
 			<i class="fa fa-arrow-up" aria-hidden="true"></i>
 		</a>
 	</div>

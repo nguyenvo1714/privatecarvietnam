@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Transfer extends Model
 {
     protected $table = 'transfers';
-    protected $connection = 'touringservice';
+    // protected $connection = 'touringservice';
     protected $fillable = [
     	'type_id',
     	'transferName_id',

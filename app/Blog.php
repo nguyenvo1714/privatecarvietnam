@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     protected $table = 'blogs';
-    protected $connection = 'touringservice';
+    // protected $connection = 'touringservice';
     protected $fillable  = [
         'type_id',
     	'title',

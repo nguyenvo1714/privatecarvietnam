@@ -15,7 +15,7 @@
         <!-- {!! Html::style('css/bootstrap.min.css') !!} -->
         {!! Html::style('css/app.css') !!}
         {!! Html::style('css/font-awesome.min.css') !!}
-        <link rel="stylesheet/less" href="/css/adminStyle.less">
+        <link rel="stylesheet/less" href="../css/adminStyle.less">
         {!! Html::style('css/jquery-ui.min.css') !!}
         {!! Html::style('css/jquery-ui.theme.min.css') !!}
         {!! Html::style('css/fileinput.min.css') !!}

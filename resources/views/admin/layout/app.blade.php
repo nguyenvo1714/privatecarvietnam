@@ -15,7 +15,7 @@
         <!-- {!! Html::style('css/bootstrap.min.css') !!} -->
         {!! Html::style('css/app.css') !!}
         {!! Html::style('css/font-awesome.min.css') !!}
-        <link rel="stylesheet/less" href="../css/adminStyle.less">
+        {!! Html::style('css/adminStyle.css') !!}
         {!! Html::style('css/jquery-ui.min.css') !!}
         {!! Html::style('css/jquery-ui.theme.min.css') !!}
         {!! Html::style('css/fileinput.min.css') !!}
@@ -25,10 +25,8 @@
         {!! Html::script('js/fileinput.min.js') !!}
         {!! Html::script('js/validator/validator.js') !!}
         {!! Html::script('js/custome.js') !!}
-        {!! Html::script('js/less.min.js') !!}
         {!! Html::script('js/jquery-ui.min.js') !!}
         <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-        <!-- <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script> -->
         <script src="/vendor/laravel-filemanager/js/lfm.js"></script>
         <script>
             window.Laravel = <?php echo json_encode([
@@ -159,7 +157,7 @@
                                                     @php ($currentPage = '')
                                                 @endif
                                                 <li id="list2" class="{{ $currentPage }}"><a href="{{ url('/blog/create') }}"> New blog</a></li>
-                                                <li id="list3"><!-- <i class="fa fa-trash-o"></i> --> Delete</li>
+                                                <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
                                             </ul>
                                         </li>
                                         @if($controller == 'TypeController')
@@ -182,7 +180,7 @@
                                                     @php ($currentPage = '')
                                                 @endif
                                                 <li id="list2" class="{{ $currentPage }}"><a href="{{ url('/type/create') }}"> New type</a></li>
-                                                <li id="list3"><!-- <i class="fa fa-trash-o"></i> --> Delete</li>
+                                                <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
                                             </ul>
                                         </li>
                                         @if($controller == 'TransferNameController')
@@ -205,7 +203,7 @@
                                                     @php ($currentPage = '')
                                                 @endif
                                                 <li id="list2" class="{{ $currentPage }}"><a href="{{ url('/transferName/create') }}"> New transfer name</a></li>
-                                                <li id="list3"><!-- <i class="fa fa-trash-o"></i> --> Delete</li>
+                                                <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
                                             </ul>
                                         </li>
                                         @if($controller == 'TransferController')
@@ -228,7 +226,7 @@
                                                     @php ($currentPage = '')
                                                 @endif
                                                 <li id="list2" class="{{ $currentPage }}"><a href="{{ url('/transfer/create') }}"> New transfer</a></li>
-                                                <li id="list3"><!-- <i class="fa fa-trash-o"></i> --> Delete</li>
+                                                <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
                                             </ul>
                                         </li>
                                         @if($controller == 'CarController')
@@ -251,7 +249,7 @@
                                                     @php ($currentPage = '')
                                                 @endif
                                                 <li id="list2" class="{{ $currentPage }}"><a href="{{ url('/car/create') }}"> New car</a></li>
-                                                <li id="list3"><i class="fa fa-trash-o"></i> Delete</li>
+                                                <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
                                             </ul>
                                         </li>
                                         @if($controller == 'DriverController')
@@ -274,7 +272,7 @@
                                                     @php ($currentPage = '')
                                                 @endif
                                                 <li id="list2" class="{{ $currentPage }}"><a href="{{ url('/driver/create') }}"> New car</a></li>
-                                                <li id="list3"><i class="fa fa-trash-o"></i> Delete</li>
+                                                <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
                                             </ul>
                                         </li>
                                         @if($controller == 'ContractController')
@@ -297,7 +295,7 @@
                                                     @php ($currentPage = '')
                                                 @endif
                                                 <li id="list2" class="{{ $currentPage }}"><i class="fa fa-plus"></i> New contract</li>
-                                                <li id="list3"><i class="fa fa-trash-o"></i> Delete</li>
+                                                <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
                                             </ul>
                                         </li>
                                         @if($controller == 'PlaceController')
@@ -320,7 +318,7 @@
                                                     @php ($currentPage = '')
                                                 @endif
                                                 <li id="list2" class="{{ $currentPage }}"><a href="{{ url('/place/create') }}"> New place</a></li>
-                                                <li id="list3"><i class="fa fa-trash-o"></i> Delete</li>
+                                                <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
                                             </ul>
                                         </li>
                                         @if($controller == 'TourController')
@@ -343,7 +341,7 @@
                                                     @php ($currentPage = '')
                                                 @endif
                                                 <li id="list2" class="{{ $currentPage }}"><a href="{{ url('/tour/create') }}"><i class="fa fa-plus"></i> New tour</a></li>
-                                                <li id="list3"><i class="fa fa-trash-o"></i> Delete</li>
+                                                <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
                                             </ul>
                                         </li>
                                     </ul>

@@ -79,7 +79,7 @@
   /* Note: Try to remove the following lines to see the effect of CSS positioning */
   .affix {
       top: 0;
-      width: 97.6%;
+      width: 97.5%;
   }
 
   .affix + .container-fluid {

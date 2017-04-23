@@ -68,17 +68,17 @@
                                 <script>
                                     CKEDITOR.replace( 'my-editor', 
                                     {
-                                        extraPlugins: 'embed,autoembed,image2',
-                                        height: 500,
+                                        extraPlugins: 'embed,autoembed',
+                                        // height: 500,
 
-                                        // Load the default contents.css file plus customizations for this sample.
-                                        contentsCss: [ CKEDITOR.basePath + 'contents.css', 'http://sdk.ckeditor.com/samples/assets/css/widgetstyles.css' ],
+                                        // // Load the default contents.css file plus customizations for this sample.
+                                        // contentsCss: [ CKEDITOR.basePath + 'contents.css', 'http://sdk.ckeditor.com/samples/assets/css/widgetstyles.css' ],
 
-                                        // Configure the Enhanced Image plugin to use classes instead of styles and to disable the
-                                        // resizer (because image size is controlled by widget styles or the image takes maximum
-                                        // 100% of the editor width).
-                                        image2_alignClasses: [ 'image-align-left', 'image-align-center', 'image-align-right' ],
-                                        image2_disableResizer: true,
+                                        // // Configure the Enhanced Image plugin to use classes instead of styles and to disable the
+                                        // // resizer (because image size is controlled by widget styles or the image takes maximum
+                                        // // 100% of the editor width).
+                                        // image2_alignClasses: [ 'image-align-left', 'image-align-center', 'image-align-right' ],
+                                        // image2_disableResizer: true,
                                         filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
                                         filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
                                         filebrowserBrowseUrl: '/laravel-filemanager?type=Files',

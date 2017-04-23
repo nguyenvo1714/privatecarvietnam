@@ -459,10 +459,10 @@
             {!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/js/lfm.js')) !!}
         </script>
         <script>
-            // $('#lfm').filemanager('image', {prefix: route_prefix});
-            $('[class*="lfm"]').each(function() {
-                $(this).filemanager('image', {prefix: route_prefix});
-            });
+            $('#lfm').filemanager('image', {prefix: route_prefix});
+            // $('[class*="lfm"]').each(function() {
+            //     $(this).filemanager('image', {prefix: route_prefix});
+            // });
         </script>
     </body>
     <footer>

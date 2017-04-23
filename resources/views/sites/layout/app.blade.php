@@ -23,9 +23,10 @@
         {!! Html::style('css/fileinput.min.css') !!}
         {!! Html::style('js/validator/fv.css') !!}
         {!! Html::style('css/wp-customer-reviews-generated.css') !!}
-        {!! Html::style('css/style.css') !!}
         {!! Html::style('css/slick.css') !!}
         {!! Html::style('css/slick-theme.css') !!}
+        {!! Html::style('css/jquery-ui.min.css') !!}
+        {!! Html::style('css/style.css') !!}
         <!-- Scripts -->
         {!! Html::script('js/app.js') !!}
         {!! Html::script('js/underscore-min.js') !!}
@@ -33,6 +34,7 @@
         {!! Html::script('js/backbone.localStorage-min.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
         {!! Html::script('js/menu-addon.js') !!}
+        {!! Html::script('js/jquery-ui.min.js') !!}
         {!! Html::script('js/script.js') !!}
         <style type="text/css">
             @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700|Montserrat:400,700|Open+Sans+Condensed:300,700|PT+Sans:400,400i,700|PT+Serif:400,400i,700|Satisfy');
@@ -75,17 +77,45 @@
             ]); ?>
 
         </script>
-        <style>
-  /* Note: Try to remove the following lines to see the effect of CSS positioning */
-  .affix {
-      top: 0;
-      width: 97.5%;
-  }
+        <script type="text/javascript">
+            var transferNames = {!! json_encode($transferNames) !!};
+            var pick_up = [];
+            var places = {!! json_encode($places) !!};
+            var drop_off = [];
+            $.each(transferNames, function(key, value) {
+                $.each(value, function(key1, value1) {
+                    if(key1 == 'name') {
+                        pick_up.push(value1);
+                    }
+                });
+            });
+            $.each(places, function(key, value) {
+                $.each(value, function(key1, value1) {
+                    if(key1 == 'name') {
+                        drop_off.push(value1);
+                    }
+                });
+            });
+            $(function() {
+                $('#pick-up').autocomplete({
+                    source: pick_up,
+                });
 
-  .affix + .container-fluid {
-      padding-top: 70px;
-  }
-  </style>
+                $('#drop-off').autocomplete({
+                    source: drop_off,
+                });
+            });
+        </script>
+        <style>
+          /* Note: Try to remove the following lines to see the effect of CSS positioning */
+            .affix {
+                top: 0;
+                width: 97.5%;
+            }
+            .affix + .container-fluid {
+                padding-top: 70px;
+            }
+        </style>
     </head>
     <body>
         <div id="app">
@@ -107,7 +137,20 @@
                     <div class="col-md-3 col-sm-6 our-blog">
                         <h3>Our blog</h3>
                         <ul class="list-unstyled">
+                            @foreach($blogs as $blog)
                             <li>
+                                <div class="media">
+                                    <div class="media-left">
+                                        {{ Html::image('img/admin.jpg') }}
+                                    </div>
+                                    <div class="media-body">
+                                        <h5><a href="#">{{ $blog->title}}</a></h5>
+                                        <p>{!! substr($blog->content, 3, 100). '...' !!}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            @endforeach
+                            <!-- <li>
                                 <div class="media">
                                     <div class="media-left">
                                         {{ Html::image('img/admin.jpg') }}
@@ -139,18 +182,7 @@
                                         <p>With much attempt in building a professional team...</p>
                                     </div>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <div class="media-left">
-                                        {{ Html::image('img/admin.jpg') }}
-                                    </div>
-                                    <div class="media-body">
-                                        <h5><a href="#">Oriental Sails fleet – Certificate of Excellence in The Guide Awards 2016</a></h5>
-                                        <p>With much attempt in building a professional team...</p>
-                                    </div>
-                                </div>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     <div class="col-md-3 col-sm-6">

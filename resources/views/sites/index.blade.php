@@ -57,8 +57,8 @@
 		        <!-- <a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a> -->
 		        <div class="">
 		        	<ul class="top-menu">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Private Transfer</a>
+						<li><a href="{{ url('/') }}">Home</a></li>
+						<li><a href="#">Private Transfer <span class="caret"></span></a>
 							<ul>
 								<li><a href="#">Hue Transfer</a></li>
 								<li><a href="#">Quang Binh Transfer</a></li>
@@ -66,7 +66,7 @@
 								<li><a href="#">Hoi An Transfer</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Airport Transfer</a>
+						<li><a href="#">Airport Transfer <span class="caret"></span></a>
 							<ul>
 								<li><a href="#">Phu Bai Transfer</a></li>
 								<li><a href="#">Dong Hoi Transfer</a></li>

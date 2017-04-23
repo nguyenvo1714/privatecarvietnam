@@ -10,7 +10,7 @@ use App\Place;
 use App\Blog;
 use App\Driver;
 use App\Car;
-use App\transferName;
+use App\TransferName;
 
 class TransferController extends Controller
 {
@@ -22,7 +22,15 @@ class TransferController extends Controller
     public function index()
     {
         $transfers = Transfer::limit(10)->get();
-        return view('/sites.index', ['transfers' => $transfers]);
+        $blogs = Blog::limit(4)->get();
+        $transferNames = TransferName::get();
+        $places = Place::get();
+        return view('/sites.index', [
+            'transfers' => $transfers,
+            'blogs' => $blogs,
+            'transferNames' => $transferNames,
+            'places' => $places
+        ]);
     }
 
     /**

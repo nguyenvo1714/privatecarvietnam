@@ -34,13 +34,22 @@ class TransferController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the record of private transfer.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function privateTransfer()
     {
-        //
+        $blogs = Blog::limit(4)->get();
+        $transferNames = TransferName::get();
+        $places = Place::get();
+        $privateTransfers = Transfer::where('type_id', 3)->paginate(12);
+        return view('/sites.transfers.privateTransfers', [
+            'privateTransfers' => $privateTransfers,
+            'blogs' => $blogs,
+            'transferNames' => $transferNames,
+            'places' => $places
+        ]);
     }
 
     /**

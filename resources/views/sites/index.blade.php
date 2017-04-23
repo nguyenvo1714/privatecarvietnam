@@ -1,6 +1,6 @@
 @extends('sites.layout.app')
 @section('content')
-	<div class="container-fluid">
+	<!-- <div class="container-fluid">
 		<div class="logo-head">
 			<div class="logo col-xs-12 col-md-4 col-lg-4">
 				<a class="logo-link" href="#">{{ Html::image('img/logo-vmtravel.png') }}</a>
@@ -20,7 +20,6 @@
 			</div>
 		</div>
 		<div class="menu clearfix">
-			<!-- <a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a> -->
 		    <a class="navigation" href="#">
 		        <span class="bar"></span>
 		        <span class="bar"></span>
@@ -29,100 +28,35 @@
 		        <span class="txt">MENU</span>
 		    </a>
 		</div>
-		<!-- <div class="navigation-overlay">
-			<ul class="mobile-menu">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Private Transfer</a>
-					<ul>
-						<li><a href="#">Hue Transfer</a></li>
-						<li><a href="#">Quang Binh Transfer</a></li>
-						<li><a href="#">Da Nang Transfer</a></li>
-						<li><a href="#">Hoi An Transfer</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Airport Transfer</a>
-					<ul>
-						<li><a href="#">Phu Bai Transfer</a></li>
-						<li><a href="#">Dong Hoi Transfer</a></li>
-						<li><a href="#">Da Nang Transfer</a></li>
-						<li><a href="#">Chu Lai Transfer</a></li>
-					</ul>
-				</li>
-				<li><a href="3">Blog</a></li>
-				<li><a href="3">Contact us</a></li>
-			</ul>
-		</div> -->
 		<div class="desktop-menu" data-spy="affix" data-offset-top="197">
-			<!-- <div class="clearfix"> -->
-		        <!-- <a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a> -->
-		        <div class="">
-		        	<ul class="top-menu">
-						<li><a href="{{ url('/') }}">Home</a></li>
-						<li><a href="#">Private Transfer <span class="caret"></span></a>
-							<ul>
-								<li><a href="#">Hue Transfer</a></li>
-								<li><a href="#">Quang Binh Transfer</a></li>
-								<li><a href="#">Da Nang Transfer</a></li>
-								<li><a href="#">Hoi An Transfer</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Airport Transfer <span class="caret"></span></a>
-							<ul>
-								<li><a href="#">Phu Bai Transfer</a></li>
-								<li><a href="#">Dong Hoi Transfer</a></li>
-								<li><a href="#">Da Nang Transfer</a></li>
-								<li><a href="#">Chu Lai Transfer</a></li>
-							</ul>
-						</li>
-						<li><a href="3">Blog</a></li>
-						<li><a href="3">Contact us</a></li>
-					</ul>
-					<!-- <ul id="menu-left nav navbar-nav" class="list-inline">
-						<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1113">
-							<a href="http://privatecarvietnam.com/">Home</a>
-						</li>
-						<li class="dropdown">
-							<a href="http://luxurysimplifiedretreats.com/charleston/" class="dropdown-toggle" data-toggle="dropdown">PrivateTransfer</a>
-						</li>
-						<li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
-							<a href="http://luxurysimplifiedretreats.com/about/">AirPortTransfer</a>
-							<ul class="dropdown-menu">
-								<li><a href="#">PhuBai Transfer</a></li>
-								<li><a href="#">DaNang Transfer</a></li>
-								<li><a href="#">ChuLai Transfer</a></li>
-							</ul>
-						</li>
-						<li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
-							<a href="http://luxurysimplifiedretreats.com/about/">Blog</a>
-						</li>
-						<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
-							<a href="http://luxurysimplifiedretreats.com/about/">Contact us</a>
-						</li>
-					</ul> -->	            <!--<ul class="list-inline">
-		                <li><a href="?pagina=properties">View Rentals</a></li>
-		                <li><a href="?pagina=charleston">Charleston</a></li>
-		                <li><a href="?pagina=about">About</a></li>
-		            </ul> -->
-		        </div> 
-		        <!-- <div class="nav-right">
-					<ul id="menu-right" class="list-inline">
-						<li id="menu-item-29" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29">
-							<a href="http://luxurysimplifiedretreats.com/list-your-property/">List Your Property</a>
-						</li>
-						<li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30">
-							<a target="_blank" href="http://blog.luxurysimplifiedretreats.com/">Blog</a>
-						</li>
-						<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28">
-							<a href="http://luxurysimplifiedretreats.com/contact/">Contact</a>
-						</li>
-					</ul>
-		        </div> -->
-		    <!-- </div> -->
+	        <div class="">
+				<ul class="top-menu">
+					<li><a href="{{ url('/') }}">Home</a></li>
+					<li><a href="#">Private Transfer <span class="caret"></span></a>
+						<ul>
+							<li><a href="#">Hue Transfer</a></li>
+							<li><a href="#">Quang Binh Transfer</a></li>
+							<li><a href="#">Da Nang Transfer</a></li>
+							<li><a href="#">Hoi An Transfer</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Airport Transfer <span class="caret"></span></a>
+						<ul>
+							<li><a href="#">Phu Bai Transfer</a></li>
+							<li><a href="#">Dong Hoi Transfer</a></li>
+							<li><a href="#">Da Nang Transfer</a></li>
+							<li><a href="#">Chu Lai Transfer</a></li>
+						</ul>
+					</li>
+					<li><a href="3">Blog</a></li>
+					<li><a href="3">Contact us</a></li>
+				</ul>
+	        </div>
 		</div>
 		<a href="#" class="back-to-top" style="display: none;">
 			<i class="fa fa-arrow-up" aria-hidden="true"></i>
 		</a>
-	</div>
+	</div> -->
 	
 	<!-- HOME CONTENT -->
 	<div class="home-banner">
@@ -261,33 +195,6 @@
 		            </h5>
 		            <p>{{ $transfer->description }}</p>
 		        </div>
-		        <!-- <div class="col-md-4 col-xs-12">
-		            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">
-		            {{ Html::image('img/27.jpg') }}
-		            </a>
-		            <h5><a href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">UPSTAIRS AT STUDIO 36</a></h5>
-		            <p>Enjoy your morning coffee from the private balcony and then explore the city by bike—a feature provided for your stay.</p>
-		        </div>
-		        <div class="col-md-4 col-xs-12">
-		            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/the-okeanos/">
-		            {{ Html::image('img/the-okeanos-10.jpg') }}
-		            </a>
-		            <h5><a href="http://luxurysimplifiedretreats.com/properties/the-okeanos/">THE OKEANOS</a></h5>
-		            <p>Enjoy life at the beach in this beautifully appointed Folly Beach home – just one row back from the ocean.</p>
-		        </div>
-		        <div class="col-md-4 col-xs-12">
-		            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">
-		            {{ Html::image('img/the-cotton-house.jpg') }}</a>
-		            <h5><a href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">THE COTTON HOUSE</a></h5>
-		            <p>Beautifully restored 1840’s Downtown Charleston home available to you as your perfect Historic getaway.</p>
-		        </div>
-		        <div class="col-md-4 col-xs-12">
-		            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">
-		            {{ Html::image('img/27.jpg') }}
-		            </a>
-		            <h5><a href="http://luxurysimplifiedretreats.com/properties/upstairs-at-studio-36/">UPSTAIRS AT STUDIO 36</a></h5>
-		            <p>Enjoy your morning coffee from the private balcony and then explore the city by bike—a feature provided for your stay.</p>
-		        </div> -->
 		    @endforeach
 	    </div>
 	</div>

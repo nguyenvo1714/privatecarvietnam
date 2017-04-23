@@ -21,6 +21,7 @@
 
 Route::group(['namespace' => 'V1'], function() {
 	Route::get('/', 'TransferController@index');
+	Route::get('/private-transfer', 'TransferController@privateTransfer');
 });
 
 Route::get('/admin', 'TransferController@index');

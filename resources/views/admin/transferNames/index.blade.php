@@ -34,7 +34,7 @@
                                     </a>
                                 </td> -->
                                 <td style="font-size: 20px;">
-                                    <a href="" id="{{ $transferName->id }}" class="call-edit-transferName" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a href="{{ url('/transferName/' . $transferName->id . '/edit') }}" id="{{ $transferName->id }}" class="call-edit-transferName"><i class="fa fa-pencil-square-o"></i></a>
                                 </td>
                                 <td style="font-size: 20px;">
                                     {!! Form::open(['url' => '/transferName/'.$transferName->id, 'method' => 'POST']) !!}

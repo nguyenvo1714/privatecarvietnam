@@ -21,6 +21,6 @@ class TransferName extends Model
 
       public function type()
       {
-         return $this->belongsTo('App\Type', 'id');
+         return $this->belongsTo('App\Type');
       }
 }

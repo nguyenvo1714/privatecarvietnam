@@ -43,7 +43,7 @@ class TransferController extends Controller
         $blogs = Blog::limit(4)->get();
         $transferNames = TransferName::get();
         $places = Place::get();
-        $privateTransfers = Transfer::where('type_id', 3)->paginate(12);
+        $privateTransfers = TransferName::where('type_id', 4)->get();
         return view('/sites.transfers.privateTransfers', [
             'privateTransfers' => $privateTransfers,
             'blogs' => $blogs,

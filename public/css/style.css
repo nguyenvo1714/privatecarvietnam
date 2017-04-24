@@ -542,7 +542,7 @@ ul.hs-error-msgs li label {
 
 .top-menu ul a {
     padding: 10px;
-    width: 130px;
+    width: 160px;
     _height: 10px; /*IE6 only*/
     display: block;
     white-space: nowrap;
@@ -1604,7 +1604,7 @@ div.wpcr3_review div.wpcr3_review_title {
 	margin-bottom: 35px;
 }
 .home-properties .listings-strip .listings-strip-image {
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	opacity: 1;
 	transition: opacity 300ms ease;
 	-webkit-transition: opacity 300ms ease;
@@ -1613,6 +1613,10 @@ div.wpcr3_review div.wpcr3_review_title {
 }
 .home-properties .listings-strip .listings-strip-image img {
 	height: 260px;
+}
+.home-properties .listings-strip.private .listings-strip-image img {
+	height: 220px;
+	width: 100%;
 }
 .home-properties .listings-strip .listings-strip-image:hover {
 	opacity: 0.7;
@@ -1623,6 +1627,11 @@ div.wpcr3_review div.wpcr3_review_title {
 }
 .home-properties .listings-strip p {
 	padding: 0 5%;
+}
+.home-properties .listings-strip.private p {
+	text-align: justify;
+	height: 100px;
+	margin-bottom: 25px;
 }
 /*=========================================== TESTIMONIALS =====================================================*/
 .happy-customers {
@@ -2292,7 +2301,7 @@ div.wpcr3_review div.wpcr3_review_title {
 }
 @media screen and (max-width: 768px) {
 	.footer-wrapper {
-		padding: 0 6px 6px;
+		padding: 0 16px 16px;
 	}
 }
 .footer .tripadvisor-wrapper {
@@ -2352,8 +2361,8 @@ h5.tripadvisor-title a {
 		padding: 0 25px;
 	}
 	.default-content {
-		margin-left: 6px;
-		margin-right: 6px;
+		margin-left: 16px;
+		margin-right: 16px;
 		padding-top: 40px;
 		padding-bottom: 30px;
 	}

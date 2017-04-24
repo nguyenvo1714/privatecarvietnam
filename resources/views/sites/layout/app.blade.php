@@ -179,10 +179,14 @@
                                 <li><a href="{{ url('/') }}">Home</a></li>
                                 <li><a href="{{ url('/private-transfer') }}">Private Transfer <span class="caret"></span></a>
                                     <ul>
-                                        <li><a href="#">Hue Transfer</a></li>
-                                        <li><a href="#">Quang Binh Transfer</a></li>
+                                        @foreach($transferNames as $transferName)
+                                            @if($transferName->type_id == 4)
+                                                <li><a href="#">{{ $transferName->name }}</a></li>
+                                            @endif
+                                        @endforeach
+                                        <!-- <li><a href="#">Quang Binh Transfer</a></li>
                                         <li><a href="#">Da Nang Transfer</a></li>
-                                        <li><a href="#">Hoi An Transfer</a></li>
+                                        <li><a href="#">Hoi An Transfer</a></li> -->
                                     </ul>
                                 </li>
                                 <li><a href="#">Airport Transfer <span class="caret"></span></a>

@@ -24,6 +24,6 @@ class Type extends Model
 
     public function transferNames()
     {
-        return $this->hasMany('App\TransferName');
+        return $this->hasMany('App\TransferName', 'type_id');
     }
 }

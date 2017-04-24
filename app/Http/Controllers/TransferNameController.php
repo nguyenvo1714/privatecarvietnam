@@ -19,14 +19,7 @@ class TransferNameController extends Controller
      */
     public function index()
     {
-        // $transferNames = new TransferName;
-        $transferNames = TransferName::get();
-        foreach ($transferNames as $transferName) {
-            if($transferName->id == 10) {
-                $re = $transferName->type->where('types.id', $transferName->type_id)->toSql();var_dump($re);
-            }
-        }
-        die;
+        $transferNames = new TransferName;
         return view('admin.transferNames.index', ['transferNames' => $transferNames->orderBy('created_at')->paginate(20)]);
     }
 

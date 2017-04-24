@@ -30,11 +30,25 @@
                             <div class="alert">please put something here</div>
                         </div>
                         <div class="field item form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="type_id">
+                                Type transfer <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="required form-control col-md-8 col-xs-12" name="type_id" id="type">
+                                    <option value="">Choose option</option>
+                                @foreach($types as $type)
+                                    <option value={{ $type->id }}>{{ $type->name }}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                            <div class="alert">Please select an option</div>
+                        </div>
+                        <div class="field item form-group">
                             <label class="control-label col-md-2 col-sm-2 col-xs-12" for="thumb">
                                 Image thumb<span class="required">*</span>
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-12">
-                                {{ Html::image('/storage/' . $transferName->image_thumb, 'thumb', ['class' => 'transfer-image']) }}
+                                {{ Html::image('/storage/' . $transferName->thumb, 'thumb', ['class' => 'transfer-image']) }}
                                 <br>&nbsp;
                                 <input id="input-2" name="thumb" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
                             </div>

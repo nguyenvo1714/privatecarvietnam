@@ -94,7 +94,10 @@
                     //     selected_active = '{{ $car->isActive }}'
                     // @endif
                     break;
-                case('BlogController'):
+                case('TransferNameController'):
+                    @if(!empty($transferName->type_id))
+                        selected_type = '{{ $transferName->type_id }}'
+                    @endif
                     break;
             }
             @if(!empty($tour->type_id))

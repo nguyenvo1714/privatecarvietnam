@@ -21,4 +21,9 @@ class Type extends Model
     {
     	return $this->hasMany('App\Blog');
     }
+
+    public function transferNames()
+    {
+        return $this->hasMany('App\TransferName');
+    }
 }

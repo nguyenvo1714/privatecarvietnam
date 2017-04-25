@@ -1,4 +1,4 @@
-@extends('sites.layout.app')
+@extends('sites.layout.for_index')
 @section('content')
 	<!-- <div class="container-fluid">
 		<div class="logo-head">

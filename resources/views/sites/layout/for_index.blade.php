@@ -181,12 +181,15 @@
                                     <ul>
                                         @foreach($transferNames as $transferName)
                                             @if($transferName->type_id == 4)
-                                                <li><a href="{{ url('/private-transfer/' . $transferName->name . '/' . $transferName->type_id . '/' . $transferName->id) }}">{{ $transferName->name }}</a></li>
+                                                <li><a href="{ url('/private-transfer/' . $transferName->name . '/' . $transferName->type_id . '/' . $transferName->id) }}">{{ $transferName->name }}</a></li>
                                             @endif
                                         @endforeach
+                                        <!-- <li><a href="#">Quang Binh Transfer</a></li>
+                                        <li><a href="#">Da Nang Transfer</a></li>
+                                        <li><a href="#">Hoi An Transfer</a></li> -->
                                     </ul>
                                 </li>
-                                <li><a href="{{ url('/airport-transfer') }}">Airport Transfer <span class="caret"></span></a>
+                                <li><a href="#">Airport Transfer <span class="caret"></span></a>
                                     <ul>
                                         @foreach($transferNames as $transferName)
                                             @if($transferName->type_id == 3)
@@ -244,39 +247,6 @@
                     <i class="fa fa-arrow-up" aria-hidden="true"></i>
                 </a>
             </div>
-            <div class="container clearfix submargin app">
-                <form class="search-form col-md-10 col-md-offset-1 form-inline">
-                    <div class="form-group col-md-4 col-xs-12">
-                        <label class="control-label" for="pick-up">
-                            Pick-up
-                        </label>
-                        <div class="wrapper-input">
-                            <input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pick-up" placeholder="Type airport, city or train station" required="required" type="text">
-                        </div>
-                        <div class="alert" style="display: none;">please put something here</div>
-                    </div>
-                    <div class="form-group col-md-1 col-xs-12">
-                        <a href="#" class="swap-locations">
-                            <i class="fa fa-exchange"></i>
-                        </a>
-                    </div>
-                    <div class="form-group col-md-4 col-xs-12">
-                        <label class="control-label" for="drop-off">
-                            Drop-off
-                        </label>
-                        <div class="wrapper-input">
-                            <input id="drop-off" class="form-control col-md-7 col-xs-12 drop-off input-text" name="drop-off" placeholder="Type airport, city or train station" required="required" type="text">
-                        </div>
-                        <div class="alert" style="display: none;">please put something here</div>
-                    </div>
-
-                    <div class="form-group col-md-3 col-xs-12">
-                        <button id="send" type="submit" class="button button-red">
-                            <span class="glyphicon glyphicon-search"></span>Find transfer
-                        </button>
-                    </div>
-                </form>
-            </div>
             @yield('content')    
         </div>
     </body>
@@ -308,6 +278,39 @@
                                 </div>
                             </li>
                             @endforeach
+                            <!-- <li>
+                                <div class="media">
+                                    <div class="media-left">
+                                        {{ Html::image('img/admin.jpg') }}
+                                    </div>
+                                    <div class="media-body">
+                                        <h5><a href="#">Oriental Sails fleet – Certificate of Excellence in The Guide Awards 2016</a></h5>
+                                        <p>With much attempt in building a professional team...</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="media">
+                                    <div class="media-left">
+                                        {{ Html::image('img/admin.jpg') }}
+                                    </div>
+                                    <div class="media-body">
+                                        <h5><a href="#">Oriental Sails fleet – Certificate of Excellence in The Guide Awards 2016</a></h5>
+                                        <p>With much attempt in building a professional team...</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="media">
+                                    <div class="media-left">
+                                        {{ Html::image('img/admin.jpg') }}
+                                    </div>
+                                    <div class="media-body">
+                                        <h5><a href="#">Oriental Sails fleet – Certificate of Excellence in The Guide Awards 2016</a></h5>
+                                        <p>With much attempt in building a professional team...</p>
+                                    </div>
+                                </div>
+                            </li> -->
                         </ul>
                     </div>
                     <div class="col-md-3 col-sm-6">

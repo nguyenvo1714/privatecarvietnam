@@ -44,11 +44,34 @@ class TransferController extends Controller
         $transferNames = TransferName::get();
         $places = Place::get();
         $privateTransfers = TransferName::where('type_id', 4)->get();
+        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
         return view('/sites.transfers.privateTransfers', [
             'privateTransfers' => $privateTransfers,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'places' => $places
+            'places' => $places,
+            'interestTransfers' => $interestTransfers
+        ]);
+    }
+
+    /**
+     * Show the info of airport transfer.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function airportTransfer()
+    {
+        $blogs = Blog::limit(4)->get();
+        $transferNames = TransferName::get();
+        $places = Place::get();
+        $airportTransfers = TransferName::where('type_id', 3)->get();
+        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
+        return view('/sites.transfers.airportTransfers', [
+            'airportTransfers' => $airportTransfers,
+            'blogs' => $blogs,
+            'transferNames' => $transferNames,
+            'places' => $places,
+            'interestTransfers' => $interestTransfers
         ]);
     }
 
@@ -66,12 +89,51 @@ class TransferController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string $name,
+     * @param  int $type_id,
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function detailTransfer($name, $type_id, $id)
     {
-        //
+        $blogs = Blog::limit(4)->get();
+        $transferNames = TransferName::get();
+        $places = Place::get();
+        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
+        $transfers = Transfer::where('type_id', $type_id)->where('transferName_id', $id)->paginate(12);
+        return view('/sites.transfers.detailTransfers', [
+            'blogs' => $blogs,
+            'transferNames' => $transferNames,
+            'places' => $places,
+            'interestTransfers' => $interestTransfers,
+            'transfers' => $transfers,
+            'name' => $name
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  string $name,
+     * @param  int $type_id,
+     * @param  int $id,
+     * @return \Illuminate\Http\Response
+     */
+    public function detailAirportTransfer($name, $type_id, $id)
+    {
+        $blogs = Blog::limit(4)->get();
+        $transferNames = TransferName::get();
+        $places = Place::get();
+        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
+        $transfers = Transfer::where('type_id', $type_id)->where('transferName_id', $id)->paginate(12);
+        return view('/sites.transfers.detailAirportTransfers', [
+            'blogs' => $blogs,
+            'transferNames' => $transferNames,
+            'places' => $places,
+            'interestTransfers' => $interestTransfers,
+            'transfers' => $transfers,
+            'name' => $name
+        ]);
     }
 
     /**

@@ -1070,6 +1070,10 @@ ul.hs-error-msgs li label {
     position: relative;
     top: -35px;
 }
+#app .submargin.app .search-form {
+	top: unset;
+	margin-top: 16px;
+}
 .search-form .form-group {
 	display: block;
 	float: left;
@@ -1161,6 +1165,9 @@ ul.hs-error-msgs li label {
 }
 .container.submargin {
 	margin-bottom: -60px;
+}
+.container.submargin.app {
+	margin-bottom: 16px;
 }
 /*===========================================================================================================*/
 /*=========================================== BTN-LAYOUT ====================================================*/
@@ -2390,4 +2397,112 @@ h5.tripadvisor-title a {
 		font-size: 1.5em;
 		line-height: 20px;
 	}
+}
+/*===========================================================================================================*/
+/*=========================================== PRIVATE TRANSFER ==============================================*/
+/*===========================================================================================================*/
+/*.transfer-list {
+	position: relative;
+}
+.position {
+	position: absolute;
+	top: 155px;
+	right: 55px;
+}
+.label-detail {
+	padding: 5px 8px;
+	width: 130px;
+	font-size: 14px;
+	background-color: #FFD000;
+	border-right: 1px solid lightgray;
+	border-top-right-radius: 3px;
+	float: right;
+	position: relative;
+}
+.label-detail a::after {
+	content: '';
+	position: absolute;
+    left: 120px;
+    top: 32px;
+    border-right: 10px solid transparent;
+    border-top: 7px solid #444;
+}*/
+.interest .media .media-left img {
+	max-width: unset;
+	width: 180px;
+}
+.default-content .interest li {
+	font-size: unset;
+	margin-bottom: 16px;
+}
+.interest li .media .media-body h5 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.interest li .media .media-body p {
+	line-height: 17px;
+}
+.listings-strip.private h3 {
+	font-size: 1.9em;
+}
+
+.private-thumbnail {
+	position: relative;
+	display: inline-block;
+}
+.private-thumbnail img {
+	height: 240px;
+}
+.position {
+	/*position: absolute;
+	top: 400px;
+	right: -9px;*/
+	display: none;
+}
+.private-thumbnail:hover .position {
+	display: block;
+	position: absolute;
+	top: 165px;
+	right: -9px;
+}
+.label-detail {
+	padding: 5px 8px;
+	width: 130px;
+	font-size: 14px;
+	background-color: #FFD000;
+	border-right: 1px solid lightgray;
+	border-top-right-radius: 3px;
+	float: right;
+	position: relative;
+}
+.label-detail a::after {
+	content: '';
+	position: absolute;
+    left: 120px;
+    top: 32px;
+    border-right: 10px solid transparent;
+    border-top: 7px solid #444;
+}
+@media screen and (max-width: 1024px) {
+	.position {
+		display: inline-block;
+		position: absolute;
+		top: 165px;
+		right: -9px;
+	}
+}
+@media screen and (max-width: 991px) {
+	.position {
+		display: inline-block;
+		position: absolute;
+		top: 165px;
+		right: -9px;
+	}
+}
+@media screen and (max-width: 768px) {
+	/*.position {
+		position: absolute;
+		top: 155px;
+		right: 5px;
+	}*/
 }

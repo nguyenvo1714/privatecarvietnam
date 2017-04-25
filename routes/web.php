@@ -15,8 +15,16 @@
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('sites/index');
+// Route::get('/', function () {
+//     return view('sites/index');
+// });
+
+Route::group(['namespace' => 'V1'], function() {
+	Route::get('/', 'TransferController@index');
+	Route::get('/private-transfer', 'TransferController@privateTransfer');
+	Route::get('/private-transfer/{name}/{type}/{id}', 'TransferController@detailTransfer');
+	Route::get('/airport-transfer', 'TransferController@airportTransfer');
+	Route::get('/airport-transfer/{name}/{type}/{id}', 'TransferController@detailAirportTransfer');
 });
 
 Route::get('/admin', 'TransferController@index');

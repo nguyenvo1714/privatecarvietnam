@@ -12,38 +12,54 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Form Design <small>different form elements</small></h2>
-                    <!-- <ul class="nav navbar-right panel_toolbox">
-                      	<li>
-                      		<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      	</li>
-                      	<li class="dropdown">
-                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        		<i class="fa fa-wrench"></i>
-                        	</a>
-	                        <ul class="dropdown-menu" role="menu">
-	                          	<li><a href="#">Settings 1</a></li>
-	                          	<li><a href="#">Settings 2</a></li>
-	                        </ul>
-                      	</li>
-                      	<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-                    </ul> -->
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <br>
                     @include('admin.errors.error')
 
-                    {!! Form::open(['url' => '/transferName/'.$transferName->id, 'method' => 'POST', 'class' => 'form-horizontal form-label-left', 'novalidate' => '']) !!}
+                    {!! Form::open(['url' => '/transferName/'.$transferName->id, 'method' => 'POST', 'class' => 'form-horizontal form-label-left', 'novalidate' => '', 'files' => true]) !!}
                         {{ method_field('PUT') }}
-                    <!-- <form class="form-horizontal form-label-left" novalidate="" method="POST" action="{{ url('blog') }}"> -->
-                        <!-- <span class="section">Personal Info</span> -->
-
                         <div class="field item form-group">
                             <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
                                 Name <span class="required">*</span>
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-12">
                                 <input id="name" class="form-control col-md-8 col-xs-12" name="name" value="{{ $transferName->name }}" required="required" type="text">
+                            </div>
+                            <div class="alert">please put something here</div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="type_id">
+                                Type transfer <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="required form-control col-md-8 col-xs-12" name="type_id" id="type">
+                                    <option value="">Choose option</option>
+                                @foreach($types as $type)
+                                    <option value={{ $type->id }}>{{ $type->name }}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                            <div class="alert">Please select an option</div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="thumb">
+                                Image thumb<span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                {{ Html::image('/storage/' . $transferName->thumb, 'thumb', ['class' => 'transfer-image']) }}
+                                <br>&nbsp;
+                                <input id="input-2" name="thumb" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
+                            </div>
+                            <div class="alert">please put something here</div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="control-label col-md-2 col-sm-1 col-xs-12" for="description">
+                                Description <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <textarea id="description" class="form-control col-md-7 col-xs-12" name="description" required="required" type="text" rows=4>{{ $transferName->description }}</textarea>
                             </div>
                             <div class="alert">please put something here</div>
                         </div>

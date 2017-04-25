@@ -94,7 +94,10 @@
                     //     selected_active = '{{ $car->isActive }}'
                     // @endif
                     break;
-                case('BlogController'):
+                case('TransferNameController'):
+                    @if(!empty($transferName->type_id))
+                        selected_type = '{{ $transferName->type_id }}'
+                    @endif
                     break;
             }
             @if(!empty($tour->type_id))
@@ -459,10 +462,10 @@
             {!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/js/lfm.js')) !!}
         </script>
         <script>
-            // $('#lfm').filemanager('image', {prefix: route_prefix});
-            $('[class*="lfm"]').each(function() {
-                $(this).filemanager('image', {prefix: route_prefix});
-            });
+            $('#lfm').filemanager('image', {prefix: route_prefix});
+            // $('[class*="lfm"]').each(function() {
+            //     $(this).filemanager('image', {prefix: route_prefix});
+            // });
         </script>
     </body>
     <footer>

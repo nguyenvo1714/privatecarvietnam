@@ -62,7 +62,7 @@ class TransferController extends Controller
     {
     	$types = Type::get();
     	$places = Place::get();
-    	$blogs = Blog::where('type_id', 'in', [3,4])->get();
+        $blogs = Blog::whereIn('type_id', [3, 4])->get();
         $drivers = Driver::get();
         $transferNames = transferName::get();
         return view('/admin.transfers.create', [

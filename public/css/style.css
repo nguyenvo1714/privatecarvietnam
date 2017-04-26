@@ -1635,9 +1635,9 @@ div.wpcr3_review div.wpcr3_review_title {
 .home-properties .listings-strip p {
 	padding: 0 5%;
 }
-.home-properties .listings-strip.private p {
+.private p {
 	text-align: justify;
-	height: 100px;
+	/*height: 100px;*/
 	margin-bottom: 25px;
 }
 /*=========================================== TESTIMONIALS =====================================================*/
@@ -2401,32 +2401,6 @@ h5.tripadvisor-title a {
 /*===========================================================================================================*/
 /*=========================================== PRIVATE TRANSFER ==============================================*/
 /*===========================================================================================================*/
-/*.transfer-list {
-	position: relative;
-}
-.position {
-	position: absolute;
-	top: 155px;
-	right: 55px;
-}
-.label-detail {
-	padding: 5px 8px;
-	width: 130px;
-	font-size: 14px;
-	background-color: #FFD000;
-	border-right: 1px solid lightgray;
-	border-top-right-radius: 3px;
-	float: right;
-	position: relative;
-}
-.label-detail a::after {
-	content: '';
-	position: absolute;
-    left: 120px;
-    top: 32px;
-    border-right: 10px solid transparent;
-    border-top: 7px solid #444;
-}*/
 .interest .media .media-left img {
 	max-width: unset;
 	width: 180px;
@@ -2505,4 +2479,68 @@ h5.tripadvisor-title a {
 		top: 155px;
 		right: 5px;
 	}*/
+}
+/*===========================================================================================================*/
+/*=========================================== DETAIL TRANSFER ==============================================*/
+/*===========================================================================================================*/
+.transfer-header {
+	border-bottom: 1px dotted #999;
+	padding-bottom: 15px;
+}
+.listings-strip.private .transfer-header h3 {
+	font-size: 2.3em;
+	font-weight: 400;
+	text-align: left;
+}
+.home-properties .listings-strip.private .transfer-header .unset-height {
+	height: unset;
+	margin-bottom: unset;
+	padding: unset;
+	color: #999;
+}
+p.from-to {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 2em;
+	font-weight: 300;
+}
+.car-introduce, .car-price {
+	margin-top: 15px;
+}
+.car-introduce {
+	text-align: left;
+}
+.car-introduce h4 {
+	font-weight: 300;
+	text-transform: capitalize;
+}
+.car-introduce p {
+	margin-bottom: unset;
+}
+.private .car-introduce p {
+	padding: unset;
+}
+.car-introduce p span.pax {
+	margin-right: 15px;
+}
+.car-price p{
+	text-align: center;
+}
+.private .car-price p {
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+.car-price a {
+	/*display: block;*/
+	padding: 6px 20px;
+	background-color: #FFD000;
+	font-size: 1.5em;
+	border-radius: 5px;
+	box-shadow: inset 0px 2px 0px 0px #FFEA93;
+	border: 1px solid #D99800;
+}
+.car-price a:hover {
+	color: unset;
+	background-image:linear-gradient(-1deg, #E58C00 0%, #FFB300 100%);
+	border:1px solid #E68E00;
+	/*text-decoration:none*/
 }

@@ -16,11 +16,11 @@
 				            <div class="private-thumbnail">
 				            	{{ Html::image('/storage/' . $transfer->image_thumb) }}
 				            	<div class="position">
-				            		<div class="label-detail"><a href="#">Learn more</a></div>
+				            		<div class="label-detail"><a href="{{ url('/airport-transfer/' . $name . '/detail/' . $transfer->title . '/' . $transfer->id) }}">Learn more</a></div>
 				            	</div>
 				            </div>
 				            <h5>
-								<a href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">{{ $transfer->title }}</a>
+								<a href="{{ url('/airport-transfer/' . $name . '/detail/' . $transfer->title . '/' . $transfer->id) }}">{{ $transfer->title }}</a>
 				            </h5>
 				            <p>{{ substr($transfer->description, 0, 100) . '...' }}</p>
 				        </div>

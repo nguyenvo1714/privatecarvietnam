@@ -13,19 +13,14 @@
 				<div class="row">
 					@foreach($airportTransfers as $airportTransfer)
 				        <div class="col-md-4 col-sm-4 col-xs-12 transfer-list">
-				            <!-- <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">
-				            {{ Html::image('/storage/' . $airportTransfer->thumb) }}</a> -->
-				            <!-- <div class="position">
-				            	<div class="label-detail"><a href="#"> Learn more</a></div>
-				            </div> -->
 				            <div class="private-thumbnail">
 				            	{{ Html::image('/storage/' . $airportTransfer->thumb) }}
 				            	<div class="position">
-				            		<div class="label-detail"><a href="#">Learn more</a></div>
+									<div class="label-detail"><a href="{{ url('/airport-transfer/view/' . $airportTransfer->name . '/' . $airportTransfer->type_id . '/' . $airportTransfer->id) }}">Learn more</a></div>
 				            	</div>
 				            </div>
 				            <h5>
-								<a href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">{{ $airportTransfer->name }}</a>
+								<a href="{{ url('/airport-transfer/view/' . $airportTransfer->name . '/' . $airportTransfer->type_id . '/' . $airportTransfer->id) }}">{{ $airportTransfer->name }}</a>
 				            </h5>
 				            <p>{{ substr($airportTransfer->description, 0, 100) . '...' }}</p>
 				        </div>

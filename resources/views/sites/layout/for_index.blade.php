@@ -181,7 +181,7 @@
                                     <ul>
                                         @foreach($transferNames as $transferName)
                                             @if($transferName->type_id == 4)
-                                                <li><a href="{{ url('/private-transfer/' . $transferName->name . '/' . $transferName->type_id . '/' . $transferName->id) }}">{{ $transferName->name }}</a></li>
+                                                <li><a href="{{ url('/private-transfer/view/' . $transferName->name . '/' . $transferName->type_id . '/' . $transferName->id) }}">{{ $transferName->name }}</a></li>
                                             @endif
                                         @endforeach
                                         <!-- <li><a href="#">Quang Binh Transfer</a></li>
@@ -193,7 +193,7 @@
                                     <ul>
                                         @foreach($transferNames as $transferName)
                                             @if($transferName->type_id == 3)
-                                                <li><a href="{{ url('/private-transfer/' . $transferName->name . '/' . $transferName->type_id . '/' . $transferName->id) }}">{{ $transferName->name }}</a></li>
+                                                <li><a href="{{ url('/airport-transfer/view/' . $transferName->name . '/' . $transferName->type_id . '/' . $transferName->id) }}">{{ $transferName->name }}</a></li>
                                             @endif
                                         @endforeach
                                     </ul>

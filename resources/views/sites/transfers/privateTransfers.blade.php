@@ -16,11 +16,11 @@
 							<div class="private-thumbnail">
 								{{ Html::image('/storage/' . $privateTransfer->thumb) }}
 								<div class="position">
-									<div class="label-detail"><a href="#">Learn more</a></div>
+									<div class="label-detail"><a href="{{ url('/private-transfer/view/' . $privateTransfer->name . '/' . $privateTransfer->type_id . '/' . $privateTransfer->id) }}">Learn more</a></div>
 								</div>
 				            </div>
 				            <h5>
-								<a href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">{{ $privateTransfer->name }}</a>
+								<a href="{{ url('/private-transfer/view/' . $privateTransfer->name . '/' . $privateTransfer->type_id . '/' . $privateTransfer->id) }}">{{ $privateTransfer->name }}</a>
 				            </h5>
 				            <p>{{ substr($privateTransfer->description, 0, 100) . '...' }}</p>
 				        </div>

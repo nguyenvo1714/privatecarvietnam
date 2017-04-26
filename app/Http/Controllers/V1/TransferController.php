@@ -94,14 +94,14 @@ class TransferController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function detailTransfer($name, $type_id, $id)
+    public function viewTransfer($name, $type_id, $id)
     {
         $blogs = Blog::limit(4)->get();
         $transferNames = TransferName::get();
         $places = Place::get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
         $transfers = Transfer::where('type_id', $type_id)->where('transferName_id', $id)->paginate(12);
-        return view('/sites.transfers.detailTransfers', [
+        return view('/sites.transfers.viewTransfers', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'places' => $places,
@@ -119,14 +119,14 @@ class TransferController extends Controller
      * @param  int $id,
      * @return \Illuminate\Http\Response
      */
-    public function detailAirportTransfer($name, $type_id, $id)
+    public function viewAirportTransfer($name, $type_id, $id)
     {
         $blogs = Blog::limit(4)->get();
         $transferNames = TransferName::get();
         $places = Place::get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
         $transfers = Transfer::where('type_id', $type_id)->where('transferName_id', $id)->paginate(12);
-        return view('/sites.transfers.detailAirportTransfers', [
+        return view('/sites.transfers.viewAirportTransfers', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'places' => $places,
@@ -137,14 +137,28 @@ class TransferController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * View detail the specified resource.
      *
+     * @param  string  $name
+     * @param  string  $title
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function detailTransfer($name, $title, $id)
     {
-        //
+        $blogs = Blog::limit(4)->get();
+        $transferNames = TransferName::get();
+        $places = Place::get();
+        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
+        $transfer = Transfer::find($id);
+        return view('/sites.transfers.detailTransfer', [
+            'blogs' => $blogs,
+            'transferNames' => $transferNames,
+            'places' => $places,
+            'interestTransfers' => $interestTransfers,
+            'transfer' => $transfer,
+            'name' => $name
+        ]);
     }
 
     /**

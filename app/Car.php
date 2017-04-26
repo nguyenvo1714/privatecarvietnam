@@ -19,7 +19,7 @@ class Car extends Model
 
     public function driver()
     {
-    	return $this->hasOne('App\Driver');
+        return $this->belongsTo('App\Driver');
     }
 
     public function Transfers()

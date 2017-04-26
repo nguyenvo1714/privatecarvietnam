@@ -22,9 +22,11 @@
 Route::group(['namespace' => 'V1'], function() {
 	Route::get('/', 'TransferController@index');
 	Route::get('/private-transfer', 'TransferController@privateTransfer');
-	Route::get('/private-transfer/{name}/{type}/{id}', 'TransferController@detailTransfer');
+	Route::get('/private-transfer/view/{name}/{type}/{id}', 'TransferController@viewTransfer');
+	Route::get('/private-transfer/{name}/detail/{title}/{id}', 'TransferController@detailTransfer');
 	Route::get('/airport-transfer', 'TransferController@airportTransfer');
-	Route::get('/airport-transfer/{name}/{type}/{id}', 'TransferController@detailAirportTransfer');
+	Route::get('/airport-transfer/view/{name}/{type}/{id}', 'TransferController@viewAirportTransfer');
+	Route::get('/airport-transfer/{name}/detail/{title}/{id}', 'TransferController@detailAirportTransfer');
 });
 
 Route::get('/admin', 'TransferController@index');

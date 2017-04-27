@@ -2558,3 +2558,12 @@ p.from-to {
 	padding: 5px;
 	border: 1px solid #E68E00;
 }
+.private-thumbnail.relate img {
+	height: 160px;
+}
+.private-thumbnail.relate img:hover {
+	opacity: 0.7;
+}
+.relate-transfer {
+	margin-top: 15px;
+}

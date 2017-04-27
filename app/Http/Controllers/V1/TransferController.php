@@ -94,13 +94,13 @@ class TransferController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function viewTransfer($name, $type_id, $id)
+    public function viewTransfer($name, $type_id, $transferName_id)
     {
         $blogs = Blog::limit(4)->get();
         $transferNames = TransferName::get();
         $places = Place::get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
-        $transfers = Transfer::where('type_id', $type_id)->where('transferName_id', $id)->paginate(12);
+        $transfers = Transfer::where('type_id', $type_id)->where('transferName_id', $transferName_id)->paginate(12);
         return view('/sites.transfers.viewTransfers', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
@@ -119,13 +119,13 @@ class TransferController extends Controller
      * @param  int $id,
      * @return \Illuminate\Http\Response
      */
-    public function viewAirportTransfer($name, $type_id, $id)
+    public function viewAirportTransfer($name, $type_id, $transferName_id)
     {
         $blogs = Blog::limit(4)->get();
         $transferNames = TransferName::get();
         $places = Place::get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
-        $transfers = Transfer::where('type_id', $type_id)->where('transferName_id', $id)->paginate(12);
+        $transfers = Transfer::where('type_id', $type_id)->where('transferName_id', $transferName_id)->paginate(12);
         return view('/sites.transfers.viewAirportTransfers', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
@@ -144,20 +144,22 @@ class TransferController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function detailTransfer($name, $title, $id)
+    public function detailTransfer($name, $transferName_id, $title, $id)
     {
         $blogs = Blog::limit(4)->get();
         $transferNames = TransferName::get();
         $places = Place::get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
         $transfer = Transfer::find($id);
+        $relates = Transfer::where('transferName_id', $transferName_id)->where('id', '<>', $id)->orderBy('id', 'desc')->limit(3)->get();
         return view('/sites.transfers.detailTransfer', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'places' => $places,
             'interestTransfers' => $interestTransfers,
             'transfer' => $transfer,
-            'name' => $name
+            'name' => $name,
+            'relates' => $relates
         ]);
     }
 

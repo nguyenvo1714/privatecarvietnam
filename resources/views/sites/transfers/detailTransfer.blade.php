@@ -50,7 +50,20 @@
 				</div>
 				<div class="row">
 					<div class="relative-transfer">
-						Relatived transfer
+						@foreach($relates as $relate)
+							<div class="col-md-4 col-sm-4 col-xs-12 transfer-list">
+					            <div class="private-thumbnail relate">
+									<a href="{{ url('/private-transfer/' . $name . '/' . $relate->transferName_id . '/detail/' . $relate->title . '/' . $relate->id) }}">{{ Html::image('/storage/' . $relate->image_thumb) }}</a>
+									<!-- <div class="position">
+										<div class="label-detail"><a href="{{ url('/private-transfer/' . $name . '/' . $relate->transferName_id . '/detail/' . $relate->title . '/' . $relate->id) }}">Learn more</a></div>
+									</div> -->
+					            </div>
+					            <h5>
+									<a href="{{ url('/private-relate/' . $name . '/' . $relate->transferName_id . '/detail/' . $transfer->title . '/' . $transfer->id) }}">{{ $relate->title }}</a>
+					            </h5>
+					            <p>{{ substr($relate->description, 0, 100) . '...' }}</p>
+					        </div>
+						@endforeach
 					</div>
 				</div>
 			</div>

@@ -17,26 +17,41 @@
 						<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
 					</div>
 					@foreach($transfer->cars as $car)
-					<div class="col-md-12">
+					<div class="col-md-12 border-bottom">
 						<div class="row">
-							<div class="col-md-8 car-introduce">
+							<div class="col-md-8 col-sm-8 col-xs-8 car-introduce">
 								<h4>{{ $car->class }}</h4>
 								<p>{{ $car->fleet }}</p>
 								<p>
 									<span class="pax"><span class="glyphicon glyphicon-user"></span> &nbsp;{!! $car->capability !!} passengers</span> <span class="bag"><span class="glyphicon glyphicon-briefcase"></span> &nbsp;{{ $car->baggage }}</span>
 								</p>
 							</div>
-							<div class="col-md-4 car-price">
+							<div class="col-md-4 col-sm-4 col-xs-4 car-price">
 								<p>{{ $car->price }} VNĐ</p>
 								{!! Form::open(['url' => '/private-transfer/' . $name . '/book-transfer/' . $transfer->id]) !!}
 									<input type="hidden" name="price" value="{{ $car->price }}">
-									<input type="submit" name="">
+									<input type="submit" value="Book Transfer">
 								{!! Form::close() !!}
-								<!-- <a href="#">Book transfer</a> -->
 							</div>
 						</div>
 					</div>
 					@endforeach
+				</div>
+				<div class="row">
+					<div class="col-md-12 transfer-blog">
+						{{ Html::image('/storage/' . $transfer->image_head) }}
+						{!! preg_replace('/<p>[img]/', '<p class="no-aling">[img]', $transfer->blog->where('blogs.id', $transfer->blog_id)->first()->content) !!}
+					</div>
+				</div>
+				<div class="row">
+					<div class="rate">
+						Stars rating
+					</div>
+				</div>
+				<div class="row">
+					<div class="relative-transfer">
+						Relatived transfer
+					</div>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-12">

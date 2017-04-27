@@ -2503,8 +2503,12 @@ p.from-to {
 	font-size: 2em;
 	font-weight: 300;
 }
+.border-bottom {
+	border-bottom: 1px dotted #999;
+	padding-bottom: 15px;
+}
 .car-introduce, .car-price {
-	margin-top: 15px;
+	/*margin-top: 15px;*/
 }
 .car-introduce {
 	text-align: left;
@@ -2529,18 +2533,28 @@ p.from-to {
 	margin-top: 15px;
 	margin-bottom: 5px;
 }
-.car-price a {
+.car-price input[type="submit"] {
 	/*display: block;*/
-	padding: 6px 20px;
+	padding: 5px 15px;
 	background-color: #FFD000;
-	font-size: 1.5em;
+	font-size: 1.3em;
 	border-radius: 5px;
 	box-shadow: inset 0px 2px 0px 0px #FFEA93;
 	border: 1px solid #D99800;
 }
-.car-price a:hover {
+.car-price input[type="submit"]:hover {
 	color: unset;
 	background-image:linear-gradient(-1deg, #E58C00 0%, #FFB300 100%);
 	border:1px solid #E68E00;
-	/*text-decoration:none*/
+}
+.transfer-blog {
+	margin-top: 15px;
+}
+.listings-strip .transfer-blog p {
+	padding: unset;
+	margin-bottom: unset;
+}
+.transfer-blog p img {
+	padding: 5px;
+	border: 1px solid #E68E00;
 }

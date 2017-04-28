@@ -13,16 +13,16 @@
 				<div class="row">
 					@foreach($transfers as $transfer)
 				        <div class="col-md-4 col-sm-4 col-xs-12 transfer-list">
-				            <div class="private-thumbnail">
-				            	{{ Html::image('/storage/' . $transfer->image_thumb) }}
-				            	<div class="position">
-				            		<div class="label-detail"><a href="#">Learn more</a></div>
-				            	</div>
-				            </div>
-				            <h5>
-								<a href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">{{ $transfer->title }}</a>
-				            </h5>
-				            <p>{{ substr($transfer->description, 0, 100) . '...' }}</p>
+							<div class="private-thumbnail">
+								{{ Html::image('/storage/' . $transfer->image_thumb) }}
+								<div class="position">
+									<div class="label-detail"><a href="{{ url('/private-transfer/' . $name . '/' . $transfer->transferName_id . '/detail/' . $transfer->title . '/' . $transfer->id) }}">Learn more</a></div>
+								</div>
+							</div>
+							<h5>
+								<a href="{{ url('/private-transfer/' . $name . '/' . $transfer->transferName_id . '/detail/' . $transfer->title . '/' . $transfer->id) }}">{{ $transfer->title }}</a>
+							</h5>
+							<p>{{ substr($transfer->description, 0, 100) . '...' }}</p>
 				        </div>
 				    @endforeach
 				</div>
@@ -40,7 +40,7 @@
 							@foreach($interestTransfers as $interestTransfer)
 								<li>
 									<div class="media">
-	                                    <div class="media-left">
+				                        <div class="media-left">
 	                                        {{ Html::image('/storage/' . $interestTransfer->image_thumb) }}
 	                                    </div>
 	                                    <div class="media-body">

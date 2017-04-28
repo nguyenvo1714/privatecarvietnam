@@ -20,33 +20,39 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Transfer Type</th>
-                                <th>Transfer Name</th>
-                                <th>To</th>
-                                <th>Blog</th>
-                                <th></th>
+                                <th>Driver</th>
+                                <th>Car fleet</th>
+                                <th>Capability</th>
+                                <th>Price</th>
+                                <th>Class</th>
+                                <th>Baggage number</th>
+                                <th>Active?</th>
+                                <!-- <th></th> -->
                                 <th></th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($transfers as $transfer)
+                            @foreach($cars as $car)
                             <tr>
-                                <td>{{ $transfer->id }}</td>
-                                <td>{{ $transfer->type }}</td>
-                                <td>{{ $transfer->transferName }}</td>
-                                <td>{{ $transfer->target }}</td>
-                                <td>{{ $transfer->title }}</td>
-                                <td style="font-size: 20px;">
-                                    <a href="" id="{{ $transfer->id }}" class="call-view-transfer" data-toggle="modal" data-target="#myModal">
+                                <td>{{ $car->id }}</td>
+                                <td>{{ $car->driver->where('drivers.id', $car->driver_id)->first()->fullName }}</td>
+                                <td>{{ $car->fleet }}</td>
+                                <td>{{ $car->capability }}</td>
+                                <td>{{ $car->price }}</td>
+                                <td>{{ $car->class }}</td>
+                                <td>{{ $car->baggage }}</td>
+                                <td>{{ $car->isActive }}</td>
+                                <!-- <td style="font-size: 20px;">
+                                    <a href="" id="{{ $car->id }}" class="call-view-car" data-toggle="modal" data-target="#myModal">
                                         <i class="fa fa-eye"></i>
                                     </a>
+                                </td> -->
+                                <td style="font-size: 20px;">
+                                    <a href="{{ url('/car/' . $car->id . '/edit') }}" id="{{ $car->id }}" ><i class="fa fa-pencil-square-o"></i></a>
                                 </td>
                                 <td style="font-size: 20px;">
-                                    <a href="{{ url('/transfer/' . $transfer->id . '/edit') }}" id="{{ $transfer->id }}" ><i class="fa fa-pencil-square-o"></i></a>
-                                </td>
-                                <td style="font-size: 20px;">
-                                    {!! Form::open(['url' => '/transfer/'. $transfer->id, 'method' => 'POST']) !!}
+                                    {!! Form::open(['url' => '/car/'. $car->id, 'method' => 'POST']) !!}
                                         {{ method_field('DELETE') }}
                                         <button type="submit" class="naked-button"> <i class="fa fa-trash-o"></i></a>
                                     {!! Form::close() !!}
@@ -56,7 +62,7 @@
                         </tbody>
                     </table>
                 </div>
-                {{ $transfers->links() }}
+                {{ $cars->links() }}
             </div>
         </div>
     </div>

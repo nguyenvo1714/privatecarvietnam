@@ -36,6 +36,7 @@
         {!! Html::script('js/menu-addon.js') !!}
         {!! Html::script('js/jquery-ui.min.js') !!}
         {!! Html::script('js/script.js') !!}
+        {!! Html::script('js/blog.custome.js') !!}
         <style type="text/css">
             @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700|Montserrat:400,700|Open+Sans+Condensed:300,700|PT+Sans:400,400i,700|PT+Serif:400,400i,700|Satisfy');
         </style>
@@ -181,7 +182,7 @@
                                     <ul>
                                         @foreach($transferNames as $transferName)
                                             @if($transferName->type_id == 4)
-                                                <li><a href="{{ url('/private-transfer/' . $transferName->name . '/' . $transferName->type_id . '/' . $transferName->id) }}">{{ $transferName->name }}</a></li>
+                                                <li><a href="{{ url('/private-transfer/view/' . $transferName->name . '/' . $transferName->type_id . '/' . $transferName->id) }}">{{ $transferName->name }}</a></li>
                                             @endif
                                         @endforeach
                                     </ul>
@@ -190,7 +191,7 @@
                                     <ul>
                                         @foreach($transferNames as $transferName)
                                             @if($transferName->type_id == 3)
-                                                <li><a href="{{ url('/private-transfer/' . $transferName->name . '/' . $transferName->type_id . '/' . $transferName->id) }}">{{ $transferName->name }}</a></li>
+                                                <li><a href="{{ url('/airport-transfer/view/' . $transferName->name . '/' . $transferName->type_id . '/' . $transferName->id) }}">{{ $transferName->name }}</a></li>
                                             @endif
                                         @endforeach
                                     </ul>

@@ -2564,6 +2564,12 @@ p.from-to {
 .private-thumbnail.relate img:hover {
 	opacity: 0.7;
 }
-.relate-transfer {
-	margin-top: 15px;
+.relative-transfer {
+	margin-top: 25px;
+}
+.rate {
+	margin-top: 25px;
+}
+.transfer-blog img {
+	display: inline;
 }

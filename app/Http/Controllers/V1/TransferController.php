@@ -140,6 +140,7 @@ class TransferController extends Controller
      * View detail the specified resource.
      *
      * @param  string  $name
+     * @param  string  $transferName_id
      * @param  string  $title
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -153,6 +154,34 @@ class TransferController extends Controller
         $transfer = Transfer::find($id);
         $relates = Transfer::where('transferName_id', $transferName_id)->where('id', '<>', $id)->orderBy('id', 'desc')->limit(3)->get();
         return view('/sites.transfers.detailTransfer', [
+            'blogs' => $blogs,
+            'transferNames' => $transferNames,
+            'places' => $places,
+            'interestTransfers' => $interestTransfers,
+            'transfer' => $transfer,
+            'name' => $name,
+            'relates' => $relates
+        ]);
+    }
+
+    /**
+     * View detail the specified resource.
+     *
+     * @param  string  $name
+     * @param  string  $transferName_id
+     * @param  string  $title
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function detailAirportTransfer($name, $transferName_id, $title, $id)
+    {
+        $blogs = Blog::limit(4)->get();
+        $transferNames = TransferName::get();
+        $places = Place::get();
+        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
+        $transfer = Transfer::find($id);
+        $relates = Transfer::where('transferName_id', $transferName_id)->where('id', '<>', $id)->orderBy('id', 'desc')->limit(3)->get();
+        return view('/sites.transfers.detailAirportTransfer', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'places' => $places,

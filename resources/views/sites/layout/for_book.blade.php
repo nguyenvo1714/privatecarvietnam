@@ -26,19 +26,15 @@
         {!! Html::style('css/slick.css') !!}
         {!! Html::style('css/slick-theme.css') !!}
         {!! Html::style('css/jquery-ui.min.css') !!}
-        {!! Html::style('css/jquery-ui.theme.min.css') !!}
         {!! Html::style('css/style.css') !!}
         <!-- Scripts -->
         {!! Html::script('js/app.js') !!}
-        {!! Html::script('js/jquery-ui.min.js') !!}
         {!! Html::script('js/underscore-min.js') !!}
         {!! Html::script('js/backbone-min.js') !!}
         {!! Html::script('js/backbone.localStorage-min.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
         {!! Html::script('js/menu-addon.js') !!}
         {!! Html::script('js/jquery-ui.min.js') !!}
-        {!! Html::script('js/jquery.validate.min.js') !!}
-        {!! Html::script('js/custom.validate.js') !!}
         {!! Html::script('js/script.js') !!}
         {!! Html::script('js/blog.custome.js') !!}
         <style type="text/css">
@@ -83,53 +79,10 @@
 
         </script>
         <script type="text/javascript">
-            var transferNames = {!! json_encode($transferNames) !!};
-            var pick_up = [];
-            var places = {!! json_encode($places) !!};
-            var drop_off = [];
-            $.each(transferNames, function(key, value) {
-                $.each(value, function(key1, value1) {
-                    if(key1 == 'name') {
-                        pick_up.push(value1);
-                    }
-                });
-            });
-            $.each(places, function(key, value) {
-                $.each(value, function(key1, value1) {
-                    if(key1 == 'name') {
-                        drop_off.push(value1);
-                    }
-                });
-            });
-            $(function() {
-                $('#pick-up').autocomplete({
-                    source: pick_up,
-                });
-
-                $('#drop-off').autocomplete({
-                    source: drop_off,
-                });
-            });
-        </script>
-        <script type="text/javascript">
-            $(function() {
-                $('#departureDate').datepicker({
-                    dateFormat: "yy-mm-dd"
-                });
-            })
-        </script>
-        <script type="text/javascript">
-            var price = '{{ !empty($confirms["price"]) ? $confirms["price"] : '' }}';
             $(function() {
                 var action = '{{ $action }}';
                 if(action == 'bookForm') {
                     $('.1').addClass('active');
-                }
-                if(action == 'confirmation') {
-                    $('.1').children().find('span').html('<i class="fa fa-check"></i>');
-                    $('.1').removeClass('active');
-                    $('.1').addClass('completed');
-                    $('.2').addClass('active');
                 }
             })
         </script>
@@ -271,8 +224,8 @@
                     <i class="fa fa-arrow-up" aria-hidden="true"></i>
                 </a>
             </div>
-            <div class="container-fluid clearfix submargin app">
-                <form class="search-form col-md-12 form-inline">
+            <!-- <div class="container clearfix submargin app">
+                <form class="search-form col-md-10 col-md-offset-1 form-inline">
                     <div class="form-group col-md-4 col-xs-12">
                         <label class="control-label" for="pick-up">
                             Pick-up
@@ -303,7 +256,7 @@
                         </button>
                     </div>
                 </form>
-            </div>
+            </div> -->
             @yield('content')    
         </div>
     </body>

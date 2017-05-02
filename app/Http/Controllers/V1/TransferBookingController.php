@@ -8,6 +8,7 @@ use TransferBooking;
 use App\Place;
 use App\Blog;
 use App\TransferName;
+use App\Transfer;
 
 class TransferBookingController extends Controller
 {
@@ -27,9 +28,43 @@ class TransferBookingController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function bookForm($name, $id)
+    public function bookForm(Request $request, $id)
     {
-        
+        $transferNames = TransferName::get();
+        $places = Place::get();
+        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $transfer = Transfer::find($id);
+        return view('/sites.transferBookings.bookForm', [
+            'transfer' =>  $transfer,
+            'blogs' => $blogs,
+            'transferNames' => $transferNames,
+            'places' => $places,
+            'confirms' => $request->all(),
+            // 'class' => $request->class,
+            // 'price' => $request->price,
+            // 'name' => $name
+        ]);
+    }
+
+    /**
+     * Show the confirmed information.
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function confirmation(Request $request, $id)
+    {
+        $transferNames = TransferName::get();
+        $places = Place::get();
+        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $transfer = Transfer::find($id);
+        return view('/sites.transferBookings.confirmation', [
+            'transfer' =>  $transfer,
+            'blogs' => $blogs,
+            'transferNames' => $transferNames,
+            'places' => $places,
+            'register' => $request->all(),
+            // 'price' => $request->price,
+        ]);
     }
 
     /**

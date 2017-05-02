@@ -28,7 +28,7 @@
 							</div>
 							<div class="col-md-4 col-sm-4 col-xs-4 car-price">
 								<p>{{ $car->price }} VNĐ</p>
-								{!! Form::open(['url' => '/' . $name . '/book-transfer/' . $transfer->id, 'method' => 'POST']) !!}
+								{!! Form::open(['url' => '/book-transfer/' . $transfer->id, 'method' => 'POST']) !!}
 									<input type="hidden" name="price" value="{{ $car->price }}">
 									<input type="submit" value="Book Transfer">
 								{!! Form::close() !!}

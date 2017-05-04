@@ -16,11 +16,11 @@
 				            <div class="private-thumbnail">
 				            	{{ Html::image('/storage/' . $airportTransfer->thumb) }}
 				            	<div class="position">
-									<div class="label-detail"><a href="{{ url('/airport-transfer/view/' . $airportTransfer->name . '/' . $airportTransfer->type_id . '/' . $airportTransfer->id) }}">Learn more</a></div>
+									<div class="label-detail"><a href="{{ url('/airport-transfer/view/' . $airportTransfer->slug . '/' . $airportTransfer->id) }}">Learn more</a></div>
 				            	</div>
 				            </div>
 				            <h5>
-								<a href="{{ url('/airport-transfer/view/' . $airportTransfer->name . '/' . $airportTransfer->type_id . '/' . $airportTransfer->id) }}">{{ $airportTransfer->name }}</a>
+								<a href="{{ url('/airport-transfer/view/' . $airportTransfer->slug . '/' . $airportTransfer->id) }}">{{ $airportTransfer->name }}</a>
 				            </h5>
 				            <p>{{ substr($airportTransfer->description, 0, 100) . '...' }}</p>
 				        </div>

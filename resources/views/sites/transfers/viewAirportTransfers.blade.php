@@ -4,7 +4,7 @@
 		<div class="container">
 	    	<div class="row">
 	        	<div class="col-sm-12">
-					<h2>{{ $name }}</h2>
+					<h2>{{ str_replace('-', ' ', $name) }}</h2>
 	            </div>
 	        </div>
 	    </div>

@@ -94,20 +94,20 @@ class TransferController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function viewTransfer($name, $type_id, $transferName_id)
+    public function viewTransfer($slug, $transferName_id)
     {
         $blogs = Blog::limit(4)->get();
         $transferNames = TransferName::get();
         $places = Place::get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
-        $transfers = Transfer::where('type_id', $type_id)->where('transferName_id', $transferName_id)->paginate(12);
+        $transfers = Transfer::where('transferName_id', $transferName_id)->paginate(12);
         return view('/sites.transfers.viewTransfers', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'places' => $places,
             'interestTransfers' => $interestTransfers,
             'transfers' => $transfers,
-            'name' => $name
+            'name' => $slug
         ]);
     }
 
@@ -119,20 +119,20 @@ class TransferController extends Controller
      * @param  int $id,
      * @return \Illuminate\Http\Response
      */
-    public function viewAirportTransfer($name, $type_id, $transferName_id)
+    public function viewAirportTransfer($slug, $transferName_id)
     {
         $blogs = Blog::limit(4)->get();
         $transferNames = TransferName::get();
         $places = Place::get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
-        $transfers = Transfer::where('type_id', $type_id)->where('transferName_id', $transferName_id)->paginate(12);
+        $transfers = Transfer::where('transferName_id', $transferName_id)->paginate(12);
         return view('/sites.transfers.viewAirportTransfers', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'places' => $places,
             'interestTransfers' => $interestTransfers,
             'transfers' => $transfers,
-            'name' => $name
+            'name' => $slug
         ]);
     }
 

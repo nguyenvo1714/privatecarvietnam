@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Transfer extends Model
 {
     use Sluggable;
+    use SluggableScopeHelpers;
 
     protected $table = 'transfers';
     // protected $connection = 'touringservice';

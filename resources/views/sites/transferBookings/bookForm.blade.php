@@ -23,10 +23,11 @@
 								</h5>
 								<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
 							</div>
-							{!! Form::open(['url' => '/book-transfer/confirmation/' . $transfer->id, 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'bookForm']) !!}
+							{!! Form::open(['url' => '/book-transfer/confirmation', 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'bookForm']) !!}
 							<div class="block-form">
 									<input type="hidden" name="trip" value="{{ $transfer->transferName->where('transferNames.id', $transfer->transferName_id)->first()->name }} - {{ $transfer->place->where('places.id', $transfer->place_id)->first()->name }}">
 									<input type="hidden" name="duration" value="{{ $transfer->duration }}">
+									<!-- <input type="hidden" name="id" value="{{ $transfer->id }}"> -->
 									<fieldset>
 								        <h3 class="fieldset-title">Vehicle</h3>
 								        <div class="form-group">

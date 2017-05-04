@@ -145,21 +145,21 @@ class TransferController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function detailTransfer($name, $transferName_id, $title, $id)
+    public function detailTransfer($slug)
     {
         $blogs = Blog::limit(4)->get();
         $transferNames = TransferName::get();
         $places = Place::get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
-        $transfer = Transfer::find($id);
-        $relates = Transfer::where('transferName_id', $transferName_id)->where('id', '<>', $id)->orderBy('id', 'desc')->limit(3)->get();
+        $transfer = Transfer::findBySlug($slug);
+        $relates = Transfer::where('slug', '<>', $slug)->orderBy('id', 'desc')->limit(3)->get();
         return view('/sites.transfers.detailTransfer', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'places' => $places,
             'interestTransfers' => $interestTransfers,
             'transfer' => $transfer,
-            'name' => $name,
+            'name' => $slug,
             'relates' => $relates
         ]);
     }
@@ -173,21 +173,21 @@ class TransferController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function detailAirportTransfer($name, $transferName_id, $title, $id)
+    public function detailAirportTransfer($slug)
     {
         $blogs = Blog::limit(4)->get();
         $transferNames = TransferName::get();
         $places = Place::get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
-        $transfer = Transfer::find($id);
-        $relates = Transfer::where('transferName_id', $transferName_id)->where('id', '<>', $id)->orderBy('id', 'desc')->limit(3)->get();
+        $transfer = Transfer::findBySlug($slug);
+        $relates = Transfer::where('slug', '<>', $slug)->orderBy('id', 'desc')->limit(3)->get();
         return view('/sites.transfers.detailAirportTransfer', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'places' => $places,
             'interestTransfers' => $interestTransfers,
             'transfer' => $transfer,
-            'name' => $name,
+            'name' => $slug,
             'relates' => $relates
         ]);
     }

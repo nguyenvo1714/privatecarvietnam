@@ -184,7 +184,7 @@
             </div>
         </div>
     </div>
-    {!! Form::open(['url' =>  '/book-transfer/' . $transfer->id, 'method' => 'POST', 'id' => 'back_to_register']) !!}
+    {!! Form::open(['url' =>  '/book-transfer/' . $transfer->slug, 'method' => 'POST', 'id' => 'back_to_register']) !!}
     	<input type="hidden" name="class" value="{{ $register['class'] }}">
     	<input type="hidden" name="price" value="{{ $register['price'] }}">
     	<input type="hidden" name="passenger" value="{{ $register['passenger'] }}">

@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class TransferName extends Model
 {
     use Sluggable;
+    use SluggableScopeHelpers;
+
    	protected $table = 'TransferNames';
    	protected $fillable = [
         'name',

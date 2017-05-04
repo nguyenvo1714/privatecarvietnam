@@ -28,12 +28,12 @@ class TransferBookingController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function bookForm(Request $request, $id)
+    public function bookForm(Request $request, $slug)
     {
         $transferNames = TransferName::get();
         $places = Place::get();
         $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
-        $transfer = Transfer::find($id);
+        $transfer = Transfer::findBySlug($slug);
         return view('/sites.transferBookings.bookForm', [
             'transfer' =>  $transfer,
             'blogs' => $blogs,
@@ -51,12 +51,12 @@ class TransferBookingController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function confirmation(Request $request, $id)
+    public function confirmation(Request $request)
     {
         $transferNames = TransferName::get();
         $places = Place::get();
         $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
-        $transfer = Transfer::find($id);
+        $transfer = Transfer::find($request->id);
         return view('/sites.transferBookings.confirmation', [
             'transfer' =>  $transfer,
             'blogs' => $blogs,

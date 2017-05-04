@@ -542,7 +542,7 @@ ul.hs-error-msgs li label {
 
 .top-menu ul a {
     padding: 10px;
-    width: 160px;
+    width: 193px;
     _height: 10px; /*IE6 only*/
     display: block;
     white-space: nowrap;
@@ -2564,7 +2564,7 @@ p.from-to {
 .private-thumbnail.relate img {
 	height: 160px;
 }
-.private-thumbnail.relate img:hover {
+.private-thumbnail.relate img:hover, .media-left img:hover {
 	opacity: 0.7;
 }
 .relative-transfer {

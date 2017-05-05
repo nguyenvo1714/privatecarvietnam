@@ -34,6 +34,23 @@ class TransferController extends Controller
     }
 
     /**
+     * Display contact form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function contact()
+    {
+        $blogs = Blog::limit(4)->get();
+        $transferNames = TransferName::get();
+        $places = Place::get();
+        return view('/sites.transfers.contact', [
+            'blogs' => $blogs,
+            'transferNames' => $transferNames,
+            'places' => $places
+        ]);
+    }
+
+    /**
      * Show the record of private transfer.
      *
      * @return \Illuminate\Http\Response

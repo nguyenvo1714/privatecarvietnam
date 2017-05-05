@@ -4,14 +4,26 @@ $(function() {
 			email: true
 		},
 		messages: {
-			passenger: "Please enter the number of passenger",
-			pickupAddress: "Please enter a pick-up address",
+			passenger: "Please input the number of passenger",
+			pickupAddress: "Please input a pick-up address",
 			// departureDate: "",
-			departureTime: "Please enter departure date and time",
-			dropoffAddress: "Please enter a drop-off address",
+			departureTime: "Please input departure date and time",
+			dropoffAddress: "Please input a drop-off address",
 			// name: "",
-			surname: "Please enter name and surname",
-			email: "Please enter a valid email"
+			surname: "Please input name and surname",
+			email: "Please input a valid email"
+		}
+	});
+
+	$('#contactForm').validate({
+		rules: {
+			email: true
+		},
+		messages: {
+			name: "Please input your name",
+			email: "Please input your email",
+			subject: "Please input subject",
+			message: "Please input the content"
 		}
 	});
 });

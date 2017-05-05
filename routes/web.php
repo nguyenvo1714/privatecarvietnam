@@ -28,7 +28,9 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::get('/airport-transfer/view/{slug}/{transferName_id}', 'TransferController@viewAirportTransfer');
 	Route::get('/airport-transfer/package/{slug}', 'TransferController@detailAirportTransfer');
 	Route::post('/book-transfer/{slug}', 'TransferBookingController@bookForm');
-	Route::post('/book-transfer/confirmation/', 'TransferBookingController@confirmation');
+	Route::post('/book-transfer/confirmation', 'TransferBookingController@confirmation');
+	Route::get('/blog', 'BlogController@index');
+	Route::get('/contact', 'TransferController@contact');
 });
 
 Route::get('/admin', 'TransferController@index');

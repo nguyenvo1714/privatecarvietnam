@@ -222,8 +222,8 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="3">Blog</a></li>
-                                <li><a href="3">Contact us</a></li>
+                                <li><a href="{{ url('/blog') }}">Blog</a></li>
+                                <li><a href="{{ url('/contact') }}">Contact us</a></li>
                             </ul>
                             <!-- <ul id="menu-left nav navbar-nav" class="list-inline">
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1113">

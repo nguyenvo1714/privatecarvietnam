@@ -458,3 +458,10 @@ tbody td p {
     background-color: #777;
     border-radius: 10px;
 }
+.error {
+    color: red;
+    padding-top: 10px;
+}
+.form-control.error {
+    border-color: red;
+}

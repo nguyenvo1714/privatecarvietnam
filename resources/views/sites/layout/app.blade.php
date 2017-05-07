@@ -21,23 +21,22 @@
         {!! Html::style('css/app.css') !!}
         {!! Html::style('css/font-awesome.min.css') !!}
         {!! Html::style('css/fileinput.min.css') !!}
-        {!! Html::style('js/validator/fv.css') !!}
         {!! Html::style('css/wp-customer-reviews-generated.css') !!}
         {!! Html::style('css/slick.css') !!}
         {!! Html::style('css/slick-theme.css') !!}
         {!! Html::style('css/jquery-ui.min.css') !!}
         {!! Html::style('css/jquery-ui.theme.min.css') !!}
+        {!! Html::style('css/bootstrap-formhelpers.min.css') !!}
         {!! Html::style('css/style.css') !!}
         <!-- Scripts -->
         {!! Html::script('js/app.js') !!}
+        {!! Html::script('js/bootstrap-formhelpers.min.js') !!}
         {!! Html::script('js/jquery-ui.min.js') !!}
-        {!! Html::script('js/underscore-min.js') !!}
-        {!! Html::script('js/backbone-min.js') !!}
-        {!! Html::script('js/backbone.localStorage-min.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
         {!! Html::script('js/menu-addon.js') !!}
         {!! Html::script('js/jquery-ui.min.js') !!}
         {!! Html::script('js/jquery.validate.min.js') !!}
+        {!! Html::script('js/additional-methods.min.js') !!}
         {!! Html::script('js/custom.validate.js') !!}
         {!! Html::script('js/script.js') !!}
         {!! Html::script('js/blog.custome.js') !!}
@@ -119,7 +118,8 @@
             })
         </script>
         <script type="text/javascript">
-            var price = '{{ !empty($confirms["price"]) ? $confirms["price"] : '' }}';
+            var price = '{{ ! empty($car->price) ? $car->price : "" }}';
+            // var host = '{{ URL::to("/") }}';
             $(function() {
                 var action = '{{ $action }}';
                 if(action == 'bookForm') {
@@ -199,73 +199,29 @@
                     </ul>
                 </div> -->
                 <div class="desktop-menu" data-spy="affix" data-offset-top="197">
-                    <!-- <div class="clearfix"> -->
-                        <!-- <a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a> -->
-                        <div class="">
-                            <ul class="top-menu">
-                                <li><a href="{{ url('/') }}">Home</a></li>
-                                <li><a href="{{ url('/private-transfer') }}">Private Transfer <span class="caret"></span></a>
-                                    <ul>
-                                        @foreach($transferNames as $transferName)
-                                            @if($transferName->type_id == 4)
-                                                <li><a href="{{ url('/private-transfer/view/' . $transferName->slug . '/' . $transferName->id) }}">{{ $transferName->name }}</a></li>
-                                            @endif
-                                        @endforeach
-                                    </ul>
-                                </li>
-                                <li><a href="{{ url('/airport-transfer') }}">Airport Transfer <span class="caret"></span></a>
-                                    <ul>
-                                        @foreach($transferNames as $transferName)
-                                            @if($transferName->type_id == 3)
-                                                <li><a href="{{ url('/airport-transfer/view/' . $transferName->slug . '/' . $transferName->id) }}">{{ $transferName->name }}</a></li>
-                                            @endif
-                                        @endforeach
-                                    </ul>
-                                </li>
-                                <li><a href="{{ url('/blog') }}">Blog</a></li>
-                                <li><a href="{{ url('/contact') }}">Contact us</a></li>
+                    <ul class="top-menu">
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/private-transfer') }}">Private Transfer <span class="caret"></span></a>
+                            <ul>
+                                @foreach($transferNames as $transferName)
+                                    @if($transferName->type_id == 4)
+                                        <li><a href="{{ url('/private-transfer/view/' . $transferName->slug) }}">{{ $transferName->name }}</a></li>
+                                    @endif
+                                @endforeach
                             </ul>
-                            <!-- <ul id="menu-left nav navbar-nav" class="list-inline">
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1113">
-                                    <a href="http://privatecarvietnam.com/">Home</a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="http://luxurysimplifiedretreats.com/charleston/" class="dropdown-toggle" data-toggle="dropdown">PrivateTransfer</a>
-                                </li>
-                                <li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
-                                    <a href="http://luxurysimplifiedretreats.com/about/">AirPortTransfer</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">PhuBai Transfer</a></li>
-                                        <li><a href="#">DaNang Transfer</a></li>
-                                        <li><a href="#">ChuLai Transfer</a></li>
-                                    </ul>
-                                </li>
-                                <li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
-                                    <a href="http://luxurysimplifiedretreats.com/about/">Blog</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
-                                    <a href="http://luxurysimplifiedretreats.com/about/">Contact us</a>
-                                </li>
-                            </ul> -->               <!--<ul class="list-inline">
-                                <li><a href="?pagina=properties">View Rentals</a></li>
-                                <li><a href="?pagina=charleston">Charleston</a></li>
-                                <li><a href="?pagina=about">About</a></li>
-                            </ul> -->
-                        </div>
-                        <!-- <div class="nav-right">
-                            <ul id="menu-right" class="list-inline">
-                                <li id="menu-item-29" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29">
-                                    <a href="http://luxurysimplifiedretreats.com/list-your-property/">List Your Property</a>
-                                </li>
-                                <li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30">
-                                    <a target="_blank" href="http://blog.luxurysimplifiedretreats.com/">Blog</a>
-                                </li>
-                                <li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28">
-                                    <a href="http://luxurysimplifiedretreats.com/contact/">Contact</a>
-                                </li>
+                        </li>
+                        <li><a href="{{ url('/airport-transfer') }}">Airport Transfer <span class="caret"></span></a>
+                            <ul>
+                                @foreach($transferNames as $transferName)
+                                    @if($transferName->type_id == 3)
+                                        <li><a href="{{ url('/airport-transfer/view/' . $transferName->slug) }}">{{ $transferName->name }}</a></li>
+                                    @endif
+                                @endforeach
                             </ul>
-                        </div> -->
-                    <!-- </div> -->
+                        </li>
+                        <li><a href="{{ url('/blog') }}">Blog</a></li>
+                        <li><a href="{{ url('/contact') }}">Contact us</a></li>
+                    </ul>
                 </div>
                 <a href="#" class="back-to-top" style="display: none;">
                     <i class="fa fa-arrow-up" aria-hidden="true"></i>

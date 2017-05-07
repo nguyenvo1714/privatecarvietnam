@@ -13,7 +13,7 @@
 				<div class="row">
 					<div class="col-md-12 transfer-header">
 						<h3>{{ $transfer->title }}</h3>
-						<p class="from-to unset-height">{{ $transfer->transferName->where('transferNames.id', $transfer->transferName_id)->first()->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->where('places.id', $transfer->place_id)->first()->name }}</p>
+						<p class="from-to unset-height">{{ $transfer->transferName->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->name }}</p>
 						<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
 					</div>
 					@foreach($transfer->cars as $car)
@@ -28,9 +28,9 @@
 							</div>
 							<div class="col-md-4 col-sm-4 col-xs-4 car-price">
 								<p>{{ $car->price }} VNĐ</p>
-								{!! Form::open(['url' => '/book-transfer/' . $transfer->slug, 'method' => 'POST']) !!}
-									<input type="hidden" name="price" value="{{ $car->price }}">
-									<input type="hidden" name="class" value="{{ $car->class }}">
+								{!! Form::open(['url' => '/book-transfer/' . $transfer->slug . '/' . $car->class, 'method' => 'GET']) !!}
+									<!-- <input type="hidden" name="price" value="{{ $car->price }}">
+									<input type="hidden" name="class" value="{{ $car->class }}"> -->
 									<input type="submit" value="Book Transfer">
 								{!! Form::close() !!}
 							</div>

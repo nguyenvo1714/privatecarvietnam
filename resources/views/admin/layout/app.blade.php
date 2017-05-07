@@ -19,13 +19,13 @@
         {!! Html::style('css/jquery-ui.min.css') !!}
         {!! Html::style('css/jquery-ui.theme.min.css') !!}
         {!! Html::style('css/fileinput.min.css') !!}
-        {!! Html::style('js/validator/fv.css') !!}
         <!-- Scripts -->
         {!! Html::script('js/app.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
-        {!! Html::script('js/validator/validator.js') !!}
         {!! Html::script('js/custome.js') !!}
         {!! Html::script('js/jquery-ui.min.js') !!}
+        {!! Html::script('js/jquery.validate.min.js') !!}
+        {!! Html::script('js/custom.validate.js') !!}
         <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
         <script src="/vendor/laravel-filemanager/js/lfm.js"></script>
         <script>
@@ -93,12 +93,17 @@
                     // @if(isset($car->isActive))
                     //     selected_active = '{{ $car->isActive }}'
                     // @endif
-                    break;
+                break;
                 case('TransferNameController'):
                     @if(!empty($transferName->type_id))
                         selected_type = '{{ $transferName->type_id }}'
                     @endif
-                    break;
+                break;
+                case('BlogController'):
+                    @if(!empty($blog->type_id))
+                        selected_type = '{{ $blog->type_id }}'
+                    @endif
+                break;
             }
             @if(!empty($tour->type_id))
                 selected_type = '{{ $tour->type_id->id }}'
@@ -232,7 +237,7 @@
                                                 <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
                                             </ul>
                                         </li>
-                                        @if($controller == 'CarController')
+                                        <!-- @if($controller == 'CarController')
                                             @php ($active = 'active') @php ($in = 'in')
                                         @else
                                             @php ($active = '') @php ($in = '')
@@ -252,17 +257,17 @@
                                                     @php ($currentPage = '')
                                                 @endif
                                                 <li id="list2" class="{{ $currentPage }}"><a href="{{ url('/car/create') }}"> New car</a></li>
-                                                <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
+                                                <li id="list3" class="{{ $currentPage }}""><a href="#">Delete</a></li>
                                             </ul>
-                                        </li>
+                                        </li> -->
                                         @if($controller == 'DriverController')
                                             @php ($active = 'active') @php ($in = 'in')
                                         @else
                                             @php ($active = '') @php ($in = '')
                                         @endif
                                         <li class="parent {{ $active }}">
-                                            <a data-toggle="collapse" href="#collapse8" class="{{ $active }}"><i class="fa fa-car"></i> Driver<i class="fa fa-angle-down pull-right"></i></a>
-                                            <ul class="nav-child collapse {{ $in }}" id="collapse8">
+                                            <a data-toggle="collapse" href="#collapse9" class="{{ $active }}"><i class="fa fa-car"></i> Driver<i class="fa fa-angle-down pull-right"></i></a>
+                                            <ul class="nav-child collapse {{ $in }}" id="collapse9">
                                                 @if($action == 'index')
                                                     @php ($currentPage = 'current-page')
                                                 @else
@@ -324,7 +329,7 @@
                                                 <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
                                             </ul>
                                         </li>
-                                        @if($controller == 'TourController')
+                                        <!-- @if($controller == 'TourController')
                                             @php ($active = 'active') @php ($in = 'in')
                                         @else
                                             @php ($active = '') @php ($in = '')
@@ -344,9 +349,9 @@
                                                     @php ($currentPage = '')
                                                 @endif
                                                 <li id="list2" class="{{ $currentPage }}"><a href="{{ url('/tour/create') }}"><i class="fa fa-plus"></i> New tour</a></li>
-                                                <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
+                                                <li id="list3" class="{{ $currentPage }}""><a href="#">Delete</a></li>
                                             </ul>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </div>

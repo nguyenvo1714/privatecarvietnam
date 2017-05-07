@@ -2720,11 +2720,38 @@ textarea.unset-height {
 #departureDate-error {
 	display: none !important;
 }
-#name-error {
+fieldset #name-error {
 	display: none !important;
 }
 #bookForm label {
 	display: inline-block;
+}
+.spec {
+	width: 100%;
+	padding: unset;
+	height: unset;
+}
+.spec input[type="text"]:focus {
+	border-color: #B6D5F7 #B6D5F7 #B6D5F7 #B6D5F7;
+    outline: none;
+    -moz-box-shadow: 0 0 10px #B6D5F7;
+    -webkit-box-shadow: 0 0 10px #B6D5F7;
+    box-shadow: 0 0 10px #B6D5F7;
+}
+.spec .bfh-countries {
+	width: 30%;
+	border: unset;
+	/*float: left;*/
+	outline: none;
+}
+.spec .bfh-phone {
+	width: 69.2%;
+	border: unset;
+	border-radius: 4px;
+	outline: none;
+	font-size: unset;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .required {
 	color: red;
@@ -2811,4 +2838,8 @@ span.pin-right {
 }
 .summary-contact p {
 	margin-bottom: unset;
+}
+.striped {
+	background-color: #f9f9f9;
+	font-size: 1.3em;
 }

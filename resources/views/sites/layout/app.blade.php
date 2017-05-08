@@ -228,7 +228,7 @@
                 </a>
             </div>
             <div class="container-fluid clearfix submargin app">
-                <form class="search-form col-md-12 form-inline">
+                {!! Form::open(['url' => '/find-transfer', 'method' => 'POST', 'class' => 'search-form col-md-10 col-md-offset-1 form-inline', 'id' => 'searchForm']) !!}
                     <div class="form-group col-md-4 col-xs-12">
                         <label class="control-label" for="pick-up">
                             Pick-up
@@ -256,7 +256,7 @@
                             <span class="glyphicon glyphicon-search"></span>Find transfer
                         </button>
                     </div>
-                </form>
+                {!! Form::close() !!}
             </div>
             @yield('content')    
         </div>

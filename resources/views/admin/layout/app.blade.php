@@ -22,10 +22,11 @@
         <!-- Scripts -->
         {!! Html::script('js/app.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
-        {!! Html::script('js/custome.js') !!}
+        <!-- {!! Html::script('js/custome.js') !!} -->
         {!! Html::script('js/jquery-ui.min.js') !!}
         {!! Html::script('js/jquery.validate.min.js') !!}
         {!! Html::script('js/custom.validate.js') !!}
+        {!! Html::script('js/adminScript.js') !!}
         <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
         <script src="/vendor/laravel-filemanager/js/lfm.js"></script>
         <script>
@@ -66,49 +67,45 @@
 
             switch(control) {
                 case('TransferController'):
-                    @if(!empty($transfer->type_id))
-                        selected_type = '{{ $transfer->type_id }}'
+                    @if( ! empty($transfer->type_id))
+                        selected_type = '{{ $transfer->type_id }}';
                     @endif
 
-                    @if(!empty($transfer->place_id))
+                    @if( ! empty($transfer->place_id))
                         selected_place = '{{ $transfer->place_id }}'
                     @endif
 
-                    @if(!empty($transfer->blog_id))
+                    @if( ! empty($transfer->blog_id))
                         selected_blog = '{{ $transfer->blog_id }}'
                     @endif
 
-                    @if(!empty($transfer->transferName_id))
+                    @if( ! empty($transfer->transferName_id))
                         selected_transfer = '{{ $transfer->transferName_id }}'
                     @endif
                     
-                    @if( !empty($cars) && count($cars) > 0)
+                    @if(  ! empty($cars) && count($cars) > 0)
                         @foreach($cars as $car)
                             selected_driver[i] = '{{ $car->driver_id }}';
                             selected_active[i] = '{{ $car->isActive }}'
                             i++;
                         @endforeach
                     @endif
-
-                    // @if(isset($car->isActive))
-                    //     selected_active = '{{ $car->isActive }}'
-                    // @endif
                 break;
                 case('TransferNameController'):
-                    @if(!empty($transferName->type_id))
+                    @if( ! empty($transferName->type_id))
                         selected_type = '{{ $transferName->type_id }}'
                     @endif
                 break;
                 case('BlogController'):
-                    @if(!empty($blog->type_id))
+                    @if( ! empty($blog->type_id))
                         selected_type = '{{ $blog->type_id }}'
                     @endif
                 break;
             }
-            @if(!empty($tour->type_id))
-                selected_type = '{{ $tour->type_id->id }}'
-            @endif
-            @if(!empty($tour->blog_id->id))
+            // @if( ! empty($tour->type_id))
+            //     selected_type = '{{ $tour->type_id->id }}'
+            // @endif
+            @if( ! empty($tour->blog_id->id))
                 selected_blog = '{{ $tour->blog_id->id }}'
             @endif
 
@@ -116,7 +113,6 @@
                 selected_isDiscount = '{{ $tour->isDiscount }}'
             @endif
         </script>
-        {!! Html::script('js/adminScript.js') !!}
         <script>
             var route_prefix = "{{ url(config('lfm.prefix')) }}";
         </script>

@@ -48,22 +48,22 @@ $(function() {
 
 	$('#complete').on('submit', function(e) {
 		e.preventDefault();
-		var trip =$('#trip').val();
-		var duration = $('#duration').val();
-		var class1 = $('#class').val();
-		var price = $('#price').val();
-		var passenger = $('#passenger').val();
-		var pickupAddress = $('#pickupAddress').val();
-		var departureDate = $('#departureDate').val();
-		var departureTime = $('#departureTime').val();
+		var trip           = $('#trip').val();
+		var duration       = $('#duration').val();
+		var class1         = $('#class').val();
+		var price          = $('#price').val();
+		var passenger      = $('#passenger').val();
+		var pickupAddress  = $('#pickupAddress').val();
+		var departureDate  = $('#departureDate').val();
+		var departureTime  = $('#departureTime').val();
 		var dropoffAddress = $('#dropoffAddress').val();
-		var name = $('#name').val();
-		var surname = $('#surname').val();
-		var email = $('#email').val();
-		var phone = $('#phone').val();
-		var note = $('#note').val();
-		var token = $('input[name="_token"]').attr('value');
-		var host = $(this).prop('action');
+		var name           = $('#name').val();
+		var surname        = $('#surname').val();
+		var email          = $('#email').val();
+		var phone          = $('#phone').val();
+		var note           = $('#note').val();
+		var token          = $('input[name="_token"]').attr('value');
+		var host           = $(this).prop('action');
 		$.ajax({
 			type: "POST",
 			url:  host,
@@ -89,6 +89,33 @@ $(function() {
 				window.location.href = baseUrl;
 			}
 		})
+	});
+
+	$('#searchForm').on('submit', function(e) {
+		e.preventDefault();
+		var pickup  = $('#pick-up').val();
+		var dropoff = $('#drop-off').val();
+		var token   = $('input[name="_token"]').attr('value');
+		var host    = $(this).prop('action');
+		$.ajax({
+			type: 'POST',
+			url: host,
+			data: {
+				_token: token,
+				pickup: pickup,
+				dropoff: dropoff
+			},
+			success: function(data) {
+				if(data.success == true) {
+					console.log(data);
+					console.log(baseUrl);
+					window.location.href = baseUrl + '/' + data.type + '/package/' + data.slug;
+				} else {
+					alert('Transfer not found');
+				}
+			}
+
+		});
 	});
 
 	$(document).ajaxStart(function(){

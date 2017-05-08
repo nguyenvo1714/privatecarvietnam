@@ -31,6 +31,7 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::post('/book-transfer/{slug}/{class}', 'TransferBookingController@bookForm');
 	Route::post('/book-transfer/confirmation', 'TransferBookingController@confirmation');
 	Route::post('/book-transfer/complete', 'TransferBookingController@complete');
+	Route::post('/find-transfer', 'TransferController@findTransfer');
 	Route::get('/blog', 'BlogController@index');
 	Route::get('/contact', 'TransferController@contact');
 });

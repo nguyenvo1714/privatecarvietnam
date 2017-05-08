@@ -214,15 +214,40 @@ class TransferController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Find a resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function findTransfer(Request $request)
     {
-        //
+        if($request->ajax()) {
+            $transferName = TransferName::where('name', ucwords($request->pickup))->first();
+            $place = Place::where('name', ucwords($request->dropoff))->first();
+            $transfer = Transfer::where('transferName_id', $transferName->id)
+                                ->where('place_id', $place->id)->first();
+            if($transfer) {
+                $type = Type::where('id', $transfer->type_id)->first()->slug;
+                $response = [
+                    'success' => true,
+                    'type' => $type,
+                    'slug' => $transfer->slug
+                ];
+                return response()->json($response);
+            } else {
+                $response = [
+                    'success' => false,
+                    'data' => '404 not found'
+                ];
+                return response()->json($response);
+            }
+        } else {
+            $response = [
+                'success' => false,
+                'data' => '404 not found'
+            ];
+            return response()->json($response);
+        }
     }
 
     /**

@@ -74,6 +74,7 @@
 
         </script>
         <script type="text/javascript">
+            var baseUrl = '{{ URL::to("/") }}';
             var transferNames = {!! json_encode($transferNames) !!};
             var pick_up = [];
             var places = {!! json_encode($places) !!};

@@ -14,10 +14,10 @@
                     <h2>Make sure you input (*) required information</h2>
                     <div class="clearfix"></div>
                 </div>
-                <div class="x_content">
+                <div class="x_content"><?php var_dump($transfer->type_id); ?>
                     <br>
                     @include('admin.errors.error')
-                    {!! Form::open(['url' => 'transfer/' . $transfer->id, 'method' => 'PUT', 'class' => 'form-horizontal form-label-left', 'files' => true, 'id' => 'transferForm']) !!}
+                    {!! Form::open(['url' => 'transfer/' . $transfer->id, 'method' => 'POST', 'class' => 'form-horizontal form-label-left', 'files' => true, 'id' => 'transferForm']) !!}
                         <div class="field item form-group">
                             <label class="control-label col-md-2 col-sm-2 col-xs-12" for="type_id">
                                 Type transfer <span class="required">*</span>

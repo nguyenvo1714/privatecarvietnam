@@ -157,6 +157,7 @@
             </div>
         </div>
     </div>
+    <div class="modal"><!-- Place at bottom of page --></div>
     {!! Form::open(['url' =>  '/book-transfer/' . $transfer->slug . '/' . $register['class'], 'method' => 'POST', 'id' => 'back_to_register']) !!}
     	<input type="hidden" name="class" value="{{ $register['class'] }}">
     	<input type="hidden" name="price" value="{{ $register['price'] }}">

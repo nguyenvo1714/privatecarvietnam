@@ -4,6 +4,8 @@ namespace App\Http\Controllers\V1;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ConfirmedEMail;
 use App\TransferBooking;
 use App\Place;
 use App\Blog;
@@ -88,19 +90,33 @@ class TransferBookingController extends Controller
     {
         if($request->ajax()) {
             $transferBooking = new TransferBooking;
-            $result = $transferBooking->create($request->all());
+            $input = $request->all();
+            $result = $transferBooking->create($input);
             if($result) {
+                Mail::to($request->email)
+                ->bcc(env('MAIL_FROM_ADDRESS'))
+                ->send(new ConfirmedEMail($input));
+                if( count(Mail::failures()) > 0 ) {
+                    echo 'check error';die;
+                    foreach ($Mail::failures as $failure) {
+                        echo $failure . '<br>';
+                    } die;
+                } else {
+                    $data = [
+                        'success' => true,
+                        'message' => 'Thanks you for your confirmation, please check your email about transfered booking.' . env('MAIL_FROM_ADDRESS')
+                    ];
+                    return response()->json($data);
+                }
+            } else {
                 $data = [
                     'success' => true,
-                    'message' => 'Thanks you for your confirmation, please check your email about transfered booking.'
+                    'message' => 'An error has occured during process, please try again.'
                 ];
                 return response()->json($data);
-            } else {
-                echo 'aaaaaaaa';
-                echo 'An error has occured during process';die;
             }
         } else {
-            echo 'An error has occured during process';die;
+            echo '404 not found';
         }
     }
 

@@ -1,9 +1,8 @@
+@component('mail::message')
+# Transfer booking informations
+Dear {{ $infors['surname'] }},<br>
+Thanks you for your booking, please confirm below information and let us know if any mismatch:
 
-<h2>Transfer Booking informations</h2>
-<br>
-<em>Dear {{ $infors['surname'] }},</em><br>
-
-<p>Thank you for your booking, please confirm below information and let us know if any mismatch:</p>
 <table class="table table-bordred">
 	<thead>
 		<tr>
@@ -11,7 +10,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="striped">
+		<tr class="striped" style="background-color: #f9f9f9;font-size: 1.3em;">
 			<td colspan="2">Vehicle</td>
 		</tr>
 		<tr>
@@ -22,7 +21,7 @@
 			<td>Vehicle</td>
 			<td>{{ $infors['class'] }}</td>
 		</tr>
-		<tr class="striped">
+		<tr class="striped" style="background-color: #f9f9f9;font-size: 1.3em;">
 			<td colspan="2">Route</td>
 		</tr>
 		<tr>
@@ -37,7 +36,7 @@
 			<td>Departure date and time</td>
 			<td>{{ $infors['departureDate'] . ', ' . $infors['departureTime'] }}</td>
 		</tr>
-		<tr class="striped">
+		<tr class="striped" style="background-color: #f9f9f9;font-size: 1.3em;">
 			<td colspan="2">Contact</td>
 		</tr>
 		<tr>
@@ -56,7 +55,7 @@
 			<td>Note</td>
 			<td>{{ $infors['note'] }}</td>
 		</tr>
-		<tr class="striped">
+		<tr class="striped" style="background-color: #f9f9f9;font-size: 1.3em;">
 			<td colspan="2">Transfer cost</td>
 		</tr>
 		<tr>
@@ -66,3 +65,11 @@
 	</tbody>
 </table>
 
+For more information, please visit out website:
+@component('mail::button', ['url' => 'http://privatecarvietnam.com'])
+Private car VietNam
+@endcomponent
+
+Thanks,<br>
+{{ config('app.name') }}
+@endcomponent

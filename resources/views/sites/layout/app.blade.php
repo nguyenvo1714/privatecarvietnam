@@ -119,7 +119,7 @@
         </script>
         <script type="text/javascript">
             var price = '{{ ! empty($car->price) ? $car->price : "" }}';
-            // var host = '{{ URL::to("/") }}';
+            var baseUrl = '{{ URL::to("/") }}';
             $(function() {
                 var action = '{{ $action }}';
                 if(action == 'bookForm') {
@@ -236,7 +236,6 @@
                         <div class="wrapper-input">
                             <input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pick-up" placeholder="Type airport, city or train station" required="required" type="text">
                         </div>
-                        <div class="alert" style="display: none;">please put something here</div>
                     </div>
                     <div class="form-group col-md-1 col-xs-12">
                         <a href="#" class="swap-locations">
@@ -250,7 +249,6 @@
                         <div class="wrapper-input">
                             <input id="drop-off" class="form-control col-md-7 col-xs-12 drop-off input-text" name="drop-off" placeholder="Type airport, city or train station" required="required" type="text">
                         </div>
-                        <div class="alert" style="display: none;">please put something here</div>
                     </div>
 
                     <div class="form-group col-md-3 col-xs-12">

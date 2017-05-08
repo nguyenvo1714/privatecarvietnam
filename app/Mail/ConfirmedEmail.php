@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendMail extends Mailable
+class ConfirmedEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -29,7 +29,7 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->view('sites.emails.sendmail')
+        return $this->markdown('emails.confirmation')
                     ->with(['infors' => $this->data]);
     }
 }

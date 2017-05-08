@@ -33,12 +33,13 @@ $(function() {
 		parent.history.back();
 		return false;
 	});
+
 	$('#passenger').keyup(function() {
 		cost(price);
 	});
-	$(window).on('load', function() {
-		cost(price);
-	})
+	if (typeof price !== 'undefined') {
+	    cost(price);
+	}
 
 	$('.back_to_register').click(function(e) {
 		e.preventDefault();
@@ -84,11 +85,17 @@ $(function() {
 				note: note
 			},
 			success: function(data) {
-				console.log(data.success);
 				alert(data.message);
+				window.location.href = baseUrl;
 			}
 		})
-	})
+	});
+
+	$(document).ajaxStart(function(){
+	    $('.modal').show();
+	 }).ajaxStop(function(){
+	    $('.modal').hide();
+	 });
 });
 
 function cost(price) {

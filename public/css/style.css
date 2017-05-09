@@ -380,17 +380,17 @@ ul.hs-error-msgs li label {
 /*===========================================================================================================*/
 /*=========================================== TOP ===========================================================*/
 /*===========================================================================================================*/	
-.container-fluid {
+/*.container-fluid {
 	padding-left: 16px;
 	padding-right: 16px;
-}
+}*/
 .logo-head {
-	/*margin-left: 16px; 
-	margin-right: 16px;*/
+	padding-left: 15px;
+	padding-right: 15px;
 	/*height: 100px;*/
 	/*margin-bottom: 10px;*/
 	width: 100%;
-	margin-top: 10px;
+	/*margin-top: 10px;*/
 	background: #b32d45 url(../img/hero-texture.jpg);
 	display: table;
 }
@@ -917,7 +917,7 @@ ul.hs-error-msgs li label {
 	}
 	.top-menu {
         margin: 0; padding: 10px;
-        position: absolute;
+        position: relative;
         /*top: 0px;*/
         width: 100%;
         z-index: 1;
@@ -955,7 +955,7 @@ ul.hs-error-msgs li label {
         display: block;
         float: none;
         border: 0;
-        margin: 5px;
+        margin: 15px;
         box-shadow: none;
     }
 
@@ -1071,11 +1071,11 @@ ul.hs-error-msgs li label {
 	border-radius: 8px;
     padding: 15px 30px 30px 30px;
     position: relative;
-    top: -35px;
+    /*top: -35px;*/
 }
 #app .submargin.app .search-form {
 	top: unset;
-	margin-top: 16px;
+	/*margin-top: 16px;*/
 }
 .search-form .form-group {
 	display: block;
@@ -1504,8 +1504,8 @@ div.wpcr3_review div.wpcr3_review_title {
 /*===========================================================================================================*/
 .default-content {
 	background-color: #fff;
-	margin-left: 16px;
-	margin-right: 16px;
+	/*margin-left: 16px;*/
+	/*margin-right: 16px;*/
     padding-top: 60px;
     padding-bottom: 50px;
 }
@@ -1769,7 +1769,7 @@ div.wpcr3_review div.wpcr3_review_title {
 	background-repeat: no-repeat;
 	background-size: cover;
 	min-height: 354px;
-	margin: 16px 16px 0;
+	/*margin: 16px 16px 0;*/
 	padding-bottom: 30px;
 	text-align: center;
 }
@@ -2228,7 +2228,7 @@ div.wpcr3_review div.wpcr3_review_title {
 /*=========================================== FOOTER ========================================================*/
 /*===========================================================================================================*/
 .footer-wrapper {
-	padding: 0 16px 16px;
+	/*padding: 0 16px 16px;*/
 }
 .footer {
 	padding: 72px 0 10px;
@@ -2311,7 +2311,7 @@ div.wpcr3_review div.wpcr3_review_title {
 }
 @media screen and (max-width: 768px) {
 	.footer-wrapper {
-		padding: 0 16px 16px;
+		/*padding: 0 16px 16px;*/
 	}
 }
 .footer .tripadvisor-wrapper {
@@ -2371,8 +2371,8 @@ h5.tripadvisor-title a {
 		padding: 0 25px;
 	}
 	.default-content {
-		margin-left: 16px;
-		margin-right: 16px;
+		/*margin-left: 16px;*/
+		/*margin-right: 16px;*/
 		padding-top: 40px;
 		padding-bottom: 30px;
 	}
@@ -2861,4 +2861,10 @@ body.loading {
 }
 body.loading .modal {
     display: block;
+}
+/*===========================================================================================================*/
+/*=========================================== CONTACT =======================================================*/
+/*===========================================================================================================*/
+.cont-button {
+	border-radius: 3px;
 }

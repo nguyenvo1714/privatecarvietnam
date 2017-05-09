@@ -23,7 +23,6 @@
 					                            </label>
 					                            <div class="marked">
 					                                <input id="name" class="form-control" name="name" required="required">
-					                                <span class="passenger"><span class="glyphicon glyphicon-user"></span></span>
 					                            </div>
 					                        </div>
 											<div class="form-group col-md-4">
@@ -36,7 +35,7 @@
 					                        </div>
 											<div class="form-group col-md-4">
 					                            <label class="control-label" for="country">
-					                                Your country <span class="required">*</span>
+					                                Your country
 					                            </label>
 					                            <div class="marked">
 					                                <input id="country" class="form-control" name="country">
@@ -94,8 +93,7 @@
 									</div>
 								</section>
 							<div class="button-group">
-	                            <a href="#" class="back"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
-                                <button type="submit" class="cont-button pull-right">Continue</button>
+                                <button type="submit" class="cont-button">Send</button>
 							</div>
 		                    {!! Form::close() !!}
 						</div>

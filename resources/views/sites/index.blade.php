@@ -84,8 +84,8 @@
 	{!! Html::script('js/slick.min.js') !!}
 	{!! Html::script('js/custome.slick.js') !!}
 
-	<div class="container clearfix submargin">
-		{!! Form::open(['url' => '/find-transfer', 'method' => 'POST', 'class' => 'search-form col-md-10 col-md-offset-1 form-inline', 'id' => 'searchForm']) !!}
+	<div class="row clearfix submargin">
+		{!! Form::open(['url' => '/find-transfer', 'method' => 'POST', 'class' => 'search-form col-md-12 col-sm-12 form-inline', 'id' => 'searchForm']) !!}
 			<div class="form-group col-md-4 col-xs-12">
                 <label class="control-label" for="pick-up">
                     Pick-up

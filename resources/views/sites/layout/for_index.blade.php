@@ -107,7 +107,7 @@
           /* Note: Try to remove the following lines to see the effect of CSS positioning */
             .affix {
                 top: 0;
-                width: 97.5%;
+                width: 100%;
             }
             .affix + .container-fluid {
                 padding-top: 70px;
@@ -116,7 +116,7 @@
     </head>
     <body>
         <div id="app">
-            <div class="container-fluid">
+            <div class="row">
                 <div class="logo-head">
                     <div class="logo col-xs-12 col-md-4 col-lg-4">
                         <a class="logo-link" href="#">{{ Html::image('img/logo-vmtravel.png') }}</a>
@@ -201,6 +201,7 @@
             </div>
             @yield('content')    
         </div>
+        <div class="modal"><!-- Place at bottom of page --></div>
     </body>
     <footer class="footer-wrapper">
         <div class="footer">

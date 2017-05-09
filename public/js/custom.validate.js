@@ -32,17 +32,17 @@ $(function() {
 		}
 	});
 
-	$('#contactForm').validate({
-		rules: {
-			email: true
-		},
-		messages: {
-			name: "Please input your name",
-			email: "Please input your email",
-			subject: "Please input subject",
-			message: "Please input the content"
-		}
-	});
+	// $('#contactForm').validate({
+	// 	rules: {
+	// 		email: true
+	// 	},
+	// 	messages: {
+	// 		name: "Please input your name",
+	// 		email: "Please input your email",
+	// 		subject: "Please input subject",
+	// 		message: "Please input the content"
+	// 	}
+	// });
 
 	$('#blogForm').validate({
 		messages: {

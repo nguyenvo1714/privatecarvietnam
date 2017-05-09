@@ -11,10 +11,6 @@ $(function() {
 	    }
 	});
 
-	// $(window).scroll(function () {
-	// 	$('.desktop-menu').attr('data-offset-top', 0);
-	// });
-
 	//Check to see if the window is top if not then display button
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 100) {
@@ -107,8 +103,6 @@ $(function() {
 			},
 			success: function(data) {
 				if(data.success == true) {
-					console.log(data);
-					console.log(baseUrl);
 					window.location.href = baseUrl + '/' + data.type + '/package/' + data.slug;
 				} else {
 					alert('Transfer not found');
@@ -117,6 +111,93 @@ $(function() {
 
 		});
 	});
+
+	$('#contactForm').on('submit', function(e) {
+		e.preventDefault();
+		$(this).validate({
+			rules: {
+				email: true
+			},
+			messages: {
+				name: "Please input your name",
+				email: "Please input your email",
+				subject: "Please input subject",
+				message: "Please input the content"
+			},
+			submitHandle: function(form) {
+				var name    = $('#name').val();
+				var email   = $('#email').val();
+				var country = $('#country').val();
+				var phone   = $('#phone').val();
+				var findus  = $('#findus').val();
+				var subject = $('#subject').val();
+				var person  = $('#person').val();
+				var message = $('#message').val();
+				var token   = $('input[name="_token"]').attr('value');
+				var host    = $(this).prop('action');
+				$.ajax({
+					type: "POST",
+					url: host,
+					data: {
+						_token: token,
+						name: name,
+						email: email,
+						country: country,
+						phone: phone,
+						findus: findus,
+						subject: subject,
+						person: person,
+						message: message
+					},
+					success: function(data) {
+						if(data.success == true) {
+							alert(data.message);
+							window.location.href = baseUrl;
+						} else {
+							alert(data.message);
+						}
+					}
+				});
+			}
+		});
+	});
+	// $('#contactForm').on('submit', function(e) {
+	// 	e.preventDefault();
+
+	// 	var name    = $('#name').val();
+	// 	var email   = $('#email').val();
+	// 	var country = $('#country').val();
+	// 	var phone   = $('#phone').val();
+	// 	var findus  = $('#findus').val();
+	// 	var subject = $('#subject').val();
+	// 	var person  = $('#person').val();
+	// 	var message = $('#message').val();
+	// 	var token   = $('input[name="_token"]').attr('value');
+	// 	var host    = $(this).prop('action');
+	// 	$.ajax({
+	// 		type: "POST",
+	// 		url: host,
+	// 		data: {
+	// 			_token: token,
+	// 			name: name,
+	// 			email: email,
+	// 			country: country,
+	// 			phone: phone,
+	// 			findus: findus,
+	// 			subject: subject,
+	// 			person: person,
+	// 			message: message
+	// 		},
+	// 		success: function(data) {
+	// 			if(data.success == true) {
+	// 				alert(data.message);
+	// 				window.location.href = baseUrl;
+	// 			} else {
+	// 				alert(data.message);
+	// 			}
+	// 		}
+	// 	});
+	// });
 
 	$(document).ajaxStart(function(){
 	    $('.modal').show();
@@ -129,4 +210,13 @@ function cost(price) {
 	var cost = $('#passenger').val() * price;
 	$('.cost').html(cost + 'VNĐ');
 	$('.total').html(cost + 'VNĐ');
+}
+
+function testEmailChars(el){
+    var email = $(el).val();
+    if ( /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email)==true ){
+        $("#email-error").html("valid");
+    } else {
+        $("#email-error").html("not valid");
+    }
 }

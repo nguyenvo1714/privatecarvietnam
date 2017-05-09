@@ -31,6 +31,8 @@
         {!! Html::script('js/fileinput.min.js') !!}
         {!! Html::script('js/menu-addon.js') !!}
         {!! Html::script('js/jquery-ui.min.js') !!}
+        {!! Html::script('js/jquery.validate.min.js') !!}
+        {!! Html::script('js/additional-methods.min.js') !!}
         {!! Html::script('js/script.js') !!}
         <style type="text/css">
             @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700|Montserrat:400,700|Open+Sans+Condensed:300,700|PT+Sans:400,400i,700|PT+Serif:400,400i,700|Satisfy');

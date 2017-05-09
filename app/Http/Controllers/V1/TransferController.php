@@ -4,6 +4,8 @@ namespace App\Http\Controllers\V1;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactInfo;
 use App\Transfer;
 use App\Type;
 use App\Place;
@@ -48,6 +50,39 @@ class TransferController extends Controller
             'transferNames' => $transferNames,
             'places' => $places
         ]);
+    }
+
+    /**
+     * Send a contac info to admin.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sendContact(Request $request)
+    {
+        if($request->ajax()) {
+            $input = $request->all();
+            Mail::to(env('MAIL_FROM_ADDRESS'))
+                ->send(new ContactInfo($input));
+                if( count(Mail::failures()) > 0 ) {
+                    echo 'check error';die;
+                    foreach ($Mail::failures as $failure) {
+                        echo $failure . '<br>';
+                    } die;
+                } else {
+                    $data = [
+                        'success' => true,
+                        'message' => 'Thanks you for your contact, we will response you soon.'
+                    ];
+                    return response()->json($data);
+                }
+        } else {
+            $data = [
+                'success' => false,
+                'message' => 'An error has occured during process, please try again.'
+            ];
+            return response()->json($data);
+        }
     }
 
     /**

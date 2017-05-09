@@ -34,6 +34,7 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::post('/find-transfer', 'TransferController@findTransfer');
 	Route::get('/blog', 'BlogController@index');
 	Route::get('/contact', 'TransferController@contact');
+	Route::post('/sendContact', 'TransferController@sendContact');
 });
 
 Route::get('/admin', 'TransferController@index');

@@ -41,12 +41,12 @@
 								<li>
 									<div class="media">
 	                                    <div class="media-left">
-											<a href="{{ url('/private-transfer/package/' . $interestTransfer->slug) }}">
+											<a href="{{ url('/' . $interestTransfer->type->slug . '/package/' . $interestTransfer->slug) }}">
 		                                        {{ Html::image('/storage/' . $interestTransfer->image_thumb) }}
 		                                    </a>
 	                                    </div>
 	                                    <div class="media-body">
-	                                        <h5><a href="{{ url('/private-transfer/package/' . $interestTransfer->slug) }}">{{ $interestTransfer->title}}</a></h5>
+	                                        <h5><a href="{{ url('/' . $interestTransfer->type->slug . '/package/' . $interestTransfer->slug) }}">{{ $interestTransfer->title}}</a></h5>
 	                                        <p>{!! substr($interestTransfer->description, 0, 200). '...' !!}</p>
 	                                    </div>
 	                                </div>

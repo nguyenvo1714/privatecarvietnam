@@ -43,12 +43,8 @@ class TransferBookingController extends Controller
         $this->chop_blog($blogs);
         $car = Car::where('cars.class', $class)->first();
         $transfer = Transfer::findBySlug($slug);
-        // $transfers = Transfer::get();
         $transfer->transferName = $transfer->transferName->where('transferNames.id', $transfer->transferName_id)->first();
         $transfer->place = $transfer->place->where('places.id', $transfer->place_id)->first();
-        // foreach ($transfers as $key => $value) {
-        //     $value->transferNames = TransferName::where('id', $value->transferName_id)->get();
-        // }
         return view('/sites.transferBookings.bookForm', [
             'transfer' =>  $transfer,
             'blogs' => $blogs,

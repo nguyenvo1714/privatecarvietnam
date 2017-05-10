@@ -32,17 +32,59 @@ $(function() {
 		}
 	});
 
-	// $('#contactForm').validate({
-	// 	rules: {
-	// 		email: true
-	// 	},
-	// 	messages: {
-	// 		name: "Please input your name",
-	// 		email: "Please input your email",
-	// 		subject: "Please input subject",
-	// 		message: "Please input the content"
-	// 	}
-	// });
+	$('#contactForm').validate({
+		rules: {
+			name: 'required',
+			email: {
+				required: true,
+				email: true
+			},
+			subject: 'required',
+			message: 'required'
+		},
+		messages: {
+			name: "Please input your name",
+			email: "Please input your email",
+			subject: "Please input subject",
+			message: "Please input the content"
+		},
+		submitHandler: function(form) {
+			var name    = $('#name').val();
+			var email   = $('#email').val();
+			var country = $('#country').val();
+			var phone   = $('#phone').val();
+			var findus  = $('#findus').val();
+			var subject = $('#subject').val();
+			var person  = $('#person').val();
+			var message = $('#message').val();
+			var token   = $('input[name="_token"]').attr('value');
+			var host    = $(form).prop('action');
+			$.ajax({
+				type: "POST",
+				url: host,
+				data: {
+					_token: token,
+					name: name,
+					email: email,
+					country: country,
+					phone: phone,
+					findus: findus,
+					subject: subject,
+					person: person,
+					message: message
+				},
+				success: function(data) {
+					if(data.success == true) {
+						alert(data.message);
+						window.location.href = baseUrl;
+					} else {
+						alert(data.message);
+					}
+				}
+			});
+			return false;
+		}
+	});
 
 	$('#blogForm').validate({
 		messages: {

@@ -19,7 +19,7 @@
 					                                Your name <span class="required">*</span>
 					                            </label>
 					                            <div class="marked">
-					                                <input id="name" class="form-control" name="name" required="required">
+					                                <input id="name" class="form-control" name="name">
 					                            </div>
 					                        </div>
 											<div class="form-group col-md-4">
@@ -27,7 +27,7 @@
 					                                Your email <span class="required">*</span>
 					                            </label>
 					                            <div class="marked">
-					                                <input id="email" class="form-control" name="email" required="required">
+					                                <input id="email" class="form-control" name="email">
 					                            </div>
 					                        </div>
 											<div class="form-group col-md-4">
@@ -63,7 +63,7 @@
 					                                Subject <span class="required">*</span>
 					                            </label>
 					                            <div class="marked">
-					                                <input id="subject" class="form-control" name="subject" required>
+					                                <input id="subject" class="form-control" name="subject">
 					                            </div>
 											</div>
 										</div>
@@ -83,7 +83,7 @@
 					                                Your message <span class="required">*</span>
 					                            </label>
 					                            <div class="marked">
-					                                <textarea id="message" class="form-control" name="message" required rows="10" style="height: auto;"></textarea>
+					                                <textarea id="message" class="form-control" name="message" rows="10" style="height: auto;"></textarea>
 					                            </div>
 											</div>
 										</div>

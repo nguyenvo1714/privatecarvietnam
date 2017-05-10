@@ -16,11 +16,11 @@
 							<div class="private-thumbnail">
 								{{ Html::image('/storage/' . $privateTransfer->thumb) }}
 								<div class="position">
-									<div class="label-detail"><a href="{{ url('/private-transfer/view/' . $privateTransfer->slug . '/' . $privateTransfer->id) }}">Learn more</a></div>
+									<div class="label-detail"><a href="{{ url('/private-transfer/view/' . $privateTransfer->slug) }}">Learn more</a></div>
 								</div>
 				            </div>
 				            <h5>
-								<a href="{{ url('/private-transfer/view/' . $privateTransfer->slug . '/' . $privateTransfer->id) }}">{{ $privateTransfer->name }}</a>
+								<a href="{{ url('/private-transfer/view/' . $privateTransfer->slug) }}">{{ $privateTransfer->name }}</a>
 				            </h5>
 				            <p>{{ substr($privateTransfer->description, 0, 100) . '...' }}</p>
 				        </div>

@@ -29,8 +29,6 @@
 							<div class="col-md-4 col-sm-4 col-xs-4 car-price">
 								<p>{{ $car->price }} VNĐ</p>
 								{!! Form::open(['url' => '/book-transfer/' . $transfer->slug . '/' . $car->class, 'method' => 'GET']) !!}
-									<!-- <input type="hidden" name="price" value="{{ $car->price }}">
-									<input type="hidden" name="class" value="{{ $car->class }}"> -->
 									<input type="submit" value="Book Transfer">
 								{!! Form::close() !!}
 							</div>
@@ -55,9 +53,6 @@
 							<div class="col-md-4 col-sm-4 col-xs-12 transfer-list">
 					            <div class="private-thumbnail relate">
 									<a href="{{ url('/private-transfer/package/' . $relate->slug) }}">{{ Html::image('/storage/' . $relate->image_thumb) }}</a>
-									<!-- <div class="position">
-										<div class="label-detail"><a href="{{ url('/private-transfer/' . $name . '/' . $relate->transferName_id . '/detail/' . $relate->title . '/' . $relate->id) }}">Learn more</a></div>
-									</div> -->
 					            </div>
 					            <h5>
 									<a href="{{ url('/private-transfer/package/' . $relate->slug) }}">{{ $relate->title }}</a>
@@ -82,12 +77,12 @@
 								<li>
 									<div class="media">
 	                                    <div class="media-left">
-											<a href="{{ url('/private-transfer/package/' . $interestTransfer->slug) }}">
+											<a href="{{ url('/' . $interestTransfer->type->slug . '/package/' . $interestTransfer->slug) }}">
 												{{ Html::image('/storage/' . $interestTransfer->image_thumb) }}
 		                                    </a>
 	                                    </div>
 	                                    <div class="media-body">
-	                                        <h5><a href="{{ url('/private-transfer/package/' . $interestTransfer->slug) }}">{{ $interestTransfer->title}}</a></h5>
+	                                        <h5><a href="{{ url('/' . $interestTransfer->type->slug . '/package/' . $interestTransfer->slug) }}">{{ $interestTransfer->title}}</a></h5>
 	                                        <p>{!! substr($interestTransfer->description, 0, 200). '...' !!}</p>
 	                                    </div>
 	                                </div>

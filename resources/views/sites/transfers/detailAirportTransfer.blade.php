@@ -28,7 +28,7 @@
 							</div>
 							<div class="col-md-4 col-sm-4 col-xs-4 car-price">
 								<p>{{ $car->price }} VNĐ</p>
-								{!! Form::open(['url' => '/book-transfer/' . $transfer->id, 'method' => 'POST']) !!}
+								{!! Form::open(['url' => '/book-transfer/' . $transfer->slug, 'method' => 'POST']) !!}
 									<input type="hidden" name="price" value="{{ $car->price }}">
 									<input type="submit" value="Book Transfer">
 								{!! Form::close() !!}
@@ -53,13 +53,13 @@
 						@foreach($relates as $relate)
 							<div class="col-md-4 col-sm-4 col-xs-12 transfer-list">
 					            <div class="private-thumbnail relate">
-									<a href="{{ url('/private-transfer/' . $name . '/' . $relate->transferName_id . '/detail/' . $relate->title . '/' . $relate->id) }}">{{ Html::image('/storage/' . $relate->image_thumb) }}</a>
+									<a href="{{ url('/airport-transfer/package/' . $relate->slug) }}">{{ Html::image('/storage/' . $relate->image_thumb) }}</a>
 									<!-- <div class="position">
 										<div class="label-detail"><a href="{{ url('/private-transfer/' . $name . '/' . $relate->transferName_id . '/detail/' . $relate->title . '/' . $relate->id) }}">Learn more</a></div>
 									</div> -->
 					            </div>
 					            <h5>
-									<a href="{{ url('/private-relate/' . $name . '/' . $relate->transferName_id . '/detail/' . $transfer->title . '/' . $transfer->id) }}">{{ $relate->title }}</a>
+									<a href="{{ url('/airport-transfer/package' . $relate->slug) }}">{{ $relate->title }}</a>
 					            </h5>
 					            <p>{{ substr($relate->description, 0, 100) . '...' }}</p>
 					        </div>
@@ -81,10 +81,12 @@
 								<li>
 									<div class="media">
 	                                    <div class="media-left">
-	                                        {{ Html::image('/storage/' . $interestTransfer->image_thumb) }}
+											<a href="{{ url('/aiport-transfer/package' . $interestTransfer->slug) }}">
+												{{ Html::image('/storage/' . $interestTransfer->image_thumb) }}
+		                                    </a>
 	                                    </div>
 	                                    <div class="media-body">
-	                                        <h5><a href="#">{{ $interestTransfer->title}}</a></h5>
+	                                        <h5><a href="{{ url('/airport-transfer/package' . $interestTransfer->slug) }}">{{ $interestTransfer->title}}</a></h5>
 	                                        <p>{!! substr($interestTransfer->description, 0, 200). '...' !!}</p>
 	                                    </div>
 	                                </div>

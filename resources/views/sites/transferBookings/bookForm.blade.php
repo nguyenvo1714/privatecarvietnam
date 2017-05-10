@@ -14,34 +14,35 @@
 								</a>
 								<a href="#" class="step 2">
 									<span class="label-step"><span>2</span></span>
-									<span class="text-step">Order payment</span>
+									<span class="text-step">Confirmation</span>
 								</a>
 							</div>
 							<div class="block-description">
 								<h5 class="unmb">
-									{{ $transfer->transferName->where('transferNames.id', $transfer->transferName_id)->first()->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->where('places.id', $transfer->place_id)->first()->name }}
+									{{ $transfer->transferName->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->name }}
 								</h5>
 								<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
 							</div>
-							{!! Form::open(['url' => '/book-transfer/confirmation/' . $transfer->id, 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'bookForm']) !!}
-							<div class="block-form">
+							{!! Form::open(['url' => '/book-transfer/confirmation', 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'bookForm']) !!}
 									<input type="hidden" name="trip" value="{{ $transfer->transferName->where('transferNames.id', $transfer->transferName_id)->first()->name }} - {{ $transfer->place->where('places.id', $transfer->place_id)->first()->name }}">
 									<input type="hidden" name="duration" value="{{ $transfer->duration }}">
+									<input type="hidden" name="id" value="{{ $transfer->id }}">
+								<div class="block-form">
 									<fieldset>
 								        <h3 class="fieldset-title">Vehicle</h3>
 								        <div class="form-group">
 								        	<label class="control-label col-md-12 col-sm-12 col-xs-12" for="price">
-				                                Type vehicle:  <span>{{ $confirms['class'] . ' (' . $confirms['price']. ' VNĐ)' }}</span>
+				                                Type vehicle:  <span>{{ ! empty($car->class) ? $car->class . ' ( ' . $car-> price . 'VNĐ )' : $confirms['class'] . ' ( ' . $confirms['price']. ' VNĐ )' }}</span>
 				                            </label>
-				                            <input type="hidden" name="class" value="{{ $confirms['class'] }}">
-				                            <input type="hidden" name="price" value="{{ $confirms['price'] }}">
+				                            <input type="hidden" name="class" value="{{ ! empty($car->class) ? $car->class : $confirms['class'] }}">
+				                            <input type="hidden" name="price" value="{{ ! empty($car->price) ? $car->price : $confirms['price'] }}">
 								        </div>
 								        <div class="form-group">
 				                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="passenger">
 				                                The number of passengers <span class="required">*</span>
 				                            </label>
 				                            <div class="col-md-8 col-sm-8 col-xs-12 marked">
-				                                <input id="passenger" class="form-control col-md-7 col-xs-12" name="passenger" required="required" type="number" value="{{ !empty($confirms['passenger']) ? $confirms['passenger'] : '' }}">
+				                                <input id="passenger" class="form-control col-md-7 col-xs-12" name="passenger" required="required" type="text" value="{{ !empty($confirms['passenger']) ? $confirms['passenger'] : '' }}">
 				                                <span class="passenger"><span class="glyphicon glyphicon-user"></span></span>
 				                            </div>
 										</div>
@@ -64,7 +65,7 @@
 				                            <div class="col-md-12 col-sm-12 col-xs-12 marked">
 			                                	<input id="departureDate" class="form-control fifty" name="departureDate" type="text" required placeholder="YYYY-MM-DD" value="{{ !empty($confirms['departureDate']) ? $confirms['departureDate'] : '' }}">
 			                                	<span class="calendar"><i class="fa fa-calendar"></i></span>
-				                                <input id="departureTime" class="form-control fifty" name="departureTime" required="required" type="text" placeholder="HH:mm" value="{{ !empty($confirms['departureTime']) ? $confirms['departureTime'] : '' }}">
+				                                <input id="departureTime" class="form-control fifty" name="departureTime" required="required" type="time" placeholder="HH:mm AM" value="{{ !empty($confirms['departureTime']) ? $confirms['departureTime'] : '' }}">
 				                                <span class="time"><i class="fa fa-clock-o"></i></span>
 				                            </div>
 										</div>
@@ -94,7 +95,8 @@
 				                                Your email <span class="required">*</span>
 				                            </label>
 								            <div class="col-md-10 col-sm-10 col-xs-12 mt20">
-					                            <input type="text" name="email" id="email" required class="form-control" value="{{ !empty($confirms['email']) ? $confirms['email'] : '' }}">
+					                            <input type="email" name="email" id="email" required class="form-control" value="{{ !empty($confirms['email']) ? $confirms['email'] : '' }}" onkeyup="testEmailChars(this);">
+					                            <label id="email-error" class="error" for="email"></label>
 					                            <span class="email"><i class="fa fa-envelope-o"></i></span>
 								            </div>
 								        </div>
@@ -103,8 +105,11 @@
 				                                Phone number (with country code) <span class="required">*</span>
 				                            </label>
 								            <div class="col-md-7 col-sm-7 col-xs-12 mt20 marked">
-					                            <input type="text" name="phone" id="phone" required class="form-control" placeholder="+84 1223434779" value="{{ !empty($confirms['phone']) ? $confirms['phone'] : '' }}">
-					                            <span class="phone"><i class="fa fa-phone"></i></span>
+												<div class="form-control spec">
+													<select id="country-phone" class="bfh-countries" data-country="VN" data-flags="true"></select>
+						                            <input type="text" name="phone" id="phone" required class="bfh-phone" data-country="country-phone" value="{{ !empty($confirms['phone']) ? $confirms['phone'] : '' }}">
+						                            <span class="phone"><i class="fa fa-phone"></i></span>
+												</div>
 								            </div>
 								        </div>
 								        <div class="form-group">
@@ -140,7 +145,7 @@
 									<div class="summary-block">
 										<h6 class="transfer car">Transfer car</h6>
 										<p class="summary-text">
-											Vehicle: {{ $confirms['class'] }} <br>
+											Vehicle: {{ ! empty($car->class) ? $car->class : $confirms['class'] }} <br>
 											<small>up to 1 passenger, 1 baggage</small><br>
 											<small>~ 30 minutes of waiting(up to 2 hrs)</small>
 										</p>
@@ -149,7 +154,7 @@
 								<div class="summary-cost">
 									<h3>Transfer cost</h3>
 									<div class="summary-block">
-										<h6 class="vehicle-class">Vehicle {{ $confirms['class'] }} <span class="pull-right cost">0 VNĐ</span></s></h6>
+										<h6 class="vehicle-class">Vehicle {{ ! empty($car->class) ? $car->class : $confirms['class'] }} <span class="pull-right cost">0 VNĐ</span></s></h6>
 									</div>
 									<h3>Total <span class="pull-right total">0 VNĐ</span></h3>
 								</div>

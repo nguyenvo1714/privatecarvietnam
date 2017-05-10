@@ -1,21 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\V1;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Place;
 use App\Blog;
-use App\Type;
+use App\TransferName;
+use App\Transfer;
 
 class BlogController extends Controller
 {
-
-    protected $rules = [
-        'type_id' => 'required|regex:/^[0-9]+/',
-        'title' => 'required',
-        'content' => 'required',
-        'author' => 'required',
-    ];
-
     /**
      * Display a listing of the resource.
      *
@@ -23,8 +18,18 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = new Blog;
-        return view('admin.blogs.index', ['blogs' => $blogs->orderBy('created_at')->paginate(10)]);
+        $transferNames = TransferName::get();
+        $places = Place::get();
+        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
+        $indexBlogs = Blog::paginate(12);
+        return view('sites.blogs.index', [
+            'transferNames' => $transferNames,
+            'places' => $places,
+            'blogs' => $blogs,
+            'interestTransfers' => $interestTransfers,
+            'indexBlogs' => $indexBlogs
+        ]);
     }
 
     /**
@@ -34,8 +39,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $types = Type::get();
-        return view('/admin.blogs.create', ['types' => $types]);
+        //
     }
 
     /**
@@ -46,10 +50,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, $this->rules);
-        $blog = new Blog;
-        $blog->create($request->all());
-        return redirect('/blogs');
+        //
     }
 
     /**
@@ -60,7 +61,7 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        return view('admin.blogs.view', ['blog' => Blog::findOrFail($id)]);
+        //
     }
 
     /**
@@ -71,11 +72,7 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        $types = Type::get();
-        return view('admin.blogs.edit', [
-            'blog' => Blog::findOrFail($id),
-            'types' => $types
-        ]);
+        //
     }
 
     /**
@@ -87,9 +84,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $blog = Blog::find($id);
-        $blog->update($request->all());
-        return redirect('/blogs');
+        //
     }
 
     /**
@@ -100,7 +95,6 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        Blog::destroy($id);
-        return redirect('/blogs');
+        //
     }
 }

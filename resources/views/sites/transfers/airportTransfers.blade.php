@@ -16,11 +16,11 @@
 				            <div class="private-thumbnail">
 				            	{{ Html::image('/storage/' . $airportTransfer->thumb) }}
 				            	<div class="position">
-									<div class="label-detail"><a href="{{ url('/airport-transfer/view/' . $airportTransfer->name . '/' . $airportTransfer->type_id . '/' . $airportTransfer->id) }}">Learn more</a></div>
+									<div class="label-detail"><a href="{{ url('/airport-transfer/view/' . $airportTransfer->slug) }}">Learn more</a></div>
 				            	</div>
 				            </div>
 				            <h5>
-								<a href="{{ url('/airport-transfer/view/' . $airportTransfer->name . '/' . $airportTransfer->type_id . '/' . $airportTransfer->id) }}">{{ $airportTransfer->name }}</a>
+								<a href="{{ url('/airport-transfer/view/' . $airportTransfer->slug) }}">{{ $airportTransfer->name }}</a>
 				            </h5>
 				            <p>{{ substr($airportTransfer->description, 0, 100) . '...' }}</p>
 				        </div>
@@ -41,10 +41,12 @@
 								<li>
 									<div class="media">
 	                                    <div class="media-left">
-	                                        {{ Html::image('/storage/' . $interestTransfer->image_thumb) }}
+											<a href="{{ url('/airport-transfer/package/' . $interestTransfer->slug) }}">
+		                                        {{ Html::image('/storage/' . $interestTransfer->image_thumb) }}
+		                                    </a>
 	                                    </div>
 	                                    <div class="media-body">
-	                                        <h5><a href="#">{{ $interestTransfer->title}}</a></h5>
+	                                        <h5><a href="{{ url('/airport-transfer/package/' . $interestTransfer->slug) }}">{{ $interestTransfer->title}}</a></h5>
 	                                        <p>{!! substr($interestTransfer->description, 0, 200). '...' !!}</p>
 	                                    </div>
 	                                </div>

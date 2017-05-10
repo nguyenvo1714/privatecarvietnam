@@ -15,21 +15,6 @@ $(function() {
 		$('.nav-child li a').removeClass('active');
 	});
 
-	// $('.nav-child li').on('click', function () {
-	// 	if($(this).attr('id') === 'list1') {
-	// 		$(this).closest("li").addClass('current-page');
-	// 		$('.collapse #list2').removeClass('current-page');
-	// 		$('.collapse #list3').removeClass('current-page');
-	// 	} else if($(this).attr('id') === 'list2'){
-	// 		$(this).closest("li").addClass('current-page');
-	// 		$('.collapse #list1').removeClass('current-page');
-	// 		$('.collapse #list3').removeClass('current-page');
-	// 	} else {
-	// 		$(this).closest("li").addClass('current-page');
-	// 		$('.collapse #list1').removeClass('current-page');
-	// 		$('.collapse #list2').removeClass('current-page');
-	// 	}
-	// });
 	/* Call view place */ 
 	$('.call-view-place').click(function() {
 		var id = $(this).attr('id');
@@ -41,7 +26,7 @@ $(function() {
 				$('.modal-body').html($(result).find('.table'));
 			}
 		});
-	})
+	});
 	/**Call edit place*/ 
 	$('.call-edit-place').click(function() {
 		var id = $(this).attr('id');
@@ -54,7 +39,7 @@ $(function() {
 				$('.modal-body').html($(result).find('.x_content'));
 			}
 		});
-	})
+	});
 
 	/* Call view type */ 
 	$('.call-view-type').click(function() {
@@ -67,7 +52,7 @@ $(function() {
 				$('.modal-body').html($(result).find('.table'));
 			}
 		});
-	})
+	});
 	/**Call edit type*/ 
 	$('.call-edit-type').click(function() {
 		var id = $(this).attr('id');
@@ -80,7 +65,7 @@ $(function() {
 				$('.modal-body').html($(result).find('.x_content'));
 			}
 		});
-	})
+	});
 
 	/* Call view blog */ 
 	$('.call-view-blog').click(function() {
@@ -93,7 +78,7 @@ $(function() {
 				$('.modal-body').html($(result).find('.table'));
 			}
 		});
-	})
+	});
 	/**Call edit blog */ 
 	$('.call-edit-blog').click(function() {
 		var id = $(this).attr('id');
@@ -105,7 +90,7 @@ $(function() {
 				$('.modal-body').html($(result).find('.x_content'));
 			}
 		});
-	})
+	});
 
 	/* Call view tour */ 
 	$('.call-view-tour').click(function() {
@@ -118,7 +103,7 @@ $(function() {
 				$('.modal-body').html($(result).find('.table'));
 			}
 		});
-	})
+	});
 
 	/* Call view transfer */ 
 	$('.call-view-transfer').click(function() {
@@ -131,7 +116,7 @@ $(function() {
 				$('.modal-body').html($(result).find('.table'));
 			}
 		});
-	})
+	});
 
 	/* Call view driver */ 
 	$('.call-view-driver').click(function() {
@@ -144,7 +129,7 @@ $(function() {
 				$('.modal-body').html($(result).find('.table'));
 			}
 		});
-	})
+	});
 
 	/* Call edit driver */ 
 	$('.call-edit-driver').click(function() {
@@ -157,7 +142,7 @@ $(function() {
 				$('.modal-body').html($(result).find('.x_content'));
 			}
 		});
-	})
+	});
 
 	/* Call edit transferName */ 
 	$('.call-edit-transferName').click(function() {
@@ -170,81 +155,8 @@ $(function() {
 				$('.modal-body').html($(result).find('.x_content'));
 			}
 		});
-	})
+	});
 	
-	/*Add new car input*/
-	// $('#add').click(function() {
-	// 	var number = $('.dynamic li').length;
-	// 	$('.dynamic li:last').after(
-	// 		'<li style="margin-top: 15px;">' +
- //                '<div class="field item form-group">' +
- //                    '<label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">' +
- //                        'Name <span class="required">*</span>' +
- //                    '</label>' +
- //                    '<div class="col-md-6 col-sm-6 col-xs-12">' +
- //                        '<input id="name" name="name[]" required="required" class="form-control col-md-7 col-xs-12" type="text">' +
- //                    '</div>' +
- //                    '<div class="alert">please put something here</div>' +
- //                '</div>' +
- //                '<div class="field item form-group">' +
- //                    '<label class="control-label col-md-3 col-sm-3 col-xs-12" for="carType">' +
- //                        'Car Type <span class="required">*</span>' +
- //                    '</label>' +
- //                    '<div class="col-md-6 col-sm-6 col-xs-12">' +
- //                        '<input id="carType" name="carType[]" required="required" class="form-control col-md-7 col-xs-12" type="text">' +
- //                    '</div>' +
- //                    '<div class="alert">please put something here</div>' +
- //                '</div>' +
- //                '<div class="field item form-group">' +
- //                    '<label class="control-label col-md-3 col-sm-3 col-xs-12" for="status">' +
- //                        'Status <span class="required">*</span>' +
- //                    '</label>' +
- //                    '<div class="col-md-6 col-sm-6 col-xs-12">' +
- //                        '<input id="status" name="status[]" required="required" class="form-control col-md-7 col-xs-12" type="text">' +
- //                    '</div>' +
- //                    '<div class="alert">please put something here</div>' +
- //                '</div>' +
- //                '<div class="field item form-group">' +
- //                    '<label class="control-label col-md-3 col-sm-3 col-xs-12" for="driver">' +
- //                        'Driver <span class="required">*</span>' +
- //                    '</label>' +
- //                    '<div class="col-md-6 col-sm-6 col-xs-12">' +
- //                        '<input id="driver" name="driver[]" required="required" class="form-control col-md-7 col-xs-12" type="text">' +
- //                    '</div>' +
- //                    '<div class="alert">please put something here</div>' +
- //                '</div>' +
- //                '<div class="field item form-group">' +
- //                    '<label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">' +
- //                        'Number <span class="required">*</span>' +
- //                    '</label>' +
- //                    '<div class="col-md-6 col-sm-6 col-xs-12">' +
- //                        '<input id="number" name="number[]" required="required" data-validate-minmax="1,10" class="form-control col-md-7 col-xs-12" type="number">' +
- //                    '</div>' +
- //                    '<div class="alert">please put something here</div>' +
- //                '</div>' +
- //                '<div class="ln_solid seperate"></div>' +
- //            '</li>'
-	// 	);
-	// 	$('#remove').removeAttr('disabled');
-	// 	if($('.dynamic li').length >= 3) {
-	// 		$('#add').attr('disabled', true);
-	// 	}
-	// 	return false;
-	// }); 
-
-	// /*Remove new car input*/
-	// $('#remove').click(function() {
-	// 	if($('.dynamic li').length > 1) {
-	// 		$('.dynamic li:last').remove();
-	// 	}
-	// 	if ($('.dynamic li').length <= 1) {
- //            $('#remove').attr('disabled', true);
- //        } else if ($('.dynamic li').length <= 3) {
- //            $('#add').removeAttr('disabled');
-            
- //        }
- //        return false;
-	// })
 	var drivers = $('#drivers').data('field-driver');
 	var option = '';
 	$.each(drivers, function(key, driver) {
@@ -298,7 +210,7 @@ $(function() {
 			$('#add').css('pointer-events', 'none');
 		}
 		return false;
-	})
+	});
 
 
 	/*Remove new car input*/
@@ -313,7 +225,7 @@ $(function() {
             
         }
         return false;
-	})
+	});
 
 	var selectType = $('#type');
 	var selectedBlog = $('#blog');
@@ -340,9 +252,7 @@ $(function() {
 		selectedDriver[key] = $('#driver'+ key);
 		selectedDriver[key].find('option[value="' + selected_driver[key] + '"]').prop('selected', true);
 		selectedDriver[key].trigger('change');
-		console.log(selectedDriver[key]);
 	});
-// console.log(selected_active[0]);
 	$.each(selected_active, function(key, driver) {
 		selectedActive[key] = $('#active'+ key);
 		selectedActive[key].find('option[value="' + selected_active[key] + '"]').prop('selected', true);

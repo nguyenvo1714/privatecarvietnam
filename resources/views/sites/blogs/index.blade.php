@@ -4,25 +4,25 @@
 		<div class="container">
 	    	<div class="row">
 	        	<div class="col-sm-12">
-					<h2>{{ str_replace('-', ' ', $name) }}</h2>
+					<h2>Blogs</h2>
 	            </div>
 	        </div>
 	    </div>
 		<div class="listings-strip private clearfix">
 			<div class="col-md-8 col-sm-12">
 				<div class="row">
-					@foreach($transfers as $transfer)
+					@foreach($indexBlogs as $indexBlog)
 				        <div class="col-md-4 col-sm-4 col-xs-12 transfer-list">
-				            <div class="private-thumbnail">
-				            	{{ Html::image('/storage/' . $transfer->image_thumb) }}
-				            	<div class="position">
-									<div class="label-detail"><a href="{{ url('/airport-transfer/package/' . $transfer->slug) }}">Learn more</a></div>
-				            	</div>
+							<div class="private-thumbnail">
+								{{ Html::image('/storage/' . $indexBlog->thumb) }}
+								<div class="position">
+									<div class="label-detail"><a href="{{ url('/blog/' . $indexBlog->slug . '/' . $indexBlog->id) }}">Learn more</a></div>
+								</div>
 				            </div>
 				            <h5>
-								<a href="{{ url('/airport-transfer/package/' . $transfer->slug) }}">{{ $transfer->title }}</a>
+								<a href="{{ url('/blog/' . $indexBlog->slug . '/' . $indexBlog->id) }}">{{ $indexBlog->name }}</a>
 				            </h5>
-				            <p>{{ substr($transfer->description, 0, 100) . '...' }}</p>
+				            <p>{{ substr($indexBlog->description, 0, 100) . '...' }}</p>
 				        </div>
 				    @endforeach
 				</div>
@@ -41,12 +41,10 @@
 								<li>
 									<div class="media">
 	                                    <div class="media-left">
-											<a href="{{ url('/airport-transfer/package/' . $interestTransfer->slug) }}">
-												{{ Html::image('/storage/' . $interestTransfer->image_thumb) }}
-		                                    </a>
+	                                        {{ Html::image('/storage/' . $interestTransfer->image_thumb) }}
 	                                    </div>
 	                                    <div class="media-body">
-	                                        <h5><a href="{{ url('/airport-transfer/package/' . $interestTransfer->slug) }}">{{ $interestTransfer->title}}</a></h5>
+	                                        <h5><a href="#">{{ $interestTransfer->title}}</a></h5>
 	                                        <p>{!! substr($interestTransfer->description, 0, 200). '...' !!}</p>
 	                                    </div>
 	                                </div>

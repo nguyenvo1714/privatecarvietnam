@@ -4,7 +4,7 @@
         <div class="col-md-6 left-title">
             <h3>Blogs</h3>
         </div>
-        <div class="col-md-6 right-title">right title</div>
+        <!-- <div class="col-md-6 right-title">right title</div> -->
     </div>
     <div class="clearfix"></div>
     <div class="">
@@ -37,7 +37,7 @@
                                     </a>
                                 </td>
                                 <td style="font-size: 20px;">
-                                    <a href="" id="{{ $blog->id }}" class="call-edit-blog" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a href="{{ url('/blog/' . $blog->id . '/edit') }}" id="{{ $blog->id }}" class="call-edit-blog"><i class="fa fa-pencil-square-o"></i></a>
                                 </td>
                                 <td style="font-size: 20px;">
                                     {!! Form::open(['url' => '/blog/'.$blog->id, 'method' => 'POST']) !!}

@@ -2,18 +2,34 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
+    use Sluggable;
+    use SluggableScopeHelpers;
+
     protected $table = 'blogs';
     // protected $connection = 'touringservice';
     protected $fillable  = [
         'type_id',
-    	'title',
+        'title',
+        'slug',
     	'content',
     	'author',
     ];
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+                'onUpdate' => true,
+            ]
+        ];
+    }
 
     public function tour()
     {

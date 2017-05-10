@@ -249,7 +249,7 @@
     background-size: cover;
 	background-image: url('http://dev.colophondev.com/wp-content/themes/luxurys/assets/img/bnn-01.jpg');
     min-height: 260px;
-	margin: 16px 16px 0;
+	/*margin: 16px 16px 0;*/
 }
 .home-banner .slick .slick-slide {
 /*	padding: 16px 16px 0;*/
@@ -342,7 +342,7 @@
 @media screen and (max-width: 768px) {
 	/*.home-banner .slick .slick-slide {*/
 	.home-banner {
-		margin: 16px 16px 0;
+		/*margin: 16px 16px 0;*/
 	}
 	.home-banner .slick .slick-slide .background {
 		min-height: 350px;

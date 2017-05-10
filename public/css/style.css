@@ -91,7 +91,7 @@ h1 a:hover { color: #acbdc7; }
 h2 {
 	font-family: 'Montserrat', sans-serif;
 	color: #2a2730;
-    font-size: 2.4em;
+    font-size: 2.2em;
     line-height: 38px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -2273,6 +2273,7 @@ div.wpcr3_review div.wpcr3_review_title {
 .footer .our-blog .media .media-left img {
 	max-width: unset;
 	width: 80px;
+	height: 80px;
 }
 .footer .our-blog .media .media-body h5 {
 	color: #fff;
@@ -2883,4 +2884,9 @@ body.loading .modal {
 .office .contact-office {
 	font-size: 2em;
 	text-decoration: underline;
+}
+.help-content {
+	border: 1px solid lightgray;
+	padding: 5px;
+	font-family: tahoma;
 }

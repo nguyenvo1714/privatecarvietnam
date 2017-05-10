@@ -1,63 +1,5 @@
 @extends('sites.layout.for_index')
 @section('content')
-	<!-- <div class="container-fluid">
-		<div class="logo-head">
-			<div class="logo col-xs-12 col-md-4 col-lg-4">
-				<a class="logo-link" href="#">{{ Html::image('img/logo-vmtravel.png') }}</a>
-			</div>
-			<div class="slogan col-xs-12 col-md-4 col-lg-4">
-				<h2>Let Us Show You VietNam</h2>
-			</div>
-			<div class="contact col-xs-12 col-md-4 col-lg-4">
-				<p class="language clearfix">
-		           <span>Choose language:</span>
-		           <a href="http://www.orientalsails.com" class="flag en" hreflang="en"></a>
-		           <a href="http://www.vietnamese.orientalsails.com/" class="flag vi" hreflang="vi"></a> 
-		        </p>
-		        <p class="text">CONTACT YOUR TRIP PLANNER</p>
-		        <p class="email">Email: info@privatecarvietnam.com</p>
-		        <p><span class="phone"></span>Book online or call <b>84-4-39264009</b></p>
-			</div>
-		</div>
-		<div class="menu clearfix">
-		    <a class="navigation" href="#">
-		        <span class="bar"></span>
-		        <span class="bar"></span>
-		        <span class="bar"></span>
-		        &nbsp;
-		        <span class="txt">MENU</span>
-		    </a>
-		</div>
-		<div class="desktop-menu" data-spy="affix" data-offset-top="197">
-	        <div class="">
-				<ul class="top-menu">
-					<li><a href="{{ url('/') }}">Home</a></li>
-					<li><a href="#">Private Transfer <span class="caret"></span></a>
-						<ul>
-							<li><a href="#">Hue Transfer</a></li>
-							<li><a href="#">Quang Binh Transfer</a></li>
-							<li><a href="#">Da Nang Transfer</a></li>
-							<li><a href="#">Hoi An Transfer</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Airport Transfer <span class="caret"></span></a>
-						<ul>
-							<li><a href="#">Phu Bai Transfer</a></li>
-							<li><a href="#">Dong Hoi Transfer</a></li>
-							<li><a href="#">Da Nang Transfer</a></li>
-							<li><a href="#">Chu Lai Transfer</a></li>
-						</ul>
-					</li>
-					<li><a href="3">Blog</a></li>
-					<li><a href="3">Contact us</a></li>
-				</ul>
-	        </div>
-		</div>
-		<a href="#" class="back-to-top" style="display: none;">
-			<i class="fa fa-arrow-up" aria-hidden="true"></i>
-		</a>
-	</div> -->
-	
 	<!-- HOME CONTENT -->
 	<div class="home-banner">
 		<div class="main-slider-wrapper actived">
@@ -115,66 +57,6 @@
             </div>
 		{!! Form::close() !!}
 	</div>
-	<!-- <div class="default-content home-lyfestyle">
-		<div class="container">
-	    	<div class="row">
-	        	<div class="col-sm-offset-1 col-sm-10 text-center">
-	            	<h2>Retreats by Lifestyle</h2>
-	                <p>There’s nothing like vacationing in a locale that matches your lifestyle and meets all your expectations. Whether it’s vacation rentals downtown in Charleston SC or folly beach rentals, explore our exclusive portfolio based on your ideal preferences.</p>
-	            </div>
-	        </div>
-	        <div class="row">
-	        	<div class="col-sm-12">
-	            	<div class="row lyfestyles-grid">
-	                	<div class="col-xs-6">
-	                    	<a href="http://luxurysimplifiedretreats.com/sun-seekers/" class="image-content">
-	                        	<span class="hover-overlay"></span>
-	                        	<span class="top" style="background-image: url(&quot;http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/img/1Home_LifeStyles11.jpg&quot;); bottom: 0px;">
-	                            	<span>Sun Seekers</span>
-	                            </span>
-	                            <span class="bottom" style="bottom: -84px;">
-	                            	<span>Palms blowing in the ocean breeze sand between your toes ... discover island living at its most luxurious.</span>
-	                            </span>
-	                        </a>
-	                    </div>
-	                    <div class="col-xs-6">
-	                    	<a href="http://luxurysimplifiedretreats.com/historic-havens/" class="image-content">
-	                        	<span class="hover-overlay"></span>
-	                        	<span class="top" style="background-image: url(&quot;http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/img/1Home_LifeStyles2.jpg&quot;); bottom: 0px;">
-	                            	<span>Historic Havens</span>
-	                            </span>
-	                            <span class="bottom" style="bottom: -84px;">
-	                            	<span>Classic and charming these downtown dwellings immerse you in Charleston’s rich southern coastal culture.</span>
-	                            </span>
-	                        </a>
-	                    </div>
-	                    <div class="col-xs-6">
-	                    	<a href="http://luxurysimplifiedretreats.com/upscale-urban/" class="image-content">
-	                        	<span class="hover-overlay"></span>
-	                        	<span class="top" style="background-image: url(&quot;http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/img/1Home_LifeStyles1.jpg&quot;); bottom: 0px;">
-	                            	<span>Updscale Urban</span>
-	                            </span>
-	                            <span class="bottom" style="bottom: -84px;">
-	                            	<span>From fashionable cafes to trendy nightlife stay close to the action with these stylish getaways.</span>
-	                            </span>
-	                        </a>
-	                    </div>
-	                    <div class="col-xs-6">
-	                    	<a href="http://luxurysimplifiedretreats.com/extended-holiday/" class="image-content">
-	                        	<span class="hover-overlay"></span>
-	                        	<span class="top" style="background-image:url(http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/img/1Home_LifeStyles3.jpg)">
-	                            	<span>Extended Holiday</span>
-	                            </span>
-	                            <span class="bottom" style="bottom: -84px;">
-	                            	<span>On an prolonged vacation? Looking for space to spread out? These downtown properties offer room with a view.</span>
-	                            </span>
-	                        </a>
-	                    </div>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-	</div> -->
 	<div class="default-content home-properties">
 		<div class="container">
 	    	<div class="row">
@@ -186,10 +68,10 @@
 	    <div class="listings-strip clearfix">
 			@foreach($transfers as $transfer)
 		        <div class="col-md-4 col-xs-12">
-		            <a class="listings-strip-image" href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">
+		            <a class="listings-strip-image" href="{{ url('/private-transfer/package/' . $transfer->slug) }}">
 		            {{ Html::image('/storage/' . $transfer->image_thumb) }}</a>
 		            <h5>
-				    	<a href="http://luxurysimplifiedretreats.com/properties/the-cotton-house/">{{ $transfer->title }}</a>
+						<a href="{{ url('/private-transfer/package/' . $transfer->slug) }}">{{ $transfer->title }}</a>
 		            </h5>
 		            <p>{{ $transfer->description }}</p>
 		        </div>

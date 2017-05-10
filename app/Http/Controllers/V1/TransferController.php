@@ -24,7 +24,8 @@ class TransferController extends Controller
     public function index()
     {
         $transfers = Transfer::limit(10)->get();
-        $blogs = Blog::limit(4)->get();
+        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
         return view('/sites.index', [
@@ -42,7 +43,8 @@ class TransferController extends Controller
      */
     public function contact()
     {
-        $blogs = Blog::limit(4)->get();
+        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
         return view('/sites.transfers.contact', [
@@ -92,7 +94,8 @@ class TransferController extends Controller
      */
     public function privateTransfer()
     {
-        $blogs = Blog::limit(4)->get();
+        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
         $privateTransfers = TransferName::where('type_id', 4)->get();
@@ -113,7 +116,8 @@ class TransferController extends Controller
      */
     public function airportTransfer()
     {
-        $blogs = Blog::limit(4)->get();
+        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
         $airportTransfers = TransferName::where('type_id', 3)->get();
@@ -148,7 +152,8 @@ class TransferController extends Controller
      */
     public function viewTransfer($slug)
     {
-        $blogs = Blog::limit(4)->get();
+        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
@@ -174,7 +179,8 @@ class TransferController extends Controller
      */
     public function viewAirportTransfer($slug)
     {
-        $blogs = Blog::limit(4)->get();
+        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
@@ -201,7 +207,8 @@ class TransferController extends Controller
      */
     public function detailTransfer($slug)
     {
-        $blogs = Blog::limit(4)->get();
+        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
@@ -231,7 +238,8 @@ class TransferController extends Controller
      */
     public function detailAirportTransfer($slug)
     {
-        $blogs = Blog::limit(4)->get();
+        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
@@ -285,14 +293,19 @@ class TransferController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function chop_blog($blogs)
     {
-        //
+        foreach ($blogs as $blog) {
+            $blog->description = $this->chop_string($blog->content);
+            preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $blog->content, $image);
+            foreach ($image as $key => $value) {
+                $blog->img = $value;
+            }
+        }
+    }
+
+    public function chop_string($string,$x=150) {
+        $string = strip_tags(stripslashes($string)); // convert to plaintext
+        return substr($string, 0, strpos(wordwrap($string, $x), "\n"));
     }
 }

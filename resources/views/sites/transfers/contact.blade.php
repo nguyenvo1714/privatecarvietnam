@@ -104,7 +104,17 @@
 							</div>
 						</div>
 						<div class="col-md-3">
-							Right panel
+							<div class="need-help-booking">
+								<h2>Need help booking</h2>
+								<section class="help-content">
+									<p>
+										Call our customer services team on the number below to speak to one of our advisors who heil you with all of your holiday needs.
+									</p>
+									<p>
+										<span class="glyphicon glyphicon-earphone"></span> <strong><a href="tel: +84-911-611-246">84 911-611-246</a></strong>
+									</p>
+								</section>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -109,7 +109,7 @@
           /* Note: Try to remove the following lines to see the effect of CSS positioning */
             .affix {
                 top: 0;
-                width: 100%;
+                width: 102%;
             }
             .affix + .container-fluid {
                 padding-top: 70px;
@@ -224,11 +224,11 @@
                             <li>
                                 <div class="media">
                                     <div class="media-left">
-                                        {{ Html::image('img/admin.jpg') }}
+                                        <img src="{{ $blog->img }}">
                                     </div>
                                     <div class="media-body">
                                         <h5><a href="#">{{ $blog->title}}</a></h5>
-                                        <p>{!! substr($blog->content, 3, 100). '...' !!}</p>
+                                        <p>{{ $blog->description . '...' }}</p>
                                     </div>
                                 </div>
                             </li>

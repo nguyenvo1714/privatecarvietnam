@@ -310,9 +310,10 @@ class TransferController extends Controller
         }
     }
 
-    public function chop_string($string,$x=150) {
+    public function chop_string($string,$x=100) {
         $string = strip_tags(stripslashes($string)); // convert to plaintext
-        return substr($string, 0, strpos(wordwrap($string, $x), "\n"));
+        return substr($string, 0, $x);
+        // return substr($string, 0, strpos(wordwrap($string, $x), "."));
     }
 
     public function getTransferType($transfers)

@@ -27,6 +27,7 @@
                                 <th>Duration</th>
                                 <th>Description</th>
                                 <th>Blog</th>
+                                <th>is hot</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -48,6 +49,7 @@
                                         <td>{{ $transfer->duration }}</td>
                                         <td>{{ $transfer->description }}</td>
                                         <td>{{ $transfer->blog->where('blogs.id', $transfer->blog_id)->first()->title }}</td>
+                                        <td>{{ $transfer->isHot }}</td>
                                         <td style="font-size: 20px;">
                                             <a href="" id="{{ $transfer->id }}" class="call-view-transfer" data-toggle="modal" data-target="#myModal">
                                                 <i class="fa fa-eye"></i>

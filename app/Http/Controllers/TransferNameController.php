@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TransferName;
+use App\Type;
 
 class TransferNameController extends Controller
 {
@@ -19,7 +20,7 @@ class TransferNameController extends Controller
     public function index()
     {
         $transferNames = new TransferName;
-        return view('admin.transferNames.index', ['transferNames' => $transferNames->orderBy('created_at')->paginate(10)]);
+        return view('admin.transferNames.index', ['transferNames' => $transferNames->orderBy('created_at')->paginate(20)]);
     }
 
     /**
@@ -29,7 +30,8 @@ class TransferNameController extends Controller
      */
     public function create()
     {
-        return view('/admin.transferNames.create');
+        $types = Type::get();
+        return view('/admin.transferNames.create', ['types' => $types]);
     }
 
     /**
@@ -41,8 +43,14 @@ class TransferNameController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, $this->rules);
+        $path = str_replace('public/', '', $request->file('thumb')->store('/public'));
         $transferName = new TransferName;
-        $transferName->create($request->all());
+        $transferName->create([
+            'name' => $request->name,
+            'type_id' => $request->type_id,
+            'thumb' => $path,
+            'description' => $request->description
+        ]);
         return redirect('/transferNames');
     }
 
@@ -65,7 +73,10 @@ class TransferNameController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.transferNames.edit', ['transferName' => TransferName::findOrFail($id)]);
+        return view('admin.transferNames.edit', [
+            'transferName' => TransferName::findOrFail($id),
+            'types' => Type::get()
+        ]);
     }
 
     /**
@@ -78,7 +89,15 @@ class TransferNameController extends Controller
     public function update(Request $request, $id)
     {
         $transferName = TransferName::find($id);
-        $transferName->update($request->all());
+        $transferName->update([
+            'name' => $request->name,
+            'type_id' => $request->type_id,
+            'description' => $request->description
+        ]);
+        if( ! empty($request->thumb)) {
+            $path = str_replace('public/', '', $request->file('thumb')->store('/public'));
+            $transferName->update(['thumb' => $path]);
+        }
         return redirect('/transferNames');
     }
 

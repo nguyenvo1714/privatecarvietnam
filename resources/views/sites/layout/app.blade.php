@@ -9,7 +9,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+        <!-- this tag to detect screen size -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="shortcut icon" type="image/x-icon" href="http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/ico/favicon.ico">
             <!-- MAKE SURE IT WORKS ON IE WITH COMPATIBILITY -->
@@ -21,17 +21,25 @@
         {!! Html::style('css/app.css') !!}
         {!! Html::style('css/font-awesome.min.css') !!}
         {!! Html::style('css/fileinput.min.css') !!}
-        {!! Html::style('js/validator/fv.css') !!}
         {!! Html::style('css/wp-customer-reviews-generated.css') !!}
-        {!! Html::style('css/style.css') !!}
         {!! Html::style('css/slick.css') !!}
         {!! Html::style('css/slick-theme.css') !!}
+        {!! Html::style('css/jquery-ui.min.css') !!}
+        {!! Html::style('css/jquery-ui.theme.min.css') !!}
+        {!! Html::style('css/bootstrap-formhelpers.min.css') !!}
+        {!! Html::style('css/style.css') !!}
         <!-- Scripts -->
         {!! Html::script('js/app.js') !!}
-        {!! Html::script('js/underscore-min.js') !!}
-        {!! Html::script('js/backbone-min.js') !!}
-        {!! Html::script('js/backbone.localStorage-min.js') !!}
+        {!! Html::script('js/bootstrap-formhelpers.min.js') !!}
+        {!! Html::script('js/jquery-ui.min.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
+        {!! Html::script('js/menu-addon.js') !!}
+        {!! Html::script('js/jquery-ui.min.js') !!}
+        {!! Html::script('js/jquery.validate.min.js') !!}
+        {!! Html::script('js/additional-methods.min.js') !!}
+        {!! Html::script('js/custom.validate.js') !!}
+        {!! Html::script('js/script.js') !!}
+        {!! Html::script('js/blog.custome.js') !!}
         <style type="text/css">
             @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700|Montserrat:400,700|Open+Sans+Condensed:300,700|PT+Sans:400,400i,700|PT+Serif:400,400i,700|Satisfy');
         </style>
@@ -73,13 +81,259 @@
             ]); ?>
 
         </script>
+        <script type="text/javascript">
+            var transferNames = {!! json_encode($transferNames) !!};
+            var pick_up = [];
+            var places = {!! json_encode($places) !!};
+            var drop_off = [];
+            $.each(transferNames, function(key, value) {
+                $.each(value, function(key1, value1) {
+                    if(key1 == 'name') {
+                        pick_up.push(value1);
+                    }
+                });
+            });
+            $.each(places, function(key, value) {
+                $.each(value, function(key1, value1) {
+                    if(key1 == 'name') {
+                        drop_off.push(value1);
+                    }
+                });
+            });
+            $(function() {
+                $('#pick-up').autocomplete({
+                    source: pick_up,
+                });
+
+                $('#drop-off').autocomplete({
+                    source: drop_off,
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                $('#departureDate').datepicker({
+                    dateFormat: "yy-mm-dd"
+                });
+            })
+        </script>
+        <script type="text/javascript">
+            var price = '{{ ! empty($car->price) ? $car->price : "" }}';
+            var baseUrl = '{{ URL::to("/") }}';
+            $(function() {
+                var action = '{{ $action }}';
+                if(action == 'bookForm') {
+                    $('.1').addClass('active');
+                }
+                if(action == 'confirmation') {
+                    $('.1').children().find('span').html('<i class="fa fa-check"></i>');
+                    $('.1').removeClass('active');
+                    $('.1').addClass('completed');
+                    $('.2').addClass('active');
+                }
+            })
+        </script>
+        <style>
+          /* Note: Try to remove the following lines to see the effect of CSS positioning */
+            .affix {
+                top: 0;
+                width: 102%;
+            }
+            .affix + .container-fluid {
+                padding-top: 70px;
+            }
+        </style>
     </head>
     <body>
         <div id="app">
+            <div class="row">
+                <div class="logo-head">
+                    <div class="logo col-xs-12 col-md-4 col-lg-4">
+                        <a class="logo-link" href="#">{{ Html::image('img/logo-vmtravel.png') }}</a>
+                    </div>
+                    <div class="slogan col-xs-12 col-md-4 col-lg-4">
+                        <h2>Let Us Show You VietNam</h2>
+                    </div>
+                    <div class="contact col-xs-12 col-md-4 col-lg-4">
+                        <p class="language clearfix">
+                           <span>Choose language:</span>
+                           <a href="http://www.orientalsails.com" class="flag en" hreflang="en"></a>
+                           <a href="http://www.vietnamese.orientalsails.com/" class="flag vi" hreflang="vi"></a> 
+                        </p>
+                        <p class="text">CONTACT YOUR TRIP PLANNER</p>
+                        <p class="email">Email: info@privatecarvietnam.com</p>
+                        <p><span class="phone"></span>Book online or call <b>84-4-39264009</b></p>
+                    </div>
+                </div>
+                <div class="menu clearfix">
+                    <!-- <a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a> -->
+                    <a class="navigation" href="#">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        &nbsp;
+                        <span class="txt">MENU</span>
+                    </a>
+                </div>
+                <!-- <div class="navigation-overlay">
+                    <ul class="mobile-menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Private Transfer</a>
+                            <ul>
+                                <li><a href="#">Hue Transfer</a></li>
+                                <li><a href="#">Quang Binh Transfer</a></li>
+                                <li><a href="#">Da Nang Transfer</a></li>
+                                <li><a href="#">Hoi An Transfer</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Airport Transfer</a>
+                            <ul>
+                                <li><a href="#">Phu Bai Transfer</a></li>
+                                <li><a href="#">Dong Hoi Transfer</a></li>
+                                <li><a href="#">Da Nang Transfer</a></li>
+                                <li><a href="#">Chu Lai Transfer</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="3">Blog</a></li>
+                        <li><a href="3">Contact us</a></li>
+                    </ul>
+                </div> -->
+                <div class="desktop-menu" data-spy="affix" data-offset-top="197">
+                    <ul class="top-menu">
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/private-transfer') }}">Private Transfer <span class="caret"></span></a>
+                            <ul>
+                                @foreach($transferNames as $transferName)
+                                    @if($transferName->type_id == 4)
+                                        <li><a href="{{ url('/private-transfer/view/' . $transferName->slug) }}">{{ $transferName->name }}</a></li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li><a href="{{ url('/airport-transfer') }}">Airport Transfer <span class="caret"></span></a>
+                            <ul>
+                                @foreach($transferNames as $transferName)
+                                    @if($transferName->type_id == 3)
+                                        <li><a href="{{ url('/airport-transfer/view/' . $transferName->slug) }}">{{ $transferName->name }}</a></li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li><a href="{{ url('/blog') }}">Blog</a></li>
+                        <li><a href="{{ url('/contact') }}">Contact us</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="back-to-top" style="display: none;">
+                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="row clearfix submargin">
+                {!! Form::open(['url' => '/find-transfer', 'method' => 'POST', 'class' => 'search-form col-md-12 col-sm-12 form-inline', 'id' => 'searchForm']) !!}
+                    <div class="form-group col-md-4 col-xs-12">
+                        <label class="control-label" for="pick-up">
+                            Pick-up
+                        </label>
+                        <div class="wrapper-input">
+                            <input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pick-up" placeholder="Type airport, city or train station" required="required" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1 col-xs-12">
+                        <a href="javascript: void(0)" class="swap-locations">
+                            <i class="fa fa-exchange"></i>
+                        </a>
+                    </div>
+                    <div class="form-group col-md-4 col-xs-12">
+                        <label class="control-label" for="drop-off">
+                            Drop-off
+                        </label>
+                        <div class="wrapper-input">
+                            <input id="drop-off" class="form-control col-md-7 col-xs-12 drop-off input-text" name="drop-off" placeholder="Type airport, city or train station" required="required" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3 col-xs-12">
+                        <button id="send" type="submit" class="button button-red">
+                            <span class="glyphicon glyphicon-search"></span>Find transfer
+                        </button>
+                    </div>
+                {!! Form::close() !!}
+            </div>
             @yield('content')    
         </div>
+        <div class="modal"><!-- Place at bottom of page --></div>
     </body>
-    <footer>
-        Footer
+    <footer class="footer-wrapper">
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="contact-us">
+                            <h3>Contact Us</h3>
+                            <p class="contact">{{ Html::image('img/phone.png') }} +84-911 611 246</p>
+                            <p class="email">{{ Html::image('img/email.png') }} info@privatecarvietnam.com</p>
+                            <p class="address">{{ Html::image('img/paper-plane.png') }} info@privatecarvietnam.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 our-blog">
+                        <h3>Our blog</h3>
+                        <ul class="list-unstyled">
+                            @foreach($blogs as $blog)
+                            <li>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <img src="{{ $blog->img }}">
+                                    </div>
+                                    <div class="media-body">
+                                        <h5><a href="#">{{ $blog->title}}</a></h5>
+                                        <p>{{ $blog->description . '...' }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <h3>TripAdVisor</h3>
+                        <div class="tripadvisor-wrapper">
+                            <div class="tripadvisor-header">
+                                <a href="https://www.tripadvisor.com/" target="_blank">
+                                    {{ Html::image('img/tripadvisor.png') }}
+                                </a>
+                                <p class="normal-text">Know better. Book better. Go better.</p>
+                            </div>
+                            <div class="tripadvisor-experience">
+                                <h5 class="tripadvisor-title"><a href="https://www.tripadvisor.com/" target="_blank">Private Car VietNam Experience</a></h5>
+                                <p class="strong-text">TripAdvisor Traveler Rating</p>
+                                {{ Html::image('img/visor.gif') }}
+                                <p class="normal-text">Based on 401 traveler reviews</p>
+                            </div>
+                            <div class="tripadvisor-review">
+                                <h5 class="tripadvisor-title"><a href="https://www.tripadvisor.com/" target="_blank">Review VietNam Private Car</a></h5>
+                                <a href="https://www.tripadvisor.com/" target="_blank">
+                                    {{ Html::image('img/tripadvisor_green_background.png') }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <h3>Facebook</h3>
+                        <p>
+                            <big>
+                            <a href="http://www.facebook.com/LuxurySimplifiedRetreats" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                            <a href="http://instagram.com/luxurysimplifiedretreats/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                            <a href="http://www.pinterest.com/luxsimpretreats/" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                            </big>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 footer-bottom">
+                        <p>Private Car VietName - Let Us Show You VietNam</p>
+                        <p>Broker in Charge – Rob Wilson, Cell: <a href="tel:8432966585">(843) 296-6585</a></p>
+                        <p>©2017&nbsp;Luxury Simplified Retreats. <a href="http://cnmwebsite.com/" target="_blank">Web Design, Development &amp; Hosting by Colophon</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 </html>

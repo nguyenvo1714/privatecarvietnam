@@ -82,11 +82,8 @@ class CarController extends Controller
      */
     public function edit($id)
     {
-    	$types = Type::get();
-    	$places = Place::get();
-    	$blogs = Blog::get();
     	$car = Car::find($id);
-        return view('admin.cars.edit', ['car' => $car, 'types' => $types, 'places' => $places, 'blogs' => $blogs]);
+        return view('admin.cars.edit', ['car' => $car]);
     }
 
     /**

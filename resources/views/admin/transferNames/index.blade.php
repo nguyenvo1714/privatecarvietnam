@@ -20,6 +20,9 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Transfer Name Type</th>
+                                <th>Image thumb</th>
+                                <th>Description</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -27,16 +30,14 @@
                         <tbody>
                             @foreach($transferNames as $transferName)
                             <tr>
-                                <td>{{ $transferName->name }}</td>
-                                <!-- <td style="font-size: 20px;">
-                                    <a href="" id="{{ $transferName->id }}" class="call-view-transferName" data-toggle="modal" data-target="#myModal">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                </td> -->
-                                <td style="font-size: 20px;">
-                                    <a href="" id="{{ $transferName->id }}" class="call-edit-transferName" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil-square-o"></i></a>
+                                <td style="width: 13%;">{{ $transferName->name }}</td>
+                                <td style="width: 12%;">{{ $transferName->type->where('types.id', $transferName->type_id)->first()->name }}</td>
+                                <td style="width: 23%;">{{ Html::image('/storage/' . $transferName->thumb) }}</td>
+                                <td style="width: 40%;">{{ $transferName->description }}</td>
+                                <td style="font-size: 20px; width: 5%;">
+                                    <a href="{{ url('/transferName/' . $transferName->id . '/edit') }}" id="{{ $transferName->id }}" class="call-edit-transferName"><i class="fa fa-pencil-square-o"></i></a>
                                 </td>
-                                <td style="font-size: 20px;">
+                                <td style="font-size: 20px; width: 5%;">
                                     {!! Form::open(['url' => '/transferName/'.$transferName->id, 'method' => 'POST']) !!}
                                         {{ method_field('DELETE') }}
                                         <button type="submit" class="naked-button"> <i class="fa fa-trash-o"></i></a>

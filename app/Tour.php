@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tour extends Model
 {
     protected $table = 'tours';
-    protected $connection = 'touringservice';
+    // protected $connection = 'touringservice';
     protected $fillable = [
     	'tour_id',
     	'name',

@@ -2,23 +2,39 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 
 class Transfer extends Model
 {
+    use Sluggable;
+    use SluggableScopeHelpers;
+
     protected $table = 'transfers';
-    protected $connection = 'touringservice';
+    // protected $connection = 'touringservice';
     protected $fillable = [
     	'type_id',
     	'transferName_id',
     	'place_id',
         'title',
+        'slug',
         'duration',
         'image_thumb',
         'image_head',
         'description',
     	'blog_id',
     ];
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+                'onUpdate' => true,
+            ]
+        ];
+    }
 
     public function type()
     {

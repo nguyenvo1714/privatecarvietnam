@@ -28,9 +28,10 @@ class TransferController extends Controller
         'transferName_id'  => 'required|regex:/^[0-9]+/',
         'place_id'         => 'required|regex:/^[0-9]+/',
         'title'            => 'required',
-        'duration'            => 'required',
-        'image_thumb'            => 'required',
-        'image_head'            => 'required',
+        'slug'             => 'required|min:2,max:255|alpha_dash',
+        'duration'         => 'required',
+        'image_thumb'      => 'required',
+        'image_head'       => 'required',
         'blog_id'          => 'required|regex:/^[0-9]+/',
     ];
 
@@ -62,7 +63,7 @@ class TransferController extends Controller
     {
     	$types = Type::get();
     	$places = Place::get();
-    	$blogs = Blog::where('type_id', 'in', [3,4])->get();
+        $blogs = Blog::whereIn('type_id', [3, 4])->get();
         $drivers = Driver::get();
         $transferNames = transferName::get();
         return view('/admin.transfers.create', [

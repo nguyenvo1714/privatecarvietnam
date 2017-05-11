@@ -2,15 +2,31 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 
 class Type extends Model
 {
+    use Sluggable;
+    use SluggableScopeHelpers;
+
     protected $table = 'types';
-    protected $connection = 'touringservice';
+    // protected $connection = 'touringservice';
     protected $fillable = [
-    	'name',
+        'name',
+        'slug',
     ];
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+                'onUpdate' => true,
+            ]
+        ];
+    }
 
     public function tour()
     {
@@ -20,5 +36,10 @@ class Type extends Model
     public function blogs()
     {
     	return $this->hasMany('App\Blog');
+    }
+
+    public function transferNames()
+    {
+        return $this->hasMany('App\TransferName', 'type_id');
     }
 }

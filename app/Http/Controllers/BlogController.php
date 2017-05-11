@@ -71,7 +71,11 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.blogs.edit', ['blog' => Blog::findOrFail($id)]);
+        $types = Type::get();
+        return view('admin.blogs.edit', [
+            'blog' => Blog::findOrFail($id),
+            'types' => $types
+        ]);
     }
 
     /**

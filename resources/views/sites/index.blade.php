@@ -78,7 +78,7 @@
 		    @endforeach
 	    </div>
 	</div>
-	<div class="default-content happy-customers">
+	<div class="default-content happy-customers parallax-window" data-parallax="scroll">
 		<div class="container">
 	    	<div class="row">
 				<div class="col-sm-6">

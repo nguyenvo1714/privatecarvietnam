@@ -1645,12 +1645,19 @@ div.wpcr3_review div.wpcr3_review_title {
 }
 /*=========================================== TESTIMONIALS =====================================================*/
 .happy-customers {
-	background-image: url(../img/testimonials-home.jpg);
-	background-repeat: no-repeat;
-	background-position: center top;
-	background-size: cover;
+	/*background-image: url(../img/testimonials-home.jpg);*/
+	/*background-repeat: no-repeat;*/
+	/*background-position: center top;*/
+	/*background-size: cover;*/
 	padding: 15px 0;
 	text-align: center;
+}
+.parallax-window {
+	min-height: 400px;
+	background: transparent;
+}
+.parallax-mirror {
+    z-index:1
 }
 .happy-customers .why-us {
 	display: block;

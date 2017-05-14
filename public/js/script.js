@@ -11,7 +11,17 @@ $(function() {
 	    }
 	});
 
-	$('.parallax-window').parallax({imageSrc: '../img/ctt.jpg'});
+	//wow effect
+	wow = new WOW({
+		boxClass:     'wow',      // default
+		animateClass: 'animated', // default
+		offset:       0,          // default
+		mobile:       true,       // default
+		live:         true        // default
+	});
+    wow.init();
+
+	$('.parallax-window').parallax({imageSrc: '../uploads/ctt.jpg'});
 
 	//Check to see if the window is top if not then display button
 	$(window).scroll(function(){

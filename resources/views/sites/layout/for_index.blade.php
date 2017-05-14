@@ -25,6 +25,9 @@
         {!! Html::style('css/slick.css') !!}
         {!! Html::style('css/slick-theme.css') !!}
         {!! Html::style('css/jquery-ui.min.css') !!}
+        {!! Html::style('css/animate.css') !!}
+        {!! Html::style('css/owl.carousel.min.css') !!}
+        {!! Html::style('css/owl.theme.default.min.css') !!}
         {!! Html::style('css/style.css') !!}
         <!-- Scripts -->
         {!! Html::script('js/app.js') !!}
@@ -34,21 +37,20 @@
         {!! Html::script('js/jquery.validate.min.js') !!}
         {!! Html::script('js/additional-methods.min.js') !!}
         {!! Html::script('js/parallax.min.js') !!}
-        {!! Html::script('js/scrollreveal.min.js') !!}
+        {!! Html::script('js/wow.min.js') !!}
+        {!! Html::script('js/owl.carousel.min.js') !!}
         {!! Html::script('js/script.js') !!}
         <style type="text/css">
             @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700|Montserrat:400,700|Open+Sans+Condensed:300,700|PT+Sans:400,400i,700|PT+Serif:400,400i,700|Satisfy');
         </style>
-        <link rel="canonical" href="http://luxurysimplifiedretreats.com/">
+        <link rel="canonical" href="http://privatecarvietnam.com/">
         <meta property="og:locale" content="en_US">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="http://luxurysimplifiedretreats.com/">
-        <meta property="og:site_name" content="luxurysimplifiedretreats.com website">
+        <meta property="og:url" content="http://privatecarvietnam.com/">
+        <meta property="og:site_name" content="privatecarvietnam.com website">
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Vacation Rentals, Charleston SC, Luxury Simplified Retreats">
         <!-- / Yoast SEO plugin. -->
 
-        <link rel="dns-prefetch" href="http://s.w.org/">
         <style type="text/css">
         img.wp-smiley,
         img.emoji {
@@ -62,14 +64,6 @@
             background: none !important;
             padding: 0 !important;
         }
-        </style>
-        <link rel="https://api.w.org/" href="http://luxurysimplifiedretreats.com/wp-json/">
-        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://luxurysimplifiedretreats.com/xmlrpc.php?rsd">
-        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://luxurysimplifiedretreats.com/wp-includes/wlwmanifest.xml"> 
-        <link rel="shortlink" href="http://luxurysimplifiedretreats.com/">
-        <link rel="alternate" type="application/json+oembed" href="http://luxurysimplifiedretreats.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fluxurysimplifiedretreats.com%2F">
-        <link rel="alternate" type="text/xml+oembed" href="http://luxurysimplifiedretreats.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fluxurysimplifiedretreats.com%2F&amp;format=xml">
-        <style type="text/css">.pika-single{z-index:9999;display:block;position:relative;color:#333;background:#fff;border:1px solid #ccc;border-bottom-color:#bbb;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.pika-single.is-hidden{display:none}.pika-single.is-bound{position:absolute;box-shadow:0 5px 15px -5px rgba(0,0,0,0.5)}.pika-single{*zoom:1}.pika-single:before,.pika-single:after{content:" ";display:table}.pika-single:after{clear:both}.pika-lendar{float:left;width:240px;margin:8px}.pika-title{position:relative;text-align:center}.pika-title select{cursor:pointer;position:absolute;z-index:9998;margin:0;left:0;top:5px;filter:alpha(opacity=0);opacity:0}.pika-label{display:inline-block;*display:inline;position:relative;z-index:9999;overflow:hidden;margin:0;padding:5px 3px;font-size:14px;line-height:20px;font-weight:bold;background-color:#fff}.pika-prev,.pika-next{display:block;cursor:pointer;position:relative;outline:none;border:0;padding:0;width:20px;height:30px;text-indent:20px;white-space:nowrap;overflow:hidden;background-color:transparent;background-position:center center;background-repeat:no-repeat;background-size:75% 75%;opacity:0.5;*position:absolute;*top:0}.pika-prev:hover,.pika-next:hover{opacity:1}.pika-prev.is-disabled,.pika-next.is-disabled{cursor:default;opacity:0.2}.pika-prev,.is-rtl .pika-next{float:left;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAUklEQVR42u3VMQoAIBADQf8Pgj+OD9hG2CtONJB2ymQkKe0HbwAP0xucDiQWARITIDEBEnMgMQ8S8+AqBIl6kKgHiXqQqAeJepBo/z38J/U0uAHlaBkBl9I4GwAAAABJRU5ErkJggg==");*left:0}.pika-next,.is-rtl .pika-prev{float:right;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAU0lEQVR42u3VOwoAMAgE0dwfAnNjU26bYkBCFGwfiL9VVWoO+BJ4Gf3gtsEKKoFBNTCoCAYVwaAiGNQGMUHMkjGbgjk2mIONuXo0nC8XnCf1JXgArVIZAQh5TKYAAAAASUVORK5CYII=");*right:0}.pika-select{display:inline-block;*display:inline}.pika-table{width:100%;border-collapse:collapse;border-spacing:0;border:0}.pika-table th,.pika-table td{width:14.28571%;padding:0}.pika-table th{color:#999;font-size:12px;line-height:25px;font-weight:bold;text-align:center}.pika-table abbr{border-bottom:none;cursor:help}.pika-button{cursor:pointer;display:block;-moz-box-sizing:border-box;box-sizing:border-box;outline:none;border:0;margin:0;width:100%;padding:5px;color:#666;font-size:12px;line-height:15px;text-align:right;background:#f5f5f5}.is-today .pika-button{color:#3af;font-weight:bold}.is-selected .pika-button{color:#fff;font-weight:bold;background:#3af;box-shadow:inset 0 1px 3px #178fe5;border-radius:3px}.is-disabled .pika-button{pointer-events:none;cursor:default;color:#999;opacity:0.3}.pika-button:hover{color:#fff !important;background:#ff8000 !important;box-shadow:none !important;border-radius:3px !important}.pika-week{font-size:11px;color:#999}.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f fieldset{border:0;padding:0;margin:0;max-width:500px}.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f fieldset.form-columns-1 .hs-input{width:95%}.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f fieldset.form-columns-1 .input{margin-right:8px}.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f fieldset.form-columns-1 input[type="checkbox"],.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f fieldset.form-columns-1 input[type="radio"]{width:auto}.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f fieldset.form-columns-2 .hs-form-field{width:50%;float:left}.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f fieldset.form-columns-2 .input{margin-right:8px}.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f fieldset.form-columns-3 .hs-form-field{width:32.7%;float:left}.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f fieldset.form-columns-3 .input{margin-right:8px}.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f label.hs-hidden{visibility:hidden}.hsformerror{margin:0 0 2px;padding:2px 6px;height:auto;background-color:#fdd2d0;font-size:11px;border:1px solid #fcb3af;padding:4px 16px 4px 10px;color:#000;display:none;background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fefefe), color-stop(100%, #fdd2d0));background-image:-webkit-linear-gradient(#fefefe, #fdd2d0);background-image:-moz-linear-gradient(#fefefe, #fdd2d0);background-image:-o-linear-gradient(#fefefe, #fdd2d0);background-image:linear-gradient(#fefefe,#fdd2d0);-webkit-border-radius:4px;-moz-border-radius:4px;-ms-border-radius:4px;-o-border-radius:4px;border-radius:4px;-webkit-box-shadow:0 0 6px #ddd;-moz-box-shadow:0 0 6px #ddd;box-shadow:0 0 6px #ddd;z-index:99999}.hsformerror em{border:10px solid;border-color:#fdd2d0 transparent transparent;bottom:-17px;display:block;height:0;left:60px;position:absolute;width:0}.hsformerror p{font-family:Lucida Grande,Lucida Sans Unicode,bitstream vera sans,trebuchet ms,verdana,sans-serif;margin:0;float:left;margin-right:8px}.hsformerror:hover{cursor:default}.hsformerror .close-form-error{float:right;display:inline;top:3px;position:absolute;font-family:Verdana !important;color:#b17c79 !important;cursor:pointer !important;font-size:11px !important;font-weight:normal !important}.hsformerror .close-form-error:hover{color:#cc8884}@media (max-width: 400px), (min-device-width: 320px) and (max-device-width: 480px){form.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f .form-columns-2 .hs-form-field,form.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f .form-columns-3 .hs-form-field{float:none;width:100%}form.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f .form-columns-2 .hs-form-field .hs-input,form.hs-form-22398efe-daf8-4fcd-8f61-ca8e02f91cb8_bd537c8c-c822-46fe-8811-311bef09fc6f .form-columns-3 .hs-form-field .hs-input{width:95%}}
         </style>
         <script>
             window.Laravel = <?php echo json_encode([
@@ -120,165 +114,129 @@
     </head>
     <body>
         <div id="app">
-            <div class="row">
-                <div class="logo-head">
-                    <div class="logo col-xs-12 col-md-4 col-lg-4">
-                        <a class="logo-link" href="#">{{ Html::image('img/logo-vmtravel.png') }}</a>
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" title="GoAsiaDayTrip" href="https://goasiadaytrip.com/"><img alt="GoAsiaDayTrip" title="GoAsiaDayTrip" src="/uploads/goasiadaytrip.png"/></a>
                     </div>
-                    <div class="slogan col-xs-12 col-md-4 col-lg-4">
-                        <h2>Let Us Show You VietNam</h2>
-                    </div>
-                    <div class="contact col-xs-12 col-md-4 col-lg-4">
-                        <p class="language clearfix">
-                           <span>Choose language:</span>
-                           <a href="http://www.orientalsails.com" class="flag en" hreflang="en"></a>
-                           <a href="http://www.vietnamese.orientalsails.com/" class="flag vi" hreflang="vi"></a> 
-                        </p>
-                        <p class="text">CONTACT YOUR TRIP PLANNER</p>
-                        <p class="email">Email: info@privatecarvietnam.com</p>
-                        <p><span class="phone"></span>Book online or call <b>84-4-39264009</b></p>
-                    </div>
-                </div>
-                <div class="menu clearfix">
-                    <!-- <a class="logo-nav" href="http://luxurysimplifiedretreats.com/">{{ Html::image('img/logo.png') }}</a> -->
-                    <a class="navigation" href="#">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        &nbsp;
-                        <span class="txt">MENU</span>
-                    </a>
-                </div>
-                <!-- <div class="navigation-overlay">
-                    <ul class="mobile-menu">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Private Transfer</a>
-                            <ul>
-                                <li><a href="#">Hue Transfer</a></li>
-                                <li><a href="#">Quang Binh Transfer</a></li>
-                                <li><a href="#">Da Nang Transfer</a></li>
-                                <li><a href="#">Hoi An Transfer</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Airport Transfer</a>
-                            <ul>
-                                <li><a href="#">Phu Bai Transfer</a></li>
-                                <li><a href="#">Dong Hoi Transfer</a></li>
-                                <li><a href="#">Da Nang Transfer</a></li>
-                                <li><a href="#">Chu Lai Transfer</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="3">Blog</a></li>
-                        <li><a href="3">Contact us</a></li>
-                    </ul>
-                </div> -->
-                <div class="desktop-menu" data-spy="affix" data-offset-top="197">
-                    <div class="">
-                        <ul class="top-menu">
-                            <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ url('/private-transfer') }}">Private Transfer <span class="caret"></span></a>
-                                <ul>
-                                    @foreach($transferNames as $transferName)
-                                        @if($transferName->type_id == 4)
-                                            <li><a href="{{ url('/private-transfer/view/' . $transferName->slug) }}">{{ $transferName->name }}</a></li>
-                                        @endif
-                                    @endforeach
-                                </ul>
-                            </li>
-                            <li><a href="#">Airport Transfer <span class="caret"></span></a>
-                                <ul>
-                                    @foreach($transferNames as $transferName)
-                                        @if($transferName->type_id == 3)
-                                            <li><a href="{{ url('/airport-transfer/view/' . $transferName->slug) }}">{{ $transferName->name }}</a></li>
-                                        @endif
-                                    @endforeach
-                                </ul>
-                            </li>
-                            <li><a href="{{ url('/blog') }}">Blog</a></li>
-                            <li><a href="{{ url('/contact') }}">Contact us</a></li>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav hidden-xs hidden-sm hidden-md">
+                            <li  class="slogan"> <span>The missing piece of your trip</span></li>
                         </ul>
-                    </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa hidden-sm fa-user"></i> For User <span class="badge badge-warning">2</span> <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menuuser">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="login"><i class="fa fa-user"></i> Sign In</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/users/register/user.html"><i class="fa fa-pencil-square"></i> Create an Account </a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/deals.html"><i class="fa fa-tags"></i> Deals and Offers <span class="badge badge-warning">1</span></a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/promotion/thanksgiving-promotion-book-1-get-1-free.html"><i class="fa fa-certificate"></i> Promotions <span class="badge badge-warning">1</span></a></li>                       <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/page/about-goasiadaytrip.html"><i class="fa fa-users"></i> About us</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/page/terms-coditions.html"><i class="fa fa-book"></i> Terms and Conditions</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/page/privacy-policy.html"><i class="fa fa-shield"></i> Privacy Policy</a></li>
+                                    </ul>
+                            </li>
+                            <li class="hidden-xs hidden-sm hidden-md"><a href="https://www.facebook.com/dialog/oauth?client_id=1672434256348453&redirect_uri=https%3A%2F%2Fgoasiadaytrip.com%2Fusers%2Ffblogin.html&state=8c807ec476fbab3653b26368b730f2b1&sdk=php-sdk-3.2.3&scope=email" style="color:#3e5b99;font-size:1.5em"><i class="fa fa-facebook-official"></i></a></li>
+                            <li><a href="https://goasiadaytrip.com/airport-transfers.html"> <i class="fa hidden-sm fa-car"></i> Airport Transfers</a></li>
+                            <li><a href="https://goasiadaytrip.com/cruise.html"><i class="fa hidden-sm fa-ship"></i> Cruises</a></li>
+                            <li><a href="https://goasiadaytrip.com/cart.html"><i class="fa hidden-sm fa-shopping-cart"></i> Cart <span class="badge badge-warning">0</span></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="fa hidden-sm fa-question-circle"></i> Help
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/contact.html"><i class="fa fa-comments-o"></i> Contact us</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/page/faqs-goasiadaytrip.html"><i class="fa fa-question-circle"></i> FAQ</a></li>
+                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="mailto:support@goasiadaytrip.com"><i class="fa fa-envelope"></i> support@goasiadaytrip.com</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" title="Hotline & WhatsApp" href="#"><i class="fa fa-phone-square"></i> <i class="fa fa-whatsapp"></i> +84-9-4161-8080</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="skype:goasiadaytrip"><i class="fa fa-skype"></i> goasiadaytrip</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
                 </div>
-                <a href="#" class="back-to-top" style="display: none;">
-                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                </a>
-            </div>
-            @yield('content')    
+            </nav>
+            <a href="#" class="back-to-top" style="display: none;">
+                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            </a>
+            @yield('content')
         </div>
         <div class="modal"><!-- Place at bottom of page --></div>
     </body>
-    <footer class="footer-wrapper">
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="contact-us">
-                            <h3>Contact Us</h3>
-                            <p class="contact">{{ Html::image('img/phone.png') }} +84-911 611 246</p>
-                            <p class="email">{{ Html::image('img/email.png') }} info@privatecarvietnam.com</p>
-                            <p class="address">{{ Html::image('img/paper-plane.png') }} info@privatecarvietnam.com</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 our-blog">
-                        <h3>Our blog</h3>
-                        <ul class="list-unstyled">
-                            @foreach($blogs as $blog)
-                            <li>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="{{ $blog->img }}">
-                                    </div>
-                                    <div class="media-body">
-                                        <h5><a href="#">{{ $blog->title}}</a></h5>
-                                        <p>{{ $blog->description . '...' }}</p>
-                                    </div>
-                                </div>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <h3>TripAdVisor</h3>
-                        <div class="tripadvisor-wrapper">
-                            <div class="tripadvisor-header">
-                                <a href="https://www.tripadvisor.com/" target="_blank">
-                                    {{ Html::image('img/tripadvisor.png') }}
-                                </a>
-                                <p class="normal-text">Know better. Book better. Go better.</p>
-                            </div>
-                            <div class="tripadvisor-experience">
-                                <h5 class="tripadvisor-title"><a href="https://www.tripadvisor.com/" target="_blank">Private Car VietNam Experience</a></h5>
-                                <p class="strong-text">TripAdvisor Traveler Rating</p>
-                                {{ Html::image('img/visor.gif') }}
-                                <p class="normal-text">Based on 401 traveler reviews</p>
-                            </div>
-                            <div class="tripadvisor-review">
-                                <h5 class="tripadvisor-title"><a href="https://www.tripadvisor.com/" target="_blank">Review VietNam Private Car</a></h5>
-                                <a href="https://www.tripadvisor.com/" target="_blank">
-                                    {{ Html::image('img/tripadvisor_green_background.png') }}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <h3>Facebook</h3>
-                        <p>
-                            <big>
-                            <a href="http://www.facebook.com/LuxurySimplifiedRetreats" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                            <a href="http://instagram.com/luxurysimplifiedretreats/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                            <a href="http://www.pinterest.com/luxsimpretreats/" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            </big>
-                        </p>
+    <footer class="wrapfooter">
+        <div class="container footer">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="contact-us">
+                        <h3>Contact Us</h3>
+                        <p class="contact">{{ Html::image('img/phone.png') }} ...</p>
+                        <p class="email">{{ Html::image('img/email.png') }} info@privatecarvietnam.com</p>
+                        <p class="address">{{ Html::image('img/paper-plane.png') }} info@privatecarvietnam.com</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12 footer-bottom">
-                        <p>Private Car VietName - Let Us Show You VietNam</p>
-                        <p>Broker in Charge – Rob Wilson, Cell: <a href="tel:8432966585">(843) 296-6585</a></p>
-                        <p>©2017&nbsp;Luxury Simplified Retreats. <a href="http://cnmwebsite.com/" target="_blank">Web Design, Development &amp; Hosting by Colophon</a></p>
+                <div class="col-md-3 col-sm-6 our-blog">
+                    <h3>Our blog</h3>
+                    <ul class="list-unstyled">
+                        @foreach($blogs as $blog)
+                        <li>
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="{{ $blog->img }}">
+                                </div>
+                                <div class="media-body">
+                                    <h5><a href="#">{{ $blog->title}}</a></h5>
+                                    <p>{{ $blog->description . '...' }}</p>
+                                </div>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <h3>TripAdVisor</h3>
+                    <div class="tripadvisor-wrapper">
+                        <!-- <div class="tripadvisor-header">
+                            <a href="https://www.tripadvisor.com/" target="_blank">
+                                {{ Html::image('img/tripadvisor.png') }}
+                            </a>
+                            <p class="normal-text">Know better. Book better. Go better.</p>
+                        </div> -->
+                        <div class="tripadvisor-experience">
+                            <h5 class="tripadvisor-title"><a href="https://www.tripadvisor.com/" target="_blank">Private Car VietNam Experience</a></h5>
+                            <p class="strong-text">TripAdvisor Traveler Rating</p>
+                            {{ Html::image('img/visor.gif') }}
+                            <p class="normal-text">Based on 401 traveler reviews</p>
+                        </div>
+                        <div class="tripadvisor-review">
+                            <h5 class="tripadvisor-title"><a href="https://www.tripadvisor.com/" target="_blank">Review VietNam Private Car</a></h5>
+                            <a href="https://www.tripadvisor.com/" target="_blank">
+                                {{ Html::image('img/tripadvisor_green_background.png') }}
+                            </a>
+                        </div>
                     </div>
+                </div>
+                <div class="col-md-3 col-sm-6 text-center">
+                    <div class="socialfooter">
+                        <h3 class='ttfollowus'>Follow us</h3>
+                        <a href="https://www.facebook.com/goasiadaytrip" class="fb"><i class='fa fa-facebook'></i> Facebook</a>
+                        <a href="https://instagram.com/goasiadaytrip" class="ins"><i class='fa fa-instagram'></i> Instagram</a>
+                        <a href="https://twitter.com/goasiadaytrip" class="tw"><i class='fa fa-twitter'></i> Twitter</a>
+                        <!-- <a href="https://www.tripadvisor.com/Attraction_Review-g293924-d8861377-Reviews-GoAsiaDayTrip_Day_Tour-Hanoi.html"><i class='fa fa-tripadvisor'></i> Tripadvisor</a> -->
+                        <!-- <a href="https://goasiadaytrip.tumblr.com/"><i class='fa fa-tumblr'></i> Tumblr</a> -->
+                  </div>
                 </div>
             </div>
-        </div>
-    </footer>
+            <div class="row">
+                <div class="col-sm-12 footer-bottom text-center">
+                    <p>©2017&nbsp;<a href="http://privatecarvietnam.com">Private Car VietName</a> - Let Us Show You VietNam</p>
+                </div>
+            </div>
+        </div> <!-- End .footer -->
+    </footer> <!-- End .wwrapfooter -->
 </html>

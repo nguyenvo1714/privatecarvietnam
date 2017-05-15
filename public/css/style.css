@@ -121,6 +121,16 @@ body {
                 50% 50%
                 no-repeat;
 }
+.cover {
+	display: none;
+	position: fixed;
+	z-index: 99;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(26, 25, 25, .8);
+}
 body.loading {
     overflow: hidden;
 }
@@ -457,8 +467,7 @@ nav.navbar-default.navbar-fixed-top {
 /*===========================================================================================================*/
 .wrapwhyus {
 	padding:10px 0px;
-	/*background: url(../img/bgr-xanhngoc.png);*/
-	background-color: rgba(79, 248, 173, 0.3);
+	background: rgba(213, 219, 219, 0.7);
 	width: 100%;
 	display: table;
 }
@@ -466,22 +475,45 @@ nav.navbar-default.navbar-fixed-top {
 	border:1px solid;
 	font-size:1.5em;
 	vertical-align:middle;
-	color:#bdc3c7;
-	width:40px;
-	height:40px;
-	line-height:38px;
-	border-radius:20px;
+	color: #000;
+	width: 40px;
+	height: 40px;
+	line-height: 38px;
+	border-radius: 20px;
 }
 .wrapwhyus div {
-	font-weight:600;
-	color:#fff;
+	font-weight: 600;
+}
+/*===========================================================================================================*/
+/*=========================================== Video welcome =================================================*/
+/*===========================================================================================================*/
+.parallax {
+	width: 280px;
+	margin: auto;
+	text-align: center;
+}
+.parallax a {
+	margin-top: 30%;
+}
+.parallax a i {
+	font-size: 50px;
+	color: #e30919 ;
+}
+.parallax a h1 {
+	color: #fff;
+	font-size: 28px;
+	margin-top: 10px;
+}
+.modal1 {
+	display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        30%;
+    left:       27%;
 }
 /*===========================================================================================================*/
 /*=========================================== Top Transfers =================================================*/
 /*===========================================================================================================*/
-/*.rowbox>div {
-	margin-bottom:20px;
-}*/
 .tthome {
 	font-size:2em;
 	margin-bottom: 25px;
@@ -538,148 +570,6 @@ h1.tthome {
 	font-size: 14px;
 	margin-top: 10px;
 }
-
-
-
-
-/*.pricesaleoff {
-	text-decoration:line-through;
-	color:#999;
-}
-.carouselprice {
-	font-size:1.75em;
-	font-weight:600;
-	color:#4d4d4d;
-	position: absolute;
-	right:10px;
-}
-.content {
-	margin:20px auto;
-}
-.boxdesti {
-	margin:20px 0px;
-}
-.wrapdesoverview {
-	margin-bottom:20px;
-}
-.desimg {
-	width:100%;
-	margin-bottom: 10px
-}
-.ttdesticou {
-	position:relative;
-	border-bottom:1px solid #eee;
-	margin-bottom:15px;
-}
-.ttdesticou h2 {
-	margin-top:0px;
-}
-.ttdesticou a.counttourdes {
-	display:block;
-	position:absolute;
-	top:0px;
-	right:10px;
-	cursor:pointer;
-}
-.ttdesticou a.counttourdes:hover {
-	text-decoration: none;
-}
-.ttdesticou a.counttourdes span {
-	display:inline-block;
-	width:40px;
-	height:40px;
-	border:2px solid;
-	border-radius:20px;
-	line-height:35px;
-	text-align:center;
-	font-weight:bold;
-	font-size:1.35em;
-}
-.desoverview {
-	text-align: justify;
-	font-weight: 400;
-}
-.boxtourcou {
-	margin-bottom: 20px;
-	padding:10px;
-	position: relative;
-}
-.boxtourcou img {
-	width:100%;
-	margin-bottom:10px;
-}
-.boxtourcou p {
-	margin-bottom:0px;
-}
-.price {
-	font-weight:bold;
-	font-size:1.5em;
-	color:#2ecc71;
-}
-.attalldesti {
-	margin-bottom:10px;
-	padding:10px 0px 5px;
-	border-top:1px solid #bdc3c7;
-	border-bottom:1px solid #bdc3c7;
-}
-.attalldesti a {
-	display: inline-block;
-	border-radius: 3px;
-	border:1px solid;
-	padding:5px 10px;
-	margin-bottom: 5px;
-}
-.attalldesti a:hover {
-	text-decoration: none;
-}
-.boxtourcou .ttboxtour {
-	margin-bottom:10px;
-	font-size: 1.05em;
-}
-.boxtourcou:hover{box-shadow: 0px 0px 10px;border-radius: 5px;transition: all 0.5s linear;}
-
-.desslider{margin-bottom: 10px;}
-.desslider img{width:100%;}
-.activity{margin-top:20px;}
-.boxradius{position: relative;  background-color: #fff;  border: 1px solid #d9dad0;  margin-bottom: 15px;  padding: 15px;border-radius:5px;}
-.boxradius h2,.boxradius h3, .boxradius h4{margin-top: 5px;}
-.boxradius .hr,.reviews .hr{margin:10px auto;}
-
-.acbanner i.fa{font-size: 1.15em;}
-.acdeal{background-color: #8e44ad;}
-.acdeal i.fa{color: #8e44ad;}
-.acgift{background: #f39c12}
-.acgift i.fa{color: #f39c12;}
-.acbestseller{background-color:#e74c3c;}
-.acbestseller i.fa{color: #e74c3c;}
-.acsellfast{background-color: #3498db;}
-.acsellfast i.fa{color:#3498db;}
-.facircle {
-    background: #fff;
-    width: 26px;
-    display: inline-block;
-    height: 26px;
-    border-radius: 13px;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 27px;
-}
-.fahalfcircle {margin-right:-23px;}
-.acthumbnail{width:100%;margin-bottom: 10px;}
-.activitysum h3.ttactivity{margin-top:5px;font-size:1.25em;margin-bottom: 5px;}
-.activitysum div.hr{margin:10px auto;}
-.activitysum p.pstar{margin-bottom: 10px;}
-.activitysum p,.boxprice{color:#868780;margin-bottom: 0px}
-.boxprice p.pprice{margin-bottom:10px;line-height:120%;font-size: 0.925em;}
-.boxprice p.pprice span.price{padding-top:5px;font-size: 2em;}
-.activitylink{position: absolute;top:0px;left:0px;right:0px;bottom: 0px;}
-.pstar a, .pstar{color: #999; text-decoration: none;}
-.wrapboxtourinfo div.hr{margin:10px auto;}
-.wrapboxtourinfo  .boxtourinfo{color:#979797}
-.wrapboxtourinfo .boxtourinfo i.fa{font-size: 1.25em;vertical-align: middle;width: 20px;}
-.boxradius h2,.boxradius h3{font-size:22px;}
-.page .page-header{font-size: 1.5em;margin-top: 0px;}
-.page h3{font-size:18px;}*/
 /*===========================================================================================================*/
 /*=========================================== Top Deals =====================================================*/
 /*===========================================================================================================*/

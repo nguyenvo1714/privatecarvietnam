@@ -53,7 +53,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="wrapwhyus parallax-window" data-parallax="scroll">
+		<section class="wrapwhyus">
 			<div class="">
 				<div class="col-md-8 col-sm-12 col-xs-12">
 					<div class="row br pt">
@@ -79,16 +79,17 @@
 		<section class="welcome-to-vietname">
 			<div class="parallax-container" style="height: 300px">
 				<div class="parallax">
-					<img src="/Content/theme/images/du-lich-da-nang.jpg" class="fullwidth" alt=" " style="display: block; bottom: -255.981px;">
 					<a class="modal-trigger" href="#modal1">
 						<div class="banner-logo">
-							<h1 class="marbot15 wow fadeInLeft animated animated" data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInLeft;">Du lịch Đà Nẵng</h1>
-								<i class="wow fadeInRight animated fa fa-youtube-play youtube animated" data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInRight;"></i>
+							<h1 class="marbot15 wow fadeInLeft animated animated" data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInLeft;">
+								Welcome to VietNam
+							</h1>
+							<i class="wow fadeInRight animated fa fa-youtube-play youtube animated" data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInRight;"></i>
 						</div>
 					</a>
-					<div id="modal1" class="modal">
+					<div id="modal1" class="modal1">
 						<div class="video-container">
-							<iframe width="854" height="510" src="https://www.youtube.com/embed/bgFBNxvVoUI" frameborder="0" allowfullscreen=""></iframe>
+							<iframe id="play-control" width="560" height="315" src="https://www.youtube.com/embed/64RVs2GK5hQ" frameborder="0" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>

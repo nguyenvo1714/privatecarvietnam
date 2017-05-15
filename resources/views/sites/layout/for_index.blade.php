@@ -168,6 +168,7 @@
             @yield('content')
         </div>
         <div class="modal"><!-- Place at bottom of page --></div>
+        <div class="cover"><!-- Place at bottom of page --></div>
     </body>
     <footer class="wrapfooter">
         <div class="container footer">

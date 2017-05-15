@@ -21,8 +21,17 @@ $(function() {
 	});
     wow.init();
 
-	$('.parallax-window').parallax({imageSrc: '../uploads/ctt.jpg'});
+	$('.parallax-container').parallax({imageSrc: '../img/Cau-Trang-Tien.jpg'});
 
+	$('.modal-trigger').on('click', function(e) {
+		e.preventDefault();
+		$('.cover').slideDown('slow');
+		$('#modal1').css('display', 'block');
+		$('.cover').on('click', function() {
+			$('#modal1').hide();
+			$(this).slideUp('slow');
+		});
+	});
 	//Check to see if the window is top if not then display button
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 100) {

@@ -115,7 +115,7 @@
     <body>
         <div id="app">
             <nav class="navbar navbar-default navbar-fixed-top">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                             <span class="sr-only">Toggle navigation</span>
@@ -129,35 +129,50 @@
                         <ul class="nav navbar-nav hidden-xs hidden-sm hidden-md">
                             <li  class="slogan"> <span>The missing piece of your trip</span></li>
                         </ul>
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="{{ url('/') }}">Home</a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa hidden-sm fa-user"></i> For User <span class="badge badge-warning">2</span> <span class="caret"></span></a>
+                                <a href="{{ url('/private-transfer') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa hidden-sm fa fa-car"></i> Private Transfer <span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="menuuser">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="login"><i class="fa fa-user"></i> Sign In</a></li>
+                                        @foreach($transferNames as $transferName)
+                                            @if($transferName->type_id == 4)
+                                                <li><a href="{{ url('/private-transfer/view/' . $transferName->slug) }}">{{ $transferName->name }}</a></li>
+                                            @endif
+                                        @endforeach
+                                        <!-- <li role="presentation"><a role="menuitem" tabindex="-1" class="login"><i class="fa fa-user"></i> Sign In</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/users/register/user.html"><i class="fa fa-pencil-square"></i> Create an Account </a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/deals.html"><i class="fa fa-tags"></i> Deals and Offers <span class="badge badge-warning">1</span></a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/promotion/thanksgiving-promotion-book-1-get-1-free.html"><i class="fa fa-certificate"></i> Promotions <span class="badge badge-warning">1</span></a></li>                       <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/page/about-goasiadaytrip.html"><i class="fa fa-users"></i> About us</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/page/terms-coditions.html"><i class="fa fa-book"></i> Terms and Conditions</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/page/privacy-policy.html"><i class="fa fa-shield"></i> Privacy Policy</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/page/privacy-policy.html"><i class="fa fa-shield"></i> Privacy Policy</a></li> -->
                                     </ul>
                             </li>
-                            <li class="hidden-xs hidden-sm hidden-md"><a href="https://www.facebook.com/dialog/oauth?client_id=1672434256348453&redirect_uri=https%3A%2F%2Fgoasiadaytrip.com%2Fusers%2Ffblogin.html&state=8c807ec476fbab3653b26368b730f2b1&sdk=php-sdk-3.2.3&scope=email" style="color:#3e5b99;font-size:1.5em"><i class="fa fa-facebook-official"></i></a></li>
-                            <li><a href="https://goasiadaytrip.com/airport-transfers.html"> <i class="fa hidden-sm fa-car"></i> Airport Transfers</a></li>
-                            <li><a href="https://goasiadaytrip.com/cruise.html"><i class="fa hidden-sm fa-ship"></i> Cruises</a></li>
-                            <li><a href="https://goasiadaytrip.com/cart.html"><i class="fa hidden-sm fa-shopping-cart"></i> Cart <span class="badge badge-warning">0</span></a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                    <i class="fa hidden-sm fa-question-circle"></i> Help
+                                <a href="{{ url('/airport-transfer') }}" class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="fa hidden-sm fa fa-car"></i> Airport Transfer
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/contact.html"><i class="fa fa-comments-o"></i> Contact us</a></li>
+                                    @foreach($transferNames as $transferName)
+                                        @if($transferName->type_id == 3)
+                                            <li><a href="{{ url('/airport-transfer/view/' . $transferName->slug) }}">{{ $transferName->name }}</a></li>
+                                        @endif
+                                    @endforeach
+                                    <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/contact.html"><i class="fa fa-comments-o"></i> Contact us</a></li>
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="https://goasiadaytrip.com/page/faqs-goasiadaytrip.html"><i class="fa fa-question-circle"></i> FAQ</a></li>
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="mailto:support@goasiadaytrip.com"><i class="fa fa-envelope"></i> support@goasiadaytrip.com</a></li>
                                     <li role="presentation"><a role="menuitem" tabindex="-1" title="Hotline & WhatsApp" href="#"><i class="fa fa-phone-square"></i> <i class="fa fa-whatsapp"></i> +84-9-4161-8080</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="skype:goasiadaytrip"><i class="fa fa-skype"></i> goasiadaytrip</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="skype:goasiadaytrip"><i class="fa fa-skype"></i> goasiadaytrip</a></li> -->
                                 </ul>
                             </li>
+                            <li><a href="{{ url('/blog') }}" style="clear: both;">Blog</a></li>
+                            <li><a href="{{ url('/contact') }}">Contact us</a></li>
+                            <!-- <li><a href="mailto:info@privatecarvietnam.com">info@privatecarvietnam.com</li>
+                            <li><a href="tel:+84 122345678">84 122345678</li> -->
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="mailto:info@privatecarvietnam.com"><i class="fa fa-envelope"></i> info@privatecarvietnam.com</a></li>
+                            <li><a href="tel:+84 122345678"><i class="fa fa-whatsapp"></i> +84 122345678</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>

@@ -308,6 +308,39 @@ nav.navbar-default.navbar-fixed-top {
 .navbar-nav>li>.menulogined {
 	margin-top:0px;
 }
+nav.navbar-default.navbar-fixed-top li a {
+	color: #fff;
+}
+nav.navbar-default.navbar-fixed-top ul.dropdown-menu li a {
+	color:unset;
+}
+nav.navbar-default.navbar-fixed-top li a:hover {
+	color: #fff;
+}
+.dropdown .dropdown-menu {
+	width: 420px;
+}
+.dropdown .dropdown-menu li {
+	float: left;
+	width: 207px;
+}
+.dropdown .dropdown-menu li a {
+	padding: 3px 10px;
+}
+.dropdown .dropdown-menu li:nth-child(even) {
+	float: right;
+}
+.nav.navbar-nav .dropdown.open a:focus,
+.nav.navbar-nav .dropdown.open a:hover {
+	background-color: unset;
+	/*color: #fff;*/
+}
+nav.navbar-default.navbar-fixed-top .dropdown>a,
+nav.navbar-default.navbar-fixed-top .dropdown.open>a,
+nav.navbar-default.navbar-fixed-top .dropdown.open>a:focus,
+nav.navbar-default.navbar-fixed-top .dropdown.open>a:hover {
+	color: #fff;
+}
 /*===========================================================================================================*/
 /*=========================================== Main Slide ====================================================*/
 /*===========================================================================================================*/

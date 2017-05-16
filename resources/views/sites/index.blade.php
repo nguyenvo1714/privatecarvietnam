@@ -2,7 +2,7 @@
 @section('content')
 	<div class="wrapcontent">
 		{!! Html::style('css/slideshow.css') !!}
-		<section class="wrapslide" style="background: url(../image/boracay-island-philippines.jpg) repeat center;">
+		<section class="wrapslide" style="background: url(../uploads/boracay-island-philippines.jpg) repeat center;">
 			<ul class="slideshow">
 				<li><span>Boracay Island Philippines</span></li>
 				<li><span>Shwedagon Pagoda Myanmar</span></li>
@@ -99,7 +99,7 @@
 			<h2 class="tthome"><span>Top Transfers</span></h2>
 			<div class="row rowbox">
 				@foreach($transfers as $transfer)
-					<div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
 						<div class="transfer-image">
 							<a href="{{ url('/private-transfer/package/' . $transfer->slug) }}">
 								{{ Html::image('/storage/' . $transfer->image_thumb) }}
@@ -129,7 +129,7 @@
 			<h2 class="tthome"><span>Top Tours</span></h2>
 			<div class="row rowbox">
 				@foreach($transfers as $transfer)
-					<div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInDown animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInDown;">
 						<div class="transfer-image">
 							<a href="{{ url('/private-transfer/package/' . $transfer->slug) }}">
 								{{ Html::image('/storage/' . $transfer->image_thumb) }}
@@ -164,7 +164,7 @@
 					</p>
 				</div>
 			</div>
-			<div id="slidedealtour" class="owl-carousel owl-theme">
+			<div id="slidedealtour" class="owl-carousel owl-theme wow slideInLeft animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: slideInLeft;">
 				<div class="cttopdeal item">
 					<div class="img-bgtour"  style="background-image:url('/uploads/tam-coc_treasure-of-indochina.jpg');">
 					</div>

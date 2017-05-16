@@ -39,10 +39,6 @@
 	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
 		color: #fff;
 	}
-	.navbar-nav .open .dropdown-menu .dropdown-header,
-	.navbar-nav .open .dropdown-menu>li>a {
-		/*padding: 5px 0 5px 15px;*/
-	}
 }
 @media (min-width: 768px){
 	.ulairport li {
@@ -99,6 +95,7 @@
 	}
 	.dropdown:hover ul.dropdown-menu {
 		display: block;
+		color: rgba(94, 211, 82, .7);
 	}
 }
 @media only screen and (min-width: 560px) and (max-width: 600px){
@@ -329,7 +326,6 @@ a img
 /*===========================================================================================================*/
 nav.navbar-default.navbar-fixed-top {
     background: rgba(48, 44, 44, 0.75);
-    /*min-height: 70px;*/
 }
 .navbar-nav>li>.menulogined {
 	margin-top:0px;
@@ -337,30 +333,27 @@ nav.navbar-default.navbar-fixed-top {
 nav.navbar-default.navbar-fixed-top li a {
 	color: #fff;
 }
-nav.navbar-default.navbar-fixed-top ul.dropdown-menu li a {
-	color:unset;
-}
 nav.navbar-default.navbar-fixed-top li a:hover {
 	color: #fff;
 }
 .dropdown .dropdown-menu {
 	width: 420px;
+	left: -120px;
+	background: rgba(94, 211, 82, .7);
 }
 .dropdown .dropdown-menu li {
 	float: left;
 	width: 207px;
 }
 .dropdown .dropdown-menu li a {
-	padding: 3px 10px;
+	padding: 5px 10px;
 }
 .dropdown .dropdown-menu li:nth-child(even) {
-	/*float: right;*/
 	padding-left: 3%
 }
-.nav.navbar-nav .dropdown.open a:focus,
-.nav.navbar-nav .dropdown.open a:hover {
+.nav.navbar-nav .dropdown.open .dropdown-menu a:focus,
+.dropdown.open ul.dropdown-menu li a:hover {
 	background-color: unset;
-	/*color: #fff;*/
 }
 nav.navbar-default.navbar-fixed-top .dropdown>a,
 nav.navbar-default.navbar-fixed-top .dropdown.open>a,
@@ -369,18 +362,26 @@ nav.navbar-default.navbar-fixed-top .dropdown.open>a:hover {
 	color: #fff;
 	background-color: unset;
 }
-/*ul.nav li a {
-	padding: 30px 15px;
-}*/
-.domain {
-	display: block;
-	padding: 10px 0 10px;
-	color: #fff;
-	font-family: 'Lucida Calligraphy';
+ul.nav.navbar-nav ul.dropdown-menu>li>a:focus,
+ul.nav.navbar-nav ul.dropdown-menu>li>a:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: unset;
+    text-decoration: underline;
 }
-/*.dropdown:hover ul.dropdown-menu {
-	display: block;
-}*/
+ul.nav.navbar-nav li a:focus,
+ul.nav.navbar-nav li a:hover {
+	color: rgba(94, 211, 82, .7);
+}
+.dropdown-menu li:first-child > a:after {
+    content: '';
+    position: absolute;
+    left: 200px;
+    top: -6px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid rgba(94, 211, 82, .7);
+}
 /*===========================================================================================================*/
 /*=========================================== Main Slide ====================================================*/
 /*===========================================================================================================*/
@@ -892,4 +893,19 @@ h1.tthome {
 .footer-bottom p {
 	margin-bottom: unset;
 	font-weight: 500;
+}
+/*===========================================================================================================*/
+/*=========================================== Private Transfer ==============================================*/
+/*===========================================================================================================*/
+.search-container {
+	padding-top: 50px;
+}
+.search-container .search-form {
+	padding: 10px 10px 20px 10px;
+}
+.search-form label {
+	color: #555;
+}
+.overlay-darkquare {
+    background: transparent url(../image/pattern.png) repeat top left;
 }

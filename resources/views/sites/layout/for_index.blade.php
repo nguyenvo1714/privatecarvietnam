@@ -132,7 +132,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="{{ url('/') }}">Home</a></li>
                             <li class="dropdown">
-                                <a href="{{ url('/private-transfer') }}" role="button" aria-expanded="false"><i class="fa hidden-sm fa fa-car"></i> Private Transfer <span class="caret"></span></a>
+                                <a href="{{ url('/private-transfer') }}" role="button"><i class="fa hidden-sm fa fa-car"></i> Private Transfer <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="menuuser">
                                     @foreach($transferNames as $transferName)
                                         @if($transferName->type_id == 4)
@@ -177,7 +177,7 @@
     <footer class="wrapfooter">
         <div class="container footer">
             <div class="row">
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-sm-6 wow slideInUp animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: slideInUp;">
                     <div class="contact-us">
                         <h3>Contact Us</h3>
                         <p class="contact">{{ Html::image('img/phone.png') }} ...</p>
@@ -185,7 +185,7 @@
                         <p class="address">{{ Html::image('img/paper-plane.png') }} info@privatecarvietnam.com</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 our-blog">
+                <div class="col-md-3 col-sm-6 our-blog wow slideInUp animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: slideInUp;">
                     <h3>Our blog</h3>
                     <ul class="list-unstyled">
                         @foreach($blogs as $blog)
@@ -203,7 +203,7 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-sm-6 wow slideInUp animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: slideInUp;">
                     <h3>TripAdVisor</h3>
                     <div class="tripadvisor-wrapper">
                         <!-- <div class="tripadvisor-header">
@@ -226,7 +226,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 text-center">
+                <div class="col-md-3 col-sm-6 text-center wow slideInUp animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: slideInUp;">
                     <div class="socialfooter">
                         <h3 class='ttfollowus'>Follow us</h3>
                         <a href="https://www.facebook.com/goasiadaytrip" class="fb"><i class='fa fa-facebook'></i> Facebook</a>

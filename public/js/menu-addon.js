@@ -1,11 +1,16 @@
 $(function() {
-  	/* Mobile */
-	// $('.desktop-menu').prepend('<div class="menu-trigger">Menu</div>');       
-	$(".navigation").on("click", function(){
-	    $(".top-menu").slideToggle();
-	});
+	// $(".navigation").on("click", function(){
+	//     $(".top-menu").slideToggle();
+	// });
 
-	// iPad
-	// var isiPad = navigator.userAgent.match(/iPad/i) != null;
-	// if (isiPad) $('.top-menu ul').addClass('no-transition');
+	//mouse hover will display dropdown menu
+	// $('.dropdown').mouseover(function() {
+	// 	$(this).addClass('open');
+	// });
+	// $('.dropdown').mouseout(function() {
+	// 	$(this).removeClass('open');
+	// });
+	$('.dropdown').on('mouseenter mouseleave click tap', function() {
+	  $(this).toggleClass("open");
+	});
 }); 

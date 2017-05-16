@@ -28,6 +28,21 @@
 		line-height: 135%;
 		margin-bottom: 20px;
 	}
+	.navbar-nav .open .dropdown-menu .dropdown-header,
+	.navbar-nav .open .dropdown-menu>li>a {
+		color: #fff;
+	}
+	.dropdown.open .dropdown-menu li:nth-child(even) {
+		/*float: right;*/
+		padding-left: unset;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+		color: #fff;
+	}
+	.navbar-nav .open .dropdown-menu .dropdown-header,
+	.navbar-nav .open .dropdown-menu>li>a {
+		/*padding: 5px 0 5px 15px;*/
+	}
 }
 @media (min-width: 768px){
 	.ulairport li {
@@ -82,11 +97,22 @@
 	.slidesmalltext {
 		font-size: 1.5em !important;
 	}
+	.dropdown:hover ul.dropdown-menu {
+		display: block;
+	}
 }
 @media only screen and (min-width: 560px) and (max-width: 600px){
 	.boxdes {
 		width:50%;float:left;
 	}
+	.dropdown .dropdown-menu li {
+	    width: unset !important;
+	}
+	.dropdown-menu {
+		display: block!important;
+	}
+}
+@media (max-width: 500px) {
 }
 ::-webkit-input-placeholder {
     color:    #999;
@@ -328,7 +354,8 @@ nav.navbar-default.navbar-fixed-top li a:hover {
 	padding: 3px 10px;
 }
 .dropdown .dropdown-menu li:nth-child(even) {
-	float: right;
+	/*float: right;*/
+	padding-left: 3%
 }
 .nav.navbar-nav .dropdown.open a:focus,
 .nav.navbar-nav .dropdown.open a:hover {
@@ -340,7 +367,20 @@ nav.navbar-default.navbar-fixed-top .dropdown.open>a,
 nav.navbar-default.navbar-fixed-top .dropdown.open>a:focus,
 nav.navbar-default.navbar-fixed-top .dropdown.open>a:hover {
 	color: #fff;
+	background-color: unset;
 }
+/*ul.nav li a {
+	padding: 30px 15px;
+}*/
+.domain {
+	display: block;
+	padding: 10px 0 10px;
+	color: #fff;
+	font-family: 'Lucida Calligraphy';
+}
+/*.dropdown:hover ul.dropdown-menu {
+	display: block;
+}*/
 /*===========================================================================================================*/
 /*=========================================== Main Slide ====================================================*/
 /*===========================================================================================================*/

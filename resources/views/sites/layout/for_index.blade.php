@@ -123,7 +123,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" title="GoAsiaDayTrip" href="https://goasiadaytrip.com/"><img alt="GoAsiaDayTrip" title="GoAsiaDayTrip" src="/uploads/goasiadaytrip.png"/></a>
+                        <a class="navbar-brand" title="PrivatecarVietnam" href="https://privatecarvietnam.com/"><img alt="PrivateCarVietnam" title="PrivateCarVietName" src="img/privatecarvietnam.png"/></a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <!-- <ul class="nav navbar-nav hidden-xs hidden-sm hidden-md">

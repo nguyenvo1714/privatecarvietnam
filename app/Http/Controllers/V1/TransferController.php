@@ -110,6 +110,37 @@ class TransferController extends Controller
         ]);
     }
 
+    public function privateTransferAjax(Request $request)
+    {
+        if($request->ajax()) {
+            $transferName = TransferName::where('name', ucwords($request->pickup))->first();
+            $place = Place::where('name', ucwords($request->dropoff))->first();
+            $transfer = Transfer::where('transferName_id', $transferName->id)
+                                ->where('place_id', $place->id)->first();
+            if($transfer) {
+                $type = Type::where('id', $transfer->type_id)->first()->slug;
+                $response = [
+                    'success' => true,
+                    'type' => $type,
+                    'slug' => $transfer->slug
+                ];
+                return response()->json($response);
+            } else {
+                $response = [
+                    'success' => false,
+                    'data' => '404 not found'
+                ];
+                return response()->json($response);
+            }
+        } else {
+            $response = [
+                'success' => false,
+                'data' => '404 not found'
+            ];
+            return response()->json($response);
+        }
+    }
+
     /**
      * Show the info of airport transfer.
      *

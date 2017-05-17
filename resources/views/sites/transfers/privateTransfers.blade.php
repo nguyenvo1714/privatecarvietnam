@@ -1,4 +1,4 @@
-@extends('sites.layout.for_index')
+@extends('sites.layout.app')
 @section('content')
 	<div class="wrapcontent">
 		<section class="search-container">
@@ -119,9 +119,12 @@
 										</div>
 										<div class="col-sm-2">
 											<div class="boxprice">
-												<p>From</p>
-												<p class="pprice">
-													<span class="price">$172.50</span> <br> (per person)</p><p><a class="circlego">Go</a>
+												<!-- <p>From</p> -->
+												<!-- <p class="pprice">
+													<span class="price">$172.50</span> <br> (per person)
+												</p> -->
+												<p>
+													<a class="circlego">Go</a>
 												</p>
 											</div><!-- End boxprice -->
 										</div>
@@ -141,10 +144,53 @@
 				</div>
 			</div>
 		</section>
+		<section class="container content">
+			<div class="col-sm-12">
+				<div align="center">
+					<button class="load_more btn btn-primary" id="load_more_button">
+						<i class='fa fa-spinner'></i> Show 10 more cruises
+					</button>
+					<div class="animation_image" style="display:none;"><img src="img/loading.gif"></div>
+				</div>
+			</div>
+		</section>
+		<div id="results"></div>
 	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    var track_click = 1;
+		    var total_pages = 5;
+		    var perpage = 4;
+		    var crclass = '';
+		    host = baseUrl + '/private-transfer-load-more';
+			if (track_click >= total_pages-1) {
+				$(".load_more").addClass("hidden");
+			}
+			$(".load_more").click(function (e) {
+				$(this).hide();
+				$('.animation_image').show();
+				console.log(baseUrl);
+				if(track_click <= total_pages) {
+					$.post(host,{'page': track_click, 'perpage': perpage, 'crclass' : crclass}, function(data) {
+						$(".load_more").show();
+						$("#results").append(data);
+						$("html, body").animate({scrollTop: $("#load_more_button").offset().bottom}, 500);
+						$('.animation_image').hide();
+						track_click++;
+					}).fail(function(xhr, ajaxOptions, thrownError) {
+						alert(thrownError);
+						$(".load_more").show();
+						$('.animation_image').hide();
+					});
+					if(track_click >= total_pages-1)  $(".load_more").addClass("hidden");
+				}
+			});
+		});
+	</script>
 	<div class="default-content home-properties">
 		<div class="container">
-	    	<div class="row">
+			<div class="row">
 			<div class="col-sm-12">
 					<h2>Private Transfers</h2>
 	            </div>

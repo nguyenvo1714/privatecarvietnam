@@ -954,7 +954,7 @@ h1.tthome {
 	text-transform: uppercase;
 	font-weight: 600;
 }
-.interested, .star {
+.interested, .starline {
 	text-align: center;
 }
 .starline-container {
@@ -1001,4 +1001,41 @@ h1.tthome {
 .boxradius h3,
 .boxradius h4 {
     margin-top: 5px;
+}
+.acthumbnail {
+	width: 100%;
+	margin-bottom: 10px;
+}
+.activitysum p.pstar {
+    margin-bottom: 10px;
+}
+.activitysum p,
+.boxprice {
+    color: #868780;
+    margin-bottom: 0px;
+}
+.quote {
+    font: italic normal 14px Georgia,"Times New Roman","Century Schoolbook L",serif;
+}
+.activitysum .hr {
+	margin: 10px auto;
+}
+.circlego {
+	/*display: block;*/
+	padding: 10px 15px;
+	background: rgba(50, 182, 36, .9);
+	color: #fff;
+	font-weight: 600;
+	font-size: 1.3em;
+	position: relative;
+}
+.circlego::after {
+  background: #fff;
+  border-bottom: 42px solid transparent;
+  border-left: 20px solid rgba(50, 182, 36, .9);
+  border-top: 42px solid transparent;
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: -17px;
 }

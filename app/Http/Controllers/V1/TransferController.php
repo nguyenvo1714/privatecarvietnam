@@ -23,8 +23,8 @@ class TransferController extends Controller
      */
     public function index()
     {
-        $transfers = Transfer::limit(10)->get();
-        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $transfers = Transfer::limit(6)->get();
+        $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
@@ -43,7 +43,7 @@ class TransferController extends Controller
      */
     public function contact()
     {
-        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
@@ -94,7 +94,7 @@ class TransferController extends Controller
      */
     public function privateTransfer()
     {
-        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
@@ -117,7 +117,7 @@ class TransferController extends Controller
      */
     public function airportTransfer()
     {
-        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
@@ -154,7 +154,7 @@ class TransferController extends Controller
      */
     public function viewTransfer($slug)
     {
-        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
@@ -182,7 +182,7 @@ class TransferController extends Controller
      */
     public function viewAirportTransfer($slug)
     {
-        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
@@ -211,7 +211,7 @@ class TransferController extends Controller
      */
     public function detailTransfer($slug)
     {
-        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
@@ -243,7 +243,7 @@ class TransferController extends Controller
      */
     public function detailAirportTransfer($slug)
     {
-        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();

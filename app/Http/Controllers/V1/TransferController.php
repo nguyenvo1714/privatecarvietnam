@@ -118,21 +118,20 @@ class TransferController extends Controller
         ]);
     }
 
-    public function privateTransferAjax(Request $request)
+    public function transferAjax(Request $request)
     {
         if($request->ajax()) {
             $start = $request->page * $request->perpage;
-            $privateTransfers = TransferName::where('type_id', $request->type_id)
+            $transfers = TransferName::where('type_id', $request->type_id)
                                         ->orderBy('id', 'ASC')
                                         ->offset($start)
                                         ->limit($request->perpage)
                                         ->get();
-            if($privateTransfers->count() > 0) {
+            if($transfers->count() > 0) {
                 $response = [
                     'success' => true,
-                    'data' => $privateTransfers
+                    'data' => $transfers
                 ];
-                // var_dump($privateTransfers);die;
                 return response()->json($response);
             } else {
                 $response = [
@@ -161,7 +160,11 @@ class TransferController extends Controller
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
-        $airportTransfers = TransferName::where('type_id', 3)->get();
+        $total = TransferName::where('type_id', 4)->get()->count();
+        $perpage = 4;
+        $type = 3;
+        $total_pages = (int)ceil($total / $perpage);
+        $airportTransfers = TransferName::where('type_id', 3)->limit(4)->get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
         $this->getTransferType($interestTransfers);
         return view('/sites.transfers.airportTransfers', [
@@ -169,6 +172,9 @@ class TransferController extends Controller
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'places' => $places,
+            'total_pages' => $total_pages,
+            'perpage' => $perpage,
+            'type' => $type,
             'interestTransfers' => $interestTransfers
         ]);
     }

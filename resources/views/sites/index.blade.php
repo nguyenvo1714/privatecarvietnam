@@ -1,4 +1,4 @@
-@extends('sites.layout.for_index')
+@extends('sites.layout.app')
 @section('content')
 	<div class="wrapcontent">
 		{!! Html::style('css/slideshow.css') !!}
@@ -97,19 +97,49 @@
 		</section>
 		<section class="container relative">
 			<h2 class="tthome"><span>Top Transfers</span></h2>
+			<div class="starline-container">
+				<h4 class="starline"><span class="glyphicon glyphicon-star"></span></h4>
+			</div>
 			<div class="row rowbox">
 				@foreach($transfers as $transfer)
-					<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
+					<!-- <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
 						<div class="transfer-image">
-							<a href="{{ url('/private-transfer/package/' . $transfer->slug) }}">
-								{{ Html::image('/storage/' . $transfer->image_thumb) }}
+							<a href="{{ url('/' .$transfer->type->slug . '/' . $transfer->slug) }}">
+								{{ Html::image('/storage/' . $transfer->image_thumb, '', ['class' => 'img-responsive']) }}
 							</a>
 						</div>
 						<div class="transfer-content">
 							<div class="transfer-title">
-								<a href="{{ url('/private-transfer/package/' . $transfer->slug) }}">{{ $transfer->title }}</a>
+								<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">{{ $transfer->title }}</a>
 							</div>
 							<p>{{ $transfer->description }}</p>
+						</div>
+					</div> -->
+					<div class="col-sm-6 col-md-4 col-xs-12">
+						<div class="inner mb">
+							<a class="img" href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">
+								<div class="badge-price" style='display:none'>
+									<div class="size1">Da</div>
+									<div class="size2">US$ 0</div>
+									<div class="size3">/Pers</div>
+								</div>
+								{{ Html::image('/storage/' . $transfer->image_thumb, $transfer->title, ['class' => 'image-wrap img-responsive', 'title' => $transfer->title]) }}
+								<span class="fix">
+									<em>
+										<font class="color-two"><span >6 Days</span></font> - VTR01-Northwest Vietnam
+									</em>
+								</span>
+							</a>
+							<div class="decreption-three">
+								<div class="title">
+									<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">{{ $transfer->title }}</a>
+								</div>
+								<div class="clear"></div>
+								<p>
+									<p style="text-align: justify;">{{ $transfer->description }} &nbsp;</p>
+								</p>
+							</div>
+							<a class="more" href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}"><span class="glyphicon glyphicon-menu-right"></span></a>
 						</div>
 					</div>
 				@endforeach
@@ -120,24 +150,30 @@
 						<i class='fa fa-spinner'></i> Show all transfers
 					</button>
 					<div class="animation_image" style="display:none;">
-						<img src="https://goasiadaytrip.com/image/loading.gif">
+						<img src="img/loading.gif">
 					</div>
 				</div>
 			</div>
 		</section>
+		<section class="container">
+			<div class="hr"></div>
+		</section>
 		<section class="container relative">
 			<h2 class="tthome"><span>Top Tours</span></h2>
+			<div class="starline-container">
+				<h4 class="starline"><span class="glyphicon glyphicon-star"></span></h4>
+			</div>
 			<div class="row rowbox">
 				@foreach($transfers as $transfer)
 					<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInDown animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInDown;">
 						<div class="transfer-image">
-							<a href="{{ url('/private-transfer/package/' . $transfer->slug) }}">
+							<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">
 								{{ Html::image('/storage/' . $transfer->image_thumb) }}
 							</a>
 						</div>
 						<div class="transfer-content">
 							<div class="transfer-title">
-								<a href="{{ url('/private-transfer/package/' . $transfer->slug) }}">{{ $transfer->title }}</a>
+								<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">{{ $transfer->title }}</a>
 							</div>
 							<p>{{ $transfer->description }}</p>
 						</div>

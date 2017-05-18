@@ -24,6 +24,7 @@ class TransferController extends Controller
     public function index()
     {
         $transfers = Transfer::limit(6)->get();
+        $this->getTransferType($transfers);
         $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
@@ -97,12 +98,19 @@ class TransferController extends Controller
         $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
+        $total = TransferName::where('type_id', 4)->get()->count();
+        $perpage = 4;
+        $type = 4;
+        $total_pages = (int)ceil($total / $perpage);
         $places = Place::get();
-        $privateTransfers = TransferName::where('type_id', 4)->get();
+        $privateTransfers = TransferName::where('type_id', 4)->limit(4)->get();
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
         $this->getTransferType($interestTransfers);
         return view('/sites.transfers.privateTransfers', [
             'privateTransfers' => $privateTransfers,
+            'total_pages' => $total_pages,
+            'perpage' => $perpage,
+            'type' => $type,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'places' => $places,
@@ -113,17 +121,18 @@ class TransferController extends Controller
     public function privateTransferAjax(Request $request)
     {
         if($request->ajax()) {
-            $transferName = TransferName::where('name', ucwords($request->pickup))->first();
-            $place = Place::where('name', ucwords($request->dropoff))->first();
-            $transfer = Transfer::where('transferName_id', $transferName->id)
-                                ->where('place_id', $place->id)->first();
-            if($transfer) {
-                $type = Type::where('id', $transfer->type_id)->first()->slug;
+            $start = $request->page * $request->perpage;
+            $privateTransfers = TransferName::where('type_id', $request->type_id)
+                                        ->orderBy('id', 'ASC')
+                                        ->offset($start)
+                                        ->limit($request->perpage)
+                                        ->get();
+            if($privateTransfers->count() > 0) {
                 $response = [
                     'success' => true,
-                    'type' => $type,
-                    'slug' => $transfer->slug
+                    'data' => $privateTransfers
                 ];
+                // var_dump($privateTransfers);die;
                 return response()->json($response);
             } else {
                 $response = [

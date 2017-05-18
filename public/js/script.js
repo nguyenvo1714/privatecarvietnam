@@ -65,6 +65,7 @@ $(function() {
 
 	$('#complete').on('submit', function(e) {
 		e.preventDefault();
+		$('.modal').show();
 		var trip           = $('#trip').val();
 		var duration       = $('#duration').val();
 		var class1         = $('#class').val();
@@ -102,6 +103,7 @@ $(function() {
 				note: note
 			},
 			success: function(data) {
+				$('.modal').hide();
 				alert(data.message);
 				window.location.href = baseUrl;
 			}
@@ -110,6 +112,7 @@ $(function() {
 
 	$('#searchForm').on('submit', function(e) {
 		e.preventDefault();
+		$('.modal').show();
 		var pickup  = $('#pick-up').val();
 		var dropoff = $('#drop-off').val();
 		var token   = $('input[name="_token"]').attr('value');
@@ -125,7 +128,9 @@ $(function() {
 			success: function(data) {
 				if(data.success == true) {
 					window.location.href = baseUrl + '/' + data.type + '/package/' + data.slug;
+					$('.modal').hide();
 				} else {
+					$('.modal').hide();
 					alert('Transfer not found');
 				}
 			}
@@ -133,11 +138,11 @@ $(function() {
 		});
 	});
 
-	$(document).ajaxStart(function(){
-	    $('.modal').show();
-	 }).ajaxStop(function(){
-	    $('.modal').hide();
-	 });
+	// $(document).ajaxStart(function(){
+	//     $('.modal').show();
+	//  }).ajaxStop(function(){
+	//     $('.modal').hide();
+	//  });
 });
 
 function cost(price) {

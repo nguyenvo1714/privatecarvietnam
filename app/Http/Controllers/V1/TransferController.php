@@ -180,17 +180,6 @@ class TransferController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  string $name,
@@ -207,15 +196,56 @@ class TransferController extends Controller
         $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
         $this->getTransferType($interestTransfers);
         $transferName_id = TransferName::findBySlug($slug)->id;
-        $transfers = Transfer::where('transferName_id', $transferName_id)->paginate(12);
+        $transfers = Transfer::where('transferName_id', $transferName_id)->limit(6)->get();
+        $total = Transfer::where('transferName_id', $transferName_id)->get()->count();
+        $perpage = 6;
+        $total_pages = (int)ceil($total / $perpage);
+        $this->getTransferType($transfers);
         return view('/sites.transfers.viewTransfers', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'places' => $places,
             'interestTransfers' => $interestTransfers,
             'transfers' => $transfers,
-            'name' => $slug
+            'name' => $slug,
+            'transferName_id' => $transferName_id,
+            'total' => $total,
+            'perpage' => $perpage,
+            'total_pages' => $total_pages,
         ]);
+    }
+
+    public function viewTransferAjax(Request $request)
+    {
+        if($request->ajax()) {
+            $start = $request->page * $request->perpage;
+            $transfers = Transfer::where('transferName_id', $request->transferName_id)
+                                        ->orderBy('id', 'ASC')
+                                        ->offset($start)
+                                        ->limit($request->perpage)
+                                        ->get();
+            $this->getTransferType($transfers);
+            if($transfers->count() > 0) {
+                $response = [
+                    'success' => true,
+                    'data' => $transfers
+                ];
+                var_dump($transfers);die;
+                return response()->json($response);
+            } else {
+                $response = [
+                    'success' => false,
+                    'data' => '404 not found'
+                ];
+                return response()->json($response);
+            }
+        } else {
+            $response = [
+                'success' => false,
+                'data' => '404 not found'
+            ];
+            return response()->json($response);
+        }
     }
 
     /**

@@ -127,7 +127,7 @@ $(function() {
 			},
 			success: function(data) {
 				if(data.success == true) {
-					window.location.href = baseUrl + '/' + data.type + '/package/' + data.slug;
+					window.location.href = baseUrl + '/' + data.type + '/' + data.slug;
 					$('.modal').hide();
 				} else {
 					$('.modal').hide();

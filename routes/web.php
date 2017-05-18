@@ -34,6 +34,7 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::post('/find-transfer', 'TransferController@findTransfer');
 	Route::get('/private-transfer-load-more', 'TransferController@transferAjax');
 	Route::get('/airport-transfer-load-more', 'TransferController@transferAjax');
+	Route::get('/view-transfer-load-more', 'TransferController@viewTransferAjax');
 	Route::get('/blog', 'BlogController@index');
 	Route::get('/contact', 'TransferController@contact');
 	Route::post('/sendContact', 'TransferController@sendContact');

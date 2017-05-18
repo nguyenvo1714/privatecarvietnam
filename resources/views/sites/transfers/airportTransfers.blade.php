@@ -53,7 +53,7 @@
 					@foreach($interestTransfers as $interestTransfer)
 						<div class="col-sm-6 col-md-3 col-xs-12">
 							<div class="inner mb">
-			                    <a class="img" href="{{ url('/private-transfer/package/' . $interestTransfer->slug) }}">
+			                    <a class="img" href="{{ url('/' . $interestTransfer->type->slug . '/' . $interestTransfer->slug) }}">
 									<div class="badge-price" style='display:none'>
 										<div class="size1">Da</div>
 										<div class="size2">US$ 0</div>
@@ -68,7 +68,7 @@
 								</a>
 								<div class="decreption-three">
 									<div class="title">
-									    <a href="{{ url('/private-transfer/package/' . $interestTransfer->slug) }}">{{ $interestTransfer->title }}</a>
+									    <a href="{{ url('/' . $interestTransfer->type->slug . '/' . $interestTransfer->slug) }}">{{ $interestTransfer->title }}</a>
 									</div>
 									<div class="clear"></div>
 									<p>

@@ -39,7 +39,11 @@
         {!! Html::script('js/parallax.min.js') !!}
         {!! Html::script('js/wow.min.js') !!}
         {!! Html::script('js/owl.carousel.min.js') !!}
+        {!! Html::script('js/jquery.validate.min.js') !!}
+        {!! Html::script('js/additional-methods.min.js') !!}
+        {!! Html::script('js/custom.validate.js') !!}
         {!! Html::script('js/script.js') !!}
+        {!! Html::script('js/blog.custome.js') !!}
         <style type="text/css">
             @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700|Montserrat:400,700|Open+Sans+Condensed:300,700|PT+Sans:400,400i,700|PT+Serif:400,400i,700|Satisfy');
         </style>
@@ -139,7 +143,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" title="PrivatecarVietnam" href="https://privatecarvietnam.com/"><img alt="PrivateCarVietnam" title="PrivateCarVietName" src="img/privatecarvietnam.png"/></a>
+                        <a class="navbar-brand" title="PrivatecarVietnam" href="http://privatecarvietnam.com/"><img alt="PrivateCarVietnam" title="PrivateCarVietName" src="img/privatecarvietnam.png"/></a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <!-- <ul class="nav navbar-nav hidden-xs hidden-sm hidden-md">
@@ -245,9 +249,9 @@
                 <div class="col-md-3 col-sm-6 text-center wow slideInUp animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: slideInUp;">
                     <div class="socialfooter">
                         <h3 class='ttfollowus'>Follow us</h3>
-                        <a href="https://www.facebook.com/goasiadaytrip" class="fb"><i class='fa fa-facebook'></i> Facebook</a>
-                        <a href="https://instagram.com/goasiadaytrip" class="ins"><i class='fa fa-instagram'></i> Instagram</a>
-                        <a href="https://twitter.com/goasiadaytrip" class="tw"><i class='fa fa-twitter'></i> Twitter</a>
+                        <a href="https://www.facebook.com/privatecarvietnam" class="fb"><i class='fa fa-facebook'></i> Facebook</a>
+                        <a href="https://instagram.com/privatecarvietnam" class="ins"><i class='fa fa-instagram'></i> Instagram</a>
+                        <a href="https://twitter.com/privatecarvietnam" class="tw"><i class='fa fa-twitter'></i> Twitter</a>
                         <!-- <a href="https://www.tripadvisor.com/Attraction_Review-g293924-d8861377-Reviews-GoAsiaDayTrip_Day_Tour-Hanoi.html"><i class='fa fa-tripadvisor'></i> Tripadvisor</a> -->
                         <!-- <a href="https://goasiadaytrip.tumblr.com/"><i class='fa fa-tumblr'></i> Tumblr</a> -->
                   </div>
@@ -255,7 +259,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 footer-bottom text-center">
-                    <p>©2017&nbsp;<a href="http://privatecarvietnam.com">Private Car VietName</a> - Let Us Show You VietNam</p>
+                    <p>©2017&nbsp;<a href="http://privatecarvietnam.com">Private Car VietNam</a> - Let Us Show You VietNam</p>
                 </div>
             </div>
         </div> <!-- End .footer -->

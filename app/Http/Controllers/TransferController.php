@@ -9,7 +9,7 @@ use App\Place;
 use App\Blog;
 use App\Driver;
 use App\Car;
-use App\transferName;
+use App\TransferName;
 use App\Repositories\TransferRepository;
 use Illuminate\Support\Facades\DB;
 
@@ -69,7 +69,7 @@ class TransferController extends Controller
     	$places = Place::get();
         $blogs = Blog::whereIn('type_id', [3, 4])->get();
         $drivers = Driver::get();
-        $transferNames = transferName::get();
+        $transferNames = TransferName::get();
         return view('/admin.transfers.create', [
             'types'         => $types, 
             'places'        => $places, 

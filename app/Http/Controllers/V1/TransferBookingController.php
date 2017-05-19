@@ -19,10 +19,10 @@ class TransferBookingController extends Controller
         'trip' => 'required',
         'duration' => 'required',
         'passenger' => 'numeric',
-        'pickupAddress' => 'required',
-        'departureDate' => 'date',
-        'departureDate' => 'required',
-        'dropoffAddress' => 'required',
+        'pickup_address' => 'required',
+        'departure_date' => 'date',
+        'departure_date' => 'required',
+        'dropoff_address' => 'required',
         'name' => 'required',
         'surname' => 'required',
         'email' => 'email',
@@ -43,7 +43,7 @@ class TransferBookingController extends Controller
         $this->chop_blog($blogs);
         $car = Car::where('cars.class', $class)->first();
         $transfer = Transfer::findBySlug($slug);
-        $transfer->transferName = $transfer->transferName->where('transferNames.id', $transfer->transferName_id)->first();
+        $transfer->transferName = $transfer->transferName->where('transfer_names.id', $transfer->transfer_name_id)->first();
         $transfer->place = $transfer->place->where('places.id', $transfer->place_id)->first();
         return view('/sites.transferBookings.bookForm', [
             'transfer' =>  $transfer,
@@ -67,7 +67,7 @@ class TransferBookingController extends Controller
         $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
         $this->chop_blog($blogs);
         $transfer = Transfer::find($request->id);
-        $transfer->transferName = $transfer->transferName->where('transferNames.id', $transfer->transferName_id)->first();
+        $transfer->transferName = $transfer->transferName->where('transfer_names.id', $transfer->transfer_name_id)->first();
         $transfer->place = $transfer->place->where('places.id', $transfer->place_id)->first();
         return view('/sites.transferBookings.confirmation', [
             'transfer' =>  $transfer,

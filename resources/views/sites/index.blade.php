@@ -1,4 +1,4 @@
-@extends('sites.layout.for_index')
+@extends('sites.layout.app')
 @section('content')
 	<div class="wrapcontent">
 		{!! Html::style('css/slideshow.css') !!}
@@ -97,19 +97,36 @@
 		</section>
 		<section class="container relative">
 			<h2 class="tthome"><span>Top Transfers</span></h2>
+			<div class="starline-container">
+				<h4 class="starline"><span class="glyphicon glyphicon-star"></span></h4>
+			</div>
 			<div class="row rowbox">
 				@foreach($transfers as $transfer)
-					<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
-						<div class="transfer-image">
-							<a href="{{ url('/private-transfer/package/' . $transfer->slug) }}">
-								{{ Html::image('/storage/' . $transfer->image_thumb) }}
+					<div class="col-sm-6 col-md-4 col-xs-12 wow fadeInUp animated" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp;">
+						<div class="inner mb">
+							<a class="img" href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">
+								<div class="badge-price" style='display:none'>
+									<div class="size1">Da</div>
+									<div class="size2">US$ 0</div>
+									<div class="size3">/Pers</div>
+								</div>
+								{{ Html::image('/storage/' . $transfer->image_thumb, $transfer->title, ['class' => 'image-wrap img-responsive', 'title' => $transfer->title]) }}
+								<span class="fix">
+									<em>
+										<font class="color-two"><span >6 Days</span></font> - VTR01-Northwest Vietnam
+									</em>
+								</span>
 							</a>
-						</div>
-						<div class="transfer-content">
-							<div class="transfer-title">
-								<a href="{{ url('/private-transfer/package/' . $transfer->slug) }}">{{ $transfer->title }}</a>
+							<div class="decreption-three">
+								<div class="title">
+									<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">{{ $transfer->title }}</a>
+								</div>
+								<div class="clear"></div>
+								<p>
+									<p style="text-align: justify;">{{ $transfer->description }} &nbsp;</p>
+								</p>
 							</div>
-							<p>{{ $transfer->description }}</p>
+							<a class="more" href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}"><span class="glyphicon glyphicon-menu-right"></span></a>
 						</div>
 					</div>
 				@endforeach
@@ -120,24 +137,30 @@
 						<i class='fa fa-spinner'></i> Show all transfers
 					</button>
 					<div class="animation_image" style="display:none;">
-						<img src="https://goasiadaytrip.com/image/loading.gif">
+						<img src="img/loading.gif">
 					</div>
 				</div>
 			</div>
 		</section>
+		<section class="container">
+			<div class="hr"></div>
+		</section>
 		<section class="container relative">
 			<h2 class="tthome"><span>Top Tours</span></h2>
+			<div class="starline-container">
+				<h4 class="starline"><span class="glyphicon glyphicon-star"></span></h4>
+			</div>
 			<div class="row rowbox">
 				@foreach($transfers as $transfer)
 					<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInDown animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInDown;">
 						<div class="transfer-image">
-							<a href="{{ url('/private-transfer/package/' . $transfer->slug) }}">
+							<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">
 								{{ Html::image('/storage/' . $transfer->image_thumb) }}
 							</a>
 						</div>
 						<div class="transfer-content">
 							<div class="transfer-title">
-								<a href="{{ url('/private-transfer/package/' . $transfer->slug) }}">{{ $transfer->title }}</a>
+								<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">{{ $transfer->title }}</a>
 							</div>
 							<p>{{ $transfer->description }}</p>
 						</div>
@@ -165,13 +188,13 @@
 				</div>
 			</div>
 			<div id="slidedealtour" class="owl-carousel owl-theme wow slideInLeft animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: slideInLeft;">
-				<div class="cttopdeal item">
-					<div class="img-bgtour"  style="background-image:url('/uploads/tam-coc_treasure-of-indochina.jpg');">
-					</div>
-					<div class="overlay-darken"></div>
-					<div class="container">
-					<div class="col-sm-6 col-lg-5 hidden-xs">
-						<div class="imgdeal">
+				@foreach($dealTransfers as $dealTransfer)
+					<div class="cttopdeal item">
+						{!! Html::image('/storage/' . $dealTransfer->image_thumb, $dealTransfer->title, ['class' => 'img-bgtour']) !!}
+						<div class="overlay-darken"></div>
+						<div class="container">
+						<div class="col-sm-6 col-lg-5 hidden-xs">
+							<div class="imgdeal">
 								<div class="activitybanners">
 									<p class="acbestseller acbanner">
 										<span class="facircle"><i class="fa fa-star"></i></span> Best seller
@@ -179,29 +202,30 @@
 									<p class="acdeal acbanner">
 										<span class="facircle">
 											<i class="fa fa-credit-card" style="font-size:1em"></i>
-										</span> Save 15%
+										</span> Save {{ $dealTransfer->discount_value }}
 									</p>
 								</div>
-							<img class="img-responsive" src="/uploads/tam-coc_treasure-of-indochina-750x520.jpg">
-						</div>
-					</div><!-- end slide tour -->
-					<div class="col-sm-6 col-lg-7">
-							<h2>Hoa Lu - Tam Coc Full-Day From Hanoi</h2>
-							<p class="hidden-xs hidden-sm text-justify">
-								Discover Hoa Lu - the ancient capital of Vietnam in 10th century. Witness the unique architecture of Dinh and Le Dynasties’ Temples. Nearby Tam Coc (Three Caves) is often referred to as “Ha Long Bay on land.” Admire a breathtaking landscape of green fields and limestone caves when boarding a&#8230;
+								{!! Html::image('/storage/' . $dealTransfer->image_thumb, $dealTransfer->title, ['class' => 'img-responsive']) !!}
+							</div>
+						</div><!-- end slide tour -->
+						<div class="col-sm-6 col-lg-7">
+								<h2>{{ $dealTransfer->title }}</h2>
+								<p class="hidden-xs hidden-sm text-justify">
+									{{ $dealTransfer->description }}&#8230;
+								</p>
+							<p>From <i class="pricesaleoff">{{ number_format($dealTransfer->cars[0]->price) }}VNĐ</i></p>
+							<p class="pricedeal">
+								<span class="price">{{ number_format($dealTransfer->cars[0]->price - ($dealTransfer->cars[0]->price * (int)$dealTransfer->discount_value) / 100) }}VNĐ</span>
+								<span class='badge badge-warning'>-{{ $dealTransfer->discount_value }}</span>
 							</p>
-						<p>From <i class="pricesaleoff">US$46.00</i></p>
-						<p class="pricedeal">
-							<i class="fa fa-dollar"></i><span class="price">39.10</span>
-							<span class='badge badge-warning'>-15%</span>
-						</p>
-						<div class="countdowntopdeal" id="VDT760835"></div><!-- end countdowntopdeal -->
-						<a href="https://goasiadaytrip.com/tour/hoa-lu-to-tam-coc-day-trip.html" class="btn btnbookdeal">
-							Book Now!
-						</a>
-					</div><!-- end col -->
-					</div><!-- end container -->
-				</div><!-- end cttopdeal -->
+							<div class="countdowntopdeal" id="VDT760835"></div><!-- end countdowntopdeal -->
+							<a href="{{ url('/' . $dealTransfer->type->slug . '/' . $dealTransfer->slug) }}" class="btn btnbookdeal">
+								Book Now!
+							</a>
+						</div><!-- end col -->
+						</div><!-- end container -->
+					</div><!-- end cttopdeal -->
+				@endforeach
 				<div class="cttopdeal item">
 					<div class="img-bgtour"  style="background-image:url('/uploads/Trang-An-Eco-2.jpg'); width: 100%;"></div>
 					<div class="overlay-darken"></div>  

@@ -49,6 +49,7 @@ $(function() {
 			message: "Please input the content"
 		},
 		submitHandler: function(form) {
+			$('.modal').show();
 			var name    = $('#name').val();
 			var email   = $('#email').val();
 			var country = $('#country').val();
@@ -75,9 +76,11 @@ $(function() {
 				},
 				success: function(data) {
 					if(data.success == true) {
+						$('.modal').hide();
 						alert(data.message);
 						window.location.href = baseUrl;
 					} else {
+						$('.modal').hide();
 						alert(data.message);
 					}
 				}

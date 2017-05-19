@@ -15,7 +15,7 @@ class Transfer extends Model
     // protected $connection = 'touringservice';
     protected $fillable = [
     	'type_id',
-    	'transferName_id',
+        'transfer_name_id',
     	'place_id',
         'title',
         'slug',
@@ -24,6 +24,9 @@ class Transfer extends Model
         'image_head',
         'description',
     	'blog_id',
+        'is_hot',
+        'is_discount',
+        'discount_value',
     ];
 
     public function sluggable()
@@ -56,7 +59,7 @@ class Transfer extends Model
     	return $this->hasOne('App\Place', 'id');
     }
 
-    public function transferName()
+    public function transfer_name()
     {
         return $this->hasOne('App\transferName', 'id');
     }

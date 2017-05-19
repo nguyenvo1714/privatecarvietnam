@@ -58,11 +58,12 @@
             var control = '{{ $controller }}';
             var selected_type = '';
             var selected_blog = '';
-            var selected_isDiscount = '';
+            var selected_is_discount = '';
             var selected_active = [];
             var selected_place = '';
             var selected_driver = [];
             var selected_transfer = '';
+            var selected_is_hot = '';
             var i = 0;
 
             switch(control) {
@@ -79,14 +80,22 @@
                         selected_blog = '{{ $transfer->blog_id }}'
                     @endif
 
-                    @if( ! empty($transfer->transferName_id))
-                        selected_transfer = '{{ $transfer->transferName_id }}'
+                    @if( ! empty($transfer->transfer_name_id))
+                        selected_transfer = '{{ $transfer->transfer_name_id }}'
+                    @endif
+
+                    @if(isset($transfer->is_hot))
+                        selected_is_hot = '{{ $transfer->is_hot }}'
                     @endif
                     
+                    @if(isset($transfer->is_discount))
+                        selected_is_discount = '{{ $transfer->is_discount }}'
+                    @endif
+
                     @if(  ! empty($cars) && count($cars) > 0)
                         @foreach($cars as $car)
                             selected_driver[i] = '{{ $car->driver_id }}';
-                            selected_active[i] = '{{ $car->isActive }}'
+                            selected_active[i] = '{{ $car->is_active }}'
                             i++;
                         @endforeach
                     @endif
@@ -106,11 +115,11 @@
             //     selected_type = '{{ $tour->type_id->id }}'
             // @endif
             @if( ! empty($tour->blog_id->id))
-                selected_blog = '{{ $tour->blog_id->id }}'
+                selected_blog = '{{ $tour->blog->id }}'
             @endif
 
-            @if(isset($tour->isDiscount))
-                selected_isDiscount = '{{ $tour->isDiscount }}'
+            @if(isset($tour->is_discount))
+                selected_is_discount = '{{ $tour->is_discount }}'
             @endif
         </script>
         <script>

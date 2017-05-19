@@ -134,7 +134,7 @@
                         <div class="row">
                             <div class="container left-container collapse navbar-collapse" id="myNavbar">
                                 <div class="navbar-title">
-                                    <a href="http://dev.booktour.com"><i class="fa fa-paw"></i> <span>PrivatecarVietnam</span> </a>
+                                    <a href="http://privatecarvietnam.com"><i class="fa fa-paw"></i> <span>PrivatecarVietnam</span> </a>
                                 </div>
                                 <div class="profile">
                                     <div class="media">

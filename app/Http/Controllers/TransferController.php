@@ -9,7 +9,7 @@ use App\Place;
 use App\Blog;
 use App\Driver;
 use App\Car;
-use App\transferName;
+use App\TransferName;
 use App\Repositories\TransferRepository;
 use Illuminate\Support\Facades\DB;
 
@@ -48,13 +48,6 @@ class TransferController extends Controller
         $this->getTransferName($transfers);
         $this->getPlaceName($transfers);
         $this->getBlogTitle($transfers);
-        // foreach ($transfers as $transfer) {
-        //     var_dump($transfer->blog_id);
-        //     $transferName = $transfer->blog->where('blogs.id', '=', $transfer->blog_id)->first()->title;
-            
-        //     var_dump($transferName);
-        // }
-        // die;
         return view('/admin.transfers.index', ['transfers' => $transfers]);
     }
 
@@ -69,7 +62,7 @@ class TransferController extends Controller
     	$places = Place::get();
         $blogs = Blog::whereIn('type_id', [3, 4])->get();
         $drivers = Driver::get();
-        $transferNames = transferName::get();
+        $transferNames = TransferName::get();
         return view('/admin.transfers.create', [
             'types'         => $types, 
             'places'        => $places, 

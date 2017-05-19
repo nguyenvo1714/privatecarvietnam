@@ -11,15 +11,15 @@ class Tour extends Model
     protected $fillable = [
     	'tour_id',
     	'name',
-    	'interval',
-    	'startDate',
+        'interval',
+        'start_date',
     	'endDate',
     	'price', 
     	'description',
     	'program',
     	'blog_id',
-        'isDiscount',
-        'discountValue',
+        'is_discount',
+        'discount_value',
     ];
 
     public function type()

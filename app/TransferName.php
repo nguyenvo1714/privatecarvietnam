@@ -11,7 +11,7 @@ class TransferName extends Model
     use Sluggable;
     use SluggableScopeHelpers;
 
-   	protected $table = 'TransferNames';
+    protected $table = 'transfer_names';
    	protected $fillable = [
         'name',
         'slug',

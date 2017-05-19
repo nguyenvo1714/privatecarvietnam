@@ -75,7 +75,7 @@
 										<p style="text-align: justify;">{{ substr($interestTransfer->description, 0, 100) . '...' }} &nbsp;</p>
 									</p>
 								</div>
-								<a class="more" href="{{ url('/private-transfer/package/' . $interestTransfer->slug) }}"><span class="glyphicon glyphicon-menu-right"></span></a>
+								<a class="more" href="{{ url('/' . $interestTransfer->type->slug . '/' . $interestTransfer->slug) }}"><span class="glyphicon glyphicon-menu-right"></span></a>
 							</div>
 						</div>
 					@endforeach
@@ -100,11 +100,11 @@
 								<div class="private-thumbnail">
 									{{ Html::image('/storage/' . $transfer->image_thumb) }}
 									<div class="position">
-										<div class="label-detail"><a href="{{ url('/private-transfer/package/' . $transfer->slug) }}">Learn more</a></div>
+										<div class="label-detail"><a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">Learn more</a></div>
 									</div>
 								</div>
 								<h5>
-									<a href="{{ url('/private-transfer/package/' . $transfer->slug) }}">{{ $transfer->title }}</a>
+									<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">{{ $transfer->title }}</a>
 								</h5>
 								<p>{{ substr($transfer->description, 0, 100) . '...' }}</p>
 							</div>
@@ -135,7 +135,7 @@
 		    var track_click = 1;
 		    var total_pages = {{ $total_pages }};
 		    var perpage = {{ $perpage }};
-		    var transferName_id = {{ $transferName_id }};
+		    var transfer_name_id = {{ $transfer_name_id }};
 		    host = baseUrl + '/view-transfer-load-more';
 			if (track_click > total_pages-1) {
 				$(".load_more").addClass("hidden");
@@ -144,7 +144,7 @@
 				$(this).hide();
 				$('.animation_image').show();
 				if(track_click <= total_pages) {
-					$.get(host,{'page': track_click, 'perpage': perpage, 'transferName_id' : transferName_id}, function(response) {
+					$.get(host,{'page': track_click, 'perpage': perpage, 'transfer_name_id' : transfer_name_id}, function(response) {
 						var results = '';
 						$.each(response.data, function (key, obj){
 							results +=

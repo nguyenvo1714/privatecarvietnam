@@ -102,20 +102,7 @@
 			</div>
 			<div class="row rowbox">
 				@foreach($transfers as $transfer)
-					<!-- <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
-						<div class="transfer-image">
-							<a href="{{ url('/' .$transfer->type->slug . '/' . $transfer->slug) }}">
-								{{ Html::image('/storage/' . $transfer->image_thumb, '', ['class' => 'img-responsive']) }}
-							</a>
-						</div>
-						<div class="transfer-content">
-							<div class="transfer-title">
-								<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">{{ $transfer->title }}</a>
-							</div>
-							<p>{{ $transfer->description }}</p>
-						</div>
-					</div> -->
-					<div class="col-sm-6 col-md-4 col-xs-12">
+					<div class="col-sm-6 col-md-4 col-xs-12 wow fadeInUp animated" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp;">
 						<div class="inner mb">
 							<a class="img" href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">
 								<div class="badge-price" style='display:none'>
@@ -201,13 +188,13 @@
 				</div>
 			</div>
 			<div id="slidedealtour" class="owl-carousel owl-theme wow slideInLeft animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: slideInLeft;">
-				<div class="cttopdeal item">
-					<div class="img-bgtour"  style="background-image:url('/uploads/tam-coc_treasure-of-indochina.jpg');">
-					</div>
-					<div class="overlay-darken"></div>
-					<div class="container">
-					<div class="col-sm-6 col-lg-5 hidden-xs">
-						<div class="imgdeal">
+				@foreach($dealTransfers as $dealTransfer)
+					<div class="cttopdeal item">
+						{!! Html::image('/storage/' . $dealTransfer->image_thumb, $dealTransfer->title, ['class' => 'img-bgtour']) !!}
+						<div class="overlay-darken"></div>
+						<div class="container">
+						<div class="col-sm-6 col-lg-5 hidden-xs">
+							<div class="imgdeal">
 								<div class="activitybanners">
 									<p class="acbestseller acbanner">
 										<span class="facircle"><i class="fa fa-star"></i></span> Best seller
@@ -215,29 +202,30 @@
 									<p class="acdeal acbanner">
 										<span class="facircle">
 											<i class="fa fa-credit-card" style="font-size:1em"></i>
-										</span> Save 15%
+										</span> Save {{ $dealTransfer->discount_value }}
 									</p>
 								</div>
-							<img class="img-responsive" src="/uploads/tam-coc_treasure-of-indochina-750x520.jpg">
-						</div>
-					</div><!-- end slide tour -->
-					<div class="col-sm-6 col-lg-7">
-							<h2>Hoa Lu - Tam Coc Full-Day From Hanoi</h2>
-							<p class="hidden-xs hidden-sm text-justify">
-								Discover Hoa Lu - the ancient capital of Vietnam in 10th century. Witness the unique architecture of Dinh and Le Dynasties’ Temples. Nearby Tam Coc (Three Caves) is often referred to as “Ha Long Bay on land.” Admire a breathtaking landscape of green fields and limestone caves when boarding a&#8230;
+								{!! Html::image('/storage/' . $dealTransfer->image_thumb, $dealTransfer->title, ['class' => 'img-responsive']) !!}
+							</div>
+						</div><!-- end slide tour -->
+						<div class="col-sm-6 col-lg-7">
+								<h2>{{ $dealTransfer->title }}</h2>
+								<p class="hidden-xs hidden-sm text-justify">
+									{{ $dealTransfer->description }}&#8230;
+								</p>
+							<p>From <i class="pricesaleoff">{{ number_format($dealTransfer->cars[0]->price) }}VNĐ</i></p>
+							<p class="pricedeal">
+								<span class="price">{{ number_format($dealTransfer->cars[0]->price - ($dealTransfer->cars[0]->price * (int)$dealTransfer->discount_value) / 100) }}VNĐ</span>
+								<span class='badge badge-warning'>-{{ $dealTransfer->discount_value }}</span>
 							</p>
-						<p>From <i class="pricesaleoff">US$46.00</i></p>
-						<p class="pricedeal">
-							<i class="fa fa-dollar"></i><span class="price">39.10</span>
-							<span class='badge badge-warning'>-15%</span>
-						</p>
-						<div class="countdowntopdeal" id="VDT760835"></div><!-- end countdowntopdeal -->
-						<a href="https://goasiadaytrip.com/tour/hoa-lu-to-tam-coc-day-trip.html" class="btn btnbookdeal">
-							Book Now!
-						</a>
-					</div><!-- end col -->
-					</div><!-- end container -->
-				</div><!-- end cttopdeal -->
+							<div class="countdowntopdeal" id="VDT760835"></div><!-- end countdowntopdeal -->
+							<a href="{{ url('/' . $dealTransfer->type->slug . '/' . $dealTransfer->slug) }}" class="btn btnbookdeal">
+								Book Now!
+							</a>
+						</div><!-- end col -->
+						</div><!-- end container -->
+					</div><!-- end cttopdeal -->
+				@endforeach
 				<div class="cttopdeal item">
 					<div class="img-bgtour"  style="background-image:url('/uploads/Trang-An-Eco-2.jpg'); width: 100%;"></div>
 					<div class="overlay-darken"></div>  

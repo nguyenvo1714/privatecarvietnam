@@ -196,7 +196,7 @@ $(function() {
                     '</select>' +
                 '</td>' +
                 '<td>' +
-                    '<select class="required form-control col-md-7 col-xs-12" name="isActive[]" >' +
+                    '<select class="required form-control col-md-7 col-xs-12" name="is_active[]" >' +
                         '<option value="">Choose option</option>' +
                         '<option value=0>0</option>' +
                         '<option value=1>1</option>' +
@@ -234,6 +234,7 @@ $(function() {
 	var selectedDriver = [];
 	var selectedActive = [];
 	var selectedTransfer = $('#transferName');
+	var selectedHot = $('#hot');
 
 	selectType.find('option[value="' + selected_type + '"]').prop('selected', true);
 	selectType.trigger('change');
@@ -241,8 +242,10 @@ $(function() {
 	selectedBlog.trigger('change');
 	selectedPlace.find('option[value="' + selected_place + '"]').prop('selected', true);
 	selectedPlace.trigger('change');
-	selectedDiscount.find('option[value="' + selected_isDiscount + '"]').prop('selected', true);
+	selectedDiscount.find('option[value="' + selected_is_discount + '"]').prop('selected', true);
 	selectedDiscount.trigger('change');
+	selectedHot.find('option[value="' + selected_is_hot + '"]').prop('selected', true);
+	selectedHot.trigger('change');
 	// selectedActive.find('option[value="' + selected_active + '"]').prop('selected', true);
 	// selectedActive.trigger('change');
 	selectedTransfer.find('option[value="' + selected_transfer + '"]').prop('selected', true);

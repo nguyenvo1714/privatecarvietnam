@@ -13,6 +13,7 @@ use App\Blog;
 use App\Driver;
 use App\Car;
 use App\TransferName;
+use App\CarTransfer;
 
 class TransferController extends Controller
 {
@@ -25,12 +26,15 @@ class TransferController extends Controller
     {
         $transfers = Transfer::limit(6)->get();
         $this->getTransferType($transfers);
+        $dealTransfers = Transfer::where('is_discount', 1)->get();
+        $this->getTransferType($dealTransfers);
         $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
         return view('/sites.index', [
             'transfers' => $transfers,
+            'dealTransfers' => $dealTransfers,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'places' => $places
@@ -104,7 +108,7 @@ class TransferController extends Controller
         $total_pages = (int)ceil($total / $perpage);
         $places = Place::get();
         $privateTransfers = TransferName::where('type_id', 4)->limit(4)->get();
-        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
+        $interestTransfers = Transfer::where('is_hot', 1)->limit(4)->get();
         $this->getTransferType($interestTransfers);
         return view('/sites.transfers.privateTransfers', [
             'privateTransfers' => $privateTransfers,
@@ -165,7 +169,7 @@ class TransferController extends Controller
         $type = 3;
         $total_pages = (int)ceil($total / $perpage);
         $airportTransfers = TransferName::where('type_id', 3)->limit(4)->get();
-        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
+        $interestTransfers = Transfer::where('is_hot', 1)->limit(4)->get();
         $this->getTransferType($interestTransfers);
         return view('/sites.transfers.airportTransfers', [
             'airportTransfers' => $airportTransfers,
@@ -193,11 +197,11 @@ class TransferController extends Controller
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
-        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
+        $interestTransfers = Transfer::where('is_hot', 1)->limit(4)->get();
         $this->getTransferType($interestTransfers);
-        $transferName_id = TransferName::findBySlug($slug)->id;
-        $transfers = Transfer::where('transferName_id', $transferName_id)->limit(6)->get();
-        $total = Transfer::where('transferName_id', $transferName_id)->get()->count();
+        $transfer_name_id = TransferName::findBySlug($slug)->id;
+        $transfers = Transfer::where('transfer_name_id', $transfer_name_id)->limit(6)->get();
+        $total = Transfer::where('transfer_name_id', $transfer_name_id)->get()->count();
         $perpage = 6;
         $total_pages = (int)ceil($total / $perpage);
         $this->getTransferType($transfers);
@@ -208,7 +212,7 @@ class TransferController extends Controller
             'interestTransfers' => $interestTransfers,
             'transfers' => $transfers,
             'name' => $slug,
-            'transferName_id' => $transferName_id,
+            'transfer_name_id' => $transfer_name_id,
             'total' => $total,
             'perpage' => $perpage,
             'total_pages' => $total_pages,
@@ -219,7 +223,7 @@ class TransferController extends Controller
     {
         if($request->ajax()) {
             $start = $request->page * $request->perpage;
-            $transfers = Transfer::where('transferName_id', $request->transferName_id)
+            $transfers = Transfer::where('transfer_name_id', $request->transfer_name_id)
                                         ->orderBy('id', 'ASC')
                                         ->offset($start)
                                         ->limit($request->perpage)
@@ -262,17 +266,25 @@ class TransferController extends Controller
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
-        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
+        $interestTransfers = Transfer::where('is_hot', 1)->limit(4)->get();
         $this->getTransferType($interestTransfers);
-        $transferName_id = TransferName::findBySlug($slug)->id;
-        $transfers = Transfer::where('transferName_id', $transferName_id)->paginate(12);
+        $transfer_name_id = TransferName::findBySlug($slug)->id;
+        $transfers = Transfer::where('transfer_name_id', $transfer_name_id)->paginate(6);
+        $total = Transfer::where('transfer_name_id', $transfer_name_id)->get()->count();
+        $perpage = 6;
+        $total_pages = (int)ceil($total / $perpage);
+        $this->getTransferType($transfers);
         return view('/sites.transfers.viewAirportTransfers', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'places' => $places,
             'interestTransfers' => $interestTransfers,
             'transfers' => $transfers,
-            'name' => $slug
+            'name' => $slug,
+            'transfer_name_id' => $transfer_name_id,
+            'total' => $total,
+            'perpage' => $perpage,
+            'total_pages' => $total_pages,
         ]);
     }
 
@@ -291,10 +303,10 @@ class TransferController extends Controller
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
-        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
+        $interestTransfers = Transfer::where('is_hot', 1)->limit(4)->get();
         $this->getTransferType($interestTransfers);
         $transfer = Transfer::findBySlug($slug);
-        $transfer->transferName = $transfer->transferName->where('transferNames.id', $transfer->transferName_id)->first();
+        $transfer->transfer_name = $transfer->transfer_name->where('transfer_names.id', $transfer->transfer_name_id)->first();
         $transfer->place = $transfer->place->where('places.id', $transfer->place_id)->first();
         $relates = Transfer::where('slug', '<>', $slug)->orderBy('id', 'desc')->limit(3)->get();
         return view('/sites.transfers.detailTransfer', [
@@ -323,9 +335,11 @@ class TransferController extends Controller
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
-        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
+        $interestTransfers = Transfer::where('is_hot', 1)->limit(4)->get();
         $this->getTransferType($interestTransfers);
         $transfer = Transfer::findBySlug($slug);
+        $transfer->transfer_name = $transfer->transfer_name->where('transfer_names.id', $transfer->transfer_name_id)->first();
+        $transfer->place = $transfer->place->where('places.id', $transfer->place_id)->first();
         $relates = Transfer::where('slug', '<>', $slug)->orderBy('id', 'desc')->limit(3)->get();
         return view('/sites.transfers.detailAirportTransfer', [
             'blogs' => $blogs,
@@ -349,7 +363,7 @@ class TransferController extends Controller
         if($request->ajax()) {
             $transferName = TransferName::where('name', ucwords($request->pickup))->first();
             $place = Place::where('name', ucwords($request->dropoff))->first();
-            $transfer = Transfer::where('transferName_id', $transferName->id)
+            $transfer = Transfer::where('transfer_name_id', $transferName->id)
                                 ->where('place_id', $place->id)->first();
             if($transfer) {
                 $type = Type::where('id', $transfer->type_id)->first()->slug;
@@ -398,4 +412,12 @@ class TransferController extends Controller
             $transfer->type = $transfer->type->where('id', $transfer->type_id)->first();
         }
     }
+
+    // public function getCar($transfers)
+    // {
+    //     foreach ($transfers as $transfer) {
+    //         $transfer->cars = $transferswhere('id', $transfer->id)->first();
+    //     }
+    // }
+
 }

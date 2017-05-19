@@ -32,11 +32,11 @@
                             </div>
                         </div>
                         <div class="field item form-group">
-                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="transferName_id">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="transfer_name_id">
                                 Transfer name <span class="required">*</span>
                             </label>
                             <div class="col-md-10 col-sm-10 col-xs-12">
-                                <select class="required form-control col-md-10 col-xs-12" name="transferName_id" id="transferName" required>
+                                <select class="required form-control col-md-10 col-xs-12" name="transfer_name_id" id="transferName" required>
                                     <option value="">Choose option</option>
                                 @foreach($transferNames as $transferName)
                                     <option value={{ $transferName->id }}>{{ $transferName->name }}</option>
@@ -115,6 +115,38 @@
                             </div>
                         </div>
                         <div class="field item form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="is_hot">
+                                Is hot? <span class="required">*</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <select class="form-control col-md-10 col-xs-12" name="is_hot" id="hot">
+                                    <option value="">Choose option</option>
+                                    <option value=1>1</option>
+                                    <option value=0>0</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="is_discount">
+                                Is discount? <span class="required">*</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <select class="form-control col-md-10 col-xs-12" name="is_discount" id="discount">
+                                    <option value="">Choose option</option>
+                                    <option value=1>1</option>
+                                    <option value=0>0</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="discount_value">
+                                Discount value</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <input id="title" class="form-control col-md-10 col-xs-12" name="discount_value" value="{{ $transfer->discount_value }}" type="text">
+                            </div>
+                        </div>
+                        <div class="field item form-group">
                             <table class="table table-bordered table-striped table-highlight">
                                 <thead>
                                     <tr>
@@ -148,15 +180,15 @@
                                             <input type="text" name="baggage[]" id="baggage" class="form-control" required="required" value="{{ $car->baggage }}">
                                         </td>
                                         <td>
-                                            <select class="required form-control col-md-10 col-xs-12" name="driver_id[]" id="driver{{ $i }}">
+                                            <select class="form-control col-md-10 col-xs-12" name="driver_id[]" id="driver{{ $i }}">
                                                 <option value="">Choose option</option>
                                             @foreach($drivers as $driver)
-                                                <option value={{ $driver->id }}>{{ $driver->fullName }}</option>
+                                                <option value={{ $driver->id }}>{{ $driver->full_name }}</option>
                                             @endforeach
                                             </select>
                                         </td>
                                         <td>
-                                            <select class="required form-control col-md-10 col-xs-12" name="isActive[]" id="active{{ $i }}">
+                                            <select class="form-control col-md-10 col-xs-12" name="is_active[]" id="active{{ $i }}">
                                                 <option value="">Choose option</option>
                                                 <option value=0>0</option>
                                                 <option value=1>1</option>

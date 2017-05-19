@@ -13,7 +13,7 @@
 				<div class="row">
 					<div class="col-md-12 transfer-header">
 						<h3>{{ $transfer->title }}</h3>
-						<p class="from-to unset-height">{{ $transfer->transferName->where('transferNames.id', $transfer->transferName_id)->first()->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->where('places.id', $transfer->place_id)->first()->name }}</p>
+						<p class="from-to unset-height">{{ $transfer->transfer_name->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->name }}</p>
 						<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
 					</div>
 					@foreach($transfer->cars as $car)

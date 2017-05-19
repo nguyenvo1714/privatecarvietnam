@@ -11,6 +11,27 @@ $(function() {
 	    }
 	});
 
+	//wow effect
+	wow = new WOW({
+		boxClass:     'wow',      // default
+		animateClass: 'animated', // default
+		offset:       0,          // default
+		mobile:       true,       // default
+		live:         true        // default
+	});
+    wow.init();
+
+	$('.parallax-container').parallax({imageSrc: '../img/Cau-Trang-Tien.jpg'});
+
+	$('.modal-trigger').on('click', function(e) {
+		e.preventDefault();
+		$('.cover').slideDown('slow');
+		$('#modal1').css('display', 'block');
+		$('.cover').on('click', function() {
+			$('#modal1').hide();
+			$(this).slideUp('slow');
+		});
+	});
 	//Check to see if the window is top if not then display button
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 100) {
@@ -44,6 +65,7 @@ $(function() {
 
 	$('#complete').on('submit', function(e) {
 		e.preventDefault();
+		$('.modal').show();
 		var trip           = $('#trip').val();
 		var duration       = $('#duration').val();
 		var class1         = $('#class').val();
@@ -81,6 +103,7 @@ $(function() {
 				note: note
 			},
 			success: function(data) {
+				$('.modal').hide();
 				alert(data.message);
 				window.location.href = baseUrl;
 			}
@@ -89,6 +112,7 @@ $(function() {
 
 	$('#searchForm').on('submit', function(e) {
 		e.preventDefault();
+		$('.modal').show();
 		var pickup  = $('#pick-up').val();
 		var dropoff = $('#drop-off').val();
 		var token   = $('input[name="_token"]').attr('value');
@@ -103,8 +127,10 @@ $(function() {
 			},
 			success: function(data) {
 				if(data.success == true) {
-					window.location.href = baseUrl + '/' + data.type + '/package/' + data.slug;
+					window.location.href = baseUrl + '/' + data.type + '/' + data.slug;
+					$('.modal').hide();
 				} else {
+					$('.modal').hide();
 					alert('Transfer not found');
 				}
 			}
@@ -112,11 +138,11 @@ $(function() {
 		});
 	});
 
-	$(document).ajaxStart(function(){
-	    $('.modal').show();
-	 }).ajaxStop(function(){
-	    $('.modal').hide();
-	 });
+	// $(document).ajaxStart(function(){
+	//     $('.modal').show();
+	//  }).ajaxStop(function(){
+	//     $('.modal').hide();
+	//  });
 });
 
 function cost(price) {

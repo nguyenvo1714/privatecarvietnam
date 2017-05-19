@@ -25,15 +25,21 @@
         {!! Html::style('css/slick.css') !!}
         {!! Html::style('css/slick-theme.css') !!}
         {!! Html::style('css/jquery-ui.min.css') !!}
+        {!! Html::style('css/jquery-ui.theme.min.css') !!}
+        {!! Html::style('css/bootstrap-formhelpers.min.css') !!}
         {!! Html::style('css/style.css') !!}
         <!-- Scripts -->
         {!! Html::script('js/app.js') !!}
+        {!! Html::script('js/bootstrap-formhelpers.min.js') !!}
+        {!! Html::script('js/jquery-ui.min.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
         {!! Html::script('js/menu-addon.js') !!}
         {!! Html::script('js/jquery-ui.min.js') !!}
         {!! Html::script('js/jquery.validate.min.js') !!}
         {!! Html::script('js/additional-methods.min.js') !!}
+        {!! Html::script('js/custom.validate.js') !!}
         {!! Html::script('js/script.js') !!}
+        {!! Html::script('js/blog.custome.js') !!}
         <style type="text/css">
             @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700|Montserrat:400,700|Open+Sans+Condensed:300,700|PT+Sans:400,400i,700|PT+Serif:400,400i,700|Satisfy');
         </style>
@@ -76,7 +82,6 @@
 
         </script>
         <script type="text/javascript">
-            var baseUrl = '{{ URL::to("/") }}';
             var transferNames = {!! json_encode($transferNames) !!};
             var pick_up = [];
             var places = {!! json_encode($places) !!};
@@ -104,6 +109,29 @@
                     source: drop_off,
                 });
             });
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                $('#departureDate').datepicker({
+                    dateFormat: "yy-mm-dd"
+                });
+            })
+        </script>
+        <script type="text/javascript">
+            var price = '{{ ! empty($car->price) ? $car->price : "" }}';
+            var baseUrl = '{{ URL::to("/") }}';
+            $(function() {
+                var action = '{{ $action }}';
+                if(action == 'bookForm') {
+                    $('.1').addClass('active');
+                }
+                if(action == 'confirmation') {
+                    $('.1').children().find('span').html('<i class="fa fa-check"></i>');
+                    $('.1').removeClass('active');
+                    $('.1').addClass('completed');
+                    $('.2').addClass('active');
+                }
+            })
         </script>
         <style>
           /* Note: Try to remove the following lines to see the effect of CSS positioning */
@@ -171,35 +199,64 @@
                     </ul>
                 </div> -->
                 <div class="desktop-menu" data-spy="affix" data-offset-top="197">
-                    <div class="">
-                        <ul class="top-menu">
-                            <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ url('/private-transfer') }}">Private Transfer <span class="caret"></span></a>
-                                <ul>
-                                    @foreach($transferNames as $transferName)
-                                        @if($transferName->type_id == 4)
-                                            <li><a href="{{ url('/private-transfer/view/' . $transferName->slug) }}">{{ $transferName->name }}</a></li>
-                                        @endif
-                                    @endforeach
-                                </ul>
-                            </li>
-                            <li><a href="#">Airport Transfer <span class="caret"></span></a>
-                                <ul>
-                                    @foreach($transferNames as $transferName)
-                                        @if($transferName->type_id == 3)
-                                            <li><a href="{{ url('/airport-transfer/view/' . $transferName->slug) }}">{{ $transferName->name }}</a></li>
-                                        @endif
-                                    @endforeach
-                                </ul>
-                            </li>
-                            <li><a href="{{ url('/blog') }}">Blog</a></li>
-                            <li><a href="{{ url('/contact') }}">Contact us</a></li>
-                        </ul>
-                    </div>
+                    <ul class="top-menu">
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/private-transfer') }}">Private Transfer <span class="caret"></span></a>
+                            <ul>
+                                @foreach($transferNames as $transferName)
+                                    @if($transferName->type_id == 4)
+                                        <li><a href="{{ url('/private-transfer/view/' . $transferName->slug) }}">{{ $transferName->name }}</a></li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li><a href="{{ url('/airport-transfer') }}">Airport Transfer <span class="caret"></span></a>
+                            <ul>
+                                @foreach($transferNames as $transferName)
+                                    @if($transferName->type_id == 3)
+                                        <li><a href="{{ url('/airport-transfer/view/' . $transferName->slug) }}">{{ $transferName->name }}</a></li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li><a href="{{ url('/blog') }}">Blog</a></li>
+                        <li><a href="{{ url('/contact') }}">Contact us</a></li>
+                    </ul>
                 </div>
                 <a href="#" class="back-to-top" style="display: none;">
                     <i class="fa fa-arrow-up" aria-hidden="true"></i>
                 </a>
+            </div>
+            <div class="row clearfix submargin">
+                {!! Form::open(['url' => '/find-transfer', 'method' => 'POST', 'class' => 'search-form col-md-12 col-sm-12 form-inline', 'id' => 'searchForm']) !!}
+                    <div class="form-group col-md-4 col-xs-12">
+                        <label class="control-label" for="pick-up">
+                            Pick-up
+                        </label>
+                        <div class="wrapper-input">
+                            <input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pick-up" placeholder="Type airport, city or train station" required="required" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1 col-xs-12">
+                        <a href="javascript: void(0)" class="swap-locations">
+                            <i class="fa fa-exchange"></i>
+                        </a>
+                    </div>
+                    <div class="form-group col-md-4 col-xs-12">
+                        <label class="control-label" for="drop-off">
+                            Drop-off
+                        </label>
+                        <div class="wrapper-input">
+                            <input id="drop-off" class="form-control col-md-7 col-xs-12 drop-off input-text" name="drop-off" placeholder="Type airport, city or train station" required="required" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3 col-xs-12">
+                        <button id="send" type="submit" class="button button-red">
+                            <span class="glyphicon glyphicon-search"></span>Find transfer
+                        </button>
+                    </div>
+                {!! Form::close() !!}
             </div>
             @yield('content')    
         </div>

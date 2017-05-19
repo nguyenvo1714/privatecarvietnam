@@ -10,10 +10,6 @@
     <div class="">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
-                <!-- <div class="x_title">
-                    <h2>Form Design <small>different form elements</small></h2>
-                    <div class="clearfix"></div>
-                </div> -->
                 <div class="x_content">
                     <br>
                     <table class="table">
@@ -28,6 +24,8 @@
                                 <th>Description</th>
                                 <th>Blog</th>
                                 <th>is hot</th>
+                                <th>is discount</th>
+                                <th>discount value</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -40,16 +38,18 @@
                                         <td>{{ $transfer->blog_id }}</td>
                                         <td>{{ $transfer->type->name }}</td>
                                         <td>
-                                            {{ $transfer->transferName->where('transferNames.id', $transfer->transferName_id)->first()->name }}
+                                            {{ $transfer->transfer_name->name }}
                                         </td>
                                         <td>
-                                            {{ $transfer->place->where('places.id', $transfer->place_id)->first()->name }}
+                                            {{ $transfer->place->name }}
                                         </td>
                                         <td>{{ $transfer->title }}</td>
                                         <td>{{ $transfer->duration }}</td>
                                         <td>{{ $transfer->description }}</td>
-                                        <td>{{ $transfer->blog->where('blogs.id', $transfer->blog_id)->first()->title }}</td>
-                                        <td>{{ $transfer->isHot }}</td>
+                                        <td>{{ $transfer->blog->title }}</td>
+                                        <td>{{ $transfer->is_hot }}</td>
+                                        <td>{{ $transfer->is_discount }}</td>
+                                        <td>{{ $transfer->discount_value }}</td>
                                         <td style="font-size: 20px;">
                                             <a href="" id="{{ $transfer->id }}" class="call-view-transfer" data-toggle="modal" data-target="#myModal">
                                                 <i class="fa fa-eye"></i>

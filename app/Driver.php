@@ -9,7 +9,7 @@ class Driver extends Model
     protected $table = 'drivers';
     // protected $connection = 'touringservice';
     protected $fillable = [
-    	'fullName',
+        'full_name',
     	'address',
     	'phone',
     	'birthday',

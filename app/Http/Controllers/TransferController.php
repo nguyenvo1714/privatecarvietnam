@@ -25,7 +25,7 @@ class TransferController extends Controller
 
     protected $rules = [
         'type_id'          => 'required|regex:/^[0-9]+/',
-        'transferName_id'  => 'required|regex:/^[0-9]+/',
+        'transfer_name_id' => 'required|regex:/^[0-9]+/',
         'place_id'         => 'required|regex:/^[0-9]+/',
         'title'            => 'required',
         'slug'             => 'required|min:2,max:255|alpha_dash',
@@ -44,6 +44,10 @@ class TransferController extends Controller
     {
     	// $transfers = $this->repository->getTransfers();
         $transfers = Transfer::paginate();
+        $this->getTransferType($transfers);
+        $this->getTransferName($transfers);
+        $this->getPlaceName($transfers);
+        $this->getBlogTitle($transfers);
         // foreach ($transfers as $transfer) {
         //     var_dump($transfer->blog_id);
         //     $transferName = $transfer->blog->where('blogs.id', '=', $transfer->blog_id)->first()->title;
@@ -88,6 +92,9 @@ class TransferController extends Controller
         $path_thumb = str_replace('public/', '', $request->file('image_thumb')->store('/public'));
         $path_head = str_replace('public/', '', $request->file('image_head')->store('/public'));
         $transfer = new Transfer;
+        if(empty($request->is_discount)) {
+            $request->discount_value = 0;
+        }
         $transfer = Transfer::create([
             'type_id'          => $request->type_id, 
             'transferName_id'  => $request->transferName_id, 
@@ -97,7 +104,10 @@ class TransferController extends Controller
             'image_thumb'      => $path_thumb,
             'image_head'       => $path_head, 
             'description'      => $request->description, 
-            'blog_id'          => $request->blog_id
+            'blog_id'          => $request->blog_id,
+            'is_hot'           => $request->is_hot,
+            'is_discount'      => $request->is_discount,
+            'discount_value'   => $request->discount_value
         ]);
         $lastId = $transfer->id;
         $transfer = Transfer::find($lastId);
@@ -112,7 +122,7 @@ class TransferController extends Controller
                     'price'      => $request->price[$i],
                     'baggage'    => $request->baggage[$i],
                     'driver_id'  => $request->driver_id[$i],
-                    'isActive'   => $request->isActive[$i], 
+                    'is_active'  => $request->is_active[$i],
                 ])
             );
         }
@@ -165,14 +175,20 @@ class TransferController extends Controller
     public function update(Request $request, $id)
     {
         $transfer = Transfer::find($id);
+        if(empty($request->is_discount)) {
+            $request->discount_value = 0;
+        }
         $transfer->update([
             'type_id'          => $request->type_id, 
-            'transferName_id'  => $request->transferName_id, 
+            'transfer_name_id' => $request->transfer_name_id,
             'place_id'         => $request->place_id,
             'title'            => $request->title,
             'duration'         => $request->duration,
             'description'      => $request->description, 
-            'blog_id'          => $request->blog_id
+            'blog_id'          => $request->blog_id,
+            'is_hot'           => $request->is_hot,
+            'is_discount'      => $request->is_discount,
+            'discount_value'   => $request->discount_value
         ]);
 
         if (!empty($request->image_thumb)) {
@@ -201,7 +217,7 @@ class TransferController extends Controller
                 'price'      => $request->price[$i],
                 'baggage'    => $request->baggage[$i],
                 'driver_id'  => $request->driver_id[$i],
-                'isActive'   => $request->isActive[$i],
+                'is_active'  => $request->is_active[$i],
             ]);
         }
         if($new > 0) {
@@ -216,7 +232,7 @@ class TransferController extends Controller
                         'price'      => $request->price[$i],
                         'baggage'    => $request->baggage[$i],
                         'driver_id'  => $request->driver_id[$i],
-                        'isActive'   => $request->isActive[$i],
+                        'is_active'  => $request->is_active[$i],
                     ])
                 );
             }
@@ -247,5 +263,33 @@ class TransferController extends Controller
         $path = $request->file('image')->storeAs('/public', 'love.jpg');
         var_dump($path);die;
         return $path;
+    }
+
+    public function getTransferType($transfers)
+    {
+        foreach ($transfers as $transfer) {
+            $transfer->type = $transfer->type->where('id', $transfer->type_id)->first();
+        }
+    }
+
+    public function getTransferName($transfers)
+    {
+        foreach ($transfers as $transfer) {
+            $transfer->transfer_name = $transfer->transfer_name->where('id', $transfer->transfer_name_id)->first();
+        }
+    }
+
+    public function getPlaceName($transfers)
+    {
+        foreach ($transfers as $transfer) {
+            $transfer->place = $transfer->place->where('id', $transfer->place_id)->first();
+        }
+    }
+
+    public function getBlogTitle($transfers)
+    {
+        foreach ($transfers as $transfer) {
+            $transfer->blog = $transfer->blog->where('id', $transfer->blog_id)->first();
+        }
     }
 }

@@ -1149,3 +1149,86 @@ h1.tthome {
     box-shadow: inset 0px 2px 0px 0px #FFEA93;
     color: #000;
 }
+/*===========================================================================================================*/
+/*=========================================== Detail Page  ==================================================*/
+/*===========================================================================================================*/
+.transfer-header {
+	border-bottom: 1px dotted #999;
+	padding-bottom: 15px;
+}
+.transfer-header h3 {
+	font-size: 2.3em;
+	font-weight: 400;
+	text-align: left;
+}
+.transfer-header .unset-height {
+	height: unset;
+	margin-bottom: unset;
+	/*padding: unset;*/
+	color: #999;
+}
+.from-to {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.5em;
+	font-weight: 300;
+}
+.border-bottom {
+	border-bottom: 1px dotted #999;
+	padding-bottom: 15px;
+}
+.car-introduce {
+	text-align: left;
+}
+.car-introduce h4 {
+	font-weight: 300;
+	text-transform: capitalize;
+}
+.car-introduce p {
+	margin-bottom: unset;
+	/*padding: unset;*/
+}
+.car-introduce p span.pax {
+	margin-right: 15px;
+}
+.car-price {
+	display: block;
+	text-align: center;
+}
+.car-price p {
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+.car-price input[type="submit"] {
+	color: #fff;
+	padding: 5px 15px;
+	background: rgba(5, 147, 10, .9);
+	font-size: 1.3em;
+	border-radius: 3px;
+	box-shadow: inset 0px 2px 0px 0px rgb(77, 233, 82);
+	border: 1px solid rgb(20, 129, 24);
+}
+.car-price input[type="submit"]:hover {
+	color: unset;
+	/*background-image:linear-gradient(-1deg, #E58C00 0%, #FFB300 100%);*/
+	background: rgb(53, 202, 57);
+	border:1px solid #E68E00;
+}
+.transfer-blog {
+	margin-top: 15px;
+}
+.transfer-blog p {
+	padding: unset;
+	margin-bottom: unset;
+	margin-top: 15px;
+}
+.transfer-blog p img {
+	padding: 5px;
+	border: 1px solid #E68E00;
+}
+.rate {
+	margin-top: 25px;
+}
+.transfer-blog img {
+	display: block;
+}

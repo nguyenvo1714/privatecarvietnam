@@ -28,9 +28,11 @@
         {!! Html::style('css/animate.css') !!}
         {!! Html::style('css/owl.carousel.min.css') !!}
         {!! Html::style('css/owl.theme.default.min.css') !!}
+        {!! Html::style('css/bootstrap-formhelpers.min.css') !!}
         {!! Html::style('css/style.css') !!}
         <!-- Scripts -->
         {!! Html::script('js/app.js') !!}
+        {!! Html::script('js/bootstrap-formhelpers.min.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
         <!-- {!! Html::script('js/menu-addon.js') !!} -->
         {!! Html::script('js/jquery-ui.min.js') !!}

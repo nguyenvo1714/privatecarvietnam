@@ -19,12 +19,12 @@
 							</div>
 							<div class="block-description">
 								<h5 class="unmb">
-									{{ $transfer->transferName->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->name }}
+									{{ $transfer->transfer_name->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->name }}
 								</h5>
 								<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
 							</div>
 							{!! Form::open(['url' => '/book-transfer/confirmation', 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'bookForm']) !!}
-									<input type="hidden" name="trip" value="{{ $transfer->transferName->where('transferNames.id', $transfer->transferName_id)->first()->name }} - {{ $transfer->place->where('places.id', $transfer->place_id)->first()->name }}">
+									<input type="hidden" name="trip" value="{{ $transfer->transfer_name->name }} - {{ $transfer->place->name }}">
 									<input type="hidden" name="duration" value="{{ $transfer->duration }}">
 									<input type="hidden" name="id" value="{{ $transfer->id }}">
 								<div class="block-form">
@@ -136,11 +136,11 @@
 									<h3>Transfer summary</h3>
 									<div class="summary-block">
 										<h6 class="pick-up">Pick-up</h6>
-										<p class="summary-text">{{ $transfer->transferName->where('transferNames.id', $transfer->transferName_id)->first()->name }}</p>
+										<p class="summary-text">{{ $transfer->transfer_name->name }}</p>
 									</div>
 									<div class="summary-block">
 										<h6 class="drop-off">Drop-off</h6>
-										<p class="summary-text">{{ $transfer->place->where('places.id', $transfer->place_id)->first()->name }}</p>
+										<p class="summary-text">{{ $transfer->place->name }}</p>
 									</div>
 									<div class="summary-block">
 										<h6 class="transfer car">Transfer car</h6>

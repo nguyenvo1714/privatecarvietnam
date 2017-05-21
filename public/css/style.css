@@ -176,6 +176,9 @@ body.loading .modal {
 .mt {
 	margin-top: 15px;
 }
+.mt20 {
+	margin-top: 20px;
+}
 .pt {
 	padding-top: 15px;
 }
@@ -1222,13 +1225,267 @@ h1.tthome {
 	margin-bottom: unset;
 	margin-top: 15px;
 }
-.transfer-blog p img {
+.transfer-blog p img, .transfer-blog img {
 	padding: 5px;
 	border: 1px solid #E68E00;
+	text-align: center;
+	display: block;
+	margin: auto;
 }
 .rate {
 	margin-top: 25px;
 }
-.transfer-blog img {
+.transfer-blog h3 + img {
 	display: block;
+	width: 100%;
+	/*height: 400px;*/
+}
+/*===========================================================================================================*/
+/*=========================================== Booking Page ==================================================*/
+/*===========================================================================================================*/
+.booking-form h2 {
+	font-weight: 300;
+}
+.page-input {
+	margin-bottom: 20px;
+}
+.block-step {
+	display: block;
+	height: auto;
+	margin-top: 15px;
+	height: 50px;
+}
+.block-step .step {
+	background-image: linear-gradient(-179deg, #FCFCFC 0%, #F0F0F0 100%);
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+    /*display: block;*/
+    float: left;
+    height: 100%;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+    width: 50%;
+    overflow: hidden;
+}
+.block-step .step.active {
+	background-image: linear-gradient(-179deg, #FFD000 0%, #FFB300 100%);
+}
+.block-step .step .label-step {
+    border-radius: 15px;
+    border: 2px solid #E5E5E5;
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    color: #9B9B9B;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    height: 30px;
+    line-height: 10px;
+    margin: 10px 10px 10px 20px;
+    width: 30px;
+}
+.block-step .step.active .label-step {
+    border-color: #F1AC0B;
+    color: #000;
+}
+.block-step .step.completed .label-step {
+    border-color: #F1AC0B;
+    color: #000;
+}
+.block-step .step.completed .label-step span {
+	padding: 7px;
+	color: #F1AC0B;
+}
+.block-step .step .label-step span {
+    border-radius: 15px;
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.3);
+    display: block;
+    height: 28px;
+    padding: 9px;
+    width: 28px;
+}
+.block-step .step .text-step {
+    color: #9B9B9B;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    margin-left: 10%;
+    font-size: 1.5em;
+}
+.block-step .step.active .text-step {
+	color: #000;
+}
+.block-description {
+	margin-top: 25px;
+	display: block;
+	/*padding-bottom: 5px;*/
+	border-bottom: 1px dotted #000;
+}
+.block-description h5 {
+	text-transform: capitalize;
+	font-weight: 400;
+	font-size: 2em;
+}
+.block-description p {
+	font-size: 1.3em;
+	margin: unset;
+}
+.block-form {
+	padding-bottom: 20px;
+	border-bottom: 1px dotted #000;
+}
+.fieldset-title {
+	font-weight: unset;
+	text-transform: capitalize;
+}
+.form-group {
+	text-align: left;
+	/*margin: unset;*/
+}
+.form-group .control-label {
+	text-align: left;
+}
+.block-form .fifty {
+	width: 48%;
+	float: left;
+}
+.block-form .fifty:first-child {
+	margin-right: 4%;
+}
+.button-group {
+	margin-top: 20px;
+	font-weight: 400;
+    font-size: 1.4em;
+}
+.button-group button {
+	outline: none;
+	padding: 7px 25px;
+    background-image: linear-gradient(-179deg, #FFD000 0%, #FFB300 100%);
+    border: 1px solid #D99800;
+    box-shadow: inset 0px 2px 0px 0px #FFEA93;
+    color: #000;
+
+}
+.button-group button:hover {
+	background-image: linear-gradient(-1deg, #E58C00 0%, #FFB300 100%);
+    border: 1px solid #E68E00;
+}
+.button-group a {
+	margin-top: 7px;
+}
+#departureDate-error {
+	display: none !important;
+}
+fieldset #name-error {
+	display: none !important;
+}
+#bookForm label {
+	display: inline-block;
+}
+.spec {
+	width: 100%;
+	padding: unset;
+	/*height: unset;*/
+}
+.spec input[type="text"]:focus {
+	border-color: #B6D5F7 #B6D5F7 #B6D5F7 #B6D5F7;
+    outline: none;
+    -moz-box-shadow: 0 0 10px #B6D5F7;
+    -webkit-box-shadow: 0 0 10px #B6D5F7;
+    box-shadow: 0 0 10px #B6D5F7;
+}
+.spec .bfh-countries {
+	width: 30%;
+	border: unset;
+	outline: none;
+	height: 100%;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+}
+.spec .bfh-phone {
+	width: 68.6%;
+	height: 100%;
+	border: unset;
+	padding: 0 5px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+	outline: none;
+	font-size: unset;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+span.calendar,
+span.time,
+span.pick-up,
+span.drop-off,
+span.email,
+span.phone {
+	font-size: 20px;
+}
+span.passenger {
+	font-size: 18px;
+}
+span.calendar {
+	position: absolute;
+	right: 53.5%;
+	top: 3px;
+}
+span.time,
+span.passenger,
+span.pick-up,
+span.drop-off,
+/*span.email,*/
+span.phone {
+	position: absolute;
+	right: 22px;
+	top: 4px;
+}
+span.email {
+	position: absolute;
+	right: 22px;
+	top: 15px;
+}
+.summary-container {
+	position: relative;
+}
+.summary {
+    background: #FFF6CC;
+    border-radius: 4px;
+    border: none;
+    padding: 15px 20px 25px 20px;
+    margin-top: 15px;
+    box-shadow: 0 5px 10px;
+}
+span.pin-left,
+span.pin-right {
+	font-size: 22px;
+}
+span.pin-left {
+	position: absolute;
+	top: 0;
+	left: 25px;
+}
+span.pin-right {
+	position: absolute;
+	top: 0;
+	right: 5px;
+}
+.summary-content, .summary-contact {
+	border-bottom: 1px dotted #000;
+	padding-bottom: 15px;
+}
+.summary-content h3, .summary-cost h3 {
+	font-size: 16px;
+	font-weight: 300;
+	text-transform: capitalize;
+}
+.summary-block h6 {
+	margin-bottom: 5px;
+}
+.summary-block p {
+	line-height: 16px;
+}
+.summary-contact p {
+	margin-bottom: unset;
+}
+.striped {
+	background-color: #f9f9f9;
+	font-size: 1.3em;
 }

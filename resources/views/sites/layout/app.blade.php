@@ -145,7 +145,9 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" title="PrivatecarVietnam" href="http://privatecarvietnam.com/"><img alt="PrivateCarVietnam" title="PrivateCarVietName" src="img/privatecarvietnam.png"/></a>
+                        <a class="navbar-brand" title="PrivatecarVietnam" href="http://privatecarvietnam.com/">
+                            {!! Html::image('img/privatecarvietnam.png') !!}
+                        </a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <!-- <ul class="nav navbar-nav hidden-xs hidden-sm hidden-md">

@@ -176,7 +176,7 @@
                                             <select class="form-control col-md-7 col-xs-12" name="driver_id[]">
                                                 <option value="">Choose option</option>
                                             @foreach($drivers as $driver)
-                                                <option value={{ $driver->id }}>{{ $driver->fullName }}</option>
+                                                <option value={{ $driver->id }}>{{ $driver->full_name }}</option>
                                             @endforeach
                                             </select>
                                         </td>

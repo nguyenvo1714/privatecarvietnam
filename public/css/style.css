@@ -939,7 +939,7 @@ h1.tthome {
 	color: #555;
 }
 .overlay-darkquare {
-    background: transparent url(../image/pattern.png) repeat top left;
+    background: transparent url(../img/pattern.png) repeat top left;
 }
 .inner {
 	background: rgb(234, 237, 237);
@@ -1503,4 +1503,16 @@ span.pin-right {
 textarea.form-control {
 	text-align: left;
 	margin-left: 0;
+}
+/*===========================================================================================================*/
+/*=========================================== Sub menu ======================================================*/
+/*===========================================================================================================*/
+.submenu {
+	border-bottom: 1px solid #e7e7e7;
+    background-color: #fff;
+}
+.breadcrumb {
+    margin-bottom: 0px;
+    background: none;
+    padding: 12px 0px;
 }

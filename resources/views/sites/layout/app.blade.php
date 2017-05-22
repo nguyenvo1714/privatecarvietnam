@@ -108,6 +108,13 @@
             });
         </script>
         <script type="text/javascript">
+            $(function() {
+                $('#departureDate').datepicker({
+                    dateFormat: "yy-mm-dd"
+                });
+            })
+        </script>
+        <script type="text/javascript">
             var price = '{{ ! empty($car->price) ? $car->price : "" }}';
             var baseUrl = '{{ URL::to("/") }}';
             $(function() {

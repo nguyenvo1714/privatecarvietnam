@@ -55,7 +55,7 @@ $(function() {
 		cost(price);
 	});
 	if (typeof price !== 'undefined') {
-	    cost(price);
+		cost(price);
 	}
 
 	$('.back_to_register').click(function(e) {

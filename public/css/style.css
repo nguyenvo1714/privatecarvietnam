@@ -39,6 +39,9 @@
 	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
 		color: #fff;
 	}
+	.page-input .summary-container {
+		position: relative;
+	}
 }
 @media (min-width: 768px){
 	.ulairport li {
@@ -1353,6 +1356,8 @@ h1.tthome {
 	margin-top: 20px;
 	font-weight: 400;
     font-size: 1.4em;
+    display: block;
+    padding-bottom: 15px;
 }
 .button-group button {
 	outline: none;
@@ -1443,7 +1448,13 @@ span.email {
 	top: 15px;
 }
 .summary-container {
-	position: relative;
+	/*position: relative;*/
+	position: fixed;
+    top: 34.5%;
+    right: 1%;
+}
+.summary-container.confirmation {
+	top: 34%;
 }
 .summary {
     background: #FFF6CC;
@@ -1488,4 +1499,8 @@ span.pin-right {
 .striped {
 	background-color: #f9f9f9;
 	font-size: 1.3em;
+}
+textarea.form-control {
+	text-align: left;
+	margin-left: 0;
 }

@@ -208,8 +208,5 @@
 				</div>
 			</div>
 		</section>
-		<section class="container-fluid">
-			<div class="hr"></div>
-		</section>
 	</div>
 @endsection

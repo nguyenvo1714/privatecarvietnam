@@ -64,10 +64,10 @@ class TransferBookingController extends Controller
     {
         $transferNames = TransferName::get();
         $places = Place::get();
-        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
+        $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
         $this->chop_blog($blogs);
         $transfer = Transfer::find($request->id);
-        $transfer->transferName = $transfer->transferName->where('transfer_names.id', $transfer->transfer_name_id)->first();
+        $transfer->transfer_name = $transfer->transfer_name->where('transfer_names.id', $transfer->transfer_name_id)->first();
         $transfer->place = $transfer->place->where('places.id', $transfer->place_id)->first();
         return view('/sites.transferBookings.confirmation', [
             'transfer' =>  $transfer,

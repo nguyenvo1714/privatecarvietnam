@@ -71,10 +71,10 @@
 									<input type="hidden" name="class" value="{{ $register['class'] }}" id="class">
 									<input type="hidden" name="price" value="{{ $register['price'] }}" id="price">
 									<input type="hidden" name="passenger" value="{{ $register['passenger'] }}" id="passenger">
-									<input type="hidden" name="pickupAddress" value="{{ $register['pickupAddress'] }}" id="pickupAddress">
-									<input type="hidden" name="departureDate" value="{{ $register['departureDate'] }}" id="departureDate">
-									<input type="hidden" name="departureTime" value="{{ $register['departureTime'] }}" id="departureTime">
-									<input type="hidden" name="dropoffAddress" value="{{ $register['dropoffAddress'] }}" id="dropoffAddress">
+									<input type="hidden" name="pickup_address" value="{{ $register['pickup_address'] }}" id="pickupAddress">
+									<input type="hidden" name="departure_date" value="{{ $register['departure_date'] }}" id="departureDate">
+									<input type="hidden" name="departure_time" value="{{ $register['departure_time'] }}" id="departureTime">
+									<input type="hidden" name="dropoff_address" value="{{ $register['dropoff_address'] }}" id="dropoffAddress">
 									<input type="hidden" name="name" value="{{ $register['name'] }}" id="name">
 									<input type="hidden" name="surname" value="{{ $register['surname'] }}" id="surname">
 									<input type="hidden" name="email" value="{{ $register['email'] }}" id="email">
@@ -103,15 +103,15 @@
 											</tr>
 											<tr>
 												<td>Pick-up address</td>
-												<td>{{ $register['pickupAddress'] }}</td>
+												<td>{{ $register['pickup_address'] }}</td>
 											</tr>
 											<tr>
 												<td>Drop-off address</td>
-												<td>{{ $register['dropoffAddress'] }}</td>
+												<td>{{ $register['dropoff_address'] }}</td>
 											</tr>
 											<tr>
 												<td>Departure date and time</td>
-												<td>{{ $register['departureDate'] . ', ' . $register['departureTime'] }}</td>
+												<td>{{ $register['departure_date'] . ', ' . $register['departure_time'] }}</td>
 											</tr>
 											<tr class="striped">
 												<td colspan="2">Contact</td>
@@ -154,11 +154,11 @@
 										<h3>Transfer summary</h3>
 										<div class="summary-block">
 											<h6 class="pick-up">Pick-up</h6>
-											<p class="summary-text">{{ $transfer->transfer_name->name }}, {{ $register['pickupAddress'] }}</p>
+											<p class="summary-text">{{ $transfer->transfer_name->name }}, {{ $register['pickup_address'] }}</p>
 										</div>
 										<div class="summary-block">
 											<h6 class="drop-off">Drop-off</h6>
-											<p class="summary-text">{{ $transfer->place->name }}, {{ $register['dropoffAddress'] }}</p>
+											<p class="summary-text">{{ $transfer->place->name }}, {{ $register['dropoff_address'] }}</p>
 										</div>
 										<div class="summary-block">
 											<h6 class="transfer car">Transfer car</h6>
@@ -205,10 +205,10 @@
 		<input type="hidden" name="class" value="{{ $register['class'] }}">
 		<input type="hidden" name="price" value="{{ $register['price'] }}">
 		<input type="hidden" name="passenger" value="{{ $register['passenger'] }}">
-		<input type="hidden" name="pickupAddress" value="{{ $register['pickupAddress'] }}">
-		<input type="hidden" name="departureDate" value="{{ $register['departureDate'] }}">
-		<input type="hidden" name="departureTime" value="{{ $register['departureTime'] }}">
-		<input type="hidden" name="dropoffAddress" value="{{ $register['dropoffAddress'] }}">
+		<input type="hidden" name="pickupAddress" value="{{ $register['pickup_address'] }}">
+		<input type="hidden" name="departureDate" value="{{ $register['departure_date'] }}">
+		<input type="hidden" name="departureTime" value="{{ $register['departure_time'] }}">
+		<input type="hidden" name="dropoffAddress" value="{{ $register['dropoff_address'] }}">
 		<input type="hidden" name="name" value="{{ $register['name'] }}">
 		<input type="hidden" name="surname" value="{{ $register['surname'] }}">
 		<input type="hidden" name="email" value="{{ $register['email'] }}">

@@ -91,11 +91,11 @@
 										<fieldset>
 											<h3 class="fieldset-title">Route</h3>
 											<div class="form-group">
-												<label class="control-label col-md-2 col-sm-2 col-xs-12" for="pickupAddress">
+												<label class="control-label col-md-2 col-sm-2 col-xs-12" for="pickup_address">
 													Pick-up <span class="required">*</span>
 												</label>
 												<div class="col-md-10 col-sm-10 col-xs-12">
-													<input type="text" name="pickupAddress" id="pickupAddress" required class="form-control" value="{{ !empty($confirms['pickupAddress']) ? $confirms['pickupAddress'] : '' }}">
+													<input type="text" name="pickup_address" id="pickupAddress" required class="form-control" value="{{ !empty($confirms['pickupAddress']) ? $confirms['pickupAddress'] : '' }}">
 													<span class="pick-up"><i class="fa fa-street-view"></i></span>
 												</div>
 											</div>
@@ -104,9 +104,9 @@
 													Departure date and time <span class="required">*</span>
 												</label>
 												<div class="col-md-12 col-sm-12 col-xs-12 marked">
-													<input id="departureDate" class="form-control fifty" name="departureDate" type="text" required placeholder="YYYY-MM-DD" value="{{ !empty($confirms['departureDate']) ? $confirms['departureDate'] : '' }}">
+													<input id="departureDate" class="form-control fifty" name="departure_date" type="text" required placeholder="YYYY-MM-DD" value="{{ !empty($confirms['departureDate']) ? $confirms['departureDate'] : '' }}">
 													<span class="calendar"><i class="fa fa-calendar"></i></span>
-													<input id="departureTime" class="form-control fifty" name="departureTime" required="required" type="time" placeholder="HH:mm AM" value="{{ !empty($confirms['departureTime']) ? $confirms['departureTime'] : '' }}">
+													<input id="departureTime" class="form-control fifty" name="departure_time" required="required" type="time" placeholder="HH:mm AM" value="{{ !empty($confirms['departureTime']) ? $confirms['departureTime'] : '' }}">
 													<span class="time"><i class="fa fa-clock-o"></i></span>
 												</div>
 											</div>
@@ -115,7 +115,7 @@
 													Drop-off <span class="required">*</span>
 												</label>
 												<div class="col-md-10 col-sm-10 col-xs-12 mt20">
-													<input type="text" name="dropoffAddress" id="dropoffAddress" required class="form-control" value="{{ !empty($confirms['dropoffAddress']) ? $confirms['dropoffAddress'] : '' }}">
+													<input type="text" name="dropoff_address" id="dropoffAddress" required class="form-control" value="{{ !empty($confirms['dropoffAddress']) ? $confirms['dropoffAddress'] : '' }}">
 													<span class="drop-off"><i class="fa fa-street-view"></i></span>
 												</div>
 											</div>

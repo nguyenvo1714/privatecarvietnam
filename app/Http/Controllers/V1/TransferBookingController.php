@@ -5,7 +5,7 @@ namespace App\Http\Controllers\V1;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ConfirmedEMail;
+use App\Mail\ConfirmedEmail;
 use App\TransferBooking;
 use App\Place;
 use App\Blog;
@@ -90,10 +90,10 @@ class TransferBookingController extends Controller
             $transferBooking = new TransferBooking;
             $input = $request->all();
             $result = $transferBooking->create($input);
-            if($result) {
+            if($result->id) {
                 Mail::to($request->email)
                 ->bcc(env('MAIL_FROM_ADDRESS'))
-                ->send(new ConfirmedEMail($input));
+                ->send(new ConfirmedEmail($input));
                 if( count(Mail::failures()) > 0 ) {
                     echo 'check error';die;
                     foreach ($Mail::failures as $failure) {
@@ -102,7 +102,7 @@ class TransferBookingController extends Controller
                 } else {
                     $data = [
                         'success' => true,
-                        'message' => 'Thanks you for your confirmation, please check your email about transfered booking.' . env('MAIL_FROM_ADDRESS')
+                        'message' => 'Thanks you for your confirmation, please check your email about transfered booking.'
                     ];
                     return response()->json($data);
                 }

@@ -1449,12 +1449,12 @@ span.email {
 }
 .summary-container {
 	/*position: relative;*/
-	position: fixed;
-    top: 34.5%;
-    right: 1%;
+	/*position: fixed;*/
+    /*top: 34.5%;*/
+    /*right: 1%;*/
 }
 .summary-container.confirmation {
-	top: 34%;
+	/*top: 34%;*/
 }
 .summary {
     background: #FFF6CC;

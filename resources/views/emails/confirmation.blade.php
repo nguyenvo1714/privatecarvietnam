@@ -1,6 +1,6 @@
 @component('mail::message')
 # Transfer booking informations
-Dear {{ $infors['surname'] }},<br>
+Dear {{ $infos['surname'] }},<br>
 Thanks you for your booking, please confirm below information and let us know if any mismatch:
 
 <table class="table table-bordred">
@@ -15,52 +15,52 @@ Thanks you for your booking, please confirm below information and let us know if
 		</tr>
 		<tr>
 			<td>The number of passenger</td>
-			<td>{{ $infors['passenger'] }}</td>
+			<td>{{ $infos['passenger'] }}</td>
 		</tr>
 		<tr>
 			<td>Vehicle</td>
-			<td>{{ $infors['class'] }}</td>
+			<td>{{ $infos['class'] }}</td>
 		</tr>
 		<tr class="striped" style="background-color: #f9f9f9;font-size: 1.3em;">
 			<td colspan="2">Route</td>
 		</tr>
 		<tr>
 			<td>Pick-up address</td>
-			<td>{{ $infors['pickupAddress'] }}</td>
+			<td>{{ $infos['pickup_address'] }}</td>
 		</tr>
 		<tr>
 			<td>Drop-off address</td>
-			<td>{{ $infors['dropoffAddress'] }}</td>
+			<td>{{ $infos['dropoff_address'] }}</td>
 		</tr>
 		<tr>
 			<td>Departure date and time</td>
-			<td>{{ $infors['departureDate'] . ', ' . $infors['departureTime'] }}</td>
+			<td>{{ $infos['departure_date'] . ', ' . $infos['departure_time'] }}</td>
 		</tr>
 		<tr class="striped" style="background-color: #f9f9f9;font-size: 1.3em;">
 			<td colspan="2">Contact</td>
 		</tr>
 		<tr>
 			<td>Name and Surname</td>
-			<td>{{ $infors['name'] . ' ' . $infors['surname'] }}</td>
+			<td>{{ $infos['name'] . ' ' . $infos['surname'] }}</td>
 		</tr>
 		<tr>
 			<td>Email</td>
-			<td>{{ $infors['email'] }}</td>
+			<td>{{ $infos['email'] }}</td>
 		</tr>
 		<tr>
 			<td>Phone</td>
-			<td>{{ $infors['phone'] }}</td>
+			<td>{{ $infos['phone'] }}</td>
 		</tr>
 		<tr>
 			<td>Note</td>
-			<td>{{ $infors['note'] }}</td>
+			<td>{{ $infos['note'] }}</td>
 		</tr>
 		<tr class="striped" style="background-color: #f9f9f9;font-size: 1.3em;">
 			<td colspan="2">Transfer cost</td>
 		</tr>
 		<tr>
 			<td><strong>Total</strong></td>
-			<td><strong>{{ number_format($infors['passenger'] * $infors['price'], 2) }} VNĐ</strong></td>
+			<td><strong>{{ number_format($infos['passenger'] * $infos['price'], 2) }} VNĐ</strong></td>
 		</tr>
 	</tbody>
 </table>

@@ -29,11 +29,11 @@
                             <div class="alert">please put something here</div>
                         </div>
                         <div class="field item form-group">
-                            <label class="control-label col-md-1 col-sm-1 col-xs-12" for="isHot">
+                            <label class="control-label col-md-1 col-sm-1 col-xs-12" for="is_hot">
                                 Is hot <span class="required">*</span>
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-12">
-                                <select class="required form-control col-md-8 col-xs-12" name="isHot" >
+                                <select class="required form-control col-md-8 col-xs-12" name="is_hot" >
                                     <option value="">Choose option</option>
                                     <option value=1>1</option>
                                     <option value=0>0</option>
@@ -42,11 +42,11 @@
                             <div class="alert">Please select an option</div>
                         </div>
                         <div class="field item form-group">
-                            <label class="control-label col-md-1 col-sm-1 col-xs-12" for="isNew">
+                            <label class="control-label col-md-1 col-sm-1 col-xs-12" for="is_new">
                                 Is new <span class="required">*</span>
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-12">
-                                <select class="required form-control col-md-8 col-xs-12" name="isNew" >
+                                <select class="required form-control col-md-8 col-xs-12" name="is_new" >
                                     <option value="">Choose option</option>
                                     <option value=1>1</option>
                                     <option value=0>0</option>

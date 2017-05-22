@@ -38,7 +38,7 @@ class Blog extends Model
 
     public function transfers()
     {
-        return $this->belongsToMany('App\Transfer');
+        return $this->hasMany('App\Transfer');
     }
 
     public function type()

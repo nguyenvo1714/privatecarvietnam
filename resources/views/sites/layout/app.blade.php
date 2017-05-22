@@ -28,9 +28,11 @@
         {!! Html::style('css/animate.css') !!}
         {!! Html::style('css/owl.carousel.min.css') !!}
         {!! Html::style('css/owl.theme.default.min.css') !!}
+        {!! Html::style('css/bootstrap-formhelpers.min.css') !!}
         {!! Html::style('css/style.css') !!}
         <!-- Scripts -->
         {!! Html::script('js/app.js') !!}
+        {!! Html::script('js/bootstrap-formhelpers.min.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
         <!-- {!! Html::script('js/menu-addon.js') !!} -->
         {!! Html::script('js/jquery-ui.min.js') !!}
@@ -143,7 +145,9 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" title="PrivatecarVietnam" href="http://privatecarvietnam.com/"><img alt="PrivateCarVietnam" title="PrivateCarVietName" src="img/privatecarvietnam.png"/></a>
+                        <a class="navbar-brand" title="PrivatecarVietnam" href="http://privatecarvietnam.com/">
+                            {!! Html::image('img/privatecarvietnam.png') !!}
+                        </a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <!-- <ul class="nav navbar-nav hidden-xs hidden-sm hidden-md">

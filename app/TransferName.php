@@ -37,11 +37,11 @@ class TransferName extends Model
 
    	public function transfers()
    	{
-   		return $this->belongsToMany('App\Transfer');
+        return $this->hasMany('App\Transfer');
    	}
 
-      public function type()
-      {
-         return $this->belongsTo('App\Type');
-      }
+    public function type()
+    {
+        return $this->belongsTo('App\Type');
+    }
 }

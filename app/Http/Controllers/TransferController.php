@@ -24,15 +24,14 @@ class TransferController extends Controller
 	}
 
     protected $rules = [
-        'type_id'          => 'required|regex:/^[0-9]+/',
-        'transfer_name_id' => 'required|regex:/^[0-9]+/',
-        'place_id'         => 'required|regex:/^[0-9]+/',
+        'type_id'          => 'required',
+        'transfer_name_id' => 'required',
+        'place_id'         => 'required',
         'title'            => 'required',
-        'slug'             => 'required|min:2,max:255|alpha_dash',
         'duration'         => 'required',
         'image_thumb'      => 'required',
         'image_head'       => 'required',
-        'blog_id'          => 'required|regex:/^[0-9]+/',
+        'blog_id'          => 'required',
     ];
 
     /**
@@ -43,7 +42,7 @@ class TransferController extends Controller
     public function index()
     {
     	// $transfers = $this->repository->getTransfers();
-        $transfers = Transfer::paginate();
+        $transfers = Transfer::paginate(10);
         $this->getTransferType($transfers);
         $this->getTransferName($transfers);
         $this->getPlaceName($transfers);
@@ -80,7 +79,6 @@ class TransferController extends Controller
      */
     public function store(Request $request)
     {
-        // var_dump($_FILES['image_thumb']['name']);
         $this->validate($request, $this->rules);
         $path_thumb = str_replace('public/', '', $request->file('image_thumb')->store('/public'));
         $path_head = str_replace('public/', '', $request->file('image_head')->store('/public'));
@@ -90,7 +88,7 @@ class TransferController extends Controller
         }
         $transfer = Transfer::create([
             'type_id'          => $request->type_id, 
-            'transferName_id'  => $request->transferName_id, 
+            'transfer_name_id'  => $request->transfer_name_id, 
             'place_id'         => $request->place_id,
             'title'            => $request->title,
             'duration'         => $request->duration,
@@ -254,7 +252,6 @@ class TransferController extends Controller
     public function upload(Request $request)
     {
         $path = $request->file('image')->storeAs('/public', 'love.jpg');
-        var_dump($path);die;
         return $path;
     }
 
@@ -276,6 +273,7 @@ class TransferController extends Controller
     {
         foreach ($transfers as $transfer) {
             $transfer->place = $transfer->place->where('id', $transfer->place_id)->first();
+            // $transfer->place = $transfer->place->where('id', $transfer->place_id)->first();
         }
     }
 

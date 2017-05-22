@@ -412,4 +412,12 @@ class TransferController extends Controller
             $transfer->type = $transfer->type->where('id', $transfer->type_id)->first();
         }
     }
+
+    // public function getCar($transfers)
+    // {
+    //     foreach ($transfers as $transfer) {
+    //         $transfer->cars = $transferswhere('id', $transfer->id)->first();
+    //     }
+    // }
+
 }

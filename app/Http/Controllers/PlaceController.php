@@ -10,8 +10,8 @@ class PlaceController extends Controller
 
     protected $rules = [
         'name' => 'required',
-        'isHot' => 'required|regex:/^[0-1]{1}/',
-        'isNew' => 'required|regex:/^[0-1]{1}/',
+        'is_hot' => 'required',
+        'is_new' => 'required',
     ];
 
     /**

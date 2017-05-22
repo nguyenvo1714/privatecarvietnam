@@ -12,7 +12,6 @@ class Transfer extends Model
     use SluggableScopeHelpers;
 
     protected $table = 'transfers';
-    // protected $connection = 'touringservice';
     protected $fillable = [
     	'type_id',
         'transfer_name_id',
@@ -51,16 +50,16 @@ class Transfer extends Model
 
     public function blog()
     {
-    	return $this->hasOne('App\Blog', 'id');
+        return $this->belongsTo('App\Blog');
     }
 
     public function place()
     {
-    	return $this->hasOne('App\Place', 'id');
+        return $this->belongsTo('App\Place');
     }
 
     public function transfer_name()
     {
-        return $this->hasOne('App\transferName', 'id');
+        return $this->belongsTo('App\TransferName');
     }
 }

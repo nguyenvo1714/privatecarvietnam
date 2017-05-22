@@ -190,13 +190,13 @@ $(function() {
                     '<input type="text" name="baggage[]" id="baggage" class="form-control" required="required">' +
                 '</td>' +
                 '<td>' +
-                    '<select class="required form-control col-md-7 col-xs-12" name="driver_id[]">' +
+                    '<select class="form-control col-md-7 col-xs-12" name="driver_id[]">' +
                         '<option value="">Choose option</option>' +
                     	option +
                     '</select>' +
                 '</td>' +
                 '<td>' +
-                    '<select class="required form-control col-md-7 col-xs-12" name="is_active[]" >' +
+                    '<select class="form-control col-md-7 col-xs-12" name="is_active[]" >' +
                         '<option value="">Choose option</option>' +
                         '<option value=0>0</option>' +
                         '<option value=1>1</option>' +

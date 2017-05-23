@@ -13,4 +13,5 @@ $(function() {
 	$('.dropdown').on('mouseenter mouseleave click tap', function() {
 	  $(this).toggleClass("open");
 	});
+	$('li.active').find('a').css('color', 'rgba(94, 211, 82, .7)');
 }); 

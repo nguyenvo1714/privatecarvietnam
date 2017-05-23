@@ -30,6 +30,6 @@ class ConfirmedEmail extends Mailable
     public function build()
     {
         return $this->markdown('emails.confirmation')
-                    ->with(['infors' => $this->data]);
+                    ->with(['infos' => $this->data]);
     }
 }

@@ -939,7 +939,7 @@ h1.tthome {
 	color: #555;
 }
 .overlay-darkquare {
-    background: transparent url(../image/pattern.png) repeat top left;
+    background: transparent url(../img/pattern.png) repeat top left;
 }
 .inner {
 	background: rgb(234, 237, 237);
@@ -1449,12 +1449,12 @@ span.email {
 }
 .summary-container {
 	/*position: relative;*/
-	position: fixed;
-    top: 34.5%;
-    right: 1%;
+	/*position: fixed;*/
+    /*top: 34.5%;*/
+    /*right: 1%;*/
 }
 .summary-container.confirmation {
-	top: 34%;
+	/*top: 34%;*/
 }
 .summary {
     background: #FFF6CC;
@@ -1503,4 +1503,22 @@ span.pin-right {
 textarea.form-control {
 	text-align: left;
 	margin-left: 0;
+}
+/*===========================================================================================================*/
+/*=========================================== Sub menu ======================================================*/
+/*===========================================================================================================*/
+.submenu {
+	border-bottom: 1px solid #e7e7e7;
+    background-color: #fff;
+}
+.breadcrumb {
+    margin-bottom: 0px;
+    background: none;
+    padding: 12px 0px;
+}
+.breadcrumb li, .breadcrumb li a {
+	color: rgb(12, 184, 61);
+}
+.breadcrumb li i.fa-home {
+	font-size: 18px;
 }

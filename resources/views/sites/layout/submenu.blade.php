@@ -245,21 +245,32 @@
                     <div class="col-sm-12">
                         <ol class="breadcrumb">
                             <li>
-                                <a href="https://goasiadaytrip.com/" class="brhome" title="Home"><i class="fa fa-home"></i></a>
+                                <a href="{{ url('/') }}" class="brhome" title="Home"><i class="fa fa-home"></i></a>
                             </li>
-                            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                                <a href="https://goasiadaytrip.com/cruise.html" itemprop="url">
-                                    <span itemprop="title">Cruises</span>
-                                </a>
-                            </li>
-                            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                                <a href="#" itemprop="url">
-                                    <span itemprop="title">Ha Long Bay Cruises</span>
-                                </a>
-                            </li>
-                            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                                <span itemprop="title">Aphrodite Cruises Halong</span>
-                            </li>
+                            @if(in_array($action, ['viewTransfer', 'viewAirportTransfer']))
+                                <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <a href="{{ url('/' . $transfer_name->type->slug) }}" itemprop="url">
+                                        <span itemprop="title">{{ $transfer_name->type->name }}</span>
+                                    </a>
+                                </li>
+                                <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <span itemprop="title">{{ $transfer_name->name }}</span>
+                                </li>
+                            @else
+                                <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <a href="{{ url('/' . $transfer->type->slug) }}" itemprop="url">
+                                        <span itemprop="title">{{ $transfer->type->name }}</span>
+                                    </a>
+                                </li>
+                                <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <a href="{{ url('/' . $transfer->type->slug . '/view/' . $transfer->transfer_name->slug) }}" itemprop="url">
+                                        <span itemprop="title">{{ $transfer->transfer_name->name }}</span>
+                                    </a>
+                                </li>
+                                <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <span itemprop="title">{{ $transfer->title }}</span>
+                                </li>
+                            @endif
                         </ol>
                     </div>
                   </div>

@@ -161,8 +161,8 @@
                             <li  class="slogan"> <span>privatecarvietnam.com</span></li>
                         </ul> -->
                         <ul class="nav navbar-nav">
-                            <li><a href="{{ url('/') }}">Home</a></li>
-                            <li class="dropdown">
+                            <li class="{{ $active = $action == 'index' ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
+                            <li class="dropdown {{ $active = $action == 'privateTransfer' ? 'active' : '' }}{{ $active = $action == 'viewTransfer' ? 'active' : '' }}">
                                 <a href="{{ url('/private-transfer') }}" role="button"><i class="fa hidden-sm fa fa-car"></i> Private Transfer <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="menuuser">
                                     @foreach($transferNames as $transferName)
@@ -172,7 +172,7 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown {{ $active = $action == 'airportTransfer' ? 'active' : '' }}{{ $active = $action == 'viewAirportTransfer' ? 'active' : '' }}">
                                 <a href="{{ url('/airport-transfer') }}" type="button" id="dropdownMenu1" style="clear: both;">
                                     <i class="fa hidden-sm fa fa-car"></i> Airport Transfer
                                     <span class="caret"></span>
@@ -185,8 +185,8 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li><a href="{{ url('/blog') }}" style="clear: both;">Blog</a></li>
-                            <li><a href="{{ url('/contact') }}">Contact us</a></li>
+                            <li class="{{ $active = $action == 'blog' ? 'active' : '' }}"><a href="{{ url('/blog') }}" style="clear: both;">Blog</a></li>
+                            <li class="{{ $active = $action == 'contact' ? 'active' : '' }}"><a href="{{ url('/contact') }}">Contact us</a></li>
                             <!-- <li><a href="mailto:info@privatecarvietnam.com">info@privatecarvietnam.com</li>
                             <li><a href="tel:+84 122345678">84 122345678</li> -->
                         </ul>
@@ -243,37 +243,24 @@
             <section class="submenu">
                 <div class="container-fluid">
                     <div class="col-sm-12">
-                        <div class="row">
-                            <ol class="breadcrumb">
-                                <li>
-                                    <a href="{{ url('/') }}" class="brhome" title="Home"><i class="fa fa-home"></i></a>
-                                </li>
-                                @if(in_array($action, ['viewTransfer', 'viewAirportTransfer']))
-                                    <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                                        <a href="{{ url('/' . $transfer_name->type->slug) }}" itemprop="url">
-                                            <span itemprop="title">{{ $transfer_name->type->name }}</span>
-                                        </a>
-                                    </li>
-                                    <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                                        <span itemprop="title">{{ $transfer_name->name }}</span>
-                                    </li>
-                                @else
-                                    <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                                        <a href="{{ url('/' . $transfer->type->slug) }}" itemprop="url">
-                                            <span itemprop="title">{{ $transfer->type->name }}</span>
-                                        </a>
-                                    </li>
-                                    <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                                        <a href="{{ url('/' . $transfer->type->slug . '/view/' . $transfer->transfer_name->slug) }}" itemprop="url">
-                                            <span itemprop="title">{{ $transfer->transfer_name->name }}</span>
-                                        </a>
-                                    </li>
-                                    <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                                        <span itemprop="title">{{ $transfer->title }}</span>
-                                    </li>
-                                @endif
-                            </ol>
-                        </div>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="https://goasiadaytrip.com/" class="brhome" title="Home"><i class="fa fa-home"></i></a>
+                            </li>
+                            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                <a href="https://goasiadaytrip.com/cruise.html" itemprop="url">
+                                    <span itemprop="title">Cruises</span>
+                                </a>
+                            </li>
+                            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                <a href="#" itemprop="url">
+                                    <span itemprop="title">Ha Long Bay Cruises</span>
+                                </a>
+                            </li>
+                            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                <span itemprop="title">Aphrodite Cruises Halong</span>
+                            </li>
+                        </ol>
                     </div>
                   </div>
             </section>

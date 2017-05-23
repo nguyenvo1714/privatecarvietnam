@@ -1516,3 +1516,9 @@ textarea.form-control {
     background: none;
     padding: 12px 0px;
 }
+.breadcrumb li, .breadcrumb li a {
+	color: rgb(12, 184, 61);
+}
+.breadcrumb li i.fa-home {
+	font-size: 18px;
+}

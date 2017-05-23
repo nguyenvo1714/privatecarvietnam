@@ -199,9 +199,9 @@ class TransferController extends Controller
         $places = Place::get();
         $interestTransfers = Transfer::where('is_hot', 1)->limit(4)->get();
         $this->getTransferType($interestTransfers);
-        $transfer_name_id = TransferName::findBySlug($slug)->id;
-        $transfers = Transfer::where('transfer_name_id', $transfer_name_id)->limit(6)->get();
-        $total = Transfer::where('transfer_name_id', $transfer_name_id)->get()->count();
+        $transfer_name = TransferName::findBySlug($slug);
+        $transfers = Transfer::where('transfer_name_id', $transfer_name->id)->limit(6)->get();
+        $total = Transfer::where('transfer_name_id', $transfer_name->id)->get()->count();
         $perpage = 6;
         $total_pages = (int)ceil($total / $perpage);
         $this->getTransferType($transfers);
@@ -212,7 +212,7 @@ class TransferController extends Controller
             'interestTransfers' => $interestTransfers,
             'transfers' => $transfers,
             'name' => $slug,
-            'transfer_name_id' => $transfer_name_id,
+            'transfer_name' => $transfer_name,
             'total' => $total,
             'perpage' => $perpage,
             'total_pages' => $total_pages,
@@ -268,9 +268,9 @@ class TransferController extends Controller
         $places = Place::get();
         $interestTransfers = Transfer::where('is_hot', 1)->limit(4)->get();
         $this->getTransferType($interestTransfers);
-        $transfer_name_id = TransferName::findBySlug($slug)->id;
-        $transfers = Transfer::where('transfer_name_id', $transfer_name_id)->paginate(6);
-        $total = Transfer::where('transfer_name_id', $transfer_name_id)->get()->count();
+        $transfer_name = TransferName::findBySlug($slug);
+        $transfers = Transfer::where('transfer_name_id', $transfer_name->id)->paginate(6);
+        $total = Transfer::where('transfer_name_id', $transfer_name->id)->get()->count();
         $perpage = 6;
         $total_pages = (int)ceil($total / $perpage);
         $this->getTransferType($transfers);
@@ -281,7 +281,7 @@ class TransferController extends Controller
             'interestTransfers' => $interestTransfers,
             'transfers' => $transfers,
             'name' => $slug,
-            'transfer_name_id' => $transfer_name_id,
+            'transfer_name' => $transfer_name,
             'total' => $total,
             'perpage' => $perpage,
             'total_pages' => $total_pages,

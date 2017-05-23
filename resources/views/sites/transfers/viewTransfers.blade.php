@@ -75,7 +75,7 @@
 								<button class="load_more btn btn-primary" id="load_more_button">
 									<i class='fa fa-spinner'></i> Show 6 more cruises
 								</button>
-								<div class="animation_image" style="display:none;"><img src="img/loading.gif"></div>
+								<div class="animation_image" style="display:none;">{!! Html::image('img/loading.gif') !!}</div>
 							</div>
 						</div>
 					</div>
@@ -95,7 +95,7 @@
 		    var track_click = 1;
 		    var total_pages = {{ $total_pages }};
 		    var perpage = {{ $perpage }};
-		    var transfer_name_id = {{ $transfer_name_id }};
+		    var transfer_name_id = {{ $transfer_name->id }};
 		    host = baseUrl + '/view-transfer-load-more';
 			if (track_click > total_pages-1) {
 				$(".load_more").addClass("hidden");

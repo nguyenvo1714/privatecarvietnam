@@ -98,16 +98,24 @@
                             </div>
                         </div>
                         <div class="field item form-group">
-                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="blog_id">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="blog">
                                 Blog <span class="required">*</span>
                             </label>
                             <div class="col-md-10 col-sm-10 col-xs-12">
-                                <select class="form-control col-md-10 col-xs-12" name="blog_id" required>
-                                    <option value="">Choose option</option>
-                                @foreach($blogs as $blog)
-                                    <option value={{ $blog->id }}>{{ $blog->title }}</option>
-                                @endforeach
-                                </select>
+                                <textarea id="my-editor" required name="blog" class="form-control col-md-10 col-xs-12 my-editor">
+                                    {!! old('content', '') !!}
+                                </textarea>
+                                <script>
+                                    CKEDITOR.replace( 'my-editor',
+                                    {
+                                        extraPlugins: 'embed,autoembed',
+                                        height: 500,
+                                        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                                        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
+                                        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                                        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
+                                    });
+                                </script>
                             </div>
                         </div>
                         <div class="field item form-group">

@@ -22,7 +22,7 @@
                                 <th>Title</th>
                                 <th>Duration</th>
                                 <th>Description</th>
-                                <th>Blog</th>
+                                <!-- <th>Blog</th> -->
                                 <th>is hot</th>
                                 <th>is discount</th>
                                 <th>discount value</th>
@@ -46,7 +46,7 @@
                                         <td>{{ $transfer->title }}</td>
                                         <td>{{ $transfer->duration }}</td>
                                         <td>{{ $transfer->description }}</td>
-                                        <td>{{ $transfer->blog->title }}</td>
+                                        <!-- <td>{{ $transfer->blog }}</td> -->
                                         <td>{{ $transfer->is_hot }}</td>
                                         <td>{{ $transfer->is_discount }}</td>
                                         <td>{{ $transfer->discount_value }}</td>

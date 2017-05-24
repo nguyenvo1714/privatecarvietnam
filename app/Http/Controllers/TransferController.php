@@ -31,7 +31,7 @@ class TransferController extends Controller
         'duration'         => 'required',
         'image_thumb'      => 'required',
         'image_head'       => 'required',
-        'blog_id'          => 'required',
+        'blog'             => 'required',
     ];
 
     /**
@@ -46,7 +46,6 @@ class TransferController extends Controller
         $this->getTransferType($transfers);
         $this->getTransferName($transfers);
         $this->getPlaceName($transfers);
-        $this->getBlogTitle($transfers);
         return view('/admin.transfers.index', ['transfers' => $transfers]);
     }
 
@@ -65,7 +64,6 @@ class TransferController extends Controller
         return view('/admin.transfers.create', [
             'types'         => $types, 
             'places'        => $places, 
-            'blogs'         => $blogs, 
             'drivers'       => $drivers,
             'transferNames' => $transferNames
         ]);
@@ -95,7 +93,7 @@ class TransferController extends Controller
             'image_thumb'      => $path_thumb,
             'image_head'       => $path_head, 
             'description'      => $request->description, 
-            'blog_id'          => $request->blog_id,
+            'blog'             => $request->blog,
             'is_hot'           => $request->is_hot,
             'is_discount'      => $request->is_discount,
             'discount_value'   => $request->discount_value
@@ -149,7 +147,6 @@ class TransferController extends Controller
             'transfer' => $transfer, 
             'types' => $types, 
             'places' => $places, 
-            'blogs' => $blogs, 
             'cars' => $transfer->cars()->get(), 
             'drivers' => $drivers,
             'transferNames' => $transferNames
@@ -176,7 +173,7 @@ class TransferController extends Controller
             'title'            => $request->title,
             'duration'         => $request->duration,
             'description'      => $request->description, 
-            'blog_id'          => $request->blog_id,
+            'blog'             => $request->blog,
             'is_hot'           => $request->is_hot,
             'is_discount'      => $request->is_discount,
             'discount_value'   => $request->discount_value
@@ -274,13 +271,6 @@ class TransferController extends Controller
         foreach ($transfers as $transfer) {
             $transfer->place = $transfer->place->where('id', $transfer->place_id)->first();
             // $transfer->place = $transfer->place->where('id', $transfer->place_id)->first();
-        }
-    }
-
-    public function getBlogTitle($transfers)
-    {
-        foreach ($transfers as $transfer) {
-            $transfer->blog = $transfer->blog->where('id', $transfer->blog_id)->first();
         }
     }
 }

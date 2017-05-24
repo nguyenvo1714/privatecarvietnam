@@ -22,7 +22,7 @@ class Transfer extends Model
         'image_thumb',
         'image_head',
         'description',
-    	'blog_id',
+        'blog',
         'is_hot',
         'is_discount',
         'discount_value',

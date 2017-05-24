@@ -11,7 +11,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- this tag to detect screen size -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link rel="shortcut icon" type="image/x-icon" href="http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/ico/favicon.ico">
+        <!-- <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"> -->
+        <link rel="shortcut icon" type="image/png" sizes="60x60" href="{{{ asset('img/apply-icon-60x60.png') }}}">
+        {!! Html::favicon('apply-icon-60x60.png') !!}
             <!-- MAKE SURE IT WORKS ON IE WITH COMPATIBILITY -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -21,7 +23,6 @@
         {!! Html::style('css/app.css') !!}
         {!! Html::style('css/font-awesome.min.css') !!}
         {!! Html::style('css/fileinput.min.css') !!}
-        {!! Html::style('css/wp-customer-reviews-generated.css') !!}
         {!! Html::style('css/slick.css') !!}
         {!! Html::style('css/slick-theme.css') !!}
         {!! Html::style('css/jquery-ui.min.css') !!}

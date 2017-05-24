@@ -401,7 +401,7 @@ ul.nav.navbar-nav li a:hover {
 .navbar-header .navbar-brand {
 	padding: 7px 15px;
 }
-.active {
+li.active {
 	position: relative;
 	border-bottom: 5px solid rgba(94, 211, 82, .7);
 }
@@ -412,7 +412,7 @@ ul.nav.navbar-nav li a:hover {
 .nav.navbar-nav li.active ul.dropdown-menu a {
 	color: #fff;
 }
-.active a:after {
+li.active a:after {
     content: '';
     position: absolute;
     bottom: 0;

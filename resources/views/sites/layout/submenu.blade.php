@@ -21,7 +21,6 @@
         {!! Html::style('css/app.css') !!}
         {!! Html::style('css/font-awesome.min.css') !!}
         {!! Html::style('css/fileinput.min.css') !!}
-        {!! Html::style('css/wp-customer-reviews-generated.css') !!}
         {!! Html::style('css/slick.css') !!}
         {!! Html::style('css/slick-theme.css') !!}
         {!! Html::style('css/jquery-ui.min.css') !!}

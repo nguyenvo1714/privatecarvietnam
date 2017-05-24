@@ -253,7 +253,7 @@
 								<span class="price">39.10</span>
 								<span class='badge badge-warning'>-15%</span>
 							</p>
-							<div class="countdowntopdeal" id="VDT498318"></div><!-- end countdowntopdeal -->
+							<div class="countdowntopdeal" id="VDT498318"></div>
 							<a href="https://goasiadaytrip.com/tour/trang-an-bai-dinh-pagoda-tour.html" class="btn btnbookdeal">
 								Book Now!
 							</a>

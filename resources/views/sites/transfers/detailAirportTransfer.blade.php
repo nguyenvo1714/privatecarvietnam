@@ -34,7 +34,7 @@
 						<div class="col-md-12 transfer-blog">
 							<h3>{{ $transfer->title }}</h3>
 							{{ Html::image('/storage/' . $transfer->image_head) }}
-							{!! preg_replace('/<p>[img]/', '<p class="no-aling">[img]', $transfer->blog->content) !!}
+							{!! preg_replace('/<p>[img]/', '<p class="no-aling">[img]', $transfer->blog) !!}
 						</div>
 					</div>
 					<div class="row">

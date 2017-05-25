@@ -18,8 +18,8 @@ class Place extends Model
     	return $this->belongsToMany('App\Tour');
     }
 
-    public function place()
+    public function transfers()
     {
-        return $this->belongsToMany('App\Transfer');
+        return $this->hasMany('App\Transfer');
     }
 }

@@ -1,46 +1,6 @@
-@extends('sites.layout.app')
+@extends('sites.layout.submenu')
 @section('content')
 	<div class="wrapcontent">
-		<section class="search-container">
-			<div class="cttopdeal">
-				<div class="img-bgtour" style="background-image:url('https://goasiadaytrip.com/img/halong-bay-sunset.jpg');"></div>
-				<div class="overlay-darkquare overlay-darken"></div>
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-12 col-md-10 col-md-offset-1">
-							{!! Form::open(['url' => '/find-transfer', 'method' => 'POST', 'class' => 'form-inline search-form col-md-12', 'id' => 'searchForm']) !!}
-								<div class="form-group col-md-4 col-xs-12">
-								<label class="control-label" for="pick-up">
-									Pick-up
-								</label>
-								<div class="wrapper-input">
-									<input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pick-up" placeholder="Type airport, city or train station" required="required" type="text">
-									</div>
-								</div>
-								<!-- <div class="form-group col-md-1 col-xs-12">
-									<a href="javascript:void(0)" class="swap-locations">
-										<i class="fa fa-exchange"></i>
-									</a>
-					            </div> -->
-								<div class="form-group col-md-4 col-xs-12">
-									<label class="control-label" for="drop-off">
-										Drop-off
-									</label>
-									<div class="wrapper-input">
-										<input id="drop-off" class="form-control col-md-7 col-xs-12 drop-off input-text" name="drop-off" placeholder="Type airport, city or train station" required="required" type="text">
-									</div>
-								</div>
-								<div class="form-group col-md-4 col-xs-12">
-									<button id="send" type="submit" class="button button-red">
-										<span class="glyphicon glyphicon-search"></span>Find transfer
-									</button>
-								</div>
-							{!! Form::close() !!}
-						</div> <!-- End Wrap Quicksearch -->
-					</div>
-				</div>
-			</div>
-		</section>
 		<section class="container-fluid">
 			<!-- <div class="container"> -->
 				<div class="row">
@@ -115,7 +75,7 @@
 								<button class="load_more btn btn-primary" id="load_more_button">
 									<i class='fa fa-spinner'></i> Show 6 more cruises
 								</button>
-								<div class="animation_image" style="display:none;"><img src="img/loading.gif"></div>
+								<div class="animation_image" style="display:none;">{!! Html::image('img/loading.gif') !!}</div>
 							</div>
 						</div>
 					</div>
@@ -135,7 +95,7 @@
 		    var track_click = 1;
 		    var total_pages = {{ $total_pages }};
 		    var perpage = {{ $perpage }};
-		    var transfer_name_id = {{ $transfer_name_id }};
+		    var transfer_name_id = {{ $transfer_name->id }};
 		    host = baseUrl + '/view-transfer-load-more';
 			if (track_click > total_pages-1) {
 				$(".load_more").addClass("hidden");

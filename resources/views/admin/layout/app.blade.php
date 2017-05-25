@@ -134,7 +134,7 @@
                         <div class="row">
                             <div class="container left-container collapse navbar-collapse" id="myNavbar">
                                 <div class="navbar-title">
-                                    <a href="http://dev.booktour.com"><i class="fa fa-paw"></i> <span>PrivatecarVietnam</span> </a>
+                                    <a href="http://privatecarvietnam.com"><i class="fa fa-paw"></i> <span>PrivatecarVietnam</span> </a>
                                 </div>
                                 <div class="profile">
                                     <div class="media">
@@ -389,7 +389,18 @@
                                                         </a>
                                                     </li> -->
                                                     <li><a href="javascript:;">Help</a></li>
-                                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                                    <li>
+                                                        <!-- <a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a> -->
+                                                        <a href="{{ route('logout') }}"
+                                                            onclick="event.preventDefault();
+                                                                     document.getElementById('logout-form').submit();">
+                                                            Logout
+                                                        </a>
+
+                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                            {{ csrf_field() }}
+                                                        </form>
+                                                    </li>
                                                 </ul>
                                             </li>
                                             <li class="dropdown">

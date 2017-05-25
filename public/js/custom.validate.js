@@ -28,7 +28,8 @@ $(function() {
 			dropoffAddress: "Please input a drop-off address",
 			// name: "",
 			surname: "Please input name and surname",
-			email: "Please input a valid email"
+			email: "Please input a valid email",
+			phone: "Please input a phone number"
 		}
 	});
 
@@ -116,7 +117,7 @@ $(function() {
 	$('#transferForm').validate({
 		messages: {
 			type_id: "Please select an option",
-			transferName_id: "Please select an option",
+			transfer_name_id: "Please select an option",
 			place_id: "Please select an option",
 			title: "Please input the title",
 			duration: "Please input duration",
@@ -129,7 +130,7 @@ $(function() {
 			class: "Please input car class",
 			price: "Please input price",
 			baggage: "Please input baggage",
-			driver_id: "Please select an option",
+			// driver_id: "Please select an option",
 			isActive: "Please select an option"
 		}
 	});

@@ -12,7 +12,6 @@ class Type extends Model
     use SluggableScopeHelpers;
 
     protected $table = 'types';
-    // protected $connection = 'touringservice';
     protected $fillable = [
         'name',
         'slug',

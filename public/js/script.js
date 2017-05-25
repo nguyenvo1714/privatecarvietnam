@@ -55,7 +55,7 @@ $(function() {
 		cost(price);
 	});
 	if (typeof price !== 'undefined') {
-	    cost(price);
+		cost(price);
 	}
 
 	$('.back_to_register').click(function(e) {
@@ -66,22 +66,22 @@ $(function() {
 	$('#complete').on('submit', function(e) {
 		e.preventDefault();
 		$('.modal').show();
-		var trip           = $('#trip').val();
-		var duration       = $('#duration').val();
-		var class1         = $('#class').val();
-		var price          = $('#price').val();
-		var passenger      = $('#passenger').val();
-		var pickupAddress  = $('#pickupAddress').val();
-		var departureDate  = $('#departureDate').val();
-		var departureTime  = $('#departureTime').val();
-		var dropoffAddress = $('#dropoffAddress').val();
-		var name           = $('#name').val();
-		var surname        = $('#surname').val();
-		var email          = $('#email').val();
-		var phone          = $('#phone').val();
-		var note           = $('#note').val();
-		var token          = $('input[name="_token"]').attr('value');
-		var host           = $(this).prop('action');
+		var trip            = $('#trip').val();
+		var duration        = $('#duration').val();
+		var class1          = $('#class').val();
+		var price           = $('#price').val();
+		var passenger       = $('#passenger').val();
+		var pickup_address  = $('#pickupAddress').val();
+		var departure_date  = $('#departureDate').val();
+		var departure_time  = $('#departureTime').val();
+		var dropoff_address = $('#dropoffAddress').val();
+		var name            = $('#name').val();
+		var surname         = $('#surname').val();
+		var email           = $('#email').val();
+		var phone           = $('#phone').val();
+		var note            = $('#note').val();
+		var token           = $('input[name="_token"]').attr('value');
+		var host            = $(this).prop('action');
 		$.ajax({
 			type: "POST",
 			url:  host,
@@ -92,10 +92,10 @@ $(function() {
 				class: class1,
 				price: price,
 				passenger: passenger,
-				pickupAddress: pickupAddress,
-				departureDate: departureDate,
-				departureTime: departureTime,
-				dropoffAddress: dropoffAddress,
+				pickup_address: pickup_address,
+				departure_date: departure_date,
+				departure_time: departure_time,
+				dropoff_address: dropoff_address,
 				name: name,
 				surname: surname,
 				email: email,

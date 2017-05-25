@@ -11,9 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- this tag to detect screen size -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <!-- <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"> -->
-        <link rel="shortcut icon" type="image/png" sizes="60x60" href="{{{ asset('img/apply-icon-60x60.png') }}}">
-        {!! Html::favicon('apply-icon-60x60.png') !!}
+        <link rel="shortcut icon" type="image/x-icon" href="http://luxurysimplifiedretreats.com/wp-content/themes/luxurys/assets/ico/favicon.ico">
             <!-- MAKE SURE IT WORKS ON IE WITH COMPATIBILITY -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -201,6 +199,81 @@
             <a href="#" class="back-to-top" style="display: none;">
                 <i class="fa fa-arrow-up" aria-hidden="true"></i>
             </a>
+            <section class="search-container">
+            <div class="cttopdeal">
+                <div class="img-bgtour" style="background-image:url('/uploads/bau-trang-phan-thiet.jpg');"></div>
+                    <div class="overlay-darkquare overlay-darken"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-10 col-md-offset-1">
+                                {!! Form::open(['url' => '/find-transfer', 'method' => 'POST', 'class' => 'form-inline search-form col-md-12', 'id' => 'searchForm']) !!}
+                                    <div class="form-group col-md-4 col-xs-12">
+                                    <label class="control-label" for="pick-up">
+                                        Pick-up
+                                    </label>
+                                    <div class="wrapper-input">
+                                        <input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pick-up" placeholder="Type airport, city or train station" required="required" type="text">
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group col-md-1 col-xs-12">
+                                        <a href="javascript:void(0)" class="swap-locations">
+                                            <i class="fa fa-exchange"></i>
+                                        </a>
+                                    </div> -->
+                                    <div class="form-group col-md-4 col-xs-12">
+                                        <label class="control-label" for="drop-off">
+                                            Drop-off
+                                        </label>
+                                        <div class="wrapper-input">
+                                            <input id="drop-off" class="form-control col-md-7 col-xs-12 drop-off input-text" name="drop-off" placeholder="Type airport, city or train station" required="required" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4 col-xs-12">
+                                        <button id="send" type="submit" class="button button-red">
+                                            <span class="glyphicon glyphicon-search"></span>Find transfer
+                                        </button>
+                                    </div>
+                                {!! Form::close() !!}
+                            </div> <!-- End Wrap Quicksearch -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="submenu">
+                <div class="container-fluid">
+                    <div class="col-sm-12">
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="{{ url('/') }}" class="brhome" title="Home"><i class="fa fa-home"></i></a>
+                            </li>
+                            @if(in_array($action, ['viewTransfer', 'viewAirportTransfer']))
+                                <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <a href="{{ url('/' . $transfer_name->type->slug) }}" itemprop="url">
+                                        <span itemprop="title">{{ $transfer_name->type->name }}</span>
+                                    </a>
+                                </li>
+                                <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <span itemprop="title">{{ $transfer_name->name }}</span>
+                                </li>
+                            @else
+                                <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <a href="{{ url('/' . $transfer->type->slug) }}" itemprop="url">
+                                        <span itemprop="title">{{ $transfer->type->name }}</span>
+                                    </a>
+                                </li>
+                                <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <a href="{{ url('/' . $transfer->type->slug . '/view/' . $transfer->transfer_name->slug) }}" itemprop="url">
+                                        <span itemprop="title">{{ $transfer->transfer_name->name }}</span>
+                                    </a>
+                                </li>
+                                <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <span itemprop="title">{{ $transfer->title }}</span>
+                                </li>
+                            @endif
+                        </ol>
+                    </div>
+                  </div>
+            </section>
             @yield('content')
         </div>
         <div class="modal"><!-- Place at bottom of page --></div>

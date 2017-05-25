@@ -226,7 +226,7 @@
 						</div><!-- end container -->
 					</div><!-- end cttopdeal -->
 				@endforeach
-				<div class="cttopdeal item">
+				<!-- <div class="cttopdeal item">
 					<div class="img-bgtour"  style="background-image:url('/uploads/Trang-An-Eco-2.jpg'); width: 100%;"></div>
 					<div class="overlay-darken"></div>  
 					<div class="container">
@@ -241,7 +241,7 @@
 								</div>
 								<img class="img-responsive" src="/uploads/Trang-An-Eco-2-750x520.jpg">
 							</div>
-						</div><!-- end slide tour -->
+						</div>
 						<div class="col-sm-6 col-lg-7">
 							<h2>Trang An Ecotourism Complex - Bai Dinh Pagoda Full Day</h2>
 							<p class="hidden-xs hidden-sm text-justify">
@@ -253,13 +253,13 @@
 								<span class="price">39.10</span>
 								<span class='badge badge-warning'>-15%</span>
 							</p>
-							<div class="countdowntopdeal" id="VDT498318"></div><!-- end countdowntopdeal -->
+							<div class="countdowntopdeal" id="VDT498318"></div>
 							<a href="https://goasiadaytrip.com/tour/trang-an-bai-dinh-pagoda-tour.html" class="btn btnbookdeal">
 								Book Now!
 							</a>
-						</div><!-- end col -->
-					</div><!-- end container -->
-				</div><!-- end cttopdeal -->
+						</div>
+					</div>
+				</div> --><!-- end cttopdeal -->
 			</div><!-- end #slidedealtour -->
 		</section>
 	</div>

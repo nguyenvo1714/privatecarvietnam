@@ -113,7 +113,7 @@
 								{{ Html::image('/storage/' . $transfer->image_thumb, $transfer->title, ['class' => 'image-wrap img-responsive', 'title' => $transfer->title]) }}
 								<span class="fix">
 									<em>
-										<font class="color-two"><span >6 Days</span></font> - VTR01-Northwest Vietnam
+										<font class="color-two"><span ><i class="fa fa-clock-o"></i></span></font> {{ $transfer->duration }}
 									</em>
 								</span>
 							</a>

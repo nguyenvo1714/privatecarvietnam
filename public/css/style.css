@@ -690,6 +690,7 @@ h1.tthome {
 }
 .transfer-image img {
 	width: 100%;
+	height: 220px;
 	display: block;
 	margin: auto;
 }
@@ -979,6 +980,7 @@ h1.tthome {
 .img img {
 	display: block;
 	width: 100%;
+	height: 190px;
 }
 .img span.fix {
 	position: absolute;
@@ -1257,6 +1259,10 @@ h1.tthome {
 }
 .rate {
 	margin-top: 25px;
+}
+.interested {
+	text-align: left;
+	font-size: 1.7em;
 }
 .transfer-blog h3 + img {
 	display: block;

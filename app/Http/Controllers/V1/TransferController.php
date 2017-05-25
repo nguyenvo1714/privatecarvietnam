@@ -308,7 +308,7 @@ class TransferController extends Controller
         $transfer = Transfer::findBySlug($slug);
         $transfer->transfer_name = $transfer->transfer_name->where('transfer_names.id', $transfer->transfer_name_id)->first();
         $transfer->place = $transfer->place->where('places.id', $transfer->place_id)->first();
-        $relates = Transfer::where('slug', '<>', $slug)->orderBy('id', 'desc')->limit(3)->get();
+        $relates = Transfer::where('slug', '<>', $slug)->orderBy('id', 'desc')->limit(4)->get();
         return view('/sites.transfers.detailTransfer', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
@@ -340,7 +340,7 @@ class TransferController extends Controller
         $transfer = Transfer::findBySlug($slug);
         $transfer->transfer_name = $transfer->transfer_name->where('transfer_names.id', $transfer->transfer_name_id)->first();
         $transfer->place = $transfer->place->where('places.id', $transfer->place_id)->first();
-        $relates = Transfer::where('slug', '<>', $slug)->orderBy('id', 'desc')->limit(3)->get();
+        $relates = Transfer::where('slug', '<>', $slug)->orderBy('id', 'desc')->limit(4)->get();
         return view('/sites.transfers.detailAirportTransfer', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,

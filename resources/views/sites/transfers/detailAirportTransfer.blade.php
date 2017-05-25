@@ -4,7 +4,7 @@
 		<section class="container-fluid mt">
 			<div class="row">
 				<div class="col-md-9">
-					<div class="row">
+					<div class="">
 						<div class="col-md-12 transfer-header">
 							<!-- <h3>{{ $transfer->title }}</h3> -->
 							<p class="from-to unset-height">{{ $transfer->transfer_name->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->name }}</p>
@@ -30,7 +30,7 @@
 							</div>
 						@endforeach
 					</div>
-					<div class="row">
+					<div class="">
 						<div class="col-md-12 transfer-blog">
 							<h3>{{ $transfer->title }}</h3>
 							{{ Html::image('/storage/' . $transfer->image_head) }}
@@ -53,27 +53,30 @@
 			</div>
 		</section>
 		<section class="container-fluid">
+			<div class="hr"></div>
+		</section>
+		<section class="container-fluid">
 			<!-- <div class="container"> -->
 				<div class="row">
 					<div class="col-sm-12">
-						<h4 class="interested">Recommended</h4>
-						<div class="starline-container">
+						<h4 class="interested">May you interesting</h4>
+						<!-- <div class="starline-container">
 							<h4 class="starline"><span class="glyphicon glyphicon-star"></span></h4>
-						</div>
+						</div> -->
 					</div>
-					@foreach($interestTransfers as $interestTransfer)
+					@foreach($relates as $relate)
 						<div class="col-sm-6 col-md-3 col-xs-12">
 							<div class="inner mb">
-			                    <a class="img" href="{{ url('/' . $interestTransfer->type->slug . '/' . $interestTransfer->slug) }}">
+			                    <a class="img" href="{{ url('/' . $relate->type->slug . '/' . $relate->slug) }}">
 									<div class="badge-price" style='display:none'>
 										<div class="size1">Da</div>
 										<div class="size2">US$ 0</div>
 										<div class="size3">/Pers</div>
 									</div>
-									{{ Html::image('/storage/' . $interestTransfer->image_thumb, $interestTransfer->title, ['class' => 'image-wrap img-responsive', 'title' => $interestTransfer->title]) }}
+									{{ Html::image('/storage/' . $relate->image_thumb, $relate->title, ['class' => 'image-wrap img-responsive', 'title' => $relate->title]) }}
 									<span class="fix">
 										<em>
-											<font class="color-two"><span >6 Days</span></font> - VTR01-Northwest Vietnam
+											<font class="color-two"><span ><i class="fa fa-clock-o"></i></span></font> {{ $relate->duration }}
 										</em>
 									</span>
 								</a>

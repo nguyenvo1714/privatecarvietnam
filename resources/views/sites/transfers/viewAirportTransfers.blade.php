@@ -21,7 +21,7 @@
 								{{ Html::image('/storage/' . $interestTransfer->image_thumb, $interestTransfer->title, ['class' => 'image-wrap img-responsive', 'title' => $interestTransfer->title]) }}
 								<span class="fix">
 									<em>
-										<font class="color-two"><span >6 Days</span></font> - VTR01-Northwest Vietnam
+										<font class="color-two"><span ><i class="fa fa-clock-o"></i></span></font> {{ $interestTransfer->duration }}
 									</em>
 								</span>
 							</a>

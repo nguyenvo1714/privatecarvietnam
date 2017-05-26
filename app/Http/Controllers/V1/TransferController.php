@@ -32,13 +32,50 @@ class TransferController extends Controller
         $this->chop_blog($blogs);
         $transferNames = TransferName::get();
         $places = Place::get();
+        $total = Transfer::where('is_hot', 1)->get()->count();
+        $perpage = 6;
+        $total_pages = (int)ceil($total / $perpage);
         return view('/sites.index', [
             'transfers' => $transfers,
             'dealTransfers' => $dealTransfers,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'places' => $places
+            'places' => $places,
+            'total_pages' => $total_pages,
+            'perpage' => $perpage,
         ]);
+    }
+
+    public function topAjax(Request $request)
+    {
+        if($request->ajax()) {
+            $start = $request->page * $request->perpage;
+            $tops = Transfer::where('is_hot', $request->is_hot)
+                                        ->orderBy('id', 'ASC')
+                                        ->offset($start)
+                                        ->limit($request->perpage)
+                                        ->get();
+            $this->getTransferType($tops);
+            if($tops->count() > 0) {
+                $response = [
+                    'success' => true,
+                    'data' => $tops
+                ];
+                return response()->json($response);
+            } else {
+                $response = [
+                    'success' => false,
+                    'data' => '404 not found'
+                ];
+                return response()->json($response);
+            }
+        } else {
+            $response = [
+                'success' => false,
+                'data' => '404 not found'
+            ];
+            return response()->json($response);
+        }
     }
 
     /**
@@ -234,7 +271,6 @@ class TransferController extends Controller
                     'success' => true,
                     'data' => $transfers
                 ];
-                var_dump($transfers);die;
                 return response()->json($response);
             } else {
                 $response = [
@@ -308,7 +344,7 @@ class TransferController extends Controller
         $transfer = Transfer::findBySlug($slug);
         $transfer->transfer_name = $transfer->transfer_name->where('transfer_names.id', $transfer->transfer_name_id)->first();
         $transfer->place = $transfer->place->where('places.id', $transfer->place_id)->first();
-        $relates = Transfer::where('slug', '<>', $slug)->orderBy('id', 'desc')->limit(3)->get();
+        $relates = Transfer::where('slug', '<>', $slug)->orderBy('id', 'desc')->limit(4)->get();
         return view('/sites.transfers.detailTransfer', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
@@ -340,7 +376,7 @@ class TransferController extends Controller
         $transfer = Transfer::findBySlug($slug);
         $transfer->transfer_name = $transfer->transfer_name->where('transfer_names.id', $transfer->transfer_name_id)->first();
         $transfer->place = $transfer->place->where('places.id', $transfer->place_id)->first();
-        $relates = Transfer::where('slug', '<>', $slug)->orderBy('id', 'desc')->limit(3)->get();
+        $relates = Transfer::where('slug', '<>', $slug)->orderBy('id', 'desc')->limit(4)->get();
         return view('/sites.transfers.detailAirportTransfer', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
@@ -387,6 +423,22 @@ class TransferController extends Controller
             ];
             return response()->json($response);
         }
+    }
+
+    public function deal()
+    {
+        $deals = Transfer::where('is_discount', 1)->get();
+        // $this->getTransferType($deals);
+        $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
+        $this->chop_blog($blogs);
+        $transferNames = TransferName::get();
+        $places = Place::get();
+        return view('/sites.transfers.deal', [
+            'deals' => $deals,
+            'blogs' => $blogs,
+            'transferNames' => $transferNames,
+            'places' => $places
+        ]);
     }
 
     public function chop_blog($blogs)

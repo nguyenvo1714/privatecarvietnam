@@ -116,7 +116,12 @@
             })
         </script>
         <script type="text/javascript">
-            var price = '{{ ! empty($car->price) ? $car->price : "" }}';
+            var isDiscount = '{{ ! empty($transfer->is_discount) ? $transfer->is_discount : 0 }}';
+            if(isDiscount == 1) {
+                var price = '{{ ! empty($car->price) ? $car->price - ($car->price * $transfer->discount_value) / 100 : "" }}';
+            } else {
+                var price = '{{ ! empty($car->price) ? $car->price : "" }}';
+            }
             var baseUrl = '{{ URL::to("/") }}';
             $(function() {
                 var action = '{{ $action }}';

@@ -35,9 +35,11 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::get('/private-transfer-load-more', 'TransferController@transferAjax');
 	Route::get('/airport-transfer-load-more', 'TransferController@transferAjax');
 	Route::get('/view-transfer-load-more', 'TransferController@viewTransferAjax');
+	Route::get('/top-load-more', 'TransferController@topAjax');
 	Route::get('/blog', 'BlogController@index');
 	Route::get('/contact', 'TransferController@contact');
 	Route::post('/sendContact', 'TransferController@sendContact');
+	Route::get('/deal', 'TransferController@deal');
 });
 
 Route::group(['middleware' => ['auth']], function() {

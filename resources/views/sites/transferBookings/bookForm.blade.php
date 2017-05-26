@@ -33,10 +33,22 @@
 											<h3 class="fieldset-title">Vehicle</h3>
 											<div class="form-group">
 												<label class="control-label col-md-12 col-sm-12 col-xs-12" for="price">
-													Type vehicle:  <span>{{ ! empty($car->class) ? $car->class . ' ( ' . $car-> price . 'VNĐ )' : $confirms['class'] . ' ( ' . $confirms['price']. ' VNĐ )' }}</span>
+													Type vehicle:
+													@if($transfer->is_discount == 1)
+														<span>
+															{{ ! empty($car->class) ? $car->class . ' ( ' . number_format($car-> price - ($car->price * $transfer->discount_value) / 100) . 'VNĐ )' : $confirms['class'] . ' ( ' . number_format($confirms['price'] - ($confirms['price'] * $confirms['discount_value']) / 100) . ' VNĐ )' }}
+														</span>
+													@else
+														<span>{{ ! empty($car->class) ? $car->class . ' ( ' . $car-> price . 'VNĐ )' : $confirms['class'] . ' ( ' . $confirms['price']. ' VNĐ )' }}</span>
+													@endif
 												</label>
 												<input type="hidden" name="class" value="{{ ! empty($car->class) ? $car->class : $confirms['class'] }}">
-												<input type="hidden" name="price" value="{{ ! empty($car->price) ? $car->price : $confirms['price'] }}">
+												@if($transfer->is_discount == 1)
+													<input type="hidden" name="price" value="{{ ! empty($car->price) ? $car->price - ($car->price * $transfer->discount_value) / 100 : $confirms['price'] }}">
+													<input type="hidden" name="discount_value" value="{{ ! empty($transfer->discount_value) ? $transfer->discount_value : $confirms['discount_value'] }}">
+												@else
+													<input type="hidden" name="price" value="{{ ! empty($car->price) ? $car->price : $confirms['price'] }}">
+												@endif
 											</div>
 											<div class="form-group">
 												<label class="control-label col-md-4 col-sm-4 col-xs-12" for="passenger">

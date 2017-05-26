@@ -107,7 +107,7 @@
                             </label>
                             <div class="col-md-10 col-sm-10 col-xs-12">
                                 <textarea id="my-editor" required name="blog" class="form-control col-md-10 col-xs-12 my-editor">
-                                    {!! old('content', '') !!}
+                                    {!! $transfer->blog !!}
                                 </textarea>
                                 <script>
                                     CKEDITOR.replace( 'my-editor',

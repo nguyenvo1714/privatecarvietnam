@@ -15,6 +15,7 @@
 							<!-- <h3>{{ $transfer->title }}</h3> -->
 							<p class="from-to unset-height">{{ $transfer->transfer_name->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->name }}</p>
 							<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
+							{{ Html::image('/storage/' . $transfer->image_head) }}
 						</div>
 						@foreach($transfer->cars as $car)
 							<div class="col-md-12 border-bottom">
@@ -27,7 +28,12 @@
 										</p>
 									</div>
 									<div class="col-md-4 col-sm-4 col-xs-12 car-price">
-										<p>{{ $car->price }} VNĐ</p>
+										@if($transfer->is_discount == 1)
+											<p><i class="pricesaleoff">{{ number_format($car->price) }} VNĐ</i></p>
+											<p><strong>{{ $car->price - ($car->price * $transfer->discount_value) / 100 }} VNĐ</strong></p>
+										@else
+											<p>{{ $car->price }} VNĐ</p>
+										@endif
 										{!! Form::open(['url' => '/book-transfer/' . $transfer->slug . '/' . $car->class, 'method' => 'GET']) !!}
 											<input type="submit" value="Book Transfer">
 										{!! Form::close() !!}
@@ -39,8 +45,7 @@
 					<div class="">
 						<div class="col-md-12 transfer-blog">
 							<h3>{{ $transfer->title }}</h3>
-							{{ Html::image('/storage/' . $transfer->image_head) }}
-							{!! preg_replace('/<p>[img]/', '<p class="no-aling">[img]', $transfer->blog) !!}
+							{!! preg_replace('/<p>[img]/', '<p class="no-align">[img]', $transfer->blog) !!}
 						</div>
 					</div>
 					<div class="">
@@ -65,7 +70,7 @@
 			<!-- <div class="container"> -->
 				<div class="row">
 					<div class="col-sm-12">
-						<h4 class="interested">May you interesting</h4>
+						<h4 class="interested">You may interest</h4>
 						<!-- <div class="starline-container">
 							<h4 class="starline"><span class="glyphicon glyphicon-star"></span></h4>
 						</div> -->

@@ -4,7 +4,7 @@
 		<section class="container-fluid">
 			<div class="row">
 				<div class="col-sm-12">
-					<h4 class="interested">Recommended</h4>
+					<h4 class="recommended">Recommended</h4>
 					<div class="starline-container">
 						<h4 class="starline"><span class="glyphicon glyphicon-star"></span></h4>
 					</div>
@@ -46,7 +46,7 @@
 		<section class="container-fluid">
 			<div class="row">
 				<div class="col-sm-9">
-					<h4 class="interested">{{ str_replace('-', ' ', $name) }}</h4>
+					<h4 class="recommended">{{ str_replace('-', ' ', $name) }}</h4>
 					<div class="starline-container">
 						<h4 class="starline"><span class="glyphicon glyphicon-star"></span></h4>
 					</div>

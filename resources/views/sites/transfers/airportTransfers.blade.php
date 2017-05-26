@@ -45,7 +45,7 @@
 			<!-- <div class="container"> -->
 				<div class="row">
 					<div class="col-sm-12">
-						<h4 class="interested">Recommended</h4>
+						<h4 class="recommended">Recommended</h4>
 						<div class="starline-container">
 							<h4 class="starline"><span class="glyphicon glyphicon-star"></span></h4>
 						</div>

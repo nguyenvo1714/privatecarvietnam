@@ -42,6 +42,53 @@
 	.page-input .summary-container {
 		position: relative;
 	}
+	.parallax .modal1 {
+		display:  none;
+	    position: fixed;
+	    z-index:  1000;
+	    top:      30%;
+	    left:     0%;
+	}
+	.parallax iframe {
+		/*width: 360px;*/
+		width: 127%;
+		height: 215px;
+	}
+}
+@media (max-width: 420px){
+	.parallax .modal1 {
+		display:  none;
+	    position: fixed;
+	    z-index:  1000;
+	    top:      30%;
+	    left:     0%;
+	}
+	.parallax iframe {
+		width: 138%;
+		height: 215px;
+	}
+}
+@media (max-width: 320px){
+	.parallax .modal1 {
+		display:  none;
+	    position: fixed;
+	    z-index:  1000;
+	    top:      30%;
+	    left:     0%;
+	}
+	.parallax iframe {
+		width: 110%;
+		height: 215px;
+	}
+}
+@media (max-width: 768px) {
+	.parallax .modal1 {
+		display:  none;
+	    position: fixed;
+	    z-index:  1000;
+	    top:      30%;
+	    left:     15%;
+	}
 }
 @media (min-width: 768px){
 	.ulairport li {
@@ -618,11 +665,15 @@ li.active a:after {
 	margin-top: 10px;
 }
 .modal1 {
-	display:    none;
-    position:   fixed;
-    z-index:    1000;
-    top:        30%;
-    left:       27%;
+	display:  none;
+    position: fixed;
+    z-index:  1000;
+    top:      30%;
+    left:     27%;
+}
+iframe {
+	width: 560px;
+	height: 315px;
 }
 /*===========================================================================================================*/
 /*=========================================== Top Transfers =================================================*/
@@ -1118,9 +1169,9 @@ h1.tthome {
 	right: -9px;
 }
 .label-detail {
-	padding: 5px 8px;
+	padding: 2px 8px;
 	width: 130px;
-	font-size: 14px;
+	font-size: 20px;
 	background-color: #FFD000;
 	border-right: 1px solid lightgray;
 	border-top-right-radius: 3px;
@@ -1134,13 +1185,17 @@ h1.tthome {
 	content: '';
 	position: absolute;
     left: 120px;
-    top: 32px;
+    top: 36px;
     border-right: 10px solid transparent;
     border-top: 7px solid #444;
 }
 .transfer-list h5 a {
 	font-size: 1.6em;
 	font-weight: 600;
+}
+.recommended {
+	text-align: center;
+	font-size: 1.7em;
 }
 /*===========================================================================================================*/
 /*=========================================== Contact Page ==================================================*/
@@ -1184,6 +1239,10 @@ h1.tthome {
 	border-bottom: 1px dotted #999;
 	padding-bottom: 15px;
 }
+.transfer-header img {
+	padding-top: 15px;
+	margin: auto;
+}
 .transfer-header h3 {
 	font-size: 2.3em;
 	font-weight: 400;
@@ -1222,9 +1281,11 @@ h1.tthome {
 	display: block;
 	text-align: center;
 }
+.car-price p:first-child {
+	margin-top: 15px;
+}
 .car-price p {
 	text-align: center;
-	margin-top: 15px;
 	margin-bottom: 5px;
 }
 .car-price input[type="submit"] {
@@ -1244,6 +1305,10 @@ h1.tthome {
 }
 .transfer-blog {
 	margin-top: 15px;
+	padding-bottom: 15px;
+	background-color: #fff;
+	border-radius: 5px;
+	border: 1px solid rgb(184, 185, 185);
 }
 .transfer-blog p {
 	padding: unset;

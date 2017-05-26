@@ -89,7 +89,7 @@
 					</a>
 					<div id="modal1" class="modal1">
 						<div class="video-container">
-							<iframe id="play-control" width="560" height="315" src="https://www.youtube.com/embed/64RVs2GK5hQ" frameborder="0" allowfullscreen></iframe>
+							<iframe id="play-control" src="https://www.youtube.com/embed/64RVs2GK5hQ" frameborder="0" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>
@@ -130,14 +130,16 @@
 						</div>
 					</div>
 				@endforeach
+				<div id="results"></div>
 			</div>
 			<div class="col-sm-12">
 				<div align="center">
 					<button class="load_more btn btn-default" id="load_more_button">
-						<i class='fa fa-spinner'></i> Show all transfers
+						<i class='fa fa-spinner'></i> Show more transfers
 					</button>
 					<div class="animation_image" style="display:none;">
-						<img src="img/loading.gif">
+						{!! Html::image('img/loading') !!}
+						<!-- <img src="img/loading.gif"> -->
 					</div>
 				</div>
 			</div>
@@ -182,8 +184,8 @@
 			<div class="titledeal text-center">
 				<div class="container">
 					<h3>Today's Top Deals</h3>
-					<p>Hurry up! 2 tours & activities with hot deals
-						<a href="https://goasiadaytrip.com/deals.html" class="go">Go</a>
+					<p>Hurry up! {{ $dealTransfers->count() }} transfers & tours with hot deals
+						<a href="{{ url('/deal') }}" class="go">Go</a>
 					</p>
 				</div>
 			</div>
@@ -280,6 +282,69 @@
 			autoplayHoverPause:true,
 			lazyLoad: true,
 			loop:true,
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    var track_click = 1;
+		    var total_pages = {{ $total_pages }};
+		    var perpage = {{ $perpage }};
+		    var is_hot = {{ $transfer->is_hot }};
+		    host = baseUrl + '/top-load-more';
+			if (track_click > total_pages-1) {
+				$(".load_more").addClass("hidden");
+			}
+			$(".load_more").click(function (e) {
+				$(this).hide();
+				$('.animation_image').show();
+				if(track_click <= total_pages) {
+					$.get(host,{'page': track_click, 'perpage': perpage, 'is_hot' : is_hot}, function(response) {
+						var results = '';
+						$.each(response.data, function (key, obj){
+							results +=
+							'<div class="col-sm-6 col-md-4 col-xs-12 wow fadeInUp animated" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp;">' +
+								'<div class="inner mb">' +
+									'<a class="img" href="' +baseUrl + '/' + obj.type.slug + '/' + obj.slug + '">' +
+										'<div class="badge-price" style="display:none">' +
+											'<div class="size1">Da</div>' +
+											'<div class="size2">US$ 0</div>' +
+											'<div class="size3">/Pers</div>' +
+										'</div>' +
+										'{{ Html::image("/storage/' + obj.image_thumb + '", "' + obj.title + '", ["class" => "image-wrap img-responsive", "title" => "' + obj.title '"]) }}' +
+										'<span class="fix">' +
+											'<em>' +
+												'<font class="color-two"><span ><i class="fa fa-clock-o"></i></span></font> {{ $transfer->duration }}' +
+											'</em>' +
+										'</span>' +
+									'</a>' +
+								'</div>' +
+								'<div class="decreption-three">' +
+									'<div class="title">' +
+										'<a href="' + baseUrl + '/' + obj.type.slug + '/' + obj.slug + '">' + obj.title + '</a>' +
+									'</div>' +
+									'<div class="clear"></div>' +
+									'<p>' +
+										'<p style="text-align: justify;">' + obj.description + '&nbsp;</p>' +
+									'</p>' +
+								'</div>' +
+								'<a class="more" href="' + baseUrl + '/' + obj.type.slug + '/' + obj.slug + '"><span class="glyphicon glyphicon-menu-right"></span></a>' +
+							'</div>';
+						});
+						$(".load_more").show();
+						$("#results").append(results);
+						$("html, body").animate({scrollTop: $("#load_more_button").offset().bottom}, 500);
+						$('.animation_image').hide();
+						track_click++;
+					}).fail(function(xhr, ajaxOptions, thrownError) {
+						alert(thrownError);
+						$(".load_more").show();
+						$('.animation_image').hide();
+					});
+					if(track_click >= total_pages-1) {
+						$(".load_more").addClass("hidden");
+					}
+				}
+			});
 		});
 	</script>
 @endsection

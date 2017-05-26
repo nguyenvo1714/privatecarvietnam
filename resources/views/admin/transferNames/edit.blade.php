@@ -19,7 +19,7 @@
                     @include('admin.errors.error')
 
                     {!! Form::open(['url' => '/transferName/'.$transferName->id, 'method' => 'POST', 'class' => 'form-horizontal form-label-left', 'id' => 'transferNameForm', 'files' => true]) !!}
-                        {{ method_field('PUT') }}
+                        <!-- {{ method_field('PUT') }} -->
                         <div class="field item form-group">
                             <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
                                 Name <span class="required">*</span>

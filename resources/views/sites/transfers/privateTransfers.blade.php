@@ -45,7 +45,7 @@
 			<!-- <div class="container"> -->
 				<div class="row">
 					<div class="col-sm-12">
-						<h4 class="interested">Recommended</h4>
+						<h4 class="recommended">Recommended</h4>
 						<div class="starline-container">
 							<h4 class="starline"><span class="glyphicon glyphicon-star"></span></h4>
 						</div>
@@ -62,7 +62,7 @@
 									{{ Html::image('/storage/' . $interestTransfer->image_thumb, $interestTransfer->title, ['class' => 'image-wrap img-responsive', 'title' => $interestTransfer->title]) }}
 									<span class="fix">
 										<em>
-											<font class="color-two"><span >6 Days</span></font> - VTR01-Northwest Vietnam
+											<font class="color-two"><span ><i class="fa fa-clock-o"></i></span></font> {{ $interestTransfer->duration }}
 										</em>
 									</span>
 								</a>

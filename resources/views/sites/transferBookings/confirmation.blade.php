@@ -164,6 +164,9 @@
 	{!! Form::open(['url' =>  '/book-transfer/' . $transfer->slug . '/' . $register['class'], 'method' => 'POST', 'id' => 'back_to_register']) !!}
 		<input type="hidden" name="class" value="{{ $register['class'] }}">
 		<input type="hidden" name="price" value="{{ $register['price'] }}">
+		@if($transfer->is_discount == 1)
+			<input type="hidden" name="discount_value" value="{{ $register['discount_value'] }}">
+		@endif
 		<input type="hidden" name="passenger" value="{{ $register['passenger'] }}">
 		<input type="hidden" name="pickupAddress" value="{{ $register['pickup_address'] }}">
 		<input type="hidden" name="departureDate" value="{{ $register['departure_date'] }}">

@@ -2,21 +2,22 @@
 	namespace App\Repositories;
 
 	use App\Car;
-	use Illuminate\Support\Facades\DB;
 
 	/**
 	* 
 	*/
 	class CarRepository
 	{
-		public function all()
+		protected $car;
+
+		public function __construct(Car $car)
 		{
-			return Car::paginate();
+			$this->car = $car;
 		}
 
-		public function getCarById($id)
+		public function getCarByClass($class)
 		{
-			return Car::findOrFail($id);
+			return $this->car->where('cars.class', $class)->first();
 		}
 	}
 ?>

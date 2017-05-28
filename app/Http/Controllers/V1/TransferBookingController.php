@@ -12,22 +12,30 @@ use App\Blog;
 use App\TransferName;
 use App\Transfer;
 use App\Car;
+use App\Repositories\TransferRepository;
+use App\Repositories\BlogRepository;
+use App\Repositories\TransferNameRepository;
+use App\Repositories\CarRepository;
 
 class TransferBookingController extends Controller
 {
-    protected $rules = [
-        'trip' => 'required',
-        'duration' => 'required',
-        'passenger' => 'numeric',
-        'pickup_address' => 'required',
-        'departure_date' => 'date',
-        'departure_date' => 'required',
-        'dropoff_address' => 'required',
-        'name' => 'required',
-        'surname' => 'required',
-        'email' => 'email',
-        'phone' => 'required'
-    ];
+    protected $transferRepo;
+    protected $blogRepo;
+    protected $transferNameRepo;
+    protected $carRepo;
+
+    public function __construct(
+        TransferRepository $transferRepo,
+        BlogRepository $blogRepo,
+        TransferNameRepository $transferNameRepo,
+        CarRepository $carRepo
+    )
+    {
+        $this->transferRepo = $transferRepo;
+        $this->blogRepo = $blogRepo;
+        $this->transferNameRepo = $transferNameRepo;
+        $this->carRepo = $carRepo;
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -37,14 +45,11 @@ class TransferBookingController extends Controller
      */
     public function bookForm(Request $request, $slug, $class)
     {
-        $transferNames = TransferName::get();
-        $places = Place::get();
-        $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
-        $this->chop_blog($blogs);
-        $car = Car::where('cars.class', $class)->first();
-        $transfer = Transfer::findBySlug($slug);
-        $transfer->transfer_name = $transfer->transfer_name->where('transfer_names.id', $transfer->transfer_name_id)->first();
-        $transfer->place = $transfer->place->where('places.id', $transfer->place_id)->first();
+        $transferNames = $this->transferNameRepo->allT();
+        $places = $this->transferNameRepo->allP();
+        $blogs = $this->blogRepo->footer();
+        $car = $this->carRepo->getCarByClass($class);
+        $transfer = $this->transferRepo->findSlug($slug);
         return view('/sites.transferBookings.bookForm', [
             'transfer' =>  $transfer,
             'blogs' => $blogs,
@@ -62,13 +67,10 @@ class TransferBookingController extends Controller
      */
     public function confirmation(Request $request)
     {
-        $transferNames = TransferName::get();
-        $places = Place::get();
-        $blogs = Blog::limit(2)->orderBy('id', 'DESC')->get();
-        $this->chop_blog($blogs);
-        $transfer = Transfer::find($request->id);
-        $transfer->transfer_name = $transfer->transfer_name->where('transfer_names.id', $transfer->transfer_name_id)->first();
-        $transfer->place = $transfer->place->where('places.id', $transfer->place_id)->first();
+        $transferNames = $this->transferNameRepo->allT();
+        $places = $this->transferNameRepo->allP();
+        $blogs = $this->blogRepo->footer();
+        $transfer = $this->transferRepo->findById($request->id);
         return view('/sites.transferBookings.confirmation', [
             'transfer' =>  $transfer,
             'blogs' => $blogs,
@@ -118,20 +120,4 @@ class TransferBookingController extends Controller
         }
     }
 
-    public function chop_blog($blogs)
-    {
-        foreach ($blogs as $blog) {
-            $blog->description = $this->chop_string($blog->content);
-            preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $blog->content, $image);
-            foreach ($image as $key => $value) {
-                $blog->img = $value;
-            }
-        }
-    }
-
-    public function chop_string($string,$x=100) {
-        $string = strip_tags(stripslashes($string)); // convert to plaintext
-        return substr($string, 0, $x);
-        // return substr($string, 0, strpos(wordwrap($string, $x), "\n"));
-    }
 }

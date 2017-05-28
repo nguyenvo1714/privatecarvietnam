@@ -21,7 +21,7 @@ $(function() {
 	});
     wow.init();
 
-	$('.parallax-container').parallax({imageSrc: '../img/Cau-Trang-Tien.jpg'});
+	// $('.parallax-container').parallax({imageSrc: '../img/Cau-Trang-Tien.jpg'});
 
 	$('.modal-trigger').on('click', function(e) {
 		e.preventDefault();

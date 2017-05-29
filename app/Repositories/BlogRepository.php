@@ -22,6 +22,18 @@
 			return $footers;
 		}
 
+		public function index($limit)
+		{
+			$blogs = $this->blog->limit($limit)->get();
+			$this->chop_blog($blogs);
+			return $blogs;
+		}
+
+		public function count()
+		{
+			return $this->blog->get()->count();
+		}
+
 		public function chop_blog($blogs)
 	    {
 	        foreach ($blogs as $blog) {

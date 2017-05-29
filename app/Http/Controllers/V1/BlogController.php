@@ -8,9 +8,27 @@ use App\Place;
 use App\Blog;
 use App\TransferName;
 use App\Transfer;
+use App\Repositories\TransferRepository;
+use App\Repositories\BlogRepository;
+use App\Repositories\TransferNameRepository;
 
 class BlogController extends Controller
 {
+    protected $transferRepo;
+    protected $blogRepo;
+    protected $transferNameRepo;
+
+    public function __construct(
+        TransferRepository $transferRepo,
+        BlogRepository $blogRepo,
+        TransferNameRepository $transferNameRepo
+    )
+    {
+        $this->transferRepo = $transferRepo;
+        $this->blogRepo = $blogRepo;
+        $this->transferNameRepo = $transferNameRepo;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,17 +36,21 @@ class BlogController extends Controller
      */
     public function index()
     {
+        $perpage = 4;
+        $total_pages = (int)ceil($this->blogRepo->count() / $perpage);
         $transferNames = TransferName::get();
         $places = Place::get();
-        $blogs = Blog::limit(4)->orderBy('id', 'DESC')->get();
-        $interestTransfers = Transfer::where('isHot', NULL)->limit(4)->get();
-        $indexBlogs = Blog::paginate(12);
+        $blogs = $this->blogRepo->footer();
+        $interestTransfers = Transfer::where('is_hot', 1)->limit(4)->get();
+        $indexBlogs = $this->blogRepo->index(4);
         return view('sites.blogs.index', [
             'transferNames' => $transferNames,
             'places' => $places,
             'blogs' => $blogs,
             'interestTransfers' => $interestTransfers,
-            'indexBlogs' => $indexBlogs
+            'indexBlogs' => $indexBlogs,
+            'perpage' => $perpage,
+            'total_pages' => $total_pages
         ]);
     }
 

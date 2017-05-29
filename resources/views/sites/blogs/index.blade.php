@@ -41,56 +41,45 @@
 				</div>
 			</div>
 		</section>
-		<section class="container-fluid">
+		<section class="container">
 			<div class="hr"></div>
 		</section>
-		<section class="container-fluid">
+		<section class="container">
 			<div class="row">
 				<div class="col-md-9">
 					<div class="row">
 						@foreach($indexBlogs as $indexBlog)
 							<div class="col-md-12">
-								<div class="boxradius" data-role="boxactivity">
-									<div class="activitybanners"></div>
-									<div class="row activitycontent">
-										<div class="col-sm-3">
-											<img class="img-responsive" alt="{{ $indexBlog->title }}" src="{{ $indexBlog->img }}">
-										</div>
-										<div class="col-sm-7 activitysum">
-											<h2 class="ttactivity">{{ $indexBlog->title }}</h2>
-											<p class="pstar">
-												<span class="star">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-thumbs-o-up"></i>
-												</span>
-											</p>
-											<p class="quote">
-											“<span class="noquote">{{ $indexBlog->description }}</span> ”
-											</p>
-											<div class="hr"></div>
-											<div class="text-primary">
-												<i class="fa fa-bus"></i> Free shuttle round trip &nbsp;&nbsp;
-												<i class="fa fa-wifi"></i> Free wifi &nbsp;&nbsp; 
-												<i class="fa fa-comments-o"></i> English speaking guide
+								<div class="row">
+									<div class="boxradius for-blog" data-role="boxactivity">
+										<div class="activitybanners"></div>
+										<div class="row activitycontent">
+											<div class="col-sm-4">
+												<a href="url('/blog/' . $indexBlog->slug)">
+													<img class="img-responsive height" alt="{{ $indexBlog->title }}" src="{{ $indexBlog->img }}">
+												</a>
+											</div>
+											<div class="col-sm-8 activitysum">
+												<h2 class="ttactivity mb5">
+													<a href="url('/blog/' . $indexBlog->slug)" class="color-green"> 
+														{{ $indexBlog->title }}
+													</a>
+												</h2>
+												<p class="pstar">
+													<span class="glyphicon glyphicon-time"></span> {{ $indexBlog->created_at->format('Y-m-d') }}
+												</p>
+												<p class="quote font-large">
+												<span class="noquote">{{ $indexBlog->description . '...' }}</span>
+												</p>
+												<div class="hr"></div>
+												<div class="text-primary">
+													<span class="glyphicon glyphicon-tags"></span> &nbsp; <a href="{{ url('/' . $indexBlog->type->slug) }}" class="color-green"> {{ $indexBlog->type->name }} </a>
+													<a href="{{ url('/blog/' . $indexBlog->slug) }}" class="pull-right color-green"> Read more <i class="fa fa-hand-o-right"></i></a>
+												</div>
 											</div>
 										</div>
-										<div class="col-sm-2">
-											<div class="boxprice">
-												<!-- <p>From</p> -->
-												<!-- <p class="pprice">
-													<span class="price">$172.50</span> <br> (per person)
-												</p> -->
-												<p>
-													<a class="circlego">Go</a>
-												</p>
-											</div><!-- End boxprice -->
-										</div>
+										<!-- <a class="activitylink" href="{{ url('/private-transfer/view/' . $indexBlog->slug) }}"></a> -->
 									</div>
-									<!-- <a class="activitylink" href="{{ url('/private-transfer/view/' . $indexBlog->slug) }}"></a> -->
 								</div>
 							</div>
 						@endforeach
@@ -108,7 +97,46 @@
 				<div class="col-md-3">
 					<div class="row">
 						<div class="col-md-12">
-							{{ Html::image('img/bandovietnam.jpg', '', ['class' => 'img-responsive mb']) }}
+							<!-- <div class="row"> -->
+								<div class="help-booking no-background">
+									<div class="help-title">
+										<h4>Need help booking</h4>
+									</div>
+									<div class="help-content">
+										Call our customer services team on the number below to speak to one of our advisors who heil you with all of your holiday needs.
+										<div class="telephone">
+											<a href="tel: +84 911611246">
+												<span class="glyphicon glyphicon-earphone"></span> +84 122345678
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="why-choose-us no-background">
+									<ul>
+										<li><i class="fa fa-hand-o-right"></i> Local Experience</li>
+										<li><i class="fa fa-hand-o-right"></i> Easy transfer booking</li>
+										<li><i class="fa fa-hand-o-right"></i> Instant confirmation</li>
+										<li><i class="fa fa-hand-o-right"></i> Reschedule anytime</li>
+										<li><i class="fa fa-hand-o-right"></i> Best price guaranteed</li>
+										<li><i class="fa fa-hand-o-right"></i> 24/7 Customer Support</li>
+									</ul>
+								</div>
+								<div class="tripvisor no-background">
+									<div class="visor-header">
+										<dl>
+											<dt>
+												<a href="https://www.tripadvisor.com/" target="_blank">
+													{!! Html::image('img/trip_logo.svg') !!}
+												</a>
+											</dt>
+											<dd class="small">Know better. Book better. Go better</dd>
+										</dl>
+									</div>
+									<div class="visor-title">
+
+									</div>
+								</div>
+							<!-- </div> -->
 						</div>
 					</div>
 				</div>

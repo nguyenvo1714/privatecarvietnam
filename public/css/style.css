@@ -226,6 +226,9 @@ body.loading .modal {
 .mt {
 	margin-top: 15px;
 }
+.mb5 {
+	margin-bottom: 5px;
+}
 .mt20 {
 	margin-top: 20px;
 }
@@ -1619,4 +1622,71 @@ textarea.form-control {
 }
 .breadcrumb li i.fa-home {
 	font-size: 18px;
+}
+/*===========================================================================================================*/
+/*=========================================== Blog page =====================================================*/
+/*===========================================================================================================*/
+img.height {
+	height: 180px;
+	width: 100%;
+}
+.quote.font-large {
+	font-size: 15px;
+	line-height: 20px;
+}
+.color-green {
+	color: rgba(50, 182, 36, .9);
+}
+.text-primary i.fa {
+	font-size: 18px;
+}
+.boxradius.for-blog {
+	border-radius: 2px;
+}
+.no-background {
+	background-color: #fff;
+	border: 1px solid #d9dad0;
+	border-radius: 2px;
+	display: block;
+	width: 100%;
+	padding: 10px;
+}
+.help-title {
+	border-bottom: 1px solid #d9dad0;
+}
+.help-title h4 {
+	text-align: center;
+}
+.help-booking .help-content {
+	border: unset;
+}
+.telephone {
+	margin-top: 10px;
+	font-weight: 600;
+}
+.telephone span {
+	font-size: 18px;
+}
+.why-choose-us, .tripvisor {
+	margin-top: 15px;
+}
+.why-choose-us ul {
+	list-style: none;
+	padding-left: 5px;
+}
+.why-choose-us ul li {
+	line-height: 25px;
+}
+.why-choose-us ul li:hover i {
+	color: #3059d1;
+}
+.visor-header {
+	border-bottom: 1px solid #d9dad0;
+	padding: 5px;
+}
+.visor-header dl {
+	margin-bottom: 5px;
+}
+dt.small {
+	font-weight: 400;
 }

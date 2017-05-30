@@ -36,12 +36,10 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $perpage = 4;
-        $total_pages = (int)ceil($this->blogRepo->count() / $perpage);
-        $transferNames = TransferName::get();
-        $places = Place::get();
+        $transferNames = $this->transferNameRepo->allT();
+        $places = $this->transferNameRepo->allP();
         $blogs = $this->blogRepo->footer();
-        $interestTransfers = Transfer::where('is_hot', 1)->limit(4)->get();
+        $interestTransfers = $this->transferRepo->top(4);
         $indexBlogs = $this->blogRepo->index(4);
         return view('sites.blogs.index', [
             'transferNames' => $transferNames,
@@ -49,8 +47,6 @@ class BlogController extends Controller
             'blogs' => $blogs,
             'interestTransfers' => $interestTransfers,
             'indexBlogs' => $indexBlogs,
-            'perpage' => $perpage,
-            'total_pages' => $total_pages
         ]);
     }
 
@@ -59,9 +55,18 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function content($slug)
     {
-        //
+        $transferNames = $this->transferNameRepo->allT();
+        $places = $this->transferNameRepo->allP();
+        $blogs = $this->blogRepo->footer();
+        $detail = $this->blogRepo->find_by_slug($slug);
+        return view('sites.blogs.content', [
+            'transferNames' => $transferNames,
+            'places' => $places,
+            'blogs' => $blogs,
+            'detail' => $detail
+        ]);
     }
 
     /**

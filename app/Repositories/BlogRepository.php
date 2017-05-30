@@ -24,9 +24,15 @@
 
 		public function index($limit)
 		{
-			$blogs = $this->blog->limit($limit)->get();
+			// $blogs = $this->blog->limit($limit)->get();
+			$blogs = $this->blog->paginate(5);
 			$this->chop_blog($blogs, 0);
 			return $blogs;
+		}
+
+		public function find_by_slug($slug)
+		{
+			return $this->blog->findBySlug($slug);
 		}
 
 		public function count()

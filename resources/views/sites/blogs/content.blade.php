@@ -42,56 +42,44 @@
 			</div>
 		</section>
 		<section class="container">
-			<div class="hr"></div>
-		</section>
-		<section class="container">
 			<div class="row">
+				<div class="blog-title">
+					<h4>{{ $detail->title }}</h4>
+				</div>
 				<div class="col-md-9">
 					<div class="row">
-						@foreach($indexBlogs as $indexBlog)
-							<div class="col-md-12">
-								<div class="row">
-									<div class="boxradius for-blog" data-role="boxactivity">
-										<div class="activitybanners"></div>
-										<div class="row activitycontent">
-											<div class="col-sm-4">
-												<a href="url('/blog/' . $indexBlog->slug)">
-													<img class="img-responsive height" alt="{{ $indexBlog->title }}" src="{{ $indexBlog->img }}">
-												</a>
-											</div>
-											<div class="col-sm-8 activitysum">
-												<h2 class="ttactivity mb5">
-													<a href="{{ url('/blog/' . $indexBlog->slug) }}" class="color-green"> 
-														{{ $indexBlog->title }}
-													</a>
-												</h2>
-												<p class="pstar">
-													<span class="glyphicon glyphicon-time"></span> {{ $indexBlog->created_at->format('Y-m-d') }}
-												</p>
-												<p class="quote font-large">
-												<span class="noquote">{{ $indexBlog->description . '...' }}</span>
-												</p>
-												<div class="hr"></div>
-												<div class="text-primary">
-													<span class="glyphicon glyphicon-tags"></span> &nbsp; <a href="{{ url('/' . $indexBlog->type->slug) }}" class="color-green"> {{ $indexBlog->type->name }} </a>
-													<a href="{{ url('/blog/' . $indexBlog->slug) }}" class="pull-right color-green"> Read more <i class="fa fa-hand-o-right"></i></a>
-												</div>
-											</div>
-										</div>
-										<!-- <a class="activitylink" href="{{ url('/private-transfer/view/' . $indexBlog->slug) }}"></a> -->
-									</div>
-								</div>
-							</div>
-						@endforeach
-						<div class="paginate text-center">
-							{{ $indexBlogs->links() }}
+						<div class="blog-title">
+							<div class="hr"></div>
 						</div>
+							<!-- <div class="col-md-12"> -->
+								<!-- <div class="row"> -->
+									<div class="boxradius for-blog" data-role="boxactivity">
+										<div class="blog-content">
+											{!! $detail->content !!}
+										</div>
+										<div class="share">
+											<strong>Share this</strong>
+											<ul>
+												<li class="google-plus">
+													<a href="{{ url('https://plus.google.com/share?url=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-google-plus"></i> Google</a>
+												</li>
+												<li class="google-plus">
+													<a href="{{ url('https://www.facebook.com/sharer.php?u=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-facebook"></i> Facebook</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								<!-- </div> -->
+							<!-- </div> -->
 					</div>
 				</div>
 				<div class="col-md-3">
 					<div class="row">
 						<div class="col-md-12">
 							<!-- <div class="row"> -->
+							<div class="blog-title">
+								<div class="hr"></div>
+							</div>
 								<div class="help-booking no-background">
 									<div class="help-title">
 										<h4>Need help booking</h4>

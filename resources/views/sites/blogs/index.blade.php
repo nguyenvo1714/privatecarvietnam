@@ -112,6 +112,9 @@
 									</div>
 								</div>
 								<div class="why-choose-us no-background">
+									<div class="help-title">
+										<h4>Why Us</h4>
+									</div>
 									<ul>
 										<li><i class="fa fa-hand-o-right"></i> Local Experience</li>
 										<li><i class="fa fa-hand-o-right"></i> Easy transfer booking</li>
@@ -133,7 +136,56 @@
 										</dl>
 									</div>
 									<div class="visor-title">
-
+										<dl>
+											<dt>
+												<a href="#" target="_blank">
+													PrivateCarVietNam - Transfer
+												</a>
+											</dt>
+										</dl>
+										<dl>
+											<dt><small>TripAdvisor Transfer Rating</small></dt>
+											<dd>
+												{!! Html::image('img/visor.gif') !!}
+												<div class="user-rate">
+													Base on 25 transfers review
+												</div>
+											</dd>
+										</dl>
+									</div>
+									<div class="recent-review">
+										<dl>
+											<dt><small>Most Recent Transfers Review</small></dt>
+											<dd>
+												<ul>
+													<li>
+														<span class="glyphicon glyphicon-circle-arrow-right"></span>
+													</li>
+													<li>
+														<span class="glyphicon glyphicon-circle-arrow-right"></span>
+													</li>
+													<li>
+														<span class="glyphicon glyphicon-circle-arrow-right"></span>
+													</li>
+													<li>
+														<span class="glyphicon glyphicon-circle-arrow-right"></span>
+													</li>
+												</ul>
+											</dd>
+										</dl>
+										<div class="review-link">
+											<div>
+												<span class="glyphicon glyphicon-menu-right"></span>
+												<a target="_blank" href="#">Read Reviews</a>
+											</div>
+											<div>
+												<span class="glyphicon glyphicon-menu-right"></span>
+												<a target="_blank" href="#">Write a Reviews</a>
+											</div>
+										</div>
+										<div class="copy">
+											<p><small>&copy; 2017 PrivateCarVietNam</small></p>
+										</div>
 									</div>
 								</div>
 							<!-- </div> -->

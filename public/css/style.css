@@ -1671,6 +1671,9 @@ img.height {
 	margin-top: 15px;
 }
 .why-choose-us ul {
+	margin-top: 5px;
+}
+.why-choose-us ul, .visor-title {
 	list-style: none;
 	padding-left: 5px;
 }
@@ -1680,13 +1683,59 @@ img.height {
 .why-choose-us ul li:hover i {
 	color: #3059d1;
 }
-.visor-header {
+.visor-header, .visor-title {
 	border-bottom: 1px solid #d9dad0;
 	padding: 5px;
 }
-.visor-header dl {
+.visor-header dl, .visor-title dl, .recent-review dl {
 	margin-bottom: 5px;
 }
 dt.small {
 	font-weight: 400;
+}
+.visor-title dl:first-child {
+	padding-top: 10px;
+}
+.visor-title dl:last-child dt {
+	margin-bottom: 5px;
+}
+.user-rate {
+	font-size: 12px;
+}
+.recent-review {
+	padding-left: 5px;
+	margin-top: 5px;
+}
+.recent-review ul {
+	list-style: none;
+	padding-left: unset;
+}
+.recent-review ul li {
+	font-size: 11px;
+}
+.recent-review ul li:hover span {
+	color: #3059d1;
+}
+.review-link {
+	display: block;
+	height: 30px;
+}
+.review-link div {
+	float: left;
+	display: block;
+	font-size: 12px;
+}
+.review-link div:first-child {
+	padding-right: 20px;
+	border-right: 2px solid #d9dad0;
+}
+.review-link div:last-child {
+	padding-left: 15px;
+}
+.review-link div a {
+	text-decoration: underline;
+	color: rgba(18, 108, 8, 0.9);
+}
+.copy p {
+	margin: unset;
 }

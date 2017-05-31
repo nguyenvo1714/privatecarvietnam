@@ -66,7 +66,7 @@
 													</a>
 												</h2>
 												<p class="pstar">
-													<span class="glyphicon glyphicon-time"></span> {{ $indexBlog->created_at->format('Y-m-d') }}
+													<span class="glyphicon glyphicon-time"></span> {{ date_format($indexBlog->created_at, 'M d, Y') }}
 												</p>
 												<p class="quote font-large">
 												<span class="noquote">{{ $indexBlog->description . '...' }}</span>

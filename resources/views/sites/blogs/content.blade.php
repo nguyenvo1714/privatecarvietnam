@@ -63,11 +63,34 @@
 												<li class="google-plus">
 													<a href="{{ url('https://plus.google.com/share?url=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-google-plus"></i> Google</a>
 												</li>
-												<li class="google-plus">
+												<li class="facebook">
 													<a href="{{ url('https://www.facebook.com/sharer.php?u=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-facebook"></i> Facebook</a>
+												</li>
+												<li class="twister">
+													<a href="{{ url('https://twitter.com/share?url=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-twitter"></i> Twister</a>
+												</li>
+												<li class="email">
+													<a href="mailto:?subject={!! $detail->title !!}&body={{ strip_tags($detail->content) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-envelope-o"></i> Email</a>
+												</li>
+												<li class="print">
+													<a href="{{ url('/blog/' . $detail->slug . '#print') }}" target="_blank" class="btn btn-default share_link" onclick="window.print()"><i class="fa fa-print"></i> Print</a>
 												</li>
 											</ul>
 										</div>
+										<div class="hr"></div>
+										<div class="blog-end">
+											<ul>
+												<li class="time">
+													<i class="fa fa-clock-o"></i> {{ date_format($detail->created_at, 'M d, Y') }}
+												</li>
+												<li class="tag">
+													<i class="fa fa-tags"></i> <a href="{{ url('/' . $detail->type->slug) }}"> {{ $detail->type->name }}</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="relate-blog">
+										
 									</div>
 								<!-- </div> -->
 							<!-- </div> -->

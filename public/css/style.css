@@ -1754,3 +1754,49 @@ dt.small {
 .mgt {
 	margin-top: 77px;
 }
+.share ul, .blog-end ul {
+	list-style: none;
+	padding-left: unset;
+	margin-top: 5px;
+	display: block;
+	height: 25px;
+}
+.share ul li {
+	float: left;
+	padding-right: 5px;
+}
+.share ul li a {
+	padding: 3px 5px;
+}
+.share ul li.google-plus a i {
+	color: rgb(187, 69, 69);
+}
+.share ul li.facebook a i {
+	color: rgb( 69, 106, 187 );
+}
+.share ul li.twister a i {
+	color: rgb( 75, 131, 250 );
+}
+.blog-end ul {
+	margin-top: 10px;
+}
+.blog-end ul li {
+	float: left;
+}
+.for-blog .hr {
+	margin-bottom: unset;
+}
+.blog-end ul {
+	margin-bottom: unset;
+}
+.blog-end ul li:first-child {
+	padding-right: 20px;
+}
+.blog-end ul li a {
+	color: rgb(6, 164, 18);
+}
+.blog-content img {
+	border: 1px solid rgb( 164, 123, 6 );
+	padding: 3px;
+	margin: auto;
+}

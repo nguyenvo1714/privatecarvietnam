@@ -1800,3 +1800,66 @@ dt.small {
 	padding: 3px;
 	margin: auto;
 }
+.relate-blog {
+	border-radius: 2px;
+	background-color: #fff;
+    border: 1px solid #d9dad0;
+    margin-bottom: 15px;
+    padding: 15px;
+}
+.relate-blog .hr {
+	margin: 10px 0;
+}
+.box-relate .image {
+	position: relative;
+	overflow: hidden;
+}
+.box-relate .image .time {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	width: 100%;
+	padding: 3px 10px;
+}
+.box-relate .image a {
+	display: block;
+}
+.box-relate .image img {
+	width: 100%;
+	height: 150px;
+	display: block;
+}
+.box-relate .title h4 a {
+	text-transform: unset;
+	font-size: 17px;
+	color: rgb(13, 167, 3);
+}
+.overlay {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.overlay span {
+	font-size: 2em;
+	display: block;
+	color: #fff;
+	top: 40%;
+}
+.box-relate:hover .overlay {
+	height: 100%;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}

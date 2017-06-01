@@ -35,6 +35,18 @@
 			return $this->blog->findBySlug($slug);
 		}
 
+		public function relate($slug, $limit)
+		{
+			$blog = $this->blog->findBySlug($slug);
+			$relates = $this->blog->where('type_id', $blog->type_id)
+								->where('slug', '<>', $slug)
+								->orderBy('id', 'asc')
+								->limit($limit)
+								->get();
+			$this->chop_blog($relates, 0);
+			return $relates;
+		}
+
 		public function count()
 		{
 			return $this->blog->get()->count();

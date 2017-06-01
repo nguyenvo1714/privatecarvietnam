@@ -51,49 +51,74 @@
 						<div class="blog-title">
 							<div class="hr"></div>
 						</div>
-							<!-- <div class="col-md-12"> -->
-								<!-- <div class="row"> -->
-									<div class="boxradius for-blog" data-role="boxactivity">
-										<div class="blog-content">
-											{!! $detail->content !!}
+						<div class="boxradius for-blog" data-role="boxactivity">
+							<div class="blog-content">
+								{!! $detail->content !!}
+							</div>
+							<div class="share">
+								<strong>Share this</strong>
+								<ul>
+									<li class="google-plus">
+										<a href="{{ url('https://plus.google.com/share?url=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-google-plus"></i> Google</a>
+									</li>
+									<li class="facebook">
+										<a href="{{ url('https://www.facebook.com/sharer.php?u=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-facebook"></i> Facebook</a>
+									</li>
+									<li class="twister">
+										<a href="{{ url('https://twitter.com/share?url=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-twitter"></i> Twister</a>
+									</li>
+									<li class="email">
+										<a href="mailto:?subject={!! $detail->title !!}&body={{ strip_tags($detail->content) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-envelope-o"></i> Email</a>
+									</li>
+									<li class="print">
+										<a href="{{ url('/blog/' . $detail->slug . '#print') }}" target="_blank" class="btn btn-default share_link" onclick="window.print()"><i class="fa fa-print"></i> Print</a>
+									</li>
+								</ul>
+							</div>
+							<div class="hr"></div>
+							<div class="blog-end">
+								<ul>
+									<li class="time">
+										<i class="fa fa-clock-o"></i> {{ date_format($detail->created_at, 'M d, Y') }}
+									</li>
+									<li class="tag">
+										<i class="fa fa-tags"></i> <a href="{{ url('/' . $detail->type->slug) }}"> {{ $detail->type->name }}</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="relate-blog">
+							<div class="relate-title">
+								<h4>Relate blogs</h4>
+								<div class="hr"></div>
+							</div>
+							<div class="relate-content row">
+								@foreach($relates as $relate)
+									<div class="col-md-4 box-relate">
+										<div class="image">
+											<a href="{{ url('/blog/' . $relate->slug) }}">
+												<img class="img-responsive" src="{{ $relate->img }}">
+											</a>
+											<div class="time">
+												<i class="fa fa-clock-o"></i> {{ date_format($relate->created_at, 'M d, Y') }}
+											</div>
+											<a href="{{ url('/blog/' . $relate->slug) }}">
+												<div class="overlay">
+													<span class="glyphicon glyphicon-play-circle"></span>
+												</div>
+											</a>
 										</div>
-										<div class="share">
-											<strong>Share this</strong>
-											<ul>
-												<li class="google-plus">
-													<a href="{{ url('https://plus.google.com/share?url=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-google-plus"></i> Google</a>
-												</li>
-												<li class="facebook">
-													<a href="{{ url('https://www.facebook.com/sharer.php?u=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-facebook"></i> Facebook</a>
-												</li>
-												<li class="twister">
-													<a href="{{ url('https://twitter.com/share?url=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-twitter"></i> Twister</a>
-												</li>
-												<li class="email">
-													<a href="mailto:?subject={!! $detail->title !!}&body={{ strip_tags($detail->content) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-envelope-o"></i> Email</a>
-												</li>
-												<li class="print">
-													<a href="{{ url('/blog/' . $detail->slug . '#print') }}" target="_blank" class="btn btn-default share_link" onclick="window.print()"><i class="fa fa-print"></i> Print</a>
-												</li>
-											</ul>
-										</div>
-										<div class="hr"></div>
-										<div class="blog-end">
-											<ul>
-												<li class="time">
-													<i class="fa fa-clock-o"></i> {{ date_format($detail->created_at, 'M d, Y') }}
-												</li>
-												<li class="tag">
-													<i class="fa fa-tags"></i> <a href="{{ url('/' . $detail->type->slug) }}"> {{ $detail->type->name }}</a>
-												</li>
-											</ul>
+										<div class="title">
+											<h4>
+												<a href="{{ url('/blog/' . $relate->slug) }}" >
+													{{ $relate->title }}
+												</a>
+											</h4>
 										</div>
 									</div>
-									<div class="relate-blog">
-										
-									</div>
-								<!-- </div> -->
-							<!-- </div> -->
+								@endforeach
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="col-md-3">

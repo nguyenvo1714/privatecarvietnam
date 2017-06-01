@@ -57,6 +57,7 @@ class BlogController extends Controller
      */
     public function content($slug)
     {
+        $relates = $this->blogRepo->relate($slug, 3);
         $transferNames = $this->transferNameRepo->allT();
         $places = $this->transferNameRepo->allP();
         $blogs = $this->blogRepo->footer();
@@ -65,7 +66,8 @@ class BlogController extends Controller
             'transferNames' => $transferNames,
             'places' => $places,
             'blogs' => $blogs,
-            'detail' => $detail
+            'detail' => $detail,
+            'relates' => $relates
         ]);
     }
 

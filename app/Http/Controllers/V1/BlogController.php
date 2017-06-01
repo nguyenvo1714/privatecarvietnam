@@ -4,10 +4,6 @@ namespace App\Http\Controllers\V1;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Place;
-use App\Blog;
-use App\TransferName;
-use App\Transfer;
 use App\Repositories\TransferRepository;
 use App\Repositories\BlogRepository;
 use App\Repositories\TransferNameRepository;
@@ -62,12 +58,18 @@ class BlogController extends Controller
         $places = $this->transferNameRepo->allP();
         $blogs = $this->blogRepo->footer();
         $detail = $this->blogRepo->find_by_slug($slug);
+        $next =  $this->blogRepo->next($detail->id);
+        $prev = $this->blogRepo->prev($detail->id);
+        // $next = Blog::where('id', '>', $detail->id)->min('id');
+        // var_dump($prev->title);die;
         return view('sites.blogs.content', [
             'transferNames' => $transferNames,
             'places' => $places,
             'blogs' => $blogs,
             'detail' => $detail,
-            'relates' => $relates
+            'relates' => $relates,
+            'next' => $next,
+            'prev' => $prev
         ]);
     }
 

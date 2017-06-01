@@ -1863,3 +1863,24 @@ dt.small {
 	-moz-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
 }
+.paginate {
+	margin-bottom: 15px;
+	display: table;
+	width: 100%;
+}
+.paginate .next, .paginate .prev {
+	overflow: hidden;
+	display: block;
+}
+.prev a {
+	text-align: left;
+}
+.next a {
+	text-align: right;
+}
+.paginate a {
+	display: block;
+	overflow: hidden;
+	padding-left: 10px;
+	padding-right: 10px;
+}

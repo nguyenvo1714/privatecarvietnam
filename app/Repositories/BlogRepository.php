@@ -47,6 +47,16 @@
 			return $relates;
 		}
 
+		public function next($id)
+		{
+			return $this->blog->where('id', '>', $id)->orderBy('id', 'ASC')->first();
+		}
+
+		public function prev($id)
+		{
+			return $this->blog->where('id', '<', $id)->orderBy('id', 'DESC')->first();
+		}
+
 		public function count()
 		{
 			return $this->blog->get()->count();

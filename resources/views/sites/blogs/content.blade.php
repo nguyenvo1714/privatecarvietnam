@@ -87,37 +87,57 @@
 								</ul>
 							</div>
 						</div>
+						<div class="paginate">
+							<div class="row">
+								@if( ! empty($prev->title))
+									<div class="prev col-md-4 col-sm-12">
+										<a href="{{ url('/blog/' . $prev->slug) }}" class="btn btn-default">
+											<span class="glyphicon glyphicon-step-backward"></span> Prev blog: {{ substr($prev->title, 0, 23) . '...' }}
+										</a>
+									</div>
+								@endif
+								@if( ! empty($next))
+									<div class="next col-md-offset-4 col-md-4 col-sm-12 pull-right">
+										<a href="{{ url('/blog/' . $next->slug) }}" class="btn btn-default">Next blog:
+											{{ substr($next->title, 0, 23) . '...' }} <span class="glyphicon glyphicon-step-forward"></span>
+										</a>
+									</div>
+								@endif
+							</div>
+						</div>
 						<div class="relate-blog">
 							<div class="relate-title">
 								<h4>Relate blogs</h4>
 								<div class="hr"></div>
 							</div>
-							<div class="relate-content row">
-								@foreach($relates as $relate)
-									<div class="col-md-4 box-relate">
-										<div class="image">
-											<a href="{{ url('/blog/' . $relate->slug) }}">
-												<img class="img-responsive" src="{{ $relate->img }}">
-											</a>
-											<div class="time">
-												<i class="fa fa-clock-o"></i> {{ date_format($relate->created_at, 'M d, Y') }}
-											</div>
-											<a href="{{ url('/blog/' . $relate->slug) }}">
-												<div class="overlay">
-													<span class="glyphicon glyphicon-play-circle"></span>
-												</div>
-											</a>
-										</div>
-										<div class="title">
-											<h4>
-												<a href="{{ url('/blog/' . $relate->slug) }}" >
-													{{ $relate->title }}
+							@if($relates->count() > 0)
+								<div class="relate-content row">
+									@foreach($relates as $relate)
+										<div class="col-md-4 box-relate">
+											<div class="image">
+												<a href="{{ url('/blog/' . $relate->slug) }}">
+													<img class="img-responsive" src="{{ $relate->img }}">
 												</a>
-											</h4>
+												<div class="time">
+													<i class="fa fa-clock-o"></i> {{ date_format($relate->created_at, 'M d, Y') }}
+												</div>
+												<a href="{{ url('/blog/' . $relate->slug) }}">
+													<div class="overlay">
+														<span class="glyphicon glyphicon-play-circle"></span>
+													</div>
+												</a>
+											</div>
+											<div class="title">
+												<h4>
+													<a href="{{ url('/blog/' . $relate->slug) }}" >
+														{{ $relate->title }}
+													</a>
+												</h4>
+											</div>
 										</div>
-									</div>
-								@endforeach
-							</div>
+									@endforeach
+								</div>
+							@endif
 						</div>
 					</div>
 				</div>

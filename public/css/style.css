@@ -1226,8 +1226,12 @@ h1.tthome {
 	margin-top: 15px;
 }
 .office .contact-office {
-	font-size: 2em;
-	text-decoration: underline;
+	/*font-size: 2em;*/
+	text-transform: uppercase;
+}
+.office p {
+
+	margin-bottom: unset;
 }
 .help-content {
 	border: 1px solid lightgray;
@@ -1241,6 +1245,9 @@ h1.tthome {
     border: 1px solid #D99800;
     box-shadow: inset 0px 2px 0px 0px #FFEA93;
     color: #000;
+}
+.sidebar-right {
+	margin-top: 24px;
 }
 /*===========================================================================================================*/
 /*=========================================== Detail Page  ==================================================*/
@@ -1656,6 +1663,7 @@ img.height {
 }
 .help-title h4 {
 	text-align: center;
+	margin-top: unset;
 }
 .help-booking .help-content {
 	border: unset;
@@ -1754,12 +1762,13 @@ dt.small {
 .mgt {
 	margin-top: 77px;
 }
+.share, .blog-end {
+	padding-left: 15px;
+	padding-right: 15px;
+}
 .share ul, .blog-end ul {
 	list-style: none;
 	padding-left: unset;
-	margin-top: 5px;
-	display: block;
-	height: 25px;
 }
 .share ul li {
 	float: left;
@@ -1878,9 +1887,21 @@ dt.small {
 .next a {
 	text-align: right;
 }
+.next a div {
+	text-align: left;
+	position: relative;
+}
+.next a div span {
+	position: absolute;
+	right: 0;
+	top: 20%;
+}
 .paginate a {
 	display: block;
 	overflow: hidden;
 	padding-left: 10px;
 	padding-right: 10px;
+}
+div.tripvisor {
+	margin-bottom: 15px;
 }

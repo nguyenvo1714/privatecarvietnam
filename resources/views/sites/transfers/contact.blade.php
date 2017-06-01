@@ -138,23 +138,108 @@
 									<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.153321792369!2d107.57672391396564!3d16.4677723886358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a6d3467e9b3d%3A0xbc393903490905c4!2sHue+Royal+Palace!5e0!3m2!1sen!2s!4v1494340963755" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 								</div>
 								<div class="office">
-									<a href="javascrip: void(0)" class="contact-office">Office</a>
+									<strong class="contact-office">PrivateCarVietnam office</strong>
 									<p><strong>Address:</strong> Hue Royal Palace</p>
-									<p><strong>Mobile:</strong><a href="tel: +84-911-611-246"> +84 123456789</p>
-									<p><strong>Email:</strong> <a href="mailto: info@privatecarvietname">info@privatecarvietname</a></p>
+									<p><strong>Mobile:</strong><a href="tel: +84-911-611-246"> +84 123456789</a></p>
+									<p>
+										<strong>Email:</strong> <a href="mailto: info@privatecarvietname">info@privatecarvietnam.com</a>
+									</p>
 								</div>
 							</div>
 							<div class="col-md-3">
-								<div class="need-help-booking">
-									<h3>Need help booking</h3>
-									<section class="help-content">
-										<p>
-											Call our customer services team on the number below to speak to one of our advisors who heil you with all of your holiday needs.
-										</p>
-										<p>
-											<span class="glyphicon glyphicon-earphone"></span> <strong><a href="tel: +84-911-611-246">84 123456789</a></strong>
-										</p>
-									</section>
+								<div class="row">
+									<div class="col-md-12 sidebar-right">
+										<div class="help-booking no-background">
+											<div class="help-title">
+												<h4>Need help booking</h4>
+											</div>
+											<div class="help-content">
+												Call our customer services team on the number below to speak to one of our advisors who heil you with all of your holiday needs.
+												<div class="telephone">
+													<a href="tel: +84 911611246">
+														<span class="glyphicon glyphicon-earphone"></span> +84 122345678
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="why-choose-us no-background">
+											<div class="help-title">
+												<h4>Why Us</h4>
+											</div>
+											<ul>
+												<li><i class="fa fa-hand-o-right"></i> Local Experience</li>
+												<li><i class="fa fa-hand-o-right"></i> Easy transfer booking</li>
+												<li><i class="fa fa-hand-o-right"></i> Instant confirmation</li>
+												<li><i class="fa fa-hand-o-right"></i> Reschedule anytime</li>
+												<li><i class="fa fa-hand-o-right"></i> Best price guaranteed</li>
+												<li><i class="fa fa-hand-o-right"></i> 24/7 Customer Support</li>
+											</ul>
+										</div>
+										<div class="tripvisor no-background">
+											<div class="visor-header">
+												<dl>
+													<dt>
+														<a href="https://www.tripadvisor.com/" target="_blank">
+															{!! Html::image('img/trip_logo.svg') !!}
+														</a>
+													</dt>
+													<dd class="small">Know better. Book better. Go better</dd>
+												</dl>
+											</div>
+											<div class="visor-title">
+												<dl>
+													<dt>
+														<a href="#" target="_blank">
+															PrivateCarVietNam - Transfer
+														</a>
+													</dt>
+												</dl>
+												<dl>
+													<dt><small>TripAdvisor Transfer Rating</small></dt>
+													<dd>
+														{!! Html::image('img/visor.gif') !!}
+														<div class="user-rate">
+															Base on 25 transfers review
+														</div>
+													</dd>
+												</dl>
+											</div>
+											<div class="recent-review">
+												<dl>
+													<dt><small>Most Recent Transfers Review</small></dt>
+													<dd>
+														<ul>
+															<li>
+																<span class="glyphicon glyphicon-circle-arrow-right"></span>
+															</li>
+															<li>
+																<span class="glyphicon glyphicon-circle-arrow-right"></span>
+															</li>
+															<li>
+																<span class="glyphicon glyphicon-circle-arrow-right"></span>
+															</li>
+															<li>
+																<span class="glyphicon glyphicon-circle-arrow-right"></span>
+															</li>
+														</ul>
+													</dd>
+												</dl>
+												<div class="review-link">
+													<div>
+														<span class="glyphicon glyphicon-menu-right"></span>
+														<a target="_blank" href="#">Read Reviews</a>
+													</div>
+													<div>
+														<span class="glyphicon glyphicon-menu-right"></span>
+														<a target="_blank" href="#">Write a Reviews</a>
+													</div>
+												</div>
+												<div class="copy">
+													<p><small>&copy; 2017 PrivateCarVietNam</small></p>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

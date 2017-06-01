@@ -15,9 +15,9 @@
 			$this->transfer = $transfer;
 		}
 
-		public function top()
+		public function top($limit)
 		{
-			$tops = $this->transfer->where('is_hot', 1)->limit(6)->get();
+			$tops = $this->transfer->where('is_hot', 1)->limit($limit)->get();
 			$this->getTransferType($tops);
 			return $tops;
 		}

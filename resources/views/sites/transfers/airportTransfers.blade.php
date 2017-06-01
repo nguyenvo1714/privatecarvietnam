@@ -114,9 +114,8 @@
 											</p>
 											<div class="hr"></div>
 											<div class="text-primary">
-												<i class="fa fa-bus"></i> Free shuttle round trip &nbsp;&nbsp;
 												<i class="fa fa-wifi"></i> Free wifi &nbsp;&nbsp;
-												<i class="fa fa-comments-o"></i> English speaking guide
+												<i class="fa fa-comments-o"></i> English speaking driver
 											</div>
 										</div>
 										<div class="col-sm-2">

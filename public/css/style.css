@@ -226,6 +226,9 @@ body.loading .modal {
 .mt {
 	margin-top: 15px;
 }
+.mb5 {
+	margin-bottom: 5px;
+}
 .mt20 {
 	margin-top: 20px;
 }
@@ -1223,8 +1226,12 @@ h1.tthome {
 	margin-top: 15px;
 }
 .office .contact-office {
-	font-size: 2em;
-	text-decoration: underline;
+	/*font-size: 2em;*/
+	text-transform: uppercase;
+}
+.office p {
+
+	margin-bottom: unset;
 }
 .help-content {
 	border: 1px solid lightgray;
@@ -1238,6 +1245,9 @@ h1.tthome {
     border: 1px solid #D99800;
     box-shadow: inset 0px 2px 0px 0px #FFEA93;
     color: #000;
+}
+.sidebar-right {
+	margin-top: 24px;
 }
 /*===========================================================================================================*/
 /*=========================================== Detail Page  ==================================================*/
@@ -1619,4 +1629,279 @@ textarea.form-control {
 }
 .breadcrumb li i.fa-home {
 	font-size: 18px;
+}
+/*===========================================================================================================*/
+/*=========================================== Blog page =====================================================*/
+/*===========================================================================================================*/
+img.height {
+	height: 180px;
+	width: 100%;
+}
+.quote.font-large {
+	font-size: 15px;
+	line-height: 20px;
+}
+.color-green {
+	color: rgba(50, 182, 36, .9);
+}
+.text-primary i.fa {
+	font-size: 18px;
+}
+.boxradius.for-blog {
+	border-radius: 2px;
+}
+.no-background {
+	background-color: #fff;
+	border: 1px solid #d9dad0;
+	border-radius: 2px;
+	display: block;
+	width: 100%;
+	padding: 10px;
+}
+.help-title {
+	border-bottom: 1px solid #d9dad0;
+}
+.help-title h4 {
+	text-align: center;
+	margin-top: unset;
+}
+.help-booking .help-content {
+	border: unset;
+}
+.telephone {
+	margin-top: 10px;
+	font-weight: 600;
+}
+.telephone span {
+	font-size: 18px;
+}
+.why-choose-us, .tripvisor {
+	margin-top: 15px;
+}
+.why-choose-us ul {
+	margin-top: 5px;
+}
+.why-choose-us ul, .visor-title {
+	list-style: none;
+	padding-left: 5px;
+}
+.why-choose-us ul li {
+	line-height: 25px;
+}
+.why-choose-us ul li:hover i {
+	color: #3059d1;
+}
+.visor-header, .visor-title {
+	border-bottom: 1px solid #d9dad0;
+	padding: 5px;
+}
+.visor-header dl, .visor-title dl, .recent-review dl {
+	margin-bottom: 5px;
+}
+dt.small {
+	font-weight: 400;
+}
+.visor-title dl:first-child {
+	padding-top: 10px;
+}
+.visor-title dl:last-child dt {
+	margin-bottom: 5px;
+}
+.user-rate {
+	font-size: 12px;
+}
+.recent-review {
+	padding-left: 5px;
+	margin-top: 5px;
+}
+.recent-review ul {
+	list-style: none;
+	padding-left: unset;
+}
+.recent-review ul li {
+	font-size: 11px;
+}
+.recent-review ul li:hover span {
+	color: #3059d1;
+}
+.review-link {
+	display: block;
+	height: 30px;
+}
+.review-link div {
+	float: left;
+	display: block;
+	font-size: 12px;
+}
+.review-link div:first-child {
+	padding-right: 20px;
+	border-right: 2px solid #d9dad0;
+}
+.review-link div:last-child {
+	padding-left: 15px;
+}
+.review-link div a {
+	text-decoration: underline;
+	color: rgba(18, 108, 8, 0.9);
+}
+.copy p {
+	margin: unset;
+}
+/*===========================================================================================================*/
+/*=========================================== Blog content page =============================================*/
+/*===========================================================================================================*/
+.blog-title h4 {
+	font-size: 22px;
+	margin-top: 20px;
+	margin-bottom: unset;
+}
+.blog-title .hr {
+	margin-top: unset;
+	border: 1px solid #27ae5d;
+}
+.mgt {
+	margin-top: 77px;
+}
+.share, .blog-end {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.share ul, .blog-end ul {
+	list-style: none;
+	padding-left: unset;
+}
+.share ul li {
+	float: left;
+	padding-right: 5px;
+}
+.share ul li a {
+	padding: 3px 5px;
+}
+.share ul li.google-plus a i {
+	color: rgb(187, 69, 69);
+}
+.share ul li.facebook a i {
+	color: rgb( 69, 106, 187 );
+}
+.share ul li.twister a i {
+	color: rgb( 75, 131, 250 );
+}
+.blog-end ul {
+	margin-top: 10px;
+}
+.blog-end ul li {
+	float: left;
+}
+.for-blog .hr {
+	margin-bottom: unset;
+}
+.blog-end ul {
+	margin-bottom: unset;
+}
+.blog-end ul li:first-child {
+	padding-right: 20px;
+}
+.blog-end ul li a {
+	color: rgb(6, 164, 18);
+}
+.blog-content img {
+	border: 1px solid rgb( 164, 123, 6 );
+	padding: 3px;
+	margin: auto;
+}
+.relate-blog {
+	border-radius: 2px;
+	background-color: #fff;
+    border: 1px solid #d9dad0;
+    margin-bottom: 15px;
+    padding: 15px;
+}
+.relate-blog .hr {
+	margin: 10px 0;
+}
+.box-relate .image {
+	position: relative;
+	overflow: hidden;
+}
+.box-relate .image .time {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	width: 100%;
+	padding: 3px 10px;
+}
+.box-relate .image a {
+	display: block;
+}
+.box-relate .image img {
+	width: 100%;
+	height: 150px;
+	display: block;
+}
+.box-relate .title h4 a {
+	text-transform: unset;
+	font-size: 17px;
+	color: rgb(13, 167, 3);
+}
+.overlay {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.overlay span {
+	font-size: 2em;
+	display: block;
+	color: #fff;
+	top: 40%;
+}
+.box-relate:hover .overlay {
+	height: 100%;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.paginate {
+	margin-bottom: 15px;
+	display: table;
+	width: 100%;
+}
+.paginate .next, .paginate .prev {
+	overflow: hidden;
+	display: block;
+}
+.prev a {
+	text-align: left;
+}
+.next a {
+	text-align: right;
+}
+.next a div {
+	text-align: left;
+	position: relative;
+}
+.next a div span {
+	position: absolute;
+	right: 0;
+	top: 20%;
+}
+.paginate a {
+	display: block;
+	overflow: hidden;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+div.tripvisor {
+	margin-bottom: 15px;
 }

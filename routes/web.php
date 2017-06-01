@@ -40,6 +40,7 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::get('/contact', 'TransferController@contact');
 	Route::post('/sendContact', 'TransferController@sendContact');
 	Route::get('/deal', 'TransferController@deal');
+	Route::get('/blog/{slug}', 'BlogController@content');
 });
 
 Route::group(['middleware' => ['auth']], function() {

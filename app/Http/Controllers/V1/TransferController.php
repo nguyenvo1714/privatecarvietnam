@@ -34,7 +34,7 @@ class TransferController extends Controller
      */
     public function index()
     {
-        $transfers = $this->transferRepo->top();
+        $transfers = $this->transferRepo->top(6);
         $perpage = 6;
         $total_pages = (int)ceil($this->transferRepo->totalHot() / $perpage);
         $dealTransfers = $this->transferRepo->deal();

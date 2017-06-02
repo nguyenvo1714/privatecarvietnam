@@ -154,7 +154,25 @@
 			</div>
 			<div class="row rowbox">
 				@foreach($transfers as $transfer)
-					<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInDown animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInDown;">
+					<div class="col-md-3 col-sm-6 col-xs-12">
+						<div class="boxinfo">
+							<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" class="thumb">
+								<div class="price">
+									from <span> {{ $transfer->cars[0]->price }}</span>
+								</div>
+								<div class="thumbpre">
+									{!! Html::image('/storage/' . $transfer->image_thumb, $transfer->title, ['class' => 'img-responsive']) !!}
+								</div>
+							</a>
+							<a class="title" href="{{ '/' . $transfer->type->slug . '/' . $transfer->slug }}">
+								{{ $transfer->title }}
+							</a>
+							<div class="desc">
+								{{ $transfer->description }}
+							</div>
+						</div>
+					</div>
+					<!-- <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInDown animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInDown;">
 						<div class="transfer-image">
 							<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">
 								{{ Html::image('/storage/' . $transfer->image_thumb) }}
@@ -166,7 +184,7 @@
 							</div>
 							<p>{{ $transfer->description }}</p>
 						</div>
-					</div>
+					</div> -->
 				@endforeach
 			</div>
 			<div class="col-sm-12">

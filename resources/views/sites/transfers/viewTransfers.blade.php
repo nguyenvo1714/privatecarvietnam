@@ -1,7 +1,7 @@
 @extends('sites.layout.submenu')
 @section('content')
 	<div class="wrapcontent">
-		<section class="container-fluid">
+		<section class="container">
 			<!-- <div class="container"> -->
 				<div class="row">
 					<div class="col-sm-12">
@@ -42,10 +42,10 @@
 				</div>
 			<!-- </div> -->
 		</section>
-		<section class="container-fluid">
+		<section class="container">
 			<div class="hr"></div>
 		</section>
-		<section class="container-fluid">
+		<section class="container">
 			<div class="row">
 				<div class="col-sm-9">
 					<h4 class="recommended">{{ str_replace('-', ' ', $name) }}</h4>

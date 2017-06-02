@@ -41,7 +41,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="container-fluid">
+		<section class="container">
 			<!-- <div class="container"> -->
 				<div class="row">
 					<div class="col-sm-12">
@@ -82,10 +82,10 @@
 				</div>
 			<!-- </div> -->
 		</section>
-		<section class="container-fluid">
+		<section class="container">
 			<div class="hr"></div>
 		</section>
-		<section class="container-fluid">
+		<section class="container">
 			<div class="row">
 				<div class="col-md-9">
 					<div class="row">

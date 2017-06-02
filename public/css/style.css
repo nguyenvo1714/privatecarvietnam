@@ -758,6 +758,32 @@ h1.tthome {
 .rowbox .inner {
 	height: 450px;
 }
+
+
+.boxinfo {
+	border: 1px solid #d9dad0;
+	margin-bottom: 15px;
+	height: 300px;
+}
+.boxinfo a {
+	display: block;
+	width: 100%;
+}
+.thumb {
+	position: relative;
+}
+.thumb .price {
+	position: absolute;
+	top: 20px;
+	color: #000;
+}
+.thumbpre img {
+	width: 100%;
+	height: 150px;
+}
+.boxinfo .title, .boxinfo .desc {
+	padding: 10px;
+}
 /*===========================================================================================================*/
 /*=========================================== Top Deals =====================================================*/
 /*===========================================================================================================*/

@@ -232,6 +232,9 @@ body.loading .modal {
 .mt20 {
 	margin-top: 20px;
 }
+.mt40 {
+	margin-top: 40px;
+}
 .pt {
 	padding-top: 15px;
 }
@@ -688,6 +691,25 @@ iframe {
 /*===========================================================================================================*/
 /*=========================================== Top Transfers =================================================*/
 /*===========================================================================================================*/
+.underline {
+	display: block;
+	width: 100%;
+	height: 40px;
+	background: url('../img/bottom-line.png') no-repeat center top;
+	margin-bottom: 10px;
+	position: relative;
+	z-index: 1;
+}
+.underline:before {
+	position: absolute;
+	top: 17px;
+	left: 0;
+	content: '';
+	width: 40%;
+}
+.relative h2 {
+	margin-top: unset;
+}
 .tthome {
 	font-size:2em;
 	margin-bottom: 10px;
@@ -700,20 +722,6 @@ iframe {
 	position: relative;
 	z-index: 1;
 }
-/*.tthome:before {
-	content: "";
-	display: block;
-	height: 1px;
-	position: absolute;
-	border-top: 2px solid white;
-	border-bottom: 1px solid #fff;
-	border-top:1px solid #f0f0f0;
-	top: 50%;
-	width: 100%;
-}
-.tthome:before {
-	left: 0;
-}*/
 h1.tthome {
 	margin-top:30px;
 }
@@ -721,42 +729,119 @@ h1.tthome {
 	position:relative;
 	background-color: #ecede8;
 }
-.transfer-content {
-	padding: 0 5px;
-	height: 100px;
-	overflow: hidden;
-}
-.transfer-title {
-	text-align: center;
-	border-bottom: 1px solid #000;
-}
-.transfer-title a {
-    color: #244677;
-    text-transform: capitalize;
-    font-size: 2em;
-    font-family: 'Roboto Slab', serif;
-    font-weight: 600;
-    padding: 0 20px;
-    text-align: center;
-}
-.transfer-content p {
-	font-size: 14px;
-	margin-top: 10px;
-}
-.transfer-image {
-	width: 100%;
-}
-.transfer-image a {
-	display: block;
-}
-.transfer-image img {
-	width: 100%;
-	height: 220px;
-	display: block;
-	margin: auto;
-}
 .rowbox .inner {
 	height: 450px;
+}
+
+
+.boxinfo {
+	border: 1px solid #d9dad0;
+	margin-bottom: 15px;
+	height: 300px;
+}
+.boxinfo a {
+	display: block;
+	width: 100%;
+}
+.thumb {
+	position: relative;
+}
+.thumb .price {
+	position: absolute;
+	top: 20px;
+	left: -7px;
+	color: #000;
+	background-color: #fc0!important;
+	box-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+    color: #2c2c2c;
+    line-height: 21px;
+    padding: 5px 8px;
+    z-index: 1;
+}
+.thumb .price:before {
+    border-color: #875f13 transparent;
+    border-style: solid;
+    border-width: 7px 0 0 7px;
+    content: '';
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    width: 0;
+}
+.thumb .price:after {
+	border-color: #fec52e transparent transparent #fec52e;
+    border-style: solid;
+    border-width: 31px 10px 0 0;
+    content: '';
+    font-size: 14px;
+    font-weight: bold;
+    height: 0;
+    position: absolute;
+    right: -10px;
+    top: 0;
+    width: 0;
+}
+.thumb .price span {
+	font-size: 18px
+}
+.thumbpre img {
+	width: 100%;
+	height: 150px;
+}
+.desc-container {
+	padding: 10px;
+	background-color: #fff;
+	height: 50%;
+}
+a.title {
+	color: #069!important;
+	display: block;
+    font-size: 17px;
+    font-weight: bold;
+    overflow: hidden;
+}
+.boxinfo .desc {
+	padding-top: unset;
+	padding-bottom: unset;
+	overflow: hidden;
+	font-size: 13px;
+}
+.boxinfo:hover {
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.boxinfo.transfer:hover {
+	box-shadow: unset;
+}
+.boxinfo.transfer:hover .overlay {
+	box-shadow: unset;
+	height: 100%;
+}
+.overlay .hover-content {
+	display: block;
+	font-size: 1em;
+	color: #fff;
+	margin-top: 20%;
+}
+.overlay .hover-content i {
+	display: block;
+	font-size: 2em;
+	margin-bottom: 10px;
+}
+.boxinfo .overlay {
+	/*position: absolute;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;*/
 }
 /*===========================================================================================================*/
 /*=========================================== Top Deals =====================================================*/
@@ -868,7 +953,6 @@ h1.tthome {
 .btnbookdeal:hover {
 	background: rgba(255,255,255,0.3);
 }
-/*.imgdeal .activitybanners,*/
 .pricedeal span.price {
 	color:#fff;
 	font-size:2.5em;
@@ -1011,6 +1095,34 @@ h1.tthome {
 /*===========================================================================================================*/
 /*=========================================== Private Transfer ==============================================*/
 /*===========================================================================================================*/
+.box-relate .title {
+	margin-bottom: 15px;
+}
+.box-relate .title-cont {
+	border: 1px solid rgb(170, 183, 184);
+	padding: 10px;
+	background-color: #fff;
+}
+.box-relate .title-cont h4 {
+	margin-top: unset;
+}
+.title .trait a:first-child {
+	text-transform: capitalize;
+	font-weight: 400;
+	color: #3097d1;
+}
+.title .trait a:last-child {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    background: #2ecc71;
+    color: #fff !important;
+    font-weight: 600;
+    line-height: 34px;
+    text-align: center;
+    margin-top: -10px;
+}
 .search-container {
 	padding-top: 50px;
 }
@@ -1041,7 +1153,7 @@ h1.tthome {
 .img img {
 	display: block;
 	width: 100%;
-	height: 190px;
+	height: 150px;
 }
 .img span.fix {
 	position: absolute;
@@ -1077,7 +1189,7 @@ h1.tthome {
 	text-align: center;
 }
 .starline-container {
-	width: 98%;
+	width: 100%;
 	margin: auto;
 	position: relative;
 }
@@ -1253,8 +1365,9 @@ h1.tthome {
 /*=========================================== Detail Page  ==================================================*/
 /*===========================================================================================================*/
 .transfer-header {
-	border-bottom: 1px dotted #999;
+	/*border-bottom: 1px dotted #999;*/
 	padding-bottom: 15px;
+	width: 100%;
 }
 .transfer-header img {
 	padding-top: 15px;
@@ -1268,8 +1381,7 @@ h1.tthome {
 .transfer-header .unset-height {
 	height: unset;
 	margin-bottom: unset;
-	/*padding: unset;*/
-	color: #999;
+	color: #636b6f;
 }
 .from-to {
 	font-family: 'Montserrat', sans-serif;
@@ -1309,7 +1421,7 @@ h1.tthome {
 	color: #fff;
 	padding: 5px 15px;
 	background: rgba(5, 147, 10, .9);
-	font-size: 1.3em;
+	font-size: 1.1em;
 	border-radius: 3px;
 	box-shadow: inset 0px 2px 0px 0px rgb(77, 233, 82);
 	border: 1px solid rgb(20, 129, 24);
@@ -1321,10 +1433,9 @@ h1.tthome {
 	border:1px solid #E68E00;
 }
 .transfer-blog {
-	margin-top: 15px;
 	padding-bottom: 15px;
 	background-color: #fff;
-	border-radius: 5px;
+	border-radius: 3px;
 	border: 1px solid rgb(184, 185, 185);
 }
 .transfer-blog p {
@@ -1342,14 +1453,25 @@ h1.tthome {
 .rate {
 	margin-top: 25px;
 }
-.interested {
+.interested h4 {
 	text-align: left;
-	font-size: 1.7em;
+	font-size: 1.5em;
 }
 .transfer-blog h3 + img {
 	display: block;
 	width: 100%;
 	/*height: 400px;*/
+}
+.price-box {
+	width: 100%;
+	background-color: #fff;
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border: 1px solid rgb(184, 185, 185);
+	border-radius: 3px;
+}
+.transfer-blog .share {
+	margin-top: 10px;
 }
 /*===========================================================================================================*/
 /*=========================================== Booking Page ==================================================*/
@@ -1837,7 +1959,7 @@ dt.small {
 }
 .box-relate .image img {
 	width: 100%;
-	height: 150px;
+	height: 170px;
 	display: block;
 }
 .box-relate .title h4 a {
@@ -1860,7 +1982,7 @@ dt.small {
 	-o-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
 }
-.overlay span {
+.overlay .b-relate {
 	font-size: 2em;
 	display: block;
 	color: #fff;

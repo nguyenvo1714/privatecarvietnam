@@ -41,10 +41,10 @@
 				</div>
 			</div>
 		</section>
-		<section class="container">
+		<!-- <section class="container">
 			<div class="hr"></div>
-		</section>
-		<section class="container">
+		</section> -->
+		<section class="container mt40">
 			<div class="row">
 				<div class="col-md-9">
 					<div class="row">

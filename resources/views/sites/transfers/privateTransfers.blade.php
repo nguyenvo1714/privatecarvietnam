@@ -41,7 +41,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="container-fluid">
+		<section class="container">
 			<!-- <div class="container"> -->
 				<div class="row">
 					<div class="col-sm-12">
@@ -51,7 +51,35 @@
 						</div>
 					</div>
 					@foreach($interestTransfers as $interestTransfer)
-						<div class="col-sm-6 col-md-3 col-xs-12">
+						<div class="col-md-3 box-relate">
+							<div class="image">
+								<a href="{{ url('/' . $interestTransfer->type->slug . '/' . $interestTransfer->slug) }}">
+									{{ Html::image('/storage/' . $interestTransfer->image_thumb, $interestTransfer->title, ['class' => 'image-wrap img-responsive', 'title' => $interestTransfer->title]) }}
+								</a>
+								<div class="time">
+									<i class="fa fa-clock-o"></i> {{ $interestTransfer->duration }}
+								</div>
+								<a href="{{ url('/' . $interestTransfer->type->slug . '/' . $interestTransfer->slug) }}">
+									<div class="overlay">
+										<span class="glyphicon glyphicon-play-circle b-relate"></span>
+									</div>
+								</a>
+							</div>
+							<div class="title title-cont">
+								<h4>
+									<a href="{{ url('/' . $interestTransfer->type->slug . '/' . $interestTransfer->slug) }}" >
+										{{ $interestTransfer->title }}
+									</a>
+								</h4>
+								<div class="trait">
+									<a href="{{ url('/' . $interestTransfer->type->slug) }}">
+										<i class="fa fa-tags"></i> {{ $interestTransfer->type->name }}
+									</a>
+									<a href="{{ url('/' . $interestTransfer->type->slug . '/' . $interestTransfer->slug) }}" class="pull-right">Go</a>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="col-sm-6 col-md-3 col-xs-12">
 							<div class="inner mb">
 			                    <a class="img" href="{{ url('/' . $interestTransfer->type->slug . '/' . $interestTransfer->slug) }}">
 									<div class="badge-price" style='display:none'>
@@ -77,15 +105,15 @@
 								</div>
 								<a class="more" href="{{ url('/private-transfer/package/' . $interestTransfer->slug) }}"><span class="glyphicon glyphicon-menu-right"></span></a>
 							</div>
-						</div>
+						</div> -->
 					@endforeach
 				</div>
 			<!-- </div> -->
 		</section>
-		<section class="container-fluid">
+		<section class="container">
 			<div class="hr"></div>
 		</section>
-		<section class="container-fluid">
+		<section class="container">
 			<div class="row">
 				<div class="col-md-9">
 					<div class="row">
@@ -198,7 +226,6 @@
 											'</p>' +
 											'<div class="hr"></div>' +
 											'<div class="text-primary">' +
-												'<i class="fa fa-bus"></i> Free shuttle round trip &nbsp;&nbsp;' +
 												'<i class="fa fa-wifi"></i> Free wifi &nbsp;&nbsp;' + 
 												'<i class="fa fa-comments-o"></i> English speaking guide' +
 											'</div>' +

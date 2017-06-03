@@ -95,38 +95,35 @@
 				</div>
 			</div>
 		</section>
-		<section class="container relative">
+		<section class="container relative mt20">
 			<h2 class="tthome"><span>Top Transfers</span></h2>
-			<div class="starline-container">
+			<div class="underline"></div>
+			<!-- <div class="starline-container">
 				<h4 class="starline"><span class="glyphicon glyphicon-star"></span></h4>
-			</div>
+			</div> -->
 			<div class="row rowbox">
 				@foreach($transfers as $transfer)
-					<div class="col-sm-6 col-md-4 col-xs-12 wow fadeInUp animated" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp;">
-						<div class="inner mb">
-							<a class="img" href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">
-								<div class="badge-price" style='display:none'>
-									<div class="size1">Da</div>
-									<div class="size2">US$ 0</div>
-									<div class="size3">/Pers</div>
+					<div class="col-md-3 col-sm-6 col-xs-12">
+						<div class="boxinfo transfer wow fadeInDown animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInDown;">
+							<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" class="thumb">
+								<div class="overlay">
+									<div class="hover-content">
+										<i class="fa fa-search-plus"></i>
+										<span class="glyphicon glyphicon-time"></span> ~ {{ $transfer->duration }}
+									</div>
 								</div>
-								{{ Html::image('/storage/' . $transfer->image_thumb, $transfer->title, ['class' => 'image-wrap img-responsive', 'title' => $transfer->title]) }}
-								<span class="fix">
-									<em>
-										<font class="color-two"><span ><i class="fa fa-clock-o"></i></span></font> {{ $transfer->duration }}
-									</em>
-								</span>
+								<div class="thumbpre">
+									{!! Html::image('/storage/' . $transfer->image_thumb, $transfer->title, ['class' => 'img-responsive']) !!}
+								</div>
 							</a>
-							<div class="decreption-three">
-								<div class="title">
-									<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">{{ $transfer->title }}</a>
+							<div class="desc-container">
+								<a class="title" href="{{ '/' . $transfer->type->slug . '/' . $transfer->slug }}">
+									{{ $transfer->title }}
+								</a>
+								<div class="desc">
+									{{ $transfer->description }}
 								</div>
-								<div class="clear"></div>
-								<p>
-									<p style="text-align: justify;">{{ $transfer->description }} &nbsp;</p>
-								</p>
 							</div>
-							<a class="more" href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}"><span class="glyphicon glyphicon-menu-right"></span></a>
 						</div>
 					</div>
 				@endforeach
@@ -139,7 +136,6 @@
 					</button>
 					<div class="animation_image" style="display:none;">
 						{!! Html::image('img/loading') !!}
-						<!-- <img src="img/loading.gif"> -->
 					</div>
 				</div>
 			</div>
@@ -149,42 +145,28 @@
 		</section>
 		<section class="container relative">
 			<h2 class="tthome"><span>Top Tours</span></h2>
-			<div class="starline-container">
-				<h4 class="starline"><span class="glyphicon glyphicon-star"></span></h4>
-			</div>
+			<div class="underline"></div>
 			<div class="row rowbox">
 				@foreach($transfers as $transfer)
 					<div class="col-md-3 col-sm-6 col-xs-12">
-						<div class="boxinfo">
+						<div class="boxinfo wow fadeInDown animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInDown;">
 							<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" class="thumb">
-								<div class="price">
-									from <span> {{ $transfer->cars[0]->price }}</span>
+								<div class="price">from <span class="autoResize">{{ '&#8363;' . number_format($transfer->cars[0]->price) }}</span>
 								</div>
 								<div class="thumbpre">
 									{!! Html::image('/storage/' . $transfer->image_thumb, $transfer->title, ['class' => 'img-responsive']) !!}
 								</div>
 							</a>
-							<a class="title" href="{{ '/' . $transfer->type->slug . '/' . $transfer->slug }}">
-								{{ $transfer->title }}
-							</a>
-							<div class="desc">
-								{{ $transfer->description }}
+							<div class="desc-container">
+								<a class="title" href="{{ '/' . $transfer->type->slug . '/' . $transfer->slug }}">
+									{{ $transfer->title }}
+								</a>
+								<div class="desc">
+									{{ $transfer->description }}
+								</div>
 							</div>
 						</div>
 					</div>
-					<!-- <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInDown animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInDown;">
-						<div class="transfer-image">
-							<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">
-								{{ Html::image('/storage/' . $transfer->image_thumb) }}
-							</a>
-						</div>
-						<div class="transfer-content">
-							<div class="transfer-title">
-								<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}">{{ $transfer->title }}</a>
-							</div>
-							<p>{{ $transfer->description }}</p>
-						</div>
-					</div> -->
 				@endforeach
 			</div>
 			<div class="col-sm-12">
@@ -233,9 +215,9 @@
 								<p class="hidden-xs hidden-sm text-justify">
 									{{ $dealTransfer->description }}&#8230;
 								</p>
-							<p>From <i class="pricesaleoff">{{ number_format($dealTransfer->cars[0]->price) }}VNĐ</i></p>
+							<p>From <i class="pricesaleoff">{{ '&#8363;' . number_format($dealTransfer->cars[0]->price) }}</i></p>
 							<p class="pricedeal">
-								<span class="price">{{ number_format($dealTransfer->cars[0]->price - ($dealTransfer->cars[0]->price * (int)$dealTransfer->discount_value) / 100) }}VNĐ</span>
+								<span class="price">{{ '&#8363;' . number_format($dealTransfer->cars[0]->price - ($dealTransfer->cars[0]->price * (int)$dealTransfer->discount_value) / 100) }}</span>
 								<span class='badge badge-warning'>-{{ $dealTransfer->discount_value }}</span>
 							</p>
 							<div class="countdowntopdeal" id="VDT760835"></div><!-- end countdowntopdeal -->
@@ -320,32 +302,28 @@
 						var results = '';
 						$.each(response.data, function (key, obj){
 							results +=
-							'<div class="col-sm-6 col-md-4 col-xs-12 wow fadeInUp animated" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp;">' +
-								'<div class="inner mb">' +
-									'<a class="img" href="' +baseUrl + '/' + obj.type.slug + '/' + obj.slug + '">' +
-										'<div class="badge-price" style="display:none">' +
-											'<div class="size1">Da</div>' +
-											'<div class="size2">US$ 0</div>' +
-											'<div class="size3">/Pers</div>' +
+							'<div class="col-sm-6 col-md-3 col-xs-12">' +
+								'<div class="boxinfo transfer wow fadeInDown animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInDown;">' +
+									'<a href="' + baseUrl + '/' + obj.type.slug + '/' + obj.slug + '" class="thumb">' +
+										'<div class="overlay">' +
+											'<div class="hover-content">' +
+												'<i class="fa fa-search-plus"></i>' +
+												'<span class="glyphicon glyphicon-time"></span>' + obj.duration + 
+											'</div>' +
 										'</div>' +
-										'{{ Html::image("/storage/' + obj.image_thumb + '", "' + obj.title + '", ["class" => "image-wrap img-responsive", "title" => "' + obj.title '"]) }}' +
-										'<span class="fix">' +
-											'<em>' +
-												'<font class="color-two"><span ><i class="fa fa-clock-o"></i></span></font> {{ $transfer->duration }}' +
-											'</em>' +
-										'</span>' +
+										'<div class="thumbpre">' +
+											'{!! Html::image("/storage/' + obj.image_thumb + '", "' + obj.title + '", ["class" => "img-responsive"]) !!}' +
+										'</div>' +
 									'</a>' +
-								'</div>' +
-								'<div class="decreption-three">' +
-									'<div class="title">' +
-										'<a href="' + baseUrl + '/' + obj.type.slug + '/' + obj.slug + '">' + obj.title + '</a>' +
+									'<div class="desc-container">' +
+										'<a class="title" href="' + baseUrl + '/' + obj.type.slug + '/' + obj.slug + '">' +
+											obj.title +
+										'</a>' +
+										'<div class="desc">' +
+											obj.description +
+										'</div>' +
 									'</div>' +
-									'<div class="clear"></div>' +
-									'<p>' +
-										'<p style="text-align: justify;">' + obj.description + '&nbsp;</p>' +
-									'</p>' +
 								'</div>' +
-								'<a class="more" href="' + baseUrl + '/' + obj.type.slug + '/' + obj.slug + '"><span class="glyphicon glyphicon-menu-right"></span></a>' +
 							'</div>';
 						});
 						$(".load_more").show();

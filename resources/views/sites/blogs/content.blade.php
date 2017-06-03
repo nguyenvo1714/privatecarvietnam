@@ -97,7 +97,7 @@
 												</div>
 												<a href="{{ url('/blog/' . $relate->slug) }}">
 													<div class="overlay">
-														<span class="glyphicon glyphicon-play-circle"></span>
+														<span class="glyphicon glyphicon-play-circle b-relate"></span>
 													</div>
 												</a>
 											</div>

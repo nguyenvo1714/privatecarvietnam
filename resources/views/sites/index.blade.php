@@ -135,7 +135,7 @@
 						<i class='fa fa-spinner'></i> Show more transfers
 					</button>
 					<div class="animation_image" style="display:none;">
-						{!! Html::image('img/loading') !!}
+						{!! Html::image('img/loading.gif') !!}
 					</div>
 				</div>
 			</div>
@@ -180,90 +180,92 @@
 				</div>
 			</div>
 		</section>
-		<section class="topdeal">
-			<div class="titledeal text-center">
-				<div class="container">
-					<h3>Today's Top Deals</h3>
-					<p>Hurry up! {{ $dealTransfers->count() }} transfers & tours with hot deals
-						<a href="{{ url('/deal') }}" class="go">Go</a>
-					</p>
+		@if($dealTransfers->count() > 0)
+			<section class="topdeal">
+				<div class="titledeal text-center">
+					<div class="container">
+						<h3>Today's Top Deals</h3>
+						<p>Hurry up! {{ $dealTransfers->count() }} transfers & tours with hot deals
+							<a href="{{ url('/deal') }}" class="go">Go</a>
+						</p>
+					</div>
 				</div>
-			</div>
-			<div id="slidedealtour" class="owl-carousel owl-theme wow slideInLeft animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: slideInLeft;">
-				@foreach($dealTransfers as $dealTransfer)
-					<div class="cttopdeal item">
-						{!! Html::image('/storage/' . $dealTransfer->image_thumb, $dealTransfer->title, ['class' => 'img-bgtour']) !!}
-						<div class="overlay-darken"></div>
-						<div class="container">
-						<div class="col-sm-6 col-lg-5 hidden-xs">
-							<div class="imgdeal">
-								<div class="activitybanners">
-									<p class="acbestseller acbanner">
-										<span class="facircle"><i class="fa fa-star"></i></span> Best seller
+				<div id="slidedealtour" class="owl-carousel owl-theme wow slideInLeft animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: slideInLeft;">
+					@foreach($dealTransfers as $dealTransfer)
+						<div class="cttopdeal item">
+							{!! Html::image('/storage/' . $dealTransfer->image_thumb, $dealTransfer->title, ['class' => 'img-bgtour']) !!}
+							<div class="overlay-darken"></div>
+							<div class="container">
+							<div class="col-sm-6 col-lg-5 hidden-xs">
+								<div class="imgdeal">
+									<div class="activitybanners">
+										<p class="acbestseller acbanner">
+											<span class="facircle"><i class="fa fa-star"></i></span> Best seller
+										</p>
+										<p class="acdeal acbanner">
+											<span class="facircle">
+												<i class="fa fa-credit-card" style="font-size:1em"></i>
+											</span> Save {{ $dealTransfer->discount_value }}
+										</p>
+									</div>
+									{!! Html::image('/storage/' . $dealTransfer->image_thumb, $dealTransfer->title, ['class' => 'img-responsive']) !!}
+								</div>
+							</div><!-- end slide tour -->
+							<div class="col-sm-6 col-lg-7">
+									<h2>{{ $dealTransfer->title }}</h2>
+									<p class="hidden-xs hidden-sm text-justify">
+										{{ $dealTransfer->description }}&#8230;
 									</p>
-									<p class="acdeal acbanner">
+								<p>From <i class="pricesaleoff">{{ '&#8363;' . number_format($dealTransfer->cars[0]->price) }}</i></p>
+								<p class="pricedeal">
+									<span class="price">{{ '&#8363;' . number_format($dealTransfer->cars[0]->price - ($dealTransfer->cars[0]->price * (int)$dealTransfer->discount_value) / 100) }}</span>
+									<span class='badge badge-warning'>-{{ $dealTransfer->discount_value }}</span>
+								</p>
+								<div class="countdowntopdeal" id="VDT760835"></div><!-- end countdowntopdeal -->
+								<a href="{{ url('/' . $dealTransfer->type->slug . '/' . $dealTransfer->slug) }}" class="btn btnbookdeal">
+									Book Now!
+								</a>
+							</div><!-- end col -->
+							</div><!-- end container -->
+						</div><!-- end cttopdeal -->
+					@endforeach
+					<!-- <div class="cttopdeal item">
+						<div class="img-bgtour"  style="background-image:url('/uploads/Trang-An-Eco-2.jpg'); width: 100%;"></div>
+						<div class="overlay-darken"></div>  
+						<div class="container">
+							<div class="col-sm-6 col-lg-5 hidden-xs">
+								<div class="imgdeal">
+									<div class="activitybanners">
+										<p class="acdeal acbanner">
 										<span class="facircle">
 											<i class="fa fa-credit-card" style="font-size:1em"></i>
-										</span> Save {{ $dealTransfer->discount_value }}
+										</span> Save 15%
 									</p>
+									</div>
+									<img class="img-responsive" src="/uploads/Trang-An-Eco-2-750x520.jpg">
 								</div>
-								{!! Html::image('/storage/' . $dealTransfer->image_thumb, $dealTransfer->title, ['class' => 'img-responsive']) !!}
 							</div>
-						</div><!-- end slide tour -->
-						<div class="col-sm-6 col-lg-7">
-								<h2>{{ $dealTransfer->title }}</h2>
+							<div class="col-sm-6 col-lg-7">
+								<h2>Trang An Ecotourism Complex - Bai Dinh Pagoda Full Day</h2>
 								<p class="hidden-xs hidden-sm text-justify">
-									{{ $dealTransfer->description }}&#8230;
+									This excursion takes you to the Trang An Tourism Complex which is included in the world heritage list by the UNESCO’s World Heritage Committee and Bai Dinh Complex – one of the biggest Buddhism Center of Southeast Asia. You will discover the marvellous architecture of Bai Dinh and also explore&#8230;
 								</p>
-							<p>From <i class="pricesaleoff">{{ '&#8363;' . number_format($dealTransfer->cars[0]->price) }}</i></p>
-							<p class="pricedeal">
-								<span class="price">{{ '&#8363;' . number_format($dealTransfer->cars[0]->price - ($dealTransfer->cars[0]->price * (int)$dealTransfer->discount_value) / 100) }}</span>
-								<span class='badge badge-warning'>-{{ $dealTransfer->discount_value }}</span>
-							</p>
-							<div class="countdowntopdeal" id="VDT760835"></div><!-- end countdowntopdeal -->
-							<a href="{{ url('/' . $dealTransfer->type->slug . '/' . $dealTransfer->slug) }}" class="btn btnbookdeal">
-								Book Now!
-							</a>
-						</div><!-- end col -->
-						</div><!-- end container -->
-					</div><!-- end cttopdeal -->
-				@endforeach
-				<!-- <div class="cttopdeal item">
-					<div class="img-bgtour"  style="background-image:url('/uploads/Trang-An-Eco-2.jpg'); width: 100%;"></div>
-					<div class="overlay-darken"></div>  
-					<div class="container">
-						<div class="col-sm-6 col-lg-5 hidden-xs">
-							<div class="imgdeal">
-								<div class="activitybanners">
-									<p class="acdeal acbanner">
-									<span class="facircle">
-										<i class="fa fa-credit-card" style="font-size:1em"></i>
-									</span> Save 15%
+								<p>From <i class="pricesaleoff">US$46.00</i></p>
+								<p class="pricedeal">
+									<i class="fa fa-dollar"></i>
+									<span class="price">39.10</span>
+									<span class='badge badge-warning'>-15%</span>
 								</p>
-								</div>
-								<img class="img-responsive" src="/uploads/Trang-An-Eco-2-750x520.jpg">
+								<div class="countdowntopdeal" id="VDT498318"></div>
+								<a href="https://goasiadaytrip.com/tour/trang-an-bai-dinh-pagoda-tour.html" class="btn btnbookdeal">
+									Book Now!
+								</a>
 							</div>
 						</div>
-						<div class="col-sm-6 col-lg-7">
-							<h2>Trang An Ecotourism Complex - Bai Dinh Pagoda Full Day</h2>
-							<p class="hidden-xs hidden-sm text-justify">
-								This excursion takes you to the Trang An Tourism Complex which is included in the world heritage list by the UNESCO’s World Heritage Committee and Bai Dinh Complex – one of the biggest Buddhism Center of Southeast Asia. You will discover the marvellous architecture of Bai Dinh and also explore&#8230;
-							</p>
-							<p>From <i class="pricesaleoff">US$46.00</i></p>
-							<p class="pricedeal">
-								<i class="fa fa-dollar"></i>
-								<span class="price">39.10</span>
-								<span class='badge badge-warning'>-15%</span>
-							</p>
-							<div class="countdowntopdeal" id="VDT498318"></div>
-							<a href="https://goasiadaytrip.com/tour/trang-an-bai-dinh-pagoda-tour.html" class="btn btnbookdeal">
-								Book Now!
-							</a>
-						</div>
-					</div>
-				</div> --><!-- end cttopdeal -->
-			</div><!-- end #slidedealtour -->
-		</section>
+					</div> --><!-- end cttopdeal -->
+				</div><!-- end #slidedealtour -->
+			</section>
+		@endif
 	</div>
 	<script type="text/javascript">
 		$(".owl-carousel").owlCarousel({
@@ -289,7 +291,7 @@
 		    var track_click = 1;
 		    var total_pages = {{ $total_pages }};
 		    var perpage = {{ $perpage }};
-		    var is_hot = {{ $transfer->is_hot }};
+		    var is_hot = {{ ! empty($transfer) ? $transfer->is_hot : '' }};
 		    host = baseUrl + '/top-load-more';
 			if (track_click > total_pages-1) {
 				$(".load_more").addClass("hidden");

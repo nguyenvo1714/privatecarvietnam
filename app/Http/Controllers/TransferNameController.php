@@ -109,6 +109,7 @@ class TransferNameController extends Controller
      */
     public function destroy($id)
     {
+        TransferName::find($id)->transfers->delete();
         TransferName::destroy($id);
         return redirect('/transferNames');
     }

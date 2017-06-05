@@ -92,6 +92,7 @@ class TypeController extends Controller
      */
     public function destroy($id)
     {
+        Type::find($id)->delete();
         Type::destroy($id);
         return redirect('/types');
     }

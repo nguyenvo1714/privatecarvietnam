@@ -63,7 +63,11 @@
 									</div>
 								@endif
 								@if( ! empty($next))
-									<div class="next col-md-offset-4 col-md-4 col-sm-12">
+									@if(! empty($prev))
+										<div class="next col-md-offset-4 col-md-4 col-sm-12">
+									@else
+										<div class="next col-md-offset-8 col-md-4 col-sm-12">
+									@endif
 										<div class="row">
 											<a href="{{ url('/blog/' . $next->slug) }}" class="btn btn-default">
 												<div class="text-left"> Next blog:

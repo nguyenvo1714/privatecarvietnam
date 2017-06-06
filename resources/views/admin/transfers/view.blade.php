@@ -11,7 +11,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>{{ $transfer->transferName->name }}</h2>
+                    <h2>{{ $transfer->transfer_name->name }}</h2>
                     <div class="clearfix"></div>
                 </div>
                 <table class="table">
@@ -26,7 +26,7 @@
                         </tr>
                         <tr>
                             <td>Transfer name</td>
-                            <td>{{ $transfer->transferName->name }}</td>
+                            <td>{{ $transfer->transfer_name->name }}</td>
                         </tr>
                         <tr>
                             <td>To</td>
@@ -49,7 +49,7 @@
                             <td>{{ $transfer->duration }}</td>
                         </tr>
                         <tr>
-                            <td colspan="2"><h3>{{ $transfer->blog->title }}</h3><br>{!! $transfer->blog->content !!}<span class="pull-right">Author: {{ $transfer->blog->author }}</span></td>
+                            <td colspan="2">{!! $transfer->blog !!}</td>
                         </tr>
                         <tr>
                             <td>Created at</td>

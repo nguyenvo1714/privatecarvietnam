@@ -170,7 +170,7 @@
                                             <input type="text" name="fleet[]" id="fleet" class="form-control" required="required">
                                         </td>
                                         <td>
-                                            <input id="input-2" name="present[]" type="file" class="file" multiple data-show-upload="false" data-show-caption="true" required>
+                                            <input id="input-2" name="present[]" type="file" class="form-control" required>
                                         </td>
                                         <td>
                                             <input type="text" name="capability[]" id="capability" class="form-control" required="required">

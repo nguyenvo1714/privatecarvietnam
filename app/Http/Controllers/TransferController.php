@@ -103,9 +103,11 @@ class TransferController extends Controller
         $count = sizeof($request->fleet);
         for($i = 0; $i < $count; $i++)
         {
+            $present[$i] = str_replace('public/', '', $request->file('present')[$i]->store('/public'));
             $transfer->cars()->save(
                 new Car([
                     'fleet'      => $request->fleet[$i], 
+                    'present'    => $present[$i],
                     'capability' => $request->capability[$i],
                     'class'      => $request->class[$i],
                     'price'      => $request->price[$i],
@@ -198,7 +200,7 @@ class TransferController extends Controller
         $new = $total - $old;
         for($i = 0; $i < $old; $i++)
         {
-            $transfer->cars()->where('cars.id', $request->id[$i])->update([ 
+            $transfer->cars()->where('cars.id', $request->id[$i])->update([
                 'fleet'      => $request->fleet[$i],
                 'capability' => $request->capability[$i],
                 'class'      => $request->class[$i],
@@ -207,14 +209,22 @@ class TransferController extends Controller
                 'driver_id'  => $request->driver_id[$i],
                 'is_active'  => $request->is_active[$i],
             ]);
+            if(! empty($request->present[$i])) {
+                $present[$i] = str_replace('public/', '', $request->file('present')[$i]->store('/public'));
+                $transfer->cars()->where('cars.id', $request->id[$i])->update([
+                    'present'    => $present[$i]
+                ]);
+            }
         }
         if($new > 0) {
 
             for($j = 0; $j < $new; $j ++)
             {
+                $present[$i] = str_replace('public/', '', $request->file('present')[$i]->store('/public'));
                 $transfer->cars()->save(
                     new Car([
-                        'fleet'      => $request->fleet[$i], 
+                        'fleet'      => $request->fleet[$i],
+                        'present'    => $present[$i],
                         'capability' => $request->capability[$i],
                         'class'      => $request->class[$i],
                         'price'      => $request->price[$i],

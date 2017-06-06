@@ -10,6 +10,7 @@ class Car extends Model
     protected $fillable = [
     	'driver_id',
     	'fleet',
+        'present',
     	'capability',
     	'price',
     	'class',

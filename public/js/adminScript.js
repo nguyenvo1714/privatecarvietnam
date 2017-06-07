@@ -106,17 +106,18 @@ $(function() {
 	});
 
 	/* Call view transfer */ 
-	$('.call-view-transfer').click(function() {
-		var id = $(this).attr('id');
-		$.ajax ({
-			method: 'GET',
-			url: '/transfer/' + id,
-			success: function(result) {
-				$('.modal-title').html($(result).find('.x_title')) &&
-				$('.modal-body').html($(result).find('.table'));
-			}
-		});
-	});
+	// $('.call-view-transfer').click(function() {
+	// 	var id = $(this).attr('id');
+	// 	$.ajax ({
+	// 		method: 'GET',
+	// 		url: '/transfer/' + id,
+	// 		success: function(result) {
+	// 			console.log(result);
+	// 			$('.modal-title').html($(result).find('.x_title')) &&
+	// 			$('.modal-body').html($(result).find('.table'));
+	// 		}
+	// 	});
+	// });
 
 	/* Call view driver */ 
 	$('.call-view-driver').click(function() {
@@ -164,7 +165,7 @@ $(function() {
 			if(key == 'id') {
 				option += '<option value=' + value + '>';
 			}
-			if(key == 'fullName') {
+			if(key == 'full_name') {
 				option += value + '</option>';
 			}
 		});
@@ -176,6 +177,9 @@ $(function() {
 			'<tr>' +
                 '<td>' +
                     '<input type="text" name="fleet[]" id="fleet" class="form-control" required="required">' +
+                '</td>' +
+                '<td>' +
+                    '<input id="input-2" name="present[]" type="file" class="form-control">' +
                 '</td>' +
                 '<td>' +
                     '<input type="text" name="capability[]" id="capability" class="form-control" required="required">' +

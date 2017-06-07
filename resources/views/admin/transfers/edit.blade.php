@@ -159,6 +159,7 @@
                                 <thead>
                                     <tr>
                                         <th>Car fleet</th>
+                                        <th>Image</th>
                                         <th>Capability</th>
                                         <th>Class</th>
                                         <th>Price</th>
@@ -174,6 +175,11 @@
                                         <input id="id" name="id[]" class="form-control col-md-10 col-xs-12" type="hidden" value="{{ $car->id }}">
                                         <td>
                                             <input type="text" name="fleet[]" id="fleet" class="form-control" required="required" value="{{ $car->fleet }}">
+                                        </td>
+                                        <td>
+                                            {{ Html::image('/storage/' . $car->present, 'present image', ['class' => 'transfer-image']) }}
+                                            <br>&nbsp;
+                                            <input type="file" name="present[]" id="present" class="form-control" multiple data-show-upload="false" data-show-caption="true">
                                         </td>
                                         <td>
                                             <input type="text" name="capability[]" id="capability" class="form-control" required="required" value="{{ $car->capability }}">

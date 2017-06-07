@@ -32,9 +32,9 @@
     animation: imageAnimation 36s linear infinite 0s;
 }
 
-.slideshow li:nth-child(1) span { background-image: url(../uploads/boracay-island-philippines.jpg) }
+.slideshow li:nth-child(1) span { background-image: url(../uploads/ha-long-bay.jpg) }
 .slideshow li:nth-child(2) span {
-    background-image: url(../uploads/shwedagon-pagoda-myanmar.jpg);
+    background-image: url(../uploads/Ha-Noi.jpg);
     -webkit-animation-delay: 6s;
     -moz-animation-delay: 6s;
     -o-animation-delay: 6s;
@@ -42,7 +42,7 @@
     animation-delay: 6s;
 }
 .slideshow li:nth-child(3) span {
-    background-image: url(../uploads/son-doong-cave-vietnam.jpg);
+    background-image: url(../uploads/son-doong-cave.jpg);
     -webkit-animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
@@ -51,7 +51,7 @@
 }
 
 .slideshow li:nth-child(4) span {
-    background-image: url(../uploads/marina-bay-sands.png);
+    background-image: url(../uploads/Mekong-Delta.jpg);
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
     -o-animation-delay: 18s;
@@ -59,7 +59,7 @@
     animation-delay: 18s;
 }
 .slideshow li:nth-child(5) span {
-    background-image: url(../uploads/angkor-wat-cambodia.jpg);
+    background-image: url(../uploads/Mekong-Delta-floating-market.jpg);
     -webkit-animation-delay: 24s;
     -moz-animation-delay: 24s;
     -o-animation-delay: 24s;
@@ -67,7 +67,7 @@
     animation-delay: 24s;
 }
 .slideshow li:nth-child(6) span {
-    background-image: url(../uploads/Nha-trang-hon-chong.jpg);
+    background-image: url(../uploads/Hoi-An-ancient-town.jpg);
     -webkit-animation-delay: 30s;
     -moz-animation-delay: 30s;
     -o-animation-delay: 30s;

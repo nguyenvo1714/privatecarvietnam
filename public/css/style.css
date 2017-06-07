@@ -1392,7 +1392,14 @@ a.title {
 	border-bottom: 1px dotted #999;
 	padding-bottom: 15px;
 }
+.present img {
+	margin-top: 10px;
+	display: block;
+	width:100%;
+}
 .car-introduce {
+	display: block;
+	padding-top: 3%;
 	text-align: left;
 }
 .car-introduce h4 {
@@ -1407,6 +1414,7 @@ a.title {
 	margin-right: 15px;
 }
 .car-price {
+	padding-top: 3%;
 	display: block;
 	text-align: center;
 }

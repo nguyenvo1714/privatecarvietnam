@@ -38,7 +38,7 @@
                                     <a href="" id="{{ $type->id }}" class="call-edit-type" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil-square-o"></i></a>
                                 </td>
                                 <td style="font-size: 20px;">
-                                    {!! Form::open(['url' => '/type/'.$type->id, 'method' => 'POST']) !!}
+                                    {!! Form::open(['url' => '/type/'.$type->id, 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")']) !!}
                                         {{ method_field('DELETE') }}
                                         <button type="submit" class="naked-button"> <i class="fa fa-trash-o"></i></a>
                                     {!! Form::close() !!}

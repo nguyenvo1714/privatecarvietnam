@@ -32,7 +32,13 @@ class TransferController extends Controller
         'image_thumb'      => 'required',
         'image_head'       => 'required',
         'blog'             => 'required',
+        'fleet'            => 'required',
+        'capability'       => 'required',
+        'class'            => 'required',
+        'baggage'          => 'required',
+        'price'            => 'required',
     ];
+
 
     /**
      * Display a listing of the resource.
@@ -86,7 +92,7 @@ class TransferController extends Controller
         }
         $transfer = Transfer::create([
             'type_id'          => $request->type_id, 
-            'transfer_name_id'  => $request->transfer_name_id, 
+            'transfer_name_id' => $request->transfer_name_id, 
             'place_id'         => $request->place_id,
             'title'            => $request->title,
             'duration'         => $request->duration,
@@ -103,9 +109,11 @@ class TransferController extends Controller
         $count = sizeof($request->fleet);
         for($i = 0; $i < $count; $i++)
         {
+            $present[$i] = str_replace('public/', '', $request->file('present')[$i]->store('/public'));
             $transfer->cars()->save(
                 new Car([
                     'fleet'      => $request->fleet[$i], 
+                    'present'    => $present[$i],
                     'capability' => $request->capability[$i],
                     'class'      => $request->class[$i],
                     'price'      => $request->price[$i],
@@ -198,7 +206,7 @@ class TransferController extends Controller
         $new = $total - $old;
         for($i = 0; $i < $old; $i++)
         {
-            $transfer->cars()->where('cars.id', $request->id[$i])->update([ 
+            $transfer->cars()->where('cars.id', $request->id[$i])->update([
                 'fleet'      => $request->fleet[$i],
                 'capability' => $request->capability[$i],
                 'class'      => $request->class[$i],
@@ -207,14 +215,22 @@ class TransferController extends Controller
                 'driver_id'  => $request->driver_id[$i],
                 'is_active'  => $request->is_active[$i],
             ]);
+            if(! empty($request->present[$i])) {
+                $present[$i] = str_replace('public/', '', $request->file('present')[$i]->store('/public'));
+                $transfer->cars()->where('cars.id', $request->id[$i])->update([
+                    'present'    => $present[$i]
+                ]);
+            }
         }
         if($new > 0) {
 
             for($j = 0; $j < $new; $j ++)
             {
+                $present[$i] = str_replace('public/', '', $request->file('present')[$i]->store('/public'));
                 $transfer->cars()->save(
                     new Car([
-                        'fleet'      => $request->fleet[$i], 
+                        'fleet'      => $request->fleet[$i],
+                        'present'    => $present[$i],
                         'capability' => $request->capability[$i],
                         'class'      => $request->class[$i],
                         'price'      => $request->price[$i],

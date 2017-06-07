@@ -21,14 +21,17 @@
 						@foreach($transfer->cars as $car)
 							<div class="col-md-12 price-box">
 								<div class="row">
-									<div class="col-md-8 col-sm-8 col-xs-12 car-introduce">
+									<div class="present col-md-3 col-sm-3 col-xs-12">
+										{{ Html::image('/storage/' . $car->present, '', ['class' => 'img-responsive']) }}
+									</div>
+									<div class="col-md-6 col-sm-6 col-xs-12 car-introduce">
 										<h4>{{ $car->class }}</h4>
 										<p>{{ $car->fleet }}</p>
 										<p>
 											<span class="pax"><span class="glyphicon glyphicon-user"></span> &nbsp;{!! $car->capability !!} passengers</span> <span class="bag"><span class="glyphicon glyphicon-briefcase"></span> &nbsp;{{ $car->baggage }}</span>
 										</p>
 									</div>
-									<div class="col-md-4 col-sm-4 col-xs-12 car-price">
+									<div class="col-md-3 col-sm-3 col-xs-12 car-price">
 										@if($transfer->is_discount == 1)
 											<small><i class="pricesaleoff">{{ number_format($car->price) }} VNĐ</i></small><br>
 											<span><strong>{{ $car->price - ($car->price * $transfer->discount_value) / 100 }} VNĐ</strong></span>

@@ -34,7 +34,7 @@
 
 .slideshow li:nth-child(1) span { background-image: url(../uploads/ha-long-bay.jpg) }
 .slideshow li:nth-child(2) span {
-    background-image: url(../uploads/Ha-Noi.pngg);
+    background-image: url(../uploads/Ha-Noi.png);
     -webkit-animation-delay: 6s;
     -moz-animation-delay: 6s;
     -o-animation-delay: 6s;

@@ -291,7 +291,7 @@
 		    var track_click = 1;
 		    var total_pages = {{ $total_pages }};
 		    var perpage = {{ $perpage }};
-		    var is_hot = {{ ! empty($transfer) ? $transfer->is_hot : '' }};
+		    var is_hot = {{ ! empty($transfer) ? $transfer->is_hot : 0 }};
 		    host = baseUrl + '/top-load-more';
 			if (track_click > total_pages-1) {
 				$(".load_more").addClass("hidden");

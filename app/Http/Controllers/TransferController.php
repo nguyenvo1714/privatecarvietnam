@@ -32,7 +32,13 @@ class TransferController extends Controller
         'image_thumb'      => 'required',
         'image_head'       => 'required',
         'blog'             => 'required',
+        'fleet'            => 'required',
+        'capability'       => 'required',
+        'class'            => 'required',
+        'baggage'          => 'required',
+        'price'            => 'required',
     ];
+
 
     /**
      * Display a listing of the resource.
@@ -86,7 +92,7 @@ class TransferController extends Controller
         }
         $transfer = Transfer::create([
             'type_id'          => $request->type_id, 
-            'transfer_name_id'  => $request->transfer_name_id, 
+            'transfer_name_id' => $request->transfer_name_id, 
             'place_id'         => $request->place_id,
             'title'            => $request->title,
             'duration'         => $request->duration,

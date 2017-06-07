@@ -10,6 +10,9 @@ body {
 ul {
 	list-style: none;
 }
+.paginate {
+    text-align: center;
+}
 .left-container {
 	width: 100%;
 	min-height: 850px;

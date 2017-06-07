@@ -59,7 +59,7 @@
                                             <a href="{{ url('/transfer/' . $transfer->id . '/edit') }}" id="{{ $transfer->id }}" ><i class="fa fa-pencil-square-o"></i></a>
                                         </td>
                                         <td style="font-size: 20px;">
-                                            {!! Form::open(['url' => '/transfer/'. $transfer->id, 'method' => 'POST', 'onsubmit' => 'return ConfirmDelete()']) !!}
+                                            {!! Form::open(['url' => '/transfer/'. $transfer->id, 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")']) !!}
                                                 {{ method_field('DELETE') }}
                                                 <button type="submit" class="naked-button"> <i class="fa fa-trash-o"></i></a>
                                             {!! Form::close() !!}

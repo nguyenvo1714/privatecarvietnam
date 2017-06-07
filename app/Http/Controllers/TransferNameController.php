@@ -20,7 +20,7 @@ class TransferNameController extends Controller
     public function index()
     {
         $transferNames = new TransferName;
-        return view('admin.transferNames.index', ['transferNames' => $transferNames->orderBy('created_at')->paginate(20)]);
+        return view('admin.transferNames.index', ['transferNames' => $transferNames->orderBy('created_at')->paginate(10)]);
     }
 
     /**

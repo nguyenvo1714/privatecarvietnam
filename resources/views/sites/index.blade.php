@@ -2,7 +2,7 @@
 @section('content')
 	<div class="wrapcontent">
 		{!! Html::style('css/slideshow.css') !!}
-		<section class="wrapslide" style="background: url(../uploads/boracay-island-philippines.jpg) repeat center;">
+		<section class="wrapslide" style="background: url(../uploads/Vietnam.png) repeat center;">
 			<ul class="slideshow">
 				<li><span>Boracay Island Philippines</span></li>
 				<li><span>Shwedagon Pagoda Myanmar</span></li>

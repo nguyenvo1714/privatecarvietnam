@@ -48,7 +48,7 @@
                                     <a href="{{ url('driver/' . $driver->id . '/edit') }}" id="{{ $driver->id }}" ><i class="fa fa-pencil-square-o"></i></a>
                                 </td>
                                 <td style="font-size: 20px;">
-                                    {!! Form::open(['url' => '/driver/'. $driver->id, 'method' => 'POST']) !!}
+                                    {!! Form::open(['url' => '/driver/'. $driver->id, 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")']) !!}
                                         {{ method_field('DELETE') }}
                                         <button type="submit" class="naked-button"> <i class="fa fa-trash-o"></i></a>
                                     {!! Form::close() !!}

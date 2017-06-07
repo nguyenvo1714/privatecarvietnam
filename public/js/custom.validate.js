@@ -126,6 +126,7 @@ $(function() {
 			image_head: " ",
 			blog_id: "Please select an option",
 			fleet: "Please input the car fleet",
+			present: "Please upload an image",
 			capability: "Please input car capability",
 			class: "Please input car class",
 			price: "Please input price",

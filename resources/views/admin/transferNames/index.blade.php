@@ -38,7 +38,7 @@
                                     <a href="{{ url('/transferName/' . $transferName->id . '/edit') }}" id="{{ $transferName->id }}" class="call-edit-transferName"><i class="fa fa-pencil-square-o"></i></a>
                                 </td>
                                 <td style="font-size: 20px; width: 5%;">
-                                    {!! Form::open(['url' => '/transferName/'.$transferName->id, 'method' => 'POST']) !!}
+                                    {!! Form::open(['url' => '/transferName/'.$transferName->id, 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")']) !!}
                                         {{ method_field('DELETE') }}
                                         <button type="submit" class="naked-button"> <i class="fa fa-trash-o"></i></a>
                                     {!! Form::close() !!}
@@ -48,8 +48,8 @@
                         </tbody>
                     </table>
                 </div>
-                {{ $transferNames->links() }}
             </div>
+            <div class="paginate">{{ $transferNames->links() }}</div>
         </div>
     </div>
 <div id="myModal" class="modal fade" role="dialog">

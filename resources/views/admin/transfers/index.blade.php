@@ -51,7 +51,7 @@
                                         <td>{{ $transfer->is_discount }}</td>
                                         <td>{{ $transfer->discount_value }}</td>
                                         <td style="font-size: 20px;">
-                                            <a href="" id="{{ $transfer->id }}" class="call-view-transfer" data-toggle="modal" data-target="#myModal">
+                                            <a href="{{ url('/transfer/' . $transfer->id) }}" id="{{ $transfer->id }}" class="call-view-transfer">
                                                 <i class="fa fa-eye"></i>
                                             </a>
                                         </td>
@@ -59,7 +59,7 @@
                                             <a href="{{ url('/transfer/' . $transfer->id . '/edit') }}" id="{{ $transfer->id }}" ><i class="fa fa-pencil-square-o"></i></a>
                                         </td>
                                         <td style="font-size: 20px;">
-                                            {!! Form::open(['url' => '/transfer/'. $transfer->id, 'method' => 'POST']) !!}
+                                            {!! Form::open(['url' => '/transfer/'. $transfer->id, 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")']) !!}
                                                 {{ method_field('DELETE') }}
                                                 <button type="submit" class="naked-button"> <i class="fa fa-trash-o"></i></a>
                                             {!! Form::close() !!}

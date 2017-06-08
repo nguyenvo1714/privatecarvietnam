@@ -9,8 +9,8 @@ class Place extends Model
     protected $table = 'places';
     protected $fillable = [
         'name',
-        'is_hot',
-        'is_new',
+        // 'is_hot',
+        // 'is_new',
     ];
 
     public function tour()

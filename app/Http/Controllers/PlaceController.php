@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Place;
+use App\Pickup;
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
@@ -10,8 +11,6 @@ class PlaceController extends Controller
 
     protected $rules = [
         'name' => 'required',
-        'is_hot' => 'required',
-        'is_new' => 'required',
     ];
 
     /**
@@ -47,6 +46,7 @@ class PlaceController extends Controller
         $place = new Place;
         $input = $request->all();
         $place->create($input);
+        Pickup::create($input);
         return redirect('/places');
     }
 
@@ -82,7 +82,9 @@ class PlaceController extends Controller
     public function update(Request $request, $id)
     {
         $place = Place::find($id);
+        $pick_up = Pickup::find($id);
         $place->update($request->all());
+        $pick_up->update($request->all());
         return redirect('/places');
     }
 
@@ -95,6 +97,7 @@ class PlaceController extends Controller
     public function destroy($id)
     {
         Place::destroy($id);
+        Pickup::destroy($id);
         return redirect('/places');
     }
 }

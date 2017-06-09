@@ -40,11 +40,13 @@ class TransferController extends Controller
         $dealTransfers = $this->transferRepo->deal();
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
+        $pick_ups = $this->transferNameRepo->allPi();
         $places = $this->transferNameRepo->allP();
         return view('/sites.index', [
             'transfers' => $transfers,
             'dealTransfers' => $dealTransfers,
             'blogs' => $blogs,
+            'pick_ups' => $pick_ups,
             'transferNames' => $transferNames,
             'places' => $places,
             'total_pages' => $total_pages,
@@ -364,9 +366,10 @@ class TransferController extends Controller
     public function findTransfer(Request $request)
     {
         if($request->ajax()) {
-            $transferName = $this->transferNameRepo->getTransferName($request->pickup);
+            $pick_up = $this->transferNameRepo->getPickUpName($request->pickup);
+            var_dump($pick_up);die;
             $place = $this->transferNameRepo->getPlaceName($request->dropoff);
-            $transfer = $this->transferRepo->findTransfer($transferName->id, $place->id);
+            $transfer = $this->transferRepo->findTransfer($pick_up->id, $place->id);
             if($transfer) {
                 $type = $this->transferNameRepo->getType($transfer->type_id)->slug;
                 $response = [

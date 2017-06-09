@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pickup extends Model
 {
-    protected $table = 'pick_up';
+    protected $table = 'pick_ups';
     protected $fillable = [
     	'name',
     ];

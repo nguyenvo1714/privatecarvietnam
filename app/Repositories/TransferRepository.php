@@ -77,9 +77,9 @@
 			return $interests;
 		}
 
-		public function findTransfer($transfer_name_id, $place_id)
+		public function findTransfer($pick_up_id, $place_id)
 		{
-			return $this->transfer->where('transfer_name_id', $transfer_name_id)
+			return $this->transfer->where('pick_up_id', $pick_up_id)
 								->where('place_id', $place_id)
 								->first();
 		}

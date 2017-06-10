@@ -78,11 +78,11 @@
         </script>
         <script type="text/javascript">
             var baseUrl = '{{ URL::to("/") }}';
-            var transferNames = {!! json_encode($transferNames) !!};
+            var pick_ups = {!! json_encode($pick_ups) !!};
             var pick_up = [];
             var places = {!! json_encode($places) !!};
             var drop_off = [];
-            $.each(transferNames, function(key, value) {
+            $.each(pick_ups, function(key, value) {
                 $.each(value, function(key1, value1) {
                     if(key1 == 'name') {
                         pick_up.push(value1);

@@ -22,9 +22,9 @@
 			return $tops;
 		}
 
-		public function dealList($discount_flg = 1)
+		public function dealList($discount_flg = 1, $limit)
 		{
-			return $this->transfer->where('is_discount', $discount_flg)->get();
+			return $this->transfer->where('is_discount', $discount_flg)->paginate($limit);
 		}
 
 		public function topAjax($is_hot, $start, $perpage)

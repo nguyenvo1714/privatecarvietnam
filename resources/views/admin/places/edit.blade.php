@@ -20,9 +20,6 @@
 
                     {!! Form::open(['url' => '/place/'.$place->id, 'method' => 'POST', 'class' => 'form-horizontal form-label-left', 'novalidate' => '']) !!}
                         {{ method_field('PUT') }}
-                    <!-- <form class="form-horizontal form-label-left" novalidate="" method="POST" action="{{ url('blog') }}"> -->
-                        <!-- <span class="section">Personal Info</span> -->
-
                         <div class="field item form-group">
                             <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
                                 Name <span class="required">*</span>
@@ -32,7 +29,7 @@
                             </div>
                             <div class="alert">please put something here</div>
                         </div>
-                        <div class="field item form-group">
+                        <!-- <div class="field item form-group">
                             <label class="control-label col-md-1 col-sm-1 col-xs-12" for="isHot">
                                 Is hot <span class="required">*</span>
                             </label>
@@ -77,7 +74,7 @@
                                 </select>
                             </div>
                             <div class="alert">Please select an option</div>
-                        </div>
+                        </div> -->
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">

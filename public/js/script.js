@@ -126,6 +126,7 @@ $(function() {
 				dropoff: dropoff
 			},
 			success: function(data) {
+				console.log(data);
 				if(data.success == true) {
 					window.location.href = baseUrl + '/' + data.type + '/' + data.slug;
 					$('.modal').hide();

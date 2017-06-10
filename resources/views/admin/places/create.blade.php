@@ -28,7 +28,7 @@
                             </div>
                             <div class="alert">please put something here</div>
                         </div>
-                        <div class="field item form-group">
+                        <!-- <div class="field item form-group">
                             <label class="control-label col-md-1 col-sm-1 col-xs-12" for="is_hot">
                                 Is hot <span class="required">*</span>
                             </label>
@@ -53,7 +53,7 @@
                                 </select>
                             </div>
                             <div class="alert">Please select an option</div>
-                        </div>
+                        </div> -->
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">

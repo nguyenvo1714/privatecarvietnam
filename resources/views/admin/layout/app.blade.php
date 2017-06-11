@@ -110,6 +110,11 @@
                         selected_type = '{{ $blog->type_id }}'
                     @endif
                 break;
+                case('PlaceController'):
+                    @if( ! empty($place->transfer_name_id))
+                        selected_transfer = '{{ $place->transfer_name_id }}'
+                    @endif
+                break;
             }
             // @if( ! empty($tour->type_id))
             //     selected_type = '{{ $tour->type_id->id }}'

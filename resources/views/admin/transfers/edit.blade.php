@@ -14,7 +14,7 @@
                     <h2>Make sure you input (*) required information</h2>
                     <div class="clearfix"></div>
                 </div>
-                <div class="x_content"><?php var_dump($transfer->type_id); ?>
+                <div class="x_content">
                     <br>
                     @include('admin.errors.error')
                     {!! Form::open(['url' => 'transfer/' . $transfer->id, 'method' => 'POST', 'class' => 'form-horizontal form-label-left', 'files' => true, 'id' => 'transferForm']) !!}

@@ -28,18 +28,17 @@ $(function() {
 		});
 	});
 	/**Call edit place*/ 
-	$('.call-edit-place').click(function() {
-		var id = $(this).attr('id');
-		$.ajax ({
-			method: 'GET',
-			url: '/place/' + id + '/edit',
-			success: function(result) {
-				// $('.modal-body').find('.x_content');
-				$('.modal-title').html($(result).find('.x_title')) &&
-				$('.modal-body').html($(result).find('.x_content'));
-			}
-		});
-	});
+	// $('.call-edit-place').click(function() {
+	// 	var id = $(this).attr('id');
+	// 	$.ajax ({
+	// 		method: 'GET',
+	// 		url: '/place/' + id + '/edit',
+	// 		success: function(result) {
+	// 			$('.modal-title').html($(result).find('.x_title')) &&
+	// 			$('.modal-body').html($(result).find('.x_content'));
+	// 		}
+	// 	});
+	// });
 
 	/* Call view type */ 
 	$('.call-view-type').click(function() {
@@ -321,5 +320,9 @@ function show_detail(selector, id) {
 	}
 }
 
-
+function chooseTransferName(that)
+{
+	val = that.value;
+	console.log(val);
+}
 		

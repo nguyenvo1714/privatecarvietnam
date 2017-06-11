@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Place;
 use App\Pickup;
+use App\TransferName;
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
@@ -11,6 +12,7 @@ class PlaceController extends Controller
 
     protected $rules = [
         'name' => 'required',
+        'transfer_name_id' => 'required',
     ];
 
     /**
@@ -31,7 +33,8 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        return view('/admin.places.create');
+        $transferNames = TransferName::get();
+        return view('/admin.places.create', ['transferNames' => $transferNames]);
     }
 
     /**
@@ -69,7 +72,8 @@ class PlaceController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.places.edit', ['place' => Place::findOrFail($id)]);
+        $transferNames = TransferName::get();
+        return view('admin.places.edit', ['place' => Place::findOrFail($id), 'transferNames' => $transferNames]);
     }
 
     /**

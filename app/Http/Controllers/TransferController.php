@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Transfer;
 use App\Type;
+use App\Pickup;
 use App\Place;
 use App\Blog;
 use App\Driver;
@@ -26,6 +27,7 @@ class TransferController extends Controller
     protected $rules = [
         'type_id'          => 'required',
         'transfer_name_id' => 'required',
+        'pick_up_id'       => 'required',
         'place_id'         => 'required',
         'title'            => 'required',
         'duration'         => 'required',
@@ -63,12 +65,14 @@ class TransferController extends Controller
     public function create()
     {
     	$types = Type::get();
+        $pickups = Pickup::get();
     	$places = Place::get();
         $blogs = Blog::whereIn('type_id', [3, 4])->get();
         $drivers = Driver::get();
         $transferNames = TransferName::get();
         return view('/admin.transfers.create', [
-            'types'         => $types, 
+            'types'         => $types,
+            'pickups'       => $pickups,
             'places'        => $places, 
             'drivers'       => $drivers,
             'transferNames' => $transferNames

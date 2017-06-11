@@ -37,6 +37,7 @@ class Type extends Model
     	return $this->hasMany('App\Blog');
     }
 
+
     public function transfer_names()
     {
         return $this->hasMany('App\TransferName', 'type_id');

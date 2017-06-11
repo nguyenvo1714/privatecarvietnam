@@ -15,6 +15,7 @@ class Transfer extends Model
     protected $fillable = [
     	'type_id',
         'transfer_name_id',
+        'pick_up_id',
     	'place_id',
         'title',
         'slug',

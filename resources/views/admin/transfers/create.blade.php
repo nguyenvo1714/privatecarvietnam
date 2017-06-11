@@ -36,10 +36,23 @@
                                 Transfer name <span class="required">*</span>
                             </label>
                             <div class="col-md-10 col-sm-10 col-xs-12">
-                                <select class="form-control col-md-10 col-xs-12" name="transfer_name_id" required>
+                                <select class="form-control col-md-10 col-xs-12" name="transfer_name_id" required  onchange="chooseTransferName(this);">
                                     <option value="">Choose option</option>
                                 @foreach($transferNames as $transferName)
                                     <option value={{ $transferName->id }}>{{ $transferName->name }}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="pick_up_id">
+                                From <span class="required">*</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <select class="form-control col-md-10 col-xs-12" name="pick_up_id" required>
+                                    <option value="">Choose option</option>
+                                @foreach($pickups as $pickup)
+                                    <option value={{ $pickup->id }}>{{ $pickup->name }}</option>
                                 @endforeach
                                 </select>
                             </div>

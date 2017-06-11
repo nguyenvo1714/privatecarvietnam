@@ -21,6 +21,11 @@
                             <td>{{ $place->name }}</td>
                             <td>&nbsp;</td>
                         </tr>
+                        <tr>
+                            <td>Transfer Name</td>
+                            <td>{{ $place->type->name }}</td>
+                            <td>&nbsp;</td>
+                        </tr>
                         <!-- <tr>
                             <td>Is hot</td>
                             <td>{{ $place->isHot }}</td>

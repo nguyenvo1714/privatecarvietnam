@@ -59,6 +59,11 @@ class Transfer extends Model
         return $this->belongsTo('App\Place');
     }
 
+    public function pick_up()
+    {
+        return $this->belongsTo('App\Pickup');
+    }
+
     public function transfer_name()
     {
         return $this->belongsTo('App\TransferName');

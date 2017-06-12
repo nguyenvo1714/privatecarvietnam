@@ -184,6 +184,7 @@ class TransferController extends Controller
         $transfer->update([
             'type_id'          => $request->type_id, 
             'transfer_name_id' => $request->transfer_name_id,
+            'pick_up_id'       => $request->pick_up_id,
             'place_id'         => $request->place_id,
             'title'            => $request->title,
             'duration'         => $request->duration,

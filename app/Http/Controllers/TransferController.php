@@ -150,6 +150,7 @@ class TransferController extends Controller
     public function edit($id)
     {
     	$types = Type::get();
+        $pick_ups = Pickup::get();
     	$places = Place::get();
     	$blogs = Blog::get();
         $drivers = Driver::get();
@@ -157,7 +158,8 @@ class TransferController extends Controller
     	$transfer = Transfer::find($id);
         return view('admin.transfers.edit', [
             'transfer' => $transfer, 
-            'types' => $types, 
+            'types' => $types,
+            'pick_ups' => $pick_ups,
             'places' => $places, 
             'cars' => $transfer->cars()->get(), 
             'drivers' => $drivers,

@@ -26,6 +26,19 @@ class PlaceController extends Controller
         return view('admin.places.index', ['places' => $places->orderBy('created_at')->paginate(10)]);
     }
 
+    public function getPickup(Request $request)
+    {
+        if($request->ajax()) {
+            $transfer_name_id = $request->transfer_name_id;
+            $pick_ups = Pickup::where('transfer_name_id', $transfer_name_id)->get();
+            $ret_val = '';
+            foreach ($pick_ups as $pick_up) {
+                $ret_val .= "<option value=$pick_up->id>$pick_up->name</option>";
+            }
+            return response()->json($ret_val);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

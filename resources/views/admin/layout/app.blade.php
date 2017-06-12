@@ -64,12 +64,17 @@
             var selected_driver = [];
             var selected_transfer = '';
             var selected_is_hot = '';
+            var selected_pickup = '';
             var i = 0;
 
             switch(control) {
                 case('TransferController'):
                     @if( ! empty($transfer->type_id))
                         selected_type = '{{ $transfer->type_id }}';
+                    @endif
+
+                    @if( ! empty($transfer->pick_up_id))
+                        selected_pickup = '{{ $transfer->pick_up_id }}'
                     @endif
 
                     @if( ! empty($transfer->place_id))

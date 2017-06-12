@@ -28,18 +28,17 @@ $(function() {
 		});
 	});
 	/**Call edit place*/ 
-	$('.call-edit-place').click(function() {
-		var id = $(this).attr('id');
-		$.ajax ({
-			method: 'GET',
-			url: '/place/' + id + '/edit',
-			success: function(result) {
-				// $('.modal-body').find('.x_content');
-				$('.modal-title').html($(result).find('.x_title')) &&
-				$('.modal-body').html($(result).find('.x_content'));
-			}
-		});
-	});
+	// $('.call-edit-place').click(function() {
+	// 	var id = $(this).attr('id');
+	// 	$.ajax ({
+	// 		method: 'GET',
+	// 		url: '/place/' + id + '/edit',
+	// 		success: function(result) {
+	// 			$('.modal-title').html($(result).find('.x_title')) &&
+	// 			$('.modal-body').html($(result).find('.x_content'));
+	// 		}
+	// 	});
+	// });
 
 	/* Call view type */ 
 	$('.call-view-type').click(function() {
@@ -239,11 +238,14 @@ $(function() {
 	var selectedActive = [];
 	var selectedTransfer = $('#transferName');
 	var selectedHot = $('#hot');
+	var selectedPickup = $('#pickup-by-transfer-name');
 
 	selectType.find('option[value="' + selected_type + '"]').prop('selected', true);
 	selectType.trigger('change');
 	selectedBlog.find('option[value="' + selected_blog + '"]').prop('selected', true);
 	selectedBlog.trigger('change');
+	selectedPickup.find('option[value="' + selected_pickup + '"]').prop('selected', true);
+	selectedPickup.trigger('change');
 	selectedPlace.find('option[value="' + selected_place + '"]').prop('selected', true);
 	selectedPlace.trigger('change');
 	selectedDiscount.find('option[value="' + selected_is_discount + '"]').prop('selected', true);
@@ -273,7 +275,6 @@ function call_edit_car(id) {
 		url: '/car/' + id + '/edit',
 		success: function(result) {
 			// $('.modal-body').find('.x_content');
-			console.log(result);
 			$('.modal-title').html($(result).find('.x_title')) &&
 			$('.modal-body').html($(result).find('.x_content'));
 		}
@@ -286,7 +287,6 @@ function call_edit_contract(id) {
 		url: '/contract/' + id + '/edit',
 		success: function(result) {
 			// $('.modal-body').find('.x_content');
-			console.log(result);
 			$('.modal-title').html($(result).find('.x_title')) &&
 			$('.modal-body').html($(result).find('.x_content'));
 		}
@@ -296,7 +296,6 @@ function call_edit_contract(id) {
 function show_detail(selector, id) {
 	var exist = $(selector).find('.car-detail');
 	var next = $(selector).next('table.contract-detail');
-	console.log(next);
 	if(exist.length == 0) {
 		$.ajax({
 			method: 'GET',
@@ -321,5 +320,16 @@ function show_detail(selector, id) {
 	}
 }
 
-
+function chooseTransferName(that)
+{
+	transfer_name_id = that.value;
+	$.ajax({
+		method: 'GET',
+		url: '/pick_ups',
+		data: {'transfer_name_id': transfer_name_id},
+		success: function(option) {
+			$('#pickup-by-transfer-name').html(option);
+		}
+	});
+}
 		

@@ -15,6 +15,7 @@ class Transfer extends Model
     protected $fillable = [
     	'type_id',
         'transfer_name_id',
+        'pick_up_id',
     	'place_id',
         'title',
         'slug',
@@ -56,6 +57,11 @@ class Transfer extends Model
     public function place()
     {
         return $this->belongsTo('App\Place');
+    }
+
+    public function pick_up()
+    {
+        return $this->belongsTo('App\Pickup');
     }
 
     public function transfer_name()

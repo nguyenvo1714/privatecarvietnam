@@ -46,6 +46,7 @@ Route::group(['namespace' => 'V1'], function() {
 Route::group(['middleware' => ['auth']], function() {
 	Route::get('/admin', 'TransferController@index');
 
+	Route::get('/pick_ups', 'PlaceController@getPickup');
 	Route::get('/places', 'PlaceController@index');
 	Route::get('/place/create', 'PlaceController@create');
 	Route::post('/place', 'PlaceController@store');

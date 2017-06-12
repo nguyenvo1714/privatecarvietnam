@@ -29,8 +29,12 @@
                             <td>{{ $transfer->transfer_name->name }}</td>
                         </tr>
                         <tr>
-                            <td>To</td>
-                            <td>{{ $transfer->place->name }}</td>
+                            <td>Route</td>
+                            <td>
+                                {{ $transfer->pick_up->name }} &nbsp;
+                                <span class="glyphicon glyphicon-arrow-right"></span> &nbsp;
+                                {{ $transfer->place->name }}
+                            </td>
                         </tr>
                         <tr>
                             <td>Description</td>

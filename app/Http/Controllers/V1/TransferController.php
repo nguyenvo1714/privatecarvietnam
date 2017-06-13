@@ -54,6 +54,15 @@ class TransferController extends Controller
         ]);
     }
 
+    public function getPickup (Request $request)
+    {
+        if($request->ajax()) {
+            var_dump($request);die;
+            $term = $request->keyword;
+
+        }
+    }
+
     public function topAjax(Request $request)
     {
         if($request->ajax()) {

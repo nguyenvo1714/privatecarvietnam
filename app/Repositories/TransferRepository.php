@@ -2,6 +2,8 @@
 	namespace App\Repositories;
 
 	use App\Transfer;
+	use App\Pickup;
+	use App\Place;
 
 	/**
 	* 
@@ -36,6 +38,16 @@
                                     ->get();
             $this->getTransferType($tops);
             return $tops;
+		}
+
+		public function search_pickup($term)
+		{
+			return Pickup::where('name', 'LIKE', $term . '%')->get();
+		}
+
+		public function search_dropoff($term)
+		{
+			return Place::where('name', 'LIKE', $term . '%')->get();
 		}
 
 		public function totalHot($is_hot = 1)

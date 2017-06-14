@@ -33,15 +33,11 @@ class BlogController extends Controller
     public function index()
     {
         $transferNames = $this->transferNameRepo->allT();
-        $pick_ups = $this->transferNameRepo->allPi();
-        $places = $this->transferNameRepo->allP();
         $blogs = $this->blogRepo->footer();
         $interestTransfers = $this->transferRepo->top(4);
         $indexBlogs = $this->blogRepo->index(4);
         return view('sites.blogs.index', [
             'transferNames' => $transferNames,
-            'pick_ups' => $pick_ups,
-            'places' => $places,
             'blogs' => $blogs,
             'interestTransfers' => $interestTransfers,
             'indexBlogs' => $indexBlogs,
@@ -57,8 +53,6 @@ class BlogController extends Controller
     {
         $relates = $this->blogRepo->relate($slug, 3);
         $transferNames = $this->transferNameRepo->allT();
-        $pick_ups = $this->transferNameRepo->allPi();
-        $places = $this->transferNameRepo->allP();
         $blogs = $this->blogRepo->footer();
         $detail = $this->blogRepo->find_by_slug($slug);
         $next =  $this->blogRepo->next($detail->id);
@@ -67,8 +61,6 @@ class BlogController extends Controller
         // var_dump($prev->title);die;
         return view('sites.blogs.content', [
             'transferNames' => $transferNames,
-            'pick_ups' => $pick_ups,
-            'places' => $places,
             'blogs' => $blogs,
             'detail' => $detail,
             'relates' => $relates,

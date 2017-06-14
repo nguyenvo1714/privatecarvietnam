@@ -15,6 +15,7 @@
 									</label>
 									<div class="wrapper-input">
 										<input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pick-up" placeholder="Type airport, city or train station" required="required" type="text">
+										{{ Html::image('img/ajax-search.gif', '', ['class' => 'animation-pick']) }}
 										<input type="hidden" name="pick-up" id="pick-value">
 									</div>
 								</div>
@@ -29,6 +30,7 @@
 									</label>
 									<div class="wrapper-input">
 										<input id="drop-off" class="form-control col-md-7 col-xs-12 drop-off input-text" name="drop-off" placeholder="Type airport, city or train station" required="required" type="text">
+										{{ Html::image('img/ajax-search.gif', '', ['class' => 'animation-drop']) }}
 										<input type="hidden" name="pick-up" id="drop-value">
 									</div>
 								</div>

@@ -90,17 +90,13 @@
                                 term: request.term
                             },
                             success: function(data) {
-                                if(Object.keys(data) == 0) {
-                                    $('.animation-pick').hide();
-                                } else {
-                                    response($.map(data, function(item) {
-                                        $('.animation-pick').hide();
-                                        return {
-                                            value: item.name,
-                                            real: item.id
-                                        }
-                                    }));
-                                }
+                                $('.animation-pick').hide();
+                                response($.map(data, function(item) {
+                                    return {
+                                        value: item.name,
+                                        real: item.id
+                                    }
+                                }));
                             }
                         });
                     },
@@ -119,17 +115,13 @@
                                 term: request.term
                             },
                             success: function(data) {
-                                if(Object.keys(data).length == 0) {
-                                    $('.animation-drop').hide();
-                                } else {
-                                    response($.map(data, function(item) {
-                                        $('.animation-drop').hide();
-                                        return {
-                                            value: item.name,
-                                            real: item.id
-                                        }
-                                    }));
-                                }
+                                $('.animation-drop').hide();
+                                response($.map(data, function(item) {
+                                    return {
+                                        value: item.name,
+                                        real: item.id
+                                    }
+                                }));
                             }
                         });
                     },

@@ -82,6 +82,7 @@
             $(function() {
                 $('#pick-up').autocomplete({
                     source: function(request, response) {
+                        $('.animation-pick').show();
                         $.ajax({
                             dataType: 'JSON',
                             url: '/pick-up',
@@ -89,12 +90,17 @@
                                 term: request.term
                             },
                             success: function(data) {
-                                response($.map(data, function(item) {
-                                    return {
-                                        value: item.name,
-                                        real: item.id
-                                    }
-                                }));
+                                if(Object.keys(data) == 0) {
+                                    $('.animation-pick').hide();
+                                } else {
+                                    response($.map(data, function(item) {
+                                        $('.animation-pick').hide();
+                                        return {
+                                            value: item.name,
+                                            real: item.id
+                                        }
+                                    }));
+                                }
                             }
                         });
                     },
@@ -105,6 +111,7 @@
 
                 $('#drop-off').autocomplete({
                     source: function(request, response) {
+                        $('.animation-drop').show();
                         $.ajax({
                             dataType: 'JSON',
                             url: '/drop-off',
@@ -112,12 +119,17 @@
                                 term: request.term
                             },
                             success: function(data) {
-                                response($.map(data, function(item) {
-                                    return {
-                                        value: item.name,
-                                        real: item.id
-                                    }
-                                }));
+                                if(Object.keys(data).length == 0) {
+                                    $('.animation-drop').hide();
+                                } else {
+                                    response($.map(data, function(item) {
+                                        $('.animation-drop').hide();
+                                        return {
+                                            value: item.name,
+                                            real: item.id
+                                        }
+                                    }));
+                                }
                             }
                         });
                     },

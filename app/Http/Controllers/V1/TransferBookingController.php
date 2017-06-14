@@ -46,7 +46,6 @@ class TransferBookingController extends Controller
     public function bookForm(Request $request, $slug, $class)
     {
         $transferNames = $this->transferNameRepo->allT();
-        $places = $this->transferNameRepo->allP();
         $blogs = $this->blogRepo->footer();
         $car = $this->carRepo->getCarByClass($class);
         $transfer = $this->transferRepo->findSlug($slug);
@@ -54,7 +53,6 @@ class TransferBookingController extends Controller
             'transfer' =>  $transfer,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'places' => $places,
             'car' => $car,
             'confirms' => $request->all()
         ]);
@@ -68,14 +66,12 @@ class TransferBookingController extends Controller
     public function confirmation(Request $request)
     {
         $transferNames = $this->transferNameRepo->allT();
-        $places = $this->transferNameRepo->allP();
         $blogs = $this->blogRepo->footer();
         $transfer = $this->transferRepo->findById($request->id);
         return view('/sites.transferBookings.confirmation', [
             'transfer' =>  $transfer,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'places' => $places,
             'register' => $request->all(),
         ]);
     }

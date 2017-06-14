@@ -77,34 +77,56 @@
 
         </script>
         <script type="text/javascript">
-            var baseUrl = '{{ URL::to("/") }}';
-            var pick_ups = {!! json_encode($pick_ups) !!};
-            var pick_up = [];
-            var places = {!! json_encode($places) !!};
-            var drop_off = [];
-            $.each(pick_ups, function(key, value) {
-                $.each(value, function(key1, value1) {
-                    if(key1 == 'name') {
-                        pick_up.push(value1);
-                    }
-                });
-            });
-            $.each(places, function(key, value) {
-                $.each(value, function(key1, value1) {
-                    if(key1 == 'name') {
-                        drop_off.push(value1);
-                    }
-                });
-            });
             $(function() {
                 $('#pick-up').autocomplete({
-                    source: pick_up,
+                    source: function(request, response) {
+                        $.ajax({
+                            dataType: 'JSON',
+                            url: '/pick-up',
+                            data: {
+                                term: request.term
+                            },
+                            success: function(data) {
+                                response($.map(data, function(item) {
+                                    return {
+                                        value: item.name,
+                                        real: item.id
+                                    }
+                                }));
+                            }
+                        });
+                    },
+                    select: function(event, ui) {
+                        $('#pick-value').val(ui.item.real);
+                    }
                 });
 
                 $('#drop-off').autocomplete({
-                    source: drop_off,
+                    source: function(request, response) {
+                        $.ajax({
+                            dataType: 'JSON',
+                            url: '/drop-off',
+                            data: {
+                                term: request.term
+                            },
+                            success: function(data) {
+                                response($.map(data, function(item) {
+                                    return {
+                                        value: item.name,
+                                        real: item.id
+                                    }
+                                }));
+                            }
+                        });
+                    },
+                    select: function(event, ui) {
+                        $('#drop-value').val(ui.item.real);
+                    }
                 });
             });
+        </script>
+        <script type="text/javascript">
+            var baseUrl = '{{ URL::to("/") }}';
         </script>
         <script type="text/javascript">
             $(function() {
@@ -213,11 +235,12 @@
                             <div class="col-sm-12 col-md-10 col-md-offset-1">
                                 {!! Form::open(['url' => '/find-transfer', 'method' => 'POST', 'class' => 'form-inline search-form col-md-12', 'id' => 'searchForm']) !!}
                                     <div class="form-group col-md-4 col-xs-12">
-                                    <label class="control-label" for="pick-up">
-                                        Pick-up
-                                    </label>
-                                    <div class="wrapper-input">
-                                        <input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pick-up" placeholder="Type airport, city or train station" required="required" type="text">
+                                        <label class="control-label" for="pick-up">
+                                            Pick-up
+                                        </label>
+                                        <div class="wrapper-input">
+                                            <input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pick-up" placeholder="Type airport, city or train station" required="required" type="text">
+                                            <input type="hidden" name="pick-up" id="pick-value">
                                         </div>
                                     </div>
                                     <!-- <div class="form-group col-md-1 col-xs-12">
@@ -231,6 +254,7 @@
                                         </label>
                                         <div class="wrapper-input">
                                             <input id="drop-off" class="form-control col-md-7 col-xs-12 drop-off input-text" name="drop-off" placeholder="Type airport, city or train station" required="required" type="text">
+                                            <input type="hidden" name="pick-up" id="drop-value">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4 col-xs-12">

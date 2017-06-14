@@ -113,10 +113,12 @@ $(function() {
 	$('#searchForm').on('submit', function(e) {
 		e.preventDefault();
 		$('.modal').show();
-		var pickup  = $('#pick-up').val();
-		var dropoff = $('#drop-off').val();
+		var pickup  = $('#pick-value').val();
+		var dropoff = $('#drop-value').val();
 		var token   = $('input[name="_token"]').attr('value');
 		var host    = $(this).prop('action');
+		console.log(pickup);
+		console.log(dropoff);
 		$.ajax({
 			type: 'POST',
 			url: host,

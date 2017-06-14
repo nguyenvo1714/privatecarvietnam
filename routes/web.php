@@ -42,7 +42,8 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::get('/deal', 'TransferController@deal');
 	Route::get('/blog/{slug}', 'BlogController@content');
 
-	Route::get('/pick_up', 'TransferController@getPickup');
+	Route::get('/pick-up', 'TransferController@getPickup');
+	Route::get('/drop-off', 'TransferController@getDropoff');
 });
 
 Route::group(['middleware' => ['auth']], function() {

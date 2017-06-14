@@ -13,7 +13,7 @@
 					<div class="">
 						<div class="col-md-12 transfer-header">
 							<div class="row">
-								<p class="from-to unset-height">{{ $transfer->transfer_name->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->name }}</p>
+								<p class="from-to unset-height">{{ $transfer->pick_up->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->name }}</p>
 								<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
 								{{ Html::image('/storage/' . $transfer->image_head) }}
 							</div>

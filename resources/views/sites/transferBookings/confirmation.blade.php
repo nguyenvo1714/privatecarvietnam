@@ -20,13 +20,13 @@
 								</div>
 								<div class="block-description">
 									<h5 class="unmb">
-										{{ $transfer->transfer_name->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->name }}
+										{{ $transfer->pick_up->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->name }}
 									</h5>
 									<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
 								</div>
 								{!! Form::open(['url' => '/book-transfer/complete', 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'complete']) !!}
 								<div class="block-form">
-									<input type="hidden" name="trip" value="{{ $transfer->transfer_name->name }} - {{ $transfer->place->name }}" id="trip">
+									<input type="hidden" name="trip" value="{{ $transfer->pick_up->name }} - {{ $transfer->place->name }}" id="trip">
 									<input type="hidden" name="duration" value="{{ $transfer->duration }}" id="duration">
 									<input type="hidden" name="class" value="{{ $register['class'] }}" id="class">
 									<input type="hidden" name="price" value="{{ $register['price'] }}" id="price">
@@ -114,7 +114,7 @@
 										<h3>Transfer summary</h3>
 										<div class="summary-block">
 											<h6 class="pick-up">Pick-up</h6>
-											<p class="summary-text">{{ $transfer->transfer_name->name }}, {{ $register['pickup_address'] }}</p>
+											<p class="summary-text">{{ $transfer->pick_up->name }}, {{ $register['pickup_address'] }}</p>
 										</div>
 										<div class="summary-block">
 											<h6 class="drop-off">Drop-off</h6>

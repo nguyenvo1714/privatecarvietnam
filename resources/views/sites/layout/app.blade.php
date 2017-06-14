@@ -83,53 +83,52 @@
                 $('#pick-up').autocomplete({
                     source: function(request, response) {
                         $.ajax({
-                            type: 'GET',
                             dataType: 'JSON',
-                            url: '/pick_up',
-                            data: {term: request.term},
+                            url: '/pick-up',
+                            data: {
+                                term: request.term
+                            },
                             success: function(data) {
-                                console.log(data);
-                                response($.map(data, function($item) {
-                                    alert(item.label);
+                                response($.map(data, function(item) {
+                                    return {
+                                        value: item.name,
+                                        real: item.id
+                                    }
                                 }));
                             }
                         });
                     },
                     select: function(event, ui) {
-                        $('#pick-value').val(ui.item.value);
+                        $('#pick-value').val(ui.item.real);
+                    }
+                });
+
+                $('#drop-off').autocomplete({
+                    source: function(request, response) {
+                        $.ajax({
+                            dataType: 'JSON',
+                            url: '/drop-off',
+                            data: {
+                                term: request.term
+                            },
+                            success: function(data) {
+                                response($.map(data, function(item) {
+                                    return {
+                                        value: item.name,
+                                        real: item.id
+                                    }
+                                }));
+                            }
+                        });
+                    },
+                    select: function(event, ui) {
+                        $('#drop-value').val(ui.item.real);
                     }
                 });
             });
         </script>
         <script type="text/javascript">
             var baseUrl = '{{ URL::to("/") }}';
-            // var pick_ups = {!! json_encode($pick_ups) !!};
-            // var pick_up = [];
-            // var places = {!! json_encode($places) !!};
-            // var drop_off = [];
-            // $.each(pick_ups, function(key, value) {
-            //     $.each(value, function(key1, value1) {
-            //         if(key1 == 'name') {
-            //             pick_up.push(value1);
-            //         }
-            //     });
-            // });
-            // $.each(places, function(key, value) {
-            //     $.each(value, function(key1, value1) {
-            //         if(key1 == 'name') {
-            //             drop_off.push(value1);
-            //         }
-            //     });
-            // });
-            // $(function() {
-            //     $('#pick-up').autocomplete({
-            //         source: pick_up,
-            //     });
-
-            //     $('#drop-off').autocomplete({
-            //         source: drop_off,
-            //     });
-            // });
         </script>
 
         <script type="text/javascript">

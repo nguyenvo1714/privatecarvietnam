@@ -23,12 +23,12 @@
 					<div class="col-sm-12 col-lg-10 col-lg-offset-1 search-form">
 						{!! Form::open(['url' => '/find-transfer', 'method' => 'POST', 'class' => 'form-inline', 'id' => 'searchForm']) !!}
 							<div class="form-group col-md-4 col-xs-12">
-							<label class="control-label" for="pick-up">
-								Pick-up
-							</label>
-							<div class="wrapper-input">
-								<input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pickup" placeholder="Type airport, city or train station" required="required" type="text">
-								<input type="hidden" name="pick-up" id="pick-value">
+								<label class="control-label" for="pick-up">
+									Pick-up
+								</label>
+								<div class="wrapper-input">
+									<input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pickup" placeholder="Type airport, city or train station" required="required" type="text">
+									<input type="hidden" name="pick-up" id="pick-value">
 								</div>
 							</div>
 							<!-- <div class="form-group col-md-1 col-xs-12">

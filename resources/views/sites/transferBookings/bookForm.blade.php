@@ -20,7 +20,7 @@
 								</div>
 								<div class="block-description">
 									<h5 class="unmb">
-										{{ $transfer->transfer_name->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->name }}
+										{{ $transfer->pick_up->name }} <i class="fa fa-long-arrow-right"></i> {{ $transfer->place->name }}
 									</h5>
 									<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
 								</div>
@@ -149,7 +149,7 @@
 										<h3>Transfer summary</h3>
 										<div class="summary-block">
 											<h6 class="pick-up">Pick-up</h6>
-											<p class="summary-text">{{ $transfer->transfer_name->name }}</p>
+											<p class="summary-text">{{ $transfer->pick_up->name }}</p>
 										</div>
 										<div class="summary-block">
 											<h6 class="drop-off">Drop-off</h6>

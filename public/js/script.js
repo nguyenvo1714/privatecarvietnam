@@ -117,8 +117,6 @@ $(function() {
 		var dropoff = $('#drop-value').val();
 		var token   = $('input[name="_token"]').attr('value');
 		var host    = $(this).prop('action');
-		console.log(pickup);
-		console.log(dropoff);
 		$.ajax({
 			type: 'POST',
 			url: host,

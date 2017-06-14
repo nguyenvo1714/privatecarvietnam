@@ -524,6 +524,12 @@ li.active a:after {
     display: inline-block;
     width: 100%;
 }
+.wrapper-input img {
+	position: absolute;
+	top: 10px;
+	right: 5px;
+	display: none;
+}
 .search-form .wrapper-input .input-text {
 	border-radius: 4px;
     height: 50px;

@@ -82,6 +82,7 @@
             $(function() {
                 $('#pick-up').autocomplete({
                     source: function(request, response) {
+                        $('.animation-pick').show();
                         $.ajax({
                             dataType: 'JSON',
                             url: '/pick-up',
@@ -89,6 +90,7 @@
                                 term: request.term
                             },
                             success: function(data) {
+                                $('.animation-pick').hide();
                                 response($.map(data, function(item) {
                                     return {
                                         value: item.name,
@@ -105,6 +107,7 @@
 
                 $('#drop-off').autocomplete({
                     source: function(request, response) {
+                        $('.animation-drop').show();
                         $.ajax({
                             dataType: 'JSON',
                             url: '/drop-off',
@@ -112,6 +115,7 @@
                                 term: request.term
                             },
                             success: function(data) {
+                                $('.animation-drop').hide();
                                 response($.map(data, function(item) {
                                     return {
                                         value: item.name,

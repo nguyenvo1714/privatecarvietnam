@@ -80,6 +80,7 @@
             $(function() {
                 $('#pick-up').autocomplete({
                     source: function(request, response) {
+                        $('.animation-pick').show();
                         $.ajax({
                             dataType: 'JSON',
                             url: '/pick-up',
@@ -87,6 +88,7 @@
                                 term: request.term
                             },
                             success: function(data) {
+                                $('.animation-pick').hide();
                                 response($.map(data, function(item) {
                                     return {
                                         value: item.name,
@@ -103,6 +105,7 @@
 
                 $('#drop-off').autocomplete({
                     source: function(request, response) {
+                        $('.animation-drop').show();
                         $.ajax({
                             dataType: 'JSON',
                             url: '/drop-off',
@@ -110,6 +113,7 @@
                                 term: request.term
                             },
                             success: function(data) {
+                                $('.animation-drop').hide();
                                 response($.map(data, function(item) {
                                     return {
                                         value: item.name,
@@ -241,6 +245,7 @@
                                         <div class="wrapper-input">
                                             <input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pick-up" placeholder="Type airport, city or train station" required="required" type="text">
                                             <input type="hidden" name="pick-up" id="pick-value">
+                                            {{ Html::image('img/ajax-search.gif', '', ['class' => 'animation-pick']) }}
                                         </div>
                                     </div>
                                     <!-- <div class="form-group col-md-1 col-xs-12">
@@ -255,6 +260,7 @@
                                         <div class="wrapper-input">
                                             <input id="drop-off" class="form-control col-md-7 col-xs-12 drop-off input-text" name="drop-off" placeholder="Type airport, city or train station" required="required" type="text">
                                             <input type="hidden" name="pick-up" id="drop-value">
+                                            {{ Html::image('img/ajax-search.gif', '', ['class' => 'animation-drop']) }}
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4 col-xs-12">

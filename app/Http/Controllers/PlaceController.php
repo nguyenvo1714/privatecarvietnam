@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Place;
+use App\Pickup;
+use App\TransferName;
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
@@ -10,8 +12,7 @@ class PlaceController extends Controller
 
     protected $rules = [
         'name' => 'required',
-        'is_hot' => 'required',
-        'is_new' => 'required',
+        'transfer_name_id' => 'required',
     ];
 
     /**
@@ -25,6 +26,19 @@ class PlaceController extends Controller
         return view('admin.places.index', ['places' => $places->orderBy('created_at')->paginate(10)]);
     }
 
+    public function getPickup(Request $request)
+    {
+        if($request->ajax()) {
+            $transfer_name_id = $request->transfer_name_id;
+            $pick_ups = Pickup::where('transfer_name_id', $transfer_name_id)->get();
+            $ret_val = '';
+            foreach ($pick_ups as $pick_up) {
+                $ret_val .= "<option value=$pick_up->id>$pick_up->name</option>";
+            }
+            return response()->json($ret_val);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -32,7 +46,8 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        return view('/admin.places.create');
+        $transferNames = TransferName::get();
+        return view('/admin.places.create', ['transferNames' => $transferNames]);
     }
 
     /**
@@ -47,6 +62,7 @@ class PlaceController extends Controller
         $place = new Place;
         $input = $request->all();
         $place->create($input);
+        Pickup::create($input);
         return redirect('/places');
     }
 
@@ -69,7 +85,8 @@ class PlaceController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.places.edit', ['place' => Place::findOrFail($id)]);
+        $transferNames = TransferName::get();
+        return view('admin.places.edit', ['place' => Place::findOrFail($id), 'transferNames' => $transferNames]);
     }
 
     /**
@@ -82,7 +99,9 @@ class PlaceController extends Controller
     public function update(Request $request, $id)
     {
         $place = Place::find($id);
+        $pick_up = Pickup::find($id);
         $place->update($request->all());
+        $pick_up->update($request->all());
         return redirect('/places');
     }
 
@@ -95,6 +114,7 @@ class PlaceController extends Controller
     public function destroy($id)
     {
         Place::destroy($id);
+        Pickup::destroy($id);
         return redirect('/places');
     }
 }

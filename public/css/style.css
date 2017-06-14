@@ -1044,7 +1044,12 @@ a.title {
 }
 .media-body h5 {
 	margin-top: unset;
-	margin-bottom: 7px;
+	margin-bottom: 3px;
+	font-size: 13px;
+}
+.our-blog .media-body p {
+	line-height: 15px;
+	font-size: 12px;
 }
 .tripadvisor-wrapper {
 	border: 1px solid #fff;

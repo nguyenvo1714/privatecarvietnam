@@ -9,13 +9,19 @@ class Place extends Model
     protected $table = 'places';
     protected $fillable = [
         'name',
-        'is_hot',
-        'is_new',
+        'transfer_name_id',
+        // 'is_hot',
+        // 'is_new',
     ];
 
     public function tour()
     {
     	return $this->belongsToMany('App\Tour');
+    }
+
+    public function transfer_name()
+    {
+        return $this->belongsTo('App\TransferName');
     }
 
     public function transfers()

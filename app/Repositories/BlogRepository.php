@@ -77,7 +77,7 @@
 			}
 		}
 
-		public function chop_string($string,$x=100) {
+		public function chop_string($string,$x=90) {
 			$string = strip_tags(stripslashes($string)); // convert to plaintext
 			return substr($string, 0, $x);
 			// return substr($string, 0, strpos(wordwrap($string, $x), "."));

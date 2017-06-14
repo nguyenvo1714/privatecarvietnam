@@ -22,6 +22,11 @@
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
+                            <td>Transfer Name</td>
+                            <td>{{ $place->type->name }}</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <!-- <tr>
                             <td>Is hot</td>
                             <td>{{ $place->isHot }}</td>
                             <td>&nbsp;</td>
@@ -30,7 +35,7 @@
                             <td>Is New</td>
                             <td>{{ $place->isNew }}</td>
                             <td>&nbsp;</td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td>Create at</td>
                             <td>{{ $place->created_at }}</td>

@@ -10,11 +10,12 @@
 						<div class="col-sm-12 col-md-10 col-md-offset-1">
 							{!! Form::open(['url' => '/find-transfer', 'method' => 'POST', 'class' => 'form-inline search-form col-md-12', 'id' => 'searchForm']) !!}
 								<div class="form-group col-md-4 col-xs-12">
-								<label class="control-label" for="pick-up">
-									Pick-up
-								</label>
-								<div class="wrapper-input">
-									<input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pick-up" placeholder="Type airport, city or train station" required="required" type="text">
+									<label class="control-label" for="pick-up">
+										Pick-up
+									</label>
+									<div class="wrapper-input">
+										<input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pick-up" placeholder="Type airport, city or train station" required="required" type="text">
+										<input type="hidden" name="pick-up" id="pick-value">
 									</div>
 								</div>
 								<!-- <div class="form-group col-md-1 col-xs-12">
@@ -28,6 +29,7 @@
 									</label>
 									<div class="wrapper-input">
 										<input id="drop-off" class="form-control col-md-7 col-xs-12 drop-off input-text" name="drop-off" placeholder="Type airport, city or train station" required="required" type="text">
+										<input type="hidden" name="pick-up" id="drop-value">
 									</div>
 								</div>
 								<div class="form-group col-md-4 col-xs-12">
@@ -41,33 +43,34 @@
 				</div>
 			</div>
 		</section>
-		<section class="container-fluid mt20">
+		<section class="container mt40">
 			<div class="row">
 				<div class="col-md-9">
-					<div class="row">
+					<div class="row rowbox">
 						@foreach($deals as $deal)
-					        <div class="col-md-4 col-sm-4 col-xs-12 deal-list">
-								<div class="private-thumbnail">
-									{{ Html::image('/storage/' . $deal->image_thumb) }}
-									<div class="position">
-										<div class="label-detail"><a href="{{ url('/' . $deal->type->slug . '/' . $deal->slug) }}"><strong>Save {{ $deal->discount_value }}</strong></a></div>
+							<div class="col-md-4 col-sm-6 col-xs-12">
+								<div class="boxinfo wow fadeInDown animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInDown;">
+									<a href="{{ url('/' . $deal->type->slug . '/' . $deal->slug) }}" class="thumb">
+										<div class="price">sale off <span class="autoResize">{{ $deal->discount_value }}</span>
+										</div>
+										<div class="thumbpre">
+											{!! Html::image('/storage/' . $deal->image_thumb, $deal->title, ['class' => 'img-responsive']) !!}
+										</div>
+									</a>
+									<div class="desc-container">
+										<a class="title" href="{{ '/' . $deal->type->slug . '/' . $deal->slug }}">
+											{{ $deal->title }}
+										</a>
+										<div class="desc">
+											{{ $deal->description }}
+										</div>
 									</div>
 								</div>
-								<h5>
-									<a href="{{ url('/' . $deal->type->slug . '/' . $deal->slug) }}">{{ $deal->title }}</a>
-								</h5>
-								<p>{{ substr($deal->description, 0, 200) . '...' }}</p>
 							</div>
 						@endforeach
-						<!-- <div id="results"></div>
-						<div class="col-sm-12">
-							<div align="center" class="mb">
-								<button class="load_more btn btn-primary" id="load_more_button">
-									<i class='fa fa-spinner'></i> Show 6 more cruises
-								</button>
-								<div class="animation_image" style="display:none;">{!! Html::image('img/loading.gif') !!}</div>
-							</div>
-						</div> -->
+						<div class="paginate text-center">
+							{{ $deals->links() }}
+						</div>
 					</div>
 				</div>
 				<div class="col-md-3">

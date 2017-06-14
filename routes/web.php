@@ -41,11 +41,15 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::post('/sendContact', 'TransferController@sendContact');
 	Route::get('/deal', 'TransferController@deal');
 	Route::get('/blog/{slug}', 'BlogController@content');
+
+	Route::get('/pick-up', 'TransferController@getPickup');
+	Route::get('/drop-off', 'TransferController@getDropoff');
 });
 
 Route::group(['middleware' => ['auth']], function() {
 	Route::get('/admin', 'TransferController@index');
 
+	Route::get('/pick_ups', 'PlaceController@getPickup');
 	Route::get('/places', 'PlaceController@index');
 	Route::get('/place/create', 'PlaceController@create');
 	Route::post('/place', 'PlaceController@store');

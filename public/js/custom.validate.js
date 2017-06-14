@@ -105,6 +105,13 @@ $(function() {
 		}
 	});
 
+	$('#placeForm').validate({
+		messages: {
+			name: "Please input name",
+			type_id: "Please select an option"
+		}
+	});
+
 	$('#transferNameForm').validate({
 		messages: {
 			name: 'Please input name',
@@ -118,6 +125,7 @@ $(function() {
 		messages: {
 			type_id: "Please select an option",
 			transfer_name_id: "Please select an option",
+			pick_up_id: "Please select an option",
 			place_id: "Please select an option",
 			title: "Please input the title",
 			duration: "Please input duration",

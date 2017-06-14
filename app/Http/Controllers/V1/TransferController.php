@@ -40,16 +40,34 @@ class TransferController extends Controller
         $dealTransfers = $this->transferRepo->deal();
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $places = $this->transferNameRepo->allP();
+        // $pick_ups = $this->transferNameRepo->allPi();
+        // $places = $this->transferNameRepo->allP();
         return view('/sites.index', [
             'transfers' => $transfers,
             'dealTransfers' => $dealTransfers,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'places' => $places,
             'total_pages' => $total_pages,
             'perpage' => $perpage,
         ]);
+    }
+
+    public function getPickup (Request $request)
+    {
+        if($request->ajax()) {
+            $term = $request->term;
+            $result = $this->transferRepo->search_pickup($term);
+            return response()->json($result);
+        }
+    }
+
+    public function getDropoff (Request $request)
+    {
+        if($request->ajax()) {
+            $term = $request->term;
+            $result = $this->transferRepo->search_dropoff($term);
+            return response()->json($result);
+        }
     }
 
     public function topAjax(Request $request)
@@ -88,11 +106,9 @@ class TransferController extends Controller
     {
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $places = $this->transferNameRepo->allP();
         return view('/sites.transfers.contact', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'places' => $places
         ]);
     }
 
@@ -138,7 +154,6 @@ class TransferController extends Controller
     {
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $places = $this->transferNameRepo->allP();
         $perpage = 4;
         $type = 4;
         $total_pages = (int)ceil($this->transferNameRepo->count($type) / $perpage);
@@ -151,7 +166,6 @@ class TransferController extends Controller
             'type' => $type,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'places' => $places,
             'interestTransfers' => $interestTransfers
         ]);
     }
@@ -192,7 +206,6 @@ class TransferController extends Controller
     {
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $places = $this->transferNameRepo->allP();
         $perpage = 4;
         $type = 3;
         $total_pages = (int)ceil($this->transferNameRepo->count($type) / $perpage);
@@ -202,7 +215,6 @@ class TransferController extends Controller
             'airportTransfers' => $airportTransfers,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'places' => $places,
             'total_pages' => $total_pages,
             'perpage' => $perpage,
             'type' => $type,
@@ -222,7 +234,6 @@ class TransferController extends Controller
     {
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $places = $this->transferNameRepo->allP();
         $interestTransfers = $this->transferRepo->interest(4);
         $transfer_name = $this->transferNameRepo->findSlug($slug);
         $transfers = $this->transferRepo->getTransfer(6, $transfer_name->id);
@@ -231,7 +242,6 @@ class TransferController extends Controller
         return view('/sites.transfers.viewTransfers', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'places' => $places,
             'interestTransfers' => $interestTransfers,
             'transfers' => $transfers,
             'name' => $slug,
@@ -280,7 +290,6 @@ class TransferController extends Controller
     {
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $places = $this->transferNameRepo->allP();
         $interestTransfers = $this->transferRepo->interest(4);
         $transfer_name = $this->transferNameRepo->findSlug($slug);
         $transfers = $this->transferRepo->getTransfer(6, $transfer_name->id);
@@ -289,7 +298,6 @@ class TransferController extends Controller
         return view('/sites.transfers.viewAirportTransfers', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'places' => $places,
             'interestTransfers' => $interestTransfers,
             'transfers' => $transfers,
             'name' => $slug,
@@ -312,14 +320,12 @@ class TransferController extends Controller
     {
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $places = $this->transferNameRepo->allP();
         $interestTransfers = $this->transferRepo->interest(4);
         $transfer = $this->transferRepo->findSlug($slug);
         $relates = $this->transferRepo->relate($slug, 4);
         return view('/sites.transfers.detailTransfer', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'places' => $places,
             'interestTransfers' => $interestTransfers,
             'transfer' => $transfer,
             'name' => $slug,
@@ -340,14 +346,12 @@ class TransferController extends Controller
     {
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $places = $this->transferNameRepo->allP();
         $interestTransfers = $this->transferRepo->interest(4);
         $transfer = $this->transferRepo->findSlug($slug);
         $relates = $this->transferRepo->relate($slug, 4);
         return view('/sites.transfers.detailAirportTransfer', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'places' => $places,
             'interestTransfers' => $interestTransfers,
             'transfer' => $transfer,
             'name' => $slug,
@@ -364,9 +368,9 @@ class TransferController extends Controller
     public function findTransfer(Request $request)
     {
         if($request->ajax()) {
-            $transferName = $this->transferNameRepo->getTransferName($request->pickup);
-            $place = $this->transferNameRepo->getPlaceName($request->dropoff);
-            $transfer = $this->transferRepo->findTransfer($transferName->id, $place->id);
+            $pick_up_id = $request->pickup;
+            $place_id = $request->dropoff;
+            $transfer = $this->transferRepo->findTransfer($pick_up_id, $place_id);
             if($transfer) {
                 $type = $this->transferNameRepo->getType($transfer->type_id)->slug;
                 $response = [
@@ -393,15 +397,13 @@ class TransferController extends Controller
 
     public function deal()
     {
-        $deals = $this->transferRepo->dealList();
+        $deals = $this->transferRepo->dealList(1, 6);
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $places = $this->transferNameRepo->allP();
         return view('/sites.transfers.deal', [
             'deals' => $deals,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'places' => $places
         ]);
     }
 }

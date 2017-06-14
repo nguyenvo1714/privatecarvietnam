@@ -2,6 +2,7 @@
 	namespace App\Repositories;
 
 	use App\TransferName;
+	use App\Pickup;
 	use App\Place;
 	use App\Type;
 
@@ -20,6 +21,11 @@
 		public function allT()
 		{
 			return $this->transfer_name->all();
+		}
+
+		public function allPi()
+		{
+			return Pickup::all();
 		}
 
 		public function allP()
@@ -49,6 +55,11 @@
 		public function getTransferName($pickup)
 		{
 			return $this->transfer_name->where('name', ucwords($pickup))->first();
+		}
+
+		public function getPickUpName($pickup)
+		{
+			return Pickup::where('name', ucwords($pickup))->first();
 		}
 
 		public function getPlaceName($dropoff)

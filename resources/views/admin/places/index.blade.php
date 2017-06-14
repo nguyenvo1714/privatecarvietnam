@@ -2,7 +2,7 @@
 @section('content')
 	<div class="page-title">
         <div class="col-md-6 left-title">
-            <h3>Blogs</h3>
+            <h3>Places</h3>
         </div>
         <div class="col-md-6 right-title">right title</div>
     </div>
@@ -20,8 +20,9 @@
                         <thead>
                             <tr>
                                 <th>Title</th>
-                                <th>Is hot</th>
-                                <th>Is new</th>
+                                <th>Transfer name</th>
+                                <!-- <th>Is hot</th>
+                                <th>Is new</th> -->
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -32,15 +33,18 @@
                                 <td>
                                     {{ $place->name }}
                                 </td>
-                                <td>{{ $place->isHot }}</td>
-                                <td>{{ $place->isNew }}</td>
+                                <td>
+                                    {{ $place->transfer_name->name }}
+                                </td>
+                                <!-- <td>{{ $place->isHot }}</td>
+                                <td>{{ $place->isNew }}</td> -->
                                 <td style="font-size: 20px;">
                                     <a href="" id="{{ $place->id }}" class="call-view-place" data-toggle="modal" data-target="#myModal">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                 </td>
                                 <td style="font-size: 20px;">
-                                    <a href="" id="{{ $place->id }}" class="call-edit-place" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a href="{{ url('/place/' . $place->id . '/edit') }}" id="{{ $place->id }}" class="call-edit-place"><i class="fa fa-pencil-square-o"></i></a>
                                 </td>
                                 <td style="font-size: 20px;">
                                     {!! Form::open(['url' => '/place/'.$place->id, 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")']) !!}

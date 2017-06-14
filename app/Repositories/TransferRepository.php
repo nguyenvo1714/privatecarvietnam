@@ -2,6 +2,8 @@
 	namespace App\Repositories;
 
 	use App\Transfer;
+	use App\Pickup;
+	use App\Place;
 
 	/**
 	* 
@@ -22,9 +24,9 @@
 			return $tops;
 		}
 
-		public function dealList($discount_flg = 1)
+		public function dealList($discount_flg = 1, $limit)
 		{
-			return $this->transfer->where('is_discount', $discount_flg)->get();
+			return $this->transfer->where('is_discount', $discount_flg)->paginate($limit);
 		}
 
 		public function topAjax($is_hot, $start, $perpage)
@@ -36,6 +38,16 @@
                                     ->get();
             $this->getTransferType($tops);
             return $tops;
+		}
+
+		public function search_pickup($term)
+		{
+			return Pickup::where('name', 'LIKE', $term . '%')->get();
+		}
+
+		public function search_dropoff($term)
+		{
+			return Place::where('name', 'LIKE', $term . '%')->get();
 		}
 
 		public function totalHot($is_hot = 1)
@@ -77,9 +89,9 @@
 			return $interests;
 		}
 
-		public function findTransfer($transfer_name_id, $place_id)
+		public function findTransfer($pick_up_id, $place_id)
 		{
-			return $this->transfer->where('transfer_name_id', $transfer_name_id)
+			return $this->transfer->where('pick_up_id', $pick_up_id)
 								->where('place_id', $place_id)
 								->first();
 		}

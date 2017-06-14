@@ -2,7 +2,7 @@
 @section('content')
 	<div class="wrapcontent">
 		{!! Html::style('css/slideshow.css') !!}
-		<section class="wrapslide" style="background: url(../uploads/Vietnam.png) repeat center;">
+		<section class="wrapslide" style="background: url(../uploads/Green-car-on-the-route.jpg) repeat center;">
 			<ul class="slideshow">
 				<li><span>Boracay Island Philippines</span></li>
 				<li><span>Shwedagon Pagoda Myanmar</span></li>
@@ -23,11 +23,12 @@
 					<div class="col-sm-12 col-lg-10 col-lg-offset-1 search-form">
 						{!! Form::open(['url' => '/find-transfer', 'method' => 'POST', 'class' => 'form-inline', 'id' => 'searchForm']) !!}
 							<div class="form-group col-md-4 col-xs-12">
-							<label class="control-label" for="pick-up">
-								Pick-up
-							</label>
-							<div class="wrapper-input">
-								<input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pick-up" placeholder="Type airport, city or train station" required="required" type="text">
+								<label class="control-label" for="pick-up">
+									Pick-up
+								</label>
+								<div class="wrapper-input">
+									<input id="pick-up" class="form-control col-md-7 col-xs-12 pick-up input-text" name="pickup" placeholder="Type airport, city or train station" required="required" type="text">
+									<input type="hidden" name="pick-up" id="pick-value">
 								</div>
 							</div>
 							<!-- <div class="form-group col-md-1 col-xs-12">
@@ -40,7 +41,8 @@
 									Drop-off
 								</label>
 								<div class="wrapper-input">
-									<input id="drop-off" class="form-control col-md-7 col-xs-12 drop-off input-text" name="drop-off" placeholder="Type airport, city or train station" required="required" type="text">
+									<input id="drop-off" class="form-control col-md-7 col-xs-12 drop-off input-text" name="dropoff" placeholder="Type airport, city or train station" required="required" type="text">
+									<input type="hidden" name="drop-off" id="drop-value">
 								</div>
 							</div>
 							<div class="form-group col-md-4 col-xs-12">
@@ -291,7 +293,7 @@
 		    var track_click = 1;
 		    var total_pages = {{ $total_pages }};
 		    var perpage = {{ $perpage }};
-		    var is_hot = {{ ! empty($transfer) ? $transfer->is_hot : '' }};
+		    var is_hot = {{ ! empty($transfer) ? $transfer->is_hot : 0 }};
 		    host = baseUrl + '/top-load-more';
 			if (track_click > total_pages-1) {
 				$(".load_more").addClass("hidden");

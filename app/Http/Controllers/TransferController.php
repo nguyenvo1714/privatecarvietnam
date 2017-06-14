@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Transfer;
 use App\Type;
+use App\Pickup;
 use App\Place;
 use App\Blog;
 use App\Driver;
@@ -26,6 +27,7 @@ class TransferController extends Controller
     protected $rules = [
         'type_id'          => 'required',
         'transfer_name_id' => 'required',
+        'pick_up_id'       => 'required',
         'place_id'         => 'required',
         'title'            => 'required',
         'duration'         => 'required',
@@ -63,12 +65,14 @@ class TransferController extends Controller
     public function create()
     {
     	$types = Type::get();
+        $pickups = Pickup::get();
     	$places = Place::get();
         $blogs = Blog::whereIn('type_id', [3, 4])->get();
         $drivers = Driver::get();
         $transferNames = TransferName::get();
         return view('/admin.transfers.create', [
-            'types'         => $types, 
+            'types'         => $types,
+            'pickups'       => $pickups,
             'places'        => $places, 
             'drivers'       => $drivers,
             'transferNames' => $transferNames
@@ -92,7 +96,8 @@ class TransferController extends Controller
         }
         $transfer = Transfer::create([
             'type_id'          => $request->type_id, 
-            'transfer_name_id' => $request->transfer_name_id, 
+            'transfer_name_id' => $request->transfer_name_id,
+            'pick_up_id'       => $request->pick_up_id,
             'place_id'         => $request->place_id,
             'title'            => $request->title,
             'duration'         => $request->duration,
@@ -146,6 +151,7 @@ class TransferController extends Controller
     public function edit($id)
     {
     	$types = Type::get();
+        $pick_ups = Pickup::get();
     	$places = Place::get();
     	$blogs = Blog::get();
         $drivers = Driver::get();
@@ -153,7 +159,8 @@ class TransferController extends Controller
     	$transfer = Transfer::find($id);
         return view('admin.transfers.edit', [
             'transfer' => $transfer, 
-            'types' => $types, 
+            'types' => $types,
+            'pick_ups' => $pick_ups,
             'places' => $places, 
             'cars' => $transfer->cars()->get(), 
             'drivers' => $drivers,
@@ -177,6 +184,7 @@ class TransferController extends Controller
         $transfer->update([
             'type_id'          => $request->type_id, 
             'transfer_name_id' => $request->transfer_name_id,
+            'pick_up_id'       => $request->pick_up_id,
             'place_id'         => $request->place_id,
             'title'            => $request->title,
             'duration'         => $request->duration,

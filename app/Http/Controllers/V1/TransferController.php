@@ -34,14 +34,12 @@ class TransferController extends Controller
      */
     public function index()
     {
-        $transfers = $this->transferRepo->top(4);
-        $perpage = 6;
+        $transfers = $this->transferRepo->top(8);
+        $perpage = 8;
         $total_pages = (int)ceil($this->transferRepo->totalHot() / $perpage);
         $dealTransfers = $this->transferRepo->deal();
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        // $pick_ups = $this->transferNameRepo->allPi();
-        // $places = $this->transferNameRepo->allP();
         return view('/sites.index', [
             'transfers' => $transfers,
             'dealTransfers' => $dealTransfers,

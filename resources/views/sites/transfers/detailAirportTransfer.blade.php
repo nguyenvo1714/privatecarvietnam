@@ -27,8 +27,8 @@
 									</div>
 									<div class="col-md-3 col-sm-3 col-xs-12 car-price">
 										@if($transfer->is_discount == 1)
-											<p><i class="pricesaleoff">{{ number_format($car->price) }} VNĐ</i></p>
-											<p><strong>{{ $car->price - ($car->price * $transfer->discount_value) / 100 }} VNĐ</strong></p>
+											<p><i class="pricesaleoff">{{ number_format($car->price) }} <i class="fa fa-dollar"></i></i></p>
+											<p><strong>{{ $car->price - ($car->price * $transfer->discount_value) / 100 }} <i class="fa fa-dollar"></i></strong></p>
 										@else
 											<p>{{ $car->price }} VNĐ</p>
 										@endif

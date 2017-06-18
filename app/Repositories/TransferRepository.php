@@ -86,6 +86,7 @@
 										->limit($limit)
 										->get();
 			$this->getTransferType($interests);
+			$this->crop_description($interests);
 			return $interests;
 		}
 
@@ -142,4 +143,11 @@
 	            $transfer->type = $transfer->type->where('id', $transfer->type_id)->first();
 	        }
 	    }
+
+		public function crop_description($transfers)
+		{
+			foreach ($transfers as $transfer) {
+				$transfer->description = substr($transfer->description, 0, 170) . '...';
+			}
+		}
 	}

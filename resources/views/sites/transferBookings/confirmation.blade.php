@@ -97,7 +97,7 @@
 											</tr>
 											<tr>
 												<td><strong>Total</strong></td>
-												<td><strong>{{ number_format($register['passenger'] * $register['price'], 2) }} VNĐ</strong></td>
+												<td><strong>{{ number_format($register['passenger'] * $register['price'], 2) }} <i class="fa fa-dollar"></i></strong></td>
 											</tr>
 										</tbody>
 									</table>
@@ -146,10 +146,10 @@
 										<h3>Transfer cost</h3>
 										<div class="summary-block">
 											<h6 class="vehicle-class">
-												Vehicle {{ $register['class'] }} <span class="pull-right">{{ number_format($register['passenger'] * $register['price'], 2) }} VNĐ</span>
+												Vehicle {{ $register['class'] }} <span class="pull-right">{{ number_format($register['passenger'] * $register['price'], 2) }} <i class="fa fa-dollar"></i></span>
 											</h6>
 										</div>
-										<h3>Total <span class="pull-right">{{ number_format($register['passenger'] * $register['price'], 2) }} VNĐ</span></h3>
+										<h3>Total <span class="pull-right">{{ number_format($register['passenger'] * $register['price'], 2) }} <i class="fa fa-dollar"></i></span></h3>
 									</div>
 								</div>
 								<span class="pin-left"><span class="glyphicon glyphicon-pushpin"></span></span>

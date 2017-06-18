@@ -811,6 +811,7 @@ a.title {
 	padding-top: unset;
 	padding-bottom: unset;
 	overflow: hidden;
+	text-align: justify;
 	font-size: 13px;
 }
 .boxinfo:hover {
@@ -1404,7 +1405,7 @@ a.title {
 	padding-bottom: 15px;
 }
 .present img {
-	margin-top: 10px;
+	margin-top: 20px;
 	display: block;
 	width:100%;
 }

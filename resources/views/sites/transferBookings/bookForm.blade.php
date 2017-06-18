@@ -36,10 +36,10 @@
 													Type vehicle:
 													@if($transfer->is_discount == 1)
 														<span>
-															{{ ! empty($car->class) ? $car->class . ' ( ' . number_format($car-> price - ($car->price * $transfer->discount_value) / 100) . 'VNĐ )' : $confirms['class'] . ' ( ' . number_format($confirms['price'] - ($confirms['price'] * $confirms['discount_value']) / 100) . ' VNĐ )' }}
+															{!! ! empty($car->class) ? $car->class . ' ( ' . number_format($car-> price - ($car->price * $transfer->discount_value) / 100) . '<i class="fa fa-dollar"></i> )' : $confirms['class'] . ' ( ' . number_format($confirms['price'] - ($confirms['price'] * $confirms['discount_value']) / 100) . ' <i class="fa fa-dollar"></i> )' !!}
 														</span>
 													@else
-														<span>{{ ! empty($car->class) ? $car->class . ' ( ' . $car-> price . 'VNĐ )' : $confirms['class'] . ' ( ' . $confirms['price']. ' VNĐ )' }}</span>
+														<span>{!! ! empty($car->class) ? $car->class . ' ( ' . $car-> price . '<i class="fa fa-dollar"></i> )' : $confirms['class'] . ' ( ' . $confirms['price']. ' <i class="fa fa-dollar"></i> )' !!}</span>
 													@endif
 												</label>
 												<input type="hidden" name="class" value="{{ ! empty($car->class) ? $car->class : $confirms['class'] }}">
@@ -167,9 +167,9 @@
 									<div class="summary-cost">
 										<h3>Transfer cost</h3>
 										<div class="summary-block">
-											<h6 class="vehicle-class">Vehicle {{ ! empty($car->class) ? $car->class : $confirms['class'] }} <span class="pull-right cost">0 VNĐ</span></s></h6>
+											<h6 class="vehicle-class">Vehicle {{ ! empty($car->class) ? $car->class : $confirms['class'] }} <span class="pull-right cost">0 <i class="fa fa-dollar"></i></span></s></h6>
 										</div>
-										<h3>Total <span class="pull-right total">0 VNĐ</span></h3>
+										<h3>Total <span class="pull-right total">0 <i class="fa fa-dollar"></i></span></h3>
 									</div>
 								</div>
 								<span class="pin-left"><span class="glyphicon glyphicon-pushpin"></span></span>

@@ -28,7 +28,6 @@
         {!! Html::script('js/custom.validate.js') !!}
         {!! Html::script('js/adminScript.js') !!}
         <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-        <!-- <script src="//cdn.ckeditor.com/4.7.0/full-all/ckeditor.js"></script> -->
         <script src="/vendor/laravel-filemanager/js/lfm.js"></script>
         <script>
             window.Laravel = <?php echo json_encode([

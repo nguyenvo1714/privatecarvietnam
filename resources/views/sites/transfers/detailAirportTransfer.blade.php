@@ -33,7 +33,10 @@
 											<p>{{ $car->price }} VNĐ</p>
 										@endif
 										{!! Form::open(['url' => '/book-transfer/' . $transfer->slug . '/' . $car->class, 'method' => 'GET']) !!}
-											<input type="submit" value="Book Transfer">
+											<button type="submit" class="btn">
+												<span>Book Transfer</span>
+												<div class="dot"></div>
+											</button>
 										{!! Form::close() !!}
 									</div>
 								</div>

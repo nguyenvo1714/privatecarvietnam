@@ -39,7 +39,7 @@
 											<p>{{ $car->price }} <i class="fa fa-dollar"></i></p>
 										@endif
 										{!! Form::open(['url' => '/book-transfer/' . $transfer->slug . '/' . $car->class, 'method' => 'GET']) !!}
-											<button type="submit" class="button">
+											<button type="submit" class="btton">
 												<span>Book Transfer</span>
 												<div class="dot"></div>
 											</button>
@@ -57,19 +57,19 @@
 								<strong>Share this</strong>
 								<ul>
 									<li class="google-plus">
-										<a href="https://plus.google.com/share?url={{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="button btn-default share_link"><i class="fa fa-google-plus"></i> Google</a>
+										<a href="https://plus.google.com/share?url={{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="btton btn-default share_link"><i class="fa fa-google-plus"></i> Google</a>
 									</li>
 									<li class="facebook">
-										<a href="https://www.facebook.com/sharer.php?u={{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="button btn-default share_link"><i class="fa fa-facebook"></i> Facebook</a>
+										<a href="https://www.facebook.com/sharer.php?u={{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="btton btn-default share_link"><i class="fa fa-facebook"></i> Facebook</a>
 									</li>
 									<li class="twister">
-										<a href="https://twitter.com/share?url={{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="button btn-default share_link"><i class="fa fa-twitter"></i> Twister</a>
+										<a href="https://twitter.com/share?url={{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="btton btn-default share_link"><i class="fa fa-twitter"></i> Twister</a>
 									</li>
 									<li class="email">
-										<a href="mailto:?subject={!! $transfer->title !!}&body={{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="button btn-default share_link"><i class="fa fa-envelope-o"></i> Email</a>
+										<a href="mailto:?subject={!! $transfer->title !!}&body={{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="btton btn-default share_link"><i class="fa fa-envelope-o"></i> Email</a>
 									</li>
 									<li class="print">
-										<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug . '#print') }}" target="_blank" class="button btn-default share_link" onclick="window.print()"><i class="fa fa-print"></i> Print</a>
+										<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug . '#print') }}" target="_blank" class="btton btn-default share_link" onclick="window.print()"><i class="fa fa-print"></i> Print</a>
 									</li>
 								</ul>
 							</div>

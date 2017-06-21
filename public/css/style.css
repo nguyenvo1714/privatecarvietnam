@@ -526,7 +526,7 @@ li.active a:after {
 }
 .wrapper-input img {
 	position: absolute;
-	top: 10px;
+	top: 15px;
 	right: 5px;
 	display: none;
 }
@@ -1460,7 +1460,7 @@ a.title {
 	--dot-w: calc(var(--btn-w)*.2);
 	--tr-X: calc(var(--btn-w) - var(--dot-w));
 }
-.button {
+.btton {
     position: relative;
     margin: 0 auto;
     width: var(--btn-w);
@@ -1501,8 +1501,8 @@ a.title {
     box-shadow: 0 0 .7em var(--solid),
                 0 0 2em var(--primary);
 }
-.button:hover .dot,
-.button:focus .dot {
+.btton:hover .dot,
+.btton:focus .dot {
     animation: atom 2s infinite linear;
     display: block;
     outline: 0;

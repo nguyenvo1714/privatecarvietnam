@@ -1123,6 +1123,7 @@ a.title {
 	text-transform: capitalize;
 	font-weight: 400;
 	color: #3097d1;
+	font-size: 20px;
 }
 .title .trait a:last-child {
     display: inline-block;

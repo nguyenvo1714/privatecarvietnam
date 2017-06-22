@@ -77,7 +77,7 @@
 								</h4>
 								<div class="trait">
 									<a href="{{ url('/' . $interestTransfer->type->slug) }}">
-										<i class="fa fa-tags"></i> {{ $interestTransfer->type->name }}
+										<i class="fa fa-tags"></i> {{ $interestTransfer->cars[0]->price }}&#36;
 									</a>
 									<a href="{{ url('/' . $interestTransfer->type->slug . '/' . $interestTransfer->slug) }}" class="pull-right">Go</a>
 								</div>
@@ -147,7 +147,8 @@
 											<div class="hr"></div>
 											<div class="text-primary">
 												<i class="fa fa-wifi"></i> Free wifi &nbsp;&nbsp; 
-												<i class="fa fa-comments-o"></i> English speaking driver
+												<i class="fa fa-comments-o"></i> English speaking driver &nbsp;&nbsp;
+												<i class="fa fa-child"></i> Children seat 
 											</div>
 										</div>
 										<div class="col-sm-2">
@@ -231,7 +232,8 @@
 											'<div class="hr"></div>' +
 											'<div class="text-primary">' +
 												'<i class="fa fa-wifi"></i> Free wifi &nbsp;&nbsp;' + 
-												'<i class="fa fa-comments-o"></i> English speaking guide' +
+												'<i class="fa fa-comments-o"></i> English speaking guide &nbsp;&nbsp;' +
+												'<i class="fa fa-child"></i> Children seat' +
 											'</div>' +
 										'</div>' +
 										'<div class="col-sm-2">' +

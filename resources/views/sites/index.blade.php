@@ -125,7 +125,7 @@
 									{{ $transfer->title }}
 								</a>
 								<div class="desc">
-									{{ $transfer->description }}
+									{{ substr($transfer->description, 0, 130) . '...' }}
 								</div>
 							</div>
 						</div>
@@ -155,7 +155,7 @@
 					<div class="col-md-3 col-sm-6 col-xs-12">
 						<div class="boxinfo wow fadeInDown animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInDown;">
 							<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" class="thumb">
-								<div class="price">from <span class="autoResize">{{ '&#8363;' . number_format($transfer->cars[0]->price) }}</span>
+								<div class="price">from <span class="autoResize"><i class="fa fa-dollar"></i>{{ number_format($transfer->cars[0]->price) }}</span>
 								</div>
 								<div class="thumbpre">
 									{!! Html::image('/storage/' . $transfer->image_thumb, $transfer->title, ['class' => 'img-responsive']) !!}
@@ -166,7 +166,7 @@
 									{{ $transfer->title }}
 								</a>
 								<div class="desc">
-									{{ $transfer->description }}
+									{{ substr($transfer->description, 0, 130) . '...' }}
 								</div>
 							</div>
 						</div>
@@ -220,9 +220,9 @@
 									<p class="hidden-xs hidden-sm text-justify">
 										{{ $dealTransfer->description }}&#8230;
 									</p>
-								<p>From <i class="pricesaleoff">{{ '&#8363;' . number_format($dealTransfer->cars[0]->price) }}</i></p>
+								<p>From <i class="pricesaleoff"><i class="fa fa-dollar"></i>{{ number_format($dealTransfer->cars[0]->price) }}</i></p>
 								<p class="pricedeal">
-									<span class="price">{{ '&#8363;' . number_format($dealTransfer->cars[0]->price - ($dealTransfer->cars[0]->price * (int)$dealTransfer->discount_value) / 100) }}</span>
+									<span class="price"><i class="fa fa-dollar"></i>{{ number_format($dealTransfer->cars[0]->price - ($dealTransfer->cars[0]->price * (int)$dealTransfer->discount_value) / 100) }}</span>
 									<span class='badge badge-warning'>-{{ $dealTransfer->discount_value }}</span>
 								</p>
 								<div class="countdowntopdeal" id="VDT760835"></div><!-- end countdowntopdeal -->

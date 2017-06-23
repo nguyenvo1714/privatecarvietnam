@@ -526,7 +526,7 @@ li.active a:after {
 }
 .wrapper-input img {
 	position: absolute;
-	top: 10px;
+	top: 15px;
 	right: 5px;
 	display: none;
 }
@@ -806,11 +806,13 @@ a.title {
     font-size: 17px;
     font-weight: bold;
     overflow: hidden;
+    line-height: 20px;
 }
 .boxinfo .desc {
 	padding-top: unset;
 	padding-bottom: unset;
 	overflow: hidden;
+	text-align: justify;
 	font-size: 13px;
 }
 .boxinfo:hover {
@@ -1121,6 +1123,7 @@ a.title {
 	text-transform: capitalize;
 	font-weight: 400;
 	color: #3097d1;
+	font-size: 20px;
 }
 .title .trait a:last-child {
     display: inline-block;
@@ -1404,7 +1407,7 @@ a.title {
 	padding-bottom: 15px;
 }
 .present img {
-	margin-top: 10px;
+	margin-top: 20px;
 	display: block;
 	width:100%;
 }
@@ -1436,7 +1439,7 @@ a.title {
 	text-align: center;
 	margin-bottom: 5px;
 }
-.car-price input[type="submit"] {
+/*.car-price input[type="submit"] {
 	color: #fff;
 	padding: 5px 15px;
 	background: rgba(5, 147, 10, .9);
@@ -1447,9 +1450,70 @@ a.title {
 }
 .car-price input[type="submit"]:hover {
 	color: unset;
-	/*background-image:linear-gradient(-1deg, #E58C00 0%, #FFB300 100%);*/
 	background: rgb(53, 202, 57);
 	border:1px solid #E68E00;
+}*/
+:root {
+	--bg: #3C465C;
+	--primary: #25BD37;
+	--solid: #fff;
+	--btn-w: 10em;
+	--dot-w: calc(var(--btn-w)*.2);
+	--tr-X: calc(var(--btn-w) - var(--dot-w));
+}
+.btton {
+    position: relative;
+    margin: 0 auto;
+    width: var(--btn-w);
+    color: var(--primary);
+    border: .15em solid var(--primary);
+    border-radius: 5em;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1em;
+    line-height: 1em;
+    cursor: pointer;
+    outline: 0;
+    padding: 6px 12px;
+}
+.dot {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--dot-w);
+    height: 100%;
+    border-radius: 100%;
+    transition: all 300ms ease;
+    display: none;
+    outline: 0;
+}
+.dot:after {
+    content: '';
+    position: absolute;
+    left: calc(50% - .4em);
+    top: -.4em;
+    height: .8em;
+    width: .8em;
+    outline: 0;
+    background: var(--primary);
+    border-radius: 1em;
+    border: .25em solid var(--solid);
+    box-shadow: 0 0 .7em var(--solid),
+                0 0 2em var(--primary);
+}
+.btton:hover .dot,
+.btton:focus .dot {
+    animation: atom 2s infinite linear;
+    display: block;
+    outline: 0;
+}
+@keyframes atom {
+    0% {transform: translateX(0) rotate(0);}
+    30%{transform: translateX(var(--tr-X)) rotate(0);}
+    50% {transform: translateX(var(--tr-X)) rotate(180deg);}
+    80% {transform: translateX(0) rotate(180deg);}
+    100% {transform: translateX(0) rotate(360deg);}
 }
 .transfer-blog {
 	padding-bottom: 15px;

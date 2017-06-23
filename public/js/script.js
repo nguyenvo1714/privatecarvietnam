@@ -147,6 +147,6 @@ $(function() {
 
 function cost(price) {
 	var cost = $('#passenger').val() * price;
-	$('.cost').html(cost + 'VNĐ');
-	$('.total').html(cost + 'VNĐ');
+	$('.cost').html(cost + '<i class="fa fa-dollar"></i>');
+	$('.total').html(cost + '<i class="fa fa-dollar"></i>');
 }

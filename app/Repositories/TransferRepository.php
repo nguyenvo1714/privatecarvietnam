@@ -147,7 +147,7 @@
 		public function crop_description($transfers)
 		{
 			foreach ($transfers as $transfer) {
-				$transfer->description = substr($transfer->description, 0, 150) . '...';
+				$transfer->description = substr($transfer->description, 0, 130) . '...';
 			}
 		}
 	}

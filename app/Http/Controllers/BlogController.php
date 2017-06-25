@@ -47,9 +47,9 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, $this->rules);
-        $blog = new Blog;
-        $blog->create($request->all());
-        return redirect('/blogs');
+        $blog = Blog::create($request->all());
+        $blog->tag(explode(',', $request->tags));
+        return redirect('/admin/blogs');
     }
 
     /**
@@ -72,9 +72,15 @@ class BlogController extends Controller
     public function edit($id)
     {
         $types = Type::get();
+        $tags = Blog::existingTags()->pluck('name');
+        $tagNames = [];
+        foreach ($tags as $tag) {
+            $tagNames[] = $tag;
+        }
         return view('admin.blogs.edit', [
             'blog' => Blog::findOrFail($id),
-            'types' => $types
+            'types' => $types,
+            'tagNames' => $tagNames
         ]);
     }
 
@@ -89,7 +95,8 @@ class BlogController extends Controller
     {
         $blog = Blog::find($id);
         $blog->update($request->all());
-        return redirect('/blogs');
+        $blog->retag(explode(',', $request->tags));
+        return redirect('/admin/blogs');
     }
 
     /**
@@ -101,6 +108,6 @@ class BlogController extends Controller
     public function destroy($id)
     {
         Blog::destroy($id);
-        return redirect('/blogs');
+        return redirect('/admin/blogs');
     }
 }

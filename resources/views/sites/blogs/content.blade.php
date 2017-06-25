@@ -19,16 +19,16 @@
 								<strong>Share this</strong>
 								<ul>
 									<li class="google-plus">
-										<a href="{{ url('https://plus.google.com/share?url=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-google-plus"></i> Google</a>
+										<a href="https://plus.google.com/share?url={{ url('/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-google-plus"></i> Google</a>
 									</li>
 									<li class="facebook">
-										<a href="{{ url('https://www.facebook.com/sharer.php?u=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-facebook"></i> Facebook</a>
+										<a href="https://www.facebook.com/sharer.php?u={{ url('/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-facebook"></i> Facebook</a>
 									</li>
 									<li class="twister">
-										<a href="{{ url('https://twitter.com/share?url=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-twitter"></i> Twister</a>
+										<a href="https://twitter.com/share?url={{ url('/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-twitter"></i> Twister</a>
 									</li>
 									<li class="email">
-										<a href="mailto:?subject={!! $detail->title !!}&body={{ strip_tags($detail->content) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-envelope-o"></i> Email</a>
+										<a href="mailto:?subject={!! $detail->title !!}&body={{ url('/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-envelope-o"></i> Email</a>
 									</li>
 									<li class="print">
 										<a href="{{ url('/blog/' . $detail->slug . '#print') }}" target="_blank" class="btn btn-default share_link" onclick="window.print()"><i class="fa fa-print"></i> Print</a>

@@ -18,7 +18,7 @@
                     <br>
                     @include('admin.errors.error')
 
-                    {!! Form::open(['url' => 'blog/' . $blog->id, 'method' => 'POST', 'class' => 'form-horizontal form-label-left', 'id' => 'blogForm']) !!}
+                    {!! Form::open(['url' => '/admin/blog/' . $blog->id, 'method' => 'POST', 'class' => 'form-horizontal form-label-left', 'id' => 'blogForm']) !!}
                         <div class="field item form-group">
                             <label class="control-label col-md-2 col-sm-2 col-xs-12" for="type_id">
                                 Blog type <span class="required">*</span>
@@ -41,6 +41,14 @@
                                 <input id="name" class="form-control col-md-10 col-xs-12" name="title" value="{{ $blog->title }}" required="required" type="text">
                             </div>
                             <div class="alert">please put something here</div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="tag">
+                                Tag <span class="required">*</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <input id="tags" class="" name="tags" type="text" value="{{ implode(', ', $tagNames) }}">
+                            </div>
                         </div>
                         <div class="field item form-group">
                             <label class="control-label col-md-2 col-sm-2 col-xs-12" for="content">

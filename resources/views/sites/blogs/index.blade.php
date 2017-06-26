@@ -77,7 +77,12 @@
 												</p>
 												<div class="hr"></div>
 												<div class="text-primary">
-													<span class="glyphicon glyphicon-tags"></span> &nbsp; <a href="{{ url('/' . $indexBlog->type->slug) }}" class="color-green"> {{ $indexBlog->type->name }} </a>
+													<span class="glyphicon glyphicon-tags"></span> &nbsp;
+													@foreach($indexBlog->tagged as $tagged)
+													<a href="{{ url('/blog/tag/' . $tagged->tag_slug) }}" class="color-green">
+														{{ $tagged->tag_name }}
+													</a>
+													@endforeach
 													<a href="{{ url('/blog/' . $indexBlog->slug) }}" class="pull-right color-green"> Read more <i class="fa fa-hand-o-right"></i></a>
 												</div>
 											</div>

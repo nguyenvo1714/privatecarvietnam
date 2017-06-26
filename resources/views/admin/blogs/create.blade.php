@@ -19,7 +19,7 @@
                     @include('admin.errors.error')
 
                     {!! Form::open(['url' => 'admin/blog', 'method' => 'POST', 'class' => 'form-horizontal form-label-left', 'id' => 'blogForm']) !!}
-                        <div class="field item form-group">
+                        <!-- <div class="field item form-group">
                             <label class="control-label col-md-2 col-sm-2 col-xs-12" for="type_id">
                                 Blog type <span class="required">*</span>
                             </label>
@@ -31,7 +31,7 @@
                                 @endforeach
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="field item form-group">
                             <label class="control-label col-md-2 col-sm-2 col-xs-12" for="title">
                                 Title <span class="required">*</span>

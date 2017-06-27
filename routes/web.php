@@ -41,6 +41,7 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::post('/sendContact', 'TransferController@sendContact');
 	Route::get('/deal', 'TransferController@deal');
 	Route::get('/blog/{slug}', 'BlogController@content');
+	Route::get('/blog/tag/{tag_slug}', 'BlogController@content');
 
 	Route::get('/pick-up', 'TransferController@getPickup');
 	Route::get('/drop-off', 'TransferController@getDropoff');
@@ -66,13 +67,13 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::put('/type/{id}', 'TypeController@update');
 	Route::delete('/type/{id}', 'TypeController@destroy');
 
-	Route::get('/blogs', 'BlogController@index');
-	Route::get('/blog/create', 'BlogController@create');
-	Route::post('/blog', 'BlogController@store');
-	Route::get('/blog/{id}', 'BlogController@show');
-	Route::get('/blog/{id}/edit', 'BlogController@edit');
-	Route::post('/blog/{id}', 'BlogController@update');
-	Route::delete('/blog/{id}', 'BlogController@destroy');
+	Route::get('admin/blogs', 'BlogController@index');
+	Route::get('admin/blog/create', 'BlogController@create');
+	Route::post('admin/blog', 'BlogController@store');
+	Route::get('admin/blog/{id}', 'BlogController@show');
+	Route::get('admin/blog/{id}/edit', 'BlogController@edit');
+	Route::post('admin/blog/{id}', 'BlogController@update');
+	Route::delete('admin/blog/{id}', 'BlogController@destroy');
 
 	Route::get('/tours', 'TourController@index');
 	Route::get('/tour/create', 'TourController@create');

@@ -19,10 +19,11 @@
         {!! Html::style('css/jquery-ui.min.css') !!}
         {!! Html::style('css/jquery-ui.theme.min.css') !!}
         {!! Html::style('css/fileinput.min.css') !!}
+        {!! Html::style('css/selectize.default.css') !!}
         <!-- Scripts -->
         {!! Html::script('js/app.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
-        <!-- {!! Html::script('js/custome.js') !!} -->
+        {!! Html::script('js/standalone/selectize.min.js') !!}
         {!! Html::script('js/jquery-ui.min.js') !!}
         {!! Html::script('js/jquery.validate.min.js') !!}
         {!! Html::script('js/custom.validate.js') !!}
@@ -173,13 +174,13 @@
                                                 @else
                                                     @php ($currentPage = '')
                                                 @endif
-                                                <li id="list1" class="{{ $currentPage }}"><a href="{{ url('/blogs') }}"> View</a></li>
+                                                <li id="list1" class="{{ $currentPage }}"><a href="{{ url('/admin/blogs') }}"> View</a></li>
                                                 @if($action == 'create')
                                                     @php ($currentPage = 'current-page')
                                                 @else
                                                     @php ($currentPage = '')
                                                 @endif
-                                                <li id="list2" class="{{ $currentPage }}"><a href="{{ url('/blog/create') }}"> New blog</a></li>
+                                                <li id="list2" class="{{ $currentPage }}"><a href="{{ url('/admin/blog/create') }}"> New blog</a></li>
                                                 <li id="list3" class="{{ $currentPage }}""><!-- <i class="fa fa-trash-o"></i> --> <a href="#">Delete</a></li>
                                             </ul>
                                         </li>

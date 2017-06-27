@@ -260,7 +260,7 @@
                                 </div>
                                 <div class="media-body">
                                     <h5><a href="#">{{ $blog->title}}</a></h5>
-                                    <p>{{ $blog->description . '...' }}</p>
+                                    <p>{{ $blog->description . ' ...' }}</p>
                                 </div>
                             </div>
                         </li>
@@ -296,8 +296,6 @@
                         <a href="https://www.facebook.com/privatecarvietnam" class="fb"><i class='fa fa-facebook'></i> Facebook</a>
                         <a href="https://instagram.com/privatecarvietnam" class="ins"><i class='fa fa-instagram'></i> Instagram</a>
                         <a href="https://twitter.com/privatecarvietnam" class="tw"><i class='fa fa-twitter'></i> Twitter</a>
-                        <!-- <a href="https://www.tripadvisor.com/Attraction_Review-g293924-d8861377-Reviews-GoAsiaDayTrip_Day_Tour-Hanoi.html"><i class='fa fa-tripadvisor'></i> Tripadvisor</a> -->
-                        <!-- <a href="https://goasiadaytrip.tumblr.com/"><i class='fa fa-tumblr'></i> Tumblr</a> -->
                   </div>
                 </div>
             </div>

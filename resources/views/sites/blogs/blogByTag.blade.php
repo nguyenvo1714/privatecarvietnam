@@ -52,48 +52,48 @@
 			<div class="row">
 				<div class="col-md-9">
 					<div class="row">
-						@foreach($indexBlogs as $indexBlog)
+						@foreach($blogTags as $blog)
 							<div class="col-md-12">
 								<div class="row">
 									<div class="boxradius for-blog" data-role="boxactivity">
 										<div class="activitybanners"></div>
 										<div class="row activitycontent">
 											<div class="col-sm-4">
-												<a href="url('/blog/' . $indexBlog->slug)">
-													<img class="img-responsive height" alt="{{ $indexBlog->title }}" src="{{ $indexBlog->img }}">
+												<a href="url('/blog/' . $blog->slug)">
+													<img class="img-responsive height" alt="{{ $blog->title }}" src="{{ $blog->img }}">
 												</a>
 											</div>
 											<div class="col-sm-8 activitysum">
 												<h2 class="ttactivity mb5">
-													<a href="{{ url('/blog/' . $indexBlog->slug) }}" class="color-green"> 
-														{{ $indexBlog->title }}
+													<a href="{{ url('/blog/' . $blog->slug) }}" class="color-green"> 
+														{{ $blog->title }}
 													</a>
 												</h2>
 												<p class="pstar">
-													<span class="glyphicon glyphicon-time"></span> {{ date_format($indexBlog->created_at, 'M d, Y') }}
+													<span class="glyphicon glyphicon-time"></span> {{ date_format($blog->created_at, 'M d, Y') }}
 												</p>
 												<p class="quote font-large">
-												<span class="noquote">{{ $indexBlog->description . '...' }}</span>
+												<span class="noquote">{{ $blog->description . ' ...' }}</span>
 												</p>
 												<div class="hr"></div>
 												<div class="text-primary">
 													<span class="glyphicon glyphicon-tags"></span> &nbsp;
-													@foreach($indexBlog->tagged as $tagged)
+													@foreach($blog->tagged as $tagged)
 													<a href="{{ url('/blog/tag/' . $tagged->tag_slug) }}" class="color-green">
 														{{ $tagged->tag_name }}
 													</a>
 													@endforeach
-													<a href="{{ url('/blog/' . $indexBlog->slug) }}" class="pull-right color-green"> Read more <i class="fa fa-hand-o-right"></i></a>
+													<a href="{{ url('/blog/' . $blog->slug) }}" class="pull-right color-green"> Read more <i class="fa fa-hand-o-right"></i></a>
 												</div>
 											</div>
 										</div>
-										<!-- <a class="activitylink" href="{{ url('/private-transfer/view/' . $indexBlog->slug) }}"></a> -->
+										<!-- <a class="activitylink" href="{{ url('/private-transfer/view/' . $blog->slug) }}"></a> -->
 									</div>
 								</div>
 							</div>
 						@endforeach
 						<div class="paginate text-center">
-							{{ $indexBlogs->links() }}
+							{{ $blogTags->links() }}
 						</div>
 					</div>
 				</div>
@@ -190,12 +190,6 @@
 											<p><small>&copy; 2017 PrivateCarVietNam</small></p>
 										</div>
 									</div>
-								</div>
-								<div class="why-choose-us no-background">
-									<div class="tag-title">
-										<h4 class="text-left">Popular tags</h4>
-									</div>
-									
 								</div>
 							<!-- </div> -->
 						</div>

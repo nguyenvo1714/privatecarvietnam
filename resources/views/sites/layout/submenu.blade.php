@@ -347,7 +347,7 @@
                                 </div>
                                 <div class="media-body">
                                     <h5><a href="#">{{ $blog->title}}</a></h5>
-                                    <p>{{ $blog->description . '...' }}</p>
+                                    <p>{{ $blog->description . ' ...' }}</p>
                                 </div>
                             </div>
                         </li>
@@ -357,12 +357,6 @@
                 <div class="col-md-3 col-sm-6 wow slideInUp animated" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: slideInUp;">
                     <h3>TripAdVisor</h3>
                     <div class="tripadvisor-wrapper">
-                        <!-- <div class="tripadvisor-header">
-                            <a href="https://www.tripadvisor.com/" target="_blank">
-                                {{ Html::image('img/tripadvisor.png') }}
-                            </a>
-                            <p class="normal-text">Know better. Book better. Go better.</p>
-                        </div> -->
                         <div class="tripadvisor-experience">
                             <h5 class="tripadvisor-title"><a href="https://www.tripadvisor.com/" target="_blank">Private Car VietNam Experience</a></h5>
                             <p class="strong-text">TripAdvisor Traveler Rating</p>
@@ -383,8 +377,6 @@
                         <a href="https://www.facebook.com/privatecarvietnam" class="fb"><i class='fa fa-facebook'></i> Facebook</a>
                         <a href="https://instagram.com/privatecarvietnam" class="ins"><i class='fa fa-instagram'></i> Instagram</a>
                         <a href="https://twitter.com/privatecarvietnam" class="tw"><i class='fa fa-twitter'></i> Twitter</a>
-                        <!-- <a href="https://www.tripadvisor.com/Attraction_Review-g293924-d8861377-Reviews-GoAsiaDayTrip_Day_Tour-Hanoi.html"><i class='fa fa-tripadvisor'></i> Tripadvisor</a> -->
-                        <!-- <a href="https://goasiadaytrip.tumblr.com/"><i class='fa fa-tumblr'></i> Tumblr</a> -->
                   </div>
                 </div>
             </div>

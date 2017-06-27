@@ -21,6 +21,7 @@
 		{
 			$tops = $this->transfer->where('is_hot', 1)->limit($limit)->get();
 			$this->getTransferType($tops);
+			$this->chop_content($tops);
 			return $tops;
 		}
 
@@ -86,13 +87,13 @@
 										->limit($limit)
 										->get();
 			$this->getTransferType($interests);
-			$this->crop_description($interests);
+			$this->chop_content($interests);
 			return $interests;
 		}
 
 		public function findTransfer($pick_up_id, $place_id)
 		{
-			return $this->transfer->where('pick_up_id', $pick_up_id)
+			return  $this->transfer->where('pick_up_id', $pick_up_id)
 								->where('place_id', $place_id)
 								->first();
 		}
@@ -148,6 +149,13 @@
 		{
 			foreach ($transfers as $transfer) {
 				$transfer->description = substr($transfer->description, 0, 130) . '...';
+			}
+		}
+
+		public function chop_content($transfers)
+		{
+			foreach ($transfers as $transfer) {
+				$transfer->description = implode(' ', array_slice(explode(' ', $transfer->description), 0, 25));
 			}
 		}
 	}

@@ -42,7 +42,10 @@
 										<i class="fa fa-clock-o"></i> {{ date_format($detail->created_at, 'M d, Y') }}
 									</li>
 									<li class="tag">
-										<i class="fa fa-tags"></i> <a href="{{ url('/' . $detail->type->slug) }}"> {{ $detail->type->name }}</a>
+										<i class="fa fa-tags"></i>
+										@foreach($detail->tagged as $tagged)
+										<a href="{{ url('/blog/tag/' . $tagged->tag_slug) }}"> {{ $tagged->tag_name }}</a>
+										@endforeach
 									</li>
 								</ul>
 							</div>
@@ -53,11 +56,7 @@
 									<div class="prev col-md-4 col-sm-12">
 										<div class="row">
 											<a href="{{ url('/blog/' . $prev->slug) }}" class="btn btn-default">
-												@if(strlen($prev->title) > 25)
-													<span class="glyphicon glyphicon-step-backward"></span> Prev blog: {{ mb_substr($prev->title, 0, 25) . '...' }}
-												@else
-													<span class="glyphicon glyphicon-step-backward"></span> Prev blog: {{ $prev->title }}
-												@endif
+												<span class="glyphicon glyphicon-step-backward"></span> Prev post: {{ $prev->title . ' ...' }}
 											</a>
 										</div>
 									</div>
@@ -70,12 +69,8 @@
 									@endif
 										<div class="row">
 											<a href="{{ url('/blog/' . $next->slug) }}" class="btn btn-default">
-												<div class="text-left"> Next blog:
-													@if(strlen($next->title) > 25)
-														{{ mb_substr($next->title, 0, 25) . '...' }} <span class="glyphicon glyphicon-step-forward"></span>
-													@else
-														{{ $next->title }} <span class="glyphicon glyphicon-step-forward"></span>
-													@endif
+												<div class="text-left"> Next post:
+													{{ $next->title . ' ...' }} <span class="glyphicon glyphicon-step-forward"></span>
 												</div>
 											</a>
 										</div>

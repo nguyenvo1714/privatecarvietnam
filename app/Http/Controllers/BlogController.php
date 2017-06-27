@@ -10,7 +10,6 @@ class BlogController extends Controller
 {
 
     protected $rules = [
-        'type_id' => 'required|regex:/^[0-9]+/',
         'title' => 'required',
         'content' => 'required',
         'author' => 'required',

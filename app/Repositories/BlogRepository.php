@@ -2,7 +2,7 @@
 	namespace App\Repositories;
 
 	use App\Blog;
-
+	use Conner\Tagging\Model\Tag;
 	/**
 	* 
 	*/
@@ -48,6 +48,11 @@
 								->get();
 			$this->chop_blog($relates);
 			return $relates;
+		}
+
+		public function all_tag()
+		{
+			return Tag::get();
 		}
 
 		public function next($id)

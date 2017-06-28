@@ -36,11 +36,13 @@ class BlogController extends Controller
         $blogs = $this->blogRepo->footer();
         $interestTransfers = $this->transferRepo->top(4);
         $indexBlogs = $this->blogRepo->index(4);
+        $tags = $this->blogRepo->all_tag();
         return view('sites.blogs.index', [
             'transferNames' => $transferNames,
             'blogs' => $blogs,
             'interestTransfers' => $interestTransfers,
             'indexBlogs' => $indexBlogs,
+            'tags' => $tags
         ]);
     }
 

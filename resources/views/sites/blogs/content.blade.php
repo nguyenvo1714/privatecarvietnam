@@ -147,6 +147,33 @@
 									<li><i class="fa fa-hand-o-right"></i> 24/7 Customer Support</li>
 								</ul>
 							</div>
+							<div class="why-choose-us no-background">
+								<div class="tag-title">
+									<h4>Latest post</h4>
+								</div>
+								<div class="">
+									@foreach($latest as $blog)
+										<div class="object">
+											{{ Html::image($blog->img) }}
+											<h6>{{ $blog->title }}</h6>
+										</div>
+									@endforeach
+								</div>
+							</div>
+							<div class="why-choose-us no-background">
+								<div class="tag-title">
+									<h4 class="text-left">Popular tags</h4>
+								</div>
+								<div class="tagCloud">
+									@foreach($tags as $tag)
+										<span data-weight="{{ ($tag->count)*2 }}">
+											<a href="{{ url('/blog/tag/' . $tag->slug) }}" target="_blank">
+												{{ $tag->name }}
+											</a>
+										</span>
+									@endforeach
+								</div>
+							</div>
 							<div class="tripvisor no-background">
 								<div class="visor-header">
 									<dl>

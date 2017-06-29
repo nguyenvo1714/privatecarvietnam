@@ -191,26 +191,6 @@
 										</div>
 									</div>
 								</div>
-								<div class="why-choose-us no-background">
-									<div class="tag-title">
-										<h4 class="text-left">Popular tags</h4>
-									</div>
-									<div id="myCanvasContainer" style="width: 100%;">
-										<canvas width="" height="" id="myCanvas" style="width: 100%; height: 180px;">
-											<p>In Internet Explorer versions up to 8, things inside the canvas are inaccessible!</p>
-											<ul>
-												@foreach($tags as $tag)
-													<li>
-														<a href="{{ url('/blog/tag/' . $tag->slug) }}" target="_blank" data-weight="{{ ($tag->count)*8 }}">{{ $tag->name }}</a>
-													</li>
-												@endforeach
-											</ul>
-										</canvas>
-									</div>
-									<div id="tags">
-										
-									</div>
-								</div>
 							<!-- </div> -->
 						</div>
 					</div>

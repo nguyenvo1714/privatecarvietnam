@@ -85,6 +85,13 @@
 			return $blogs;
 		}
 
+		public function get_latest($limit)
+		{
+			$blogs = $this->blog->orderBy('id', 'DESC')->limit($limit)->get();
+			$this->chop_blog($blogs, 0);
+			return $blogs;
+		}
+
 		public function chop_blog($blogs, $footer_flg = 1)
 		{
 			foreach ($blogs as $blog) {

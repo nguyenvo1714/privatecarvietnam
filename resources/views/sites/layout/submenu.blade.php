@@ -33,7 +33,7 @@
         {!! Html::script('js/app.js') !!}
         {!! Html::script('js/bootstrap-formhelpers.min.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
-        <!-- {!! Html::script('js/menu-addon.js') !!} -->
+        {!! Html::script('js/jquery.awesomeCloud-0.2.js') !!}
         {!! Html::script('js/jquery-ui.min.js') !!}
         {!! Html::script('js/jquery.validate.min.js') !!}
         {!! Html::script('js/additional-methods.min.js') !!}

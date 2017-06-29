@@ -36,13 +36,11 @@ class BlogController extends Controller
         $blogs = $this->blogRepo->footer();
         $interestTransfers = $this->transferRepo->top(4);
         $indexBlogs = $this->blogRepo->index(4);
-        $tags = $this->blogRepo->all_tag();
         return view('sites.blogs.index', [
             'transferNames' => $transferNames,
             'blogs' => $blogs,
             'interestTransfers' => $interestTransfers,
             'indexBlogs' => $indexBlogs,
-            'tags' => $tags
         ]);
     }
 
@@ -59,6 +57,8 @@ class BlogController extends Controller
         $detail = $this->blogRepo->find_by_slug($slug);
         $next =  $this->blogRepo->next($detail->id);
         $prev = $this->blogRepo->prev($detail->id);
+        $tags = $this->blogRepo->all_tag();
+        $latest = $this->blogRepo->get_latest(4);
         // $next = Blog::where('id', '>', $detail->id)->min('id');
         return view('sites.blogs.content', [
             'transferNames' => $transferNames,
@@ -66,7 +66,9 @@ class BlogController extends Controller
             'detail' => $detail,
             'relates' => $relates,
             'next' => $next,
-            'prev' => $prev
+            'prev' => $prev,
+            'tags' => $tags,
+            'latest' => $latest
         ]);
     }
 

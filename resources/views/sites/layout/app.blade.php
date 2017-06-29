@@ -40,8 +40,6 @@
         {!! Html::script('js/additional-methods.min.js') !!}
         {!! Html::script('js/wow.min.js') !!}
         {!! Html::script('js/owl.carousel.min.js') !!}
-        {!! Html::script('js/tagcanvas.min.js') !!}
-        {!! Html::script('js/tagcanvas.custom.js') !!}
         {!! Html::script('js/jquery.validate.min.js') !!}
         {!! Html::script('js/additional-methods.min.js') !!}
         {!! Html::script('js/custom.validate.js') !!}
@@ -78,6 +76,27 @@
             ]); ?>
 
         </script>
+        <style type="text/css">
+            .tagBall {
+                width: 100%;
+                height: 100px;
+                margin: 50px auto;
+                position: relative;
+            }
+        .tag {
+            display: block;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            color: #000;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .tag:hover {
+            border: 1px solid #666;
+        }
+        </style>
         <script type="text/javascript">
             $(function() {
                 $('#pick-up').autocomplete({
@@ -173,6 +192,13 @@
                 padding-top: 70px;
             }
         </style>
+        <script type="text/javascript">
+            $(function() {
+                $('.tagBall').cloudTag({
+                    ballSize: 100
+                });
+            });
+        </script>
     </head>
     <body>
         <div id="app">

@@ -2110,3 +2110,12 @@ dt.small {
 div.tripvisor {
 	margin-bottom: 15px;
 }
+.tagCloud {
+	/*border: 1px solid #036;*/
+	height: 2.3in;
+	margin: 0 auto;
+	padding: 0;
+	page-break-after: always;
+	page-break-inside: avoid;
+	width: 100%;
+}

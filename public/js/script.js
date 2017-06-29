@@ -138,11 +138,18 @@ $(function() {
 		});
 	});
 
-	// $(document).ajaxStart(function(){
-	//     $('.modal').show();
-	//  }).ajaxStop(function(){
-	//     $('.modal').hide();
-	//  });
+	$('.tagCloud').awesomeCloud({
+		"size" : {
+			"grid" : 9,
+			"factor" : 0,
+		},
+		"options" : {
+			"color" : "random-dark",
+			"rotationRatio" : 0.35
+		},
+		// "font" : "'Times New Roman', Times, serif",
+		"shape" : "circle"
+	});
 });
 
 function cost(price) {

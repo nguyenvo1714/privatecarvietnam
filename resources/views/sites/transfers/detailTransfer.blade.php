@@ -22,7 +22,7 @@
 							<div class="col-md-12 price-box">
 								<div class="row">
 									<div class="present col-md-3 col-sm-3 col-xs-12">
-										{{ Html::image('/storage/' . $car->present, '', ['class' => 'img-responsive']) }}
+										{{ Html::image('/storage/' . $car->present, '', ['class' => '']) }}
 									</div>
 									<div class="col-md-6 col-sm-6 col-xs-12 car-introduce">
 										<h4>{{ $car->class }}</h4>

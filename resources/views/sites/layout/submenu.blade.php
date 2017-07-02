@@ -160,6 +160,21 @@
                 }
             })
         </script>
+        <!-- <script type="text/javascript">
+            $(function() {
+                $('#tagCloud').awesomeCloud({
+                    "size" : {
+                        "grid" : 16,
+                        "normalize": false
+                    },
+                    "options" : {
+                        "color" : "random-dark",
+                        "rotationRatio" : 0.35
+                    },
+                    "shape" : "square"
+                });
+            })
+        </script> -->
         <style>
           /* Note: Try to remove the following lines to see the effect of CSS positioning */
             .affix {

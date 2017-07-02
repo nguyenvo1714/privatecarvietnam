@@ -151,11 +151,11 @@
 								<div class="tag-title">
 									<h4>Latest post</h4>
 								</div>
-								<div class="">
+								<div class="latest-body">
 									@foreach($latest as $blog)
 										<div class="object">
-											{{ Html::image($blog->img) }}
-											<h6>{{ $blog->title }}</h6>
+											{{ Html::image($blog->img, '', ['class' => 'img-circle']) }}
+											<h6><a href="{{ url('/blog/' . $blog->slug) }}"> {{ $blog->title }}</a></h6>
 										</div>
 									@endforeach
 								</div>
@@ -164,10 +164,10 @@
 								<div class="tag-title">
 									<h4 class="text-left">Popular tags</h4>
 								</div>
-								<div class="tagCloud">
+								<div class="tagCloud" id="tagCloud">
 									@foreach($tags as $tag)
-										<span data-weight="{{ ($tag->count)*2 }}">
-											<a href="{{ url('/blog/tag/' . $tag->slug) }}" target="_blank">
+										<span data-weight="{{ ($tag->count)*18 }}">
+											<a href="{{ url('/blog/tag/' . $tag->slug) }}">
 												{{ $tag->name }}
 											</a>
 										</span>

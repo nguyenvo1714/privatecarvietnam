@@ -226,6 +226,9 @@ body.loading .modal {
 .mt {
 	margin-top: 15px;
 }
+.mb20 {
+	margin-bottom: 20px;
+}
 .mb5 {
 	margin-bottom: 5px;
 }
@@ -1406,14 +1409,18 @@ a.title {
 	border-bottom: 1px dotted #999;
 	padding-bottom: 15px;
 }
+.present {
+	position: relative;
+	height: 70px;
+}
 .present img {
-	margin-top: 20px;
+	position: absolute;
+	top: 10px;
 	display: block;
-	width:100%;
+	height: 100%;
 }
 .car-introduce {
 	display: block;
-	padding-top: 3%;
 	text-align: left;
 }
 .car-introduce h4 {
@@ -1422,37 +1429,20 @@ a.title {
 }
 .car-introduce p {
 	margin-bottom: unset;
-	/*padding: unset;*/
 }
 .car-introduce p span.pax {
 	margin-right: 15px;
 }
 .car-price {
-	padding-top: 3%;
 	display: block;
-	text-align: center;
 }
 .car-price p:first-child {
 	margin-top: 15px;
 }
 .car-price p {
-	text-align: center;
+	margin-left: 18%;
 	margin-bottom: 5px;
 }
-/*.car-price input[type="submit"] {
-	color: #fff;
-	padding: 5px 15px;
-	background: rgba(5, 147, 10, .9);
-	font-size: 1.1em;
-	border-radius: 3px;
-	box-shadow: inset 0px 2px 0px 0px rgb(77, 233, 82);
-	border: 1px solid rgb(20, 129, 24);
-}
-.car-price input[type="submit"]:hover {
-	color: unset;
-	background: rgb(53, 202, 57);
-	border:1px solid #E68E00;
-}*/
 :root {
 	--bg: #3C465C;
 	--primary: #25BD37;
@@ -2118,4 +2108,27 @@ div.tripvisor {
 	page-break-after: always;
 	page-break-inside: avoid;
 	width: 100%;
+}
+.latest-body .object{
+	width: 100%;
+	height: 100px;
+	margin-top: 10px;
+}
+.object img {
+	width: 30%;
+	height: 100%;
+	float: left;
+	/*display: block;*/
+}
+.object h6 {
+	width: 67%;
+	margin-top: 12%;
+	display: inline-block;
+	clear: both;
+	vertical-align: middle;
+	margin-left: 3%;
+}
+.object h6 a {
+	font-size: 15px;
+
 }

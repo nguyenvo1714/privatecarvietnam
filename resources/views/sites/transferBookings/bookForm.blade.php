@@ -31,7 +31,19 @@
 									<div class="block-form">
 										<fieldset>
 											<h3 class="fieldset-title">Vehicle</h3>
-											<div class="form-group">
+											<div class="field item form-group">
+					                            <label class="control-label col-md-2 col-sm-2 col-xs-12 mb20" for="price">
+					                                Car type <span class="required">*</span>
+					                            </label>{{ $selected }}
+					                            <div class="col-md-10 col-sm-10 col-xs-12 mb20">
+					                                <select class="form-control col-md-10 col-xs-12" name="price" required>
+					                                    @foreach($transfer->cars as $car)
+						                                    <option value="{{ $car->price }}" {{ $selected == $car->price ? 'selected' : ''  }}>{{ $car->fleet }} ( {{ (int)$car->capability . 'seat - ' . $car->price . '&#36;'}} )</option>
+						                                @endforeach
+					                                </select>
+					                            </div>
+					                        </div>
+											<!-- <div class="form-group">
 												<label class="control-label col-md-12 col-sm-12 col-xs-12" for="price">
 													Type vehicle:
 													@if($transfer->is_discount == 1)
@@ -49,7 +61,7 @@
 												@else
 													<input type="hidden" name="price" value="{{ ! empty($car->price) ? $car->price : $confirms['price'] }}">
 												@endif
-											</div>
+											</div> -->
 											<div class="form-group">
 												<label class="control-label col-md-4 col-sm-4 col-xs-12" for="passenger">
 													The number of passengers <span class="required">*</span>

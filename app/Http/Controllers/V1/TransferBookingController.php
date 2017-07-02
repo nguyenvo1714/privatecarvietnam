@@ -49,8 +49,12 @@ class TransferBookingController extends Controller
         $blogs = $this->blogRepo->footer();
         $car = $this->carRepo->getCarByClass($class);
         $transfer = $this->transferRepo->findSlug($slug);
+        $selected = $this->transferRepo->selected($transfer, $class);
+        var_dump($class);
+        var_dump($selected);die;
         return view('/sites.transferBookings.bookForm', [
             'transfer' =>  $transfer,
+            'selected' => $selected,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'car' => $car,

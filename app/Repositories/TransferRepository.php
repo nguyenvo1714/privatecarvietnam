@@ -133,6 +133,17 @@
 			return $transfer;
 		}
 
+		public function selected($transfer, $class)
+		{
+			$selected = '';
+			foreach ($transfer->cars as $car) {
+				if($car->class == $class) {
+					$selected = $car->price;
+				}
+			}
+			return $selected;
+		}
+
 		public function count($transfer_name_id)
 		{
 			return $this->transfer->where('transfer_name_id', $transfer_name_id)->get()->count();

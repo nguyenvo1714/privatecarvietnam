@@ -38,7 +38,8 @@
 										@else
 											<p>{{ $car->price }} <i class="fa fa-dollar"></i></p>
 										@endif
-										{!! Form::open(['url' => '/book-transfer/' . $transfer->slug . '/' . $car->class, 'method' => 'GET']) !!}
+										{!! Form::open(['url' => '/book-transfer/' . $transfer->slug, 'method' => 'GET']) !!}
+											{!! Form::hidden('token', base64_encode($car->price)) !!}
 											<button type="submit" class="btton">
 												<span>Book Transfer</span>
 												<div class="dot"></div>

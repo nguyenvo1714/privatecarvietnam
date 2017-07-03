@@ -24,7 +24,7 @@
 									</h5>
 									<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
 								</div>
-								{!! Form::open(['url' => '/book-transfer/confirmation', 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'bookForm']) !!}
+								{!! Form::open(['url' => '/confirmation', 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'bookForm']) !!}
 										<input type="hidden" name="trip" value="{{ $transfer->transfer_name->name }} - {{ $transfer->place->name }}">
 										<input type="hidden" name="duration" value="{{ $transfer->duration }}">
 										<input type="hidden" name="id" value="{{ $transfer->id }}">
@@ -32,17 +32,23 @@
 										<fieldset>
 											<h3 class="fieldset-title">Vehicle</h3>
 											<div class="field item form-group">
-					                            <label class="control-label col-md-2 col-sm-2 col-xs-12 mb20" for="price">
-					                                Car type <span class="required">*</span>
-					                            </label>{{ $selected }}
-					                            <div class="col-md-10 col-sm-10 col-xs-12 mb20">
-					                                <select class="form-control col-md-10 col-xs-12" name="price" required>
-					                                    @foreach($transfer->cars as $car)
-						                                    <option value="{{ $car->price }}" {{ $selected == $car->price ? 'selected' : ''  }}>{{ $car->fleet }} ( {{ (int)$car->capability . 'seat - ' . $car->price . '&#36;'}} )</option>
-						                                @endforeach
-					                                </select>
-					                            </div>
-					                        </div>
+												<label class="control-label col-md-2 col-sm-2 col-xs-12 mb20" for="price">
+													Car type <span class="required">*</span>
+												</label>
+												<div class="col-md-10 col-sm-10 col-xs-12 mb20">
+													<select class="form-control col-md-10 col-xs-12" name="price" required>
+														@if($transfer->is_discount == 1)
+															@foreach($transfer->cars as $car)
+																<option value="{{ $car->price }}" {{ $selected == $car->price ? 'selected' : ''  }}>{{ $car->fleet }} ( {{ (int)$car->capability . ' seats - ' . $car->price . '&#36;'}} )</option>
+															@endforeach
+														@else
+															@foreach($transfer->cars as $car)
+																<option value="{{ $car->price }}" {{ $selected == $car->price ? 'selected' : ''  }}>{{ $car->fleet }} ( {{ (int)$car->capability . ' seats - ' . $car->price . '&#36;'}} )</option>
+															@endforeach
+														@endif
+													</select>
+												</div>
+											</div>
 											<!-- <div class="form-group">
 												<label class="control-label col-md-12 col-sm-12 col-xs-12" for="price">
 													Type vehicle:

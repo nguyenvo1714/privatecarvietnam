@@ -124,20 +124,22 @@
 		public function findSlug($slug)
 		{
 			$transfer = $this->transfer->findBySlug($slug);
-			$transfer->transfer_name = $transfer->transfer_name
+			if (! empty($transfer)) {
+				$transfer->transfer_name = $transfer->transfer_name
 									->where('transfer_names.id', $transfer->transfer_name_id)
 									->first();
-			$transfer->place = $transfer->place
-							->where('places.id', $transfer->place_id)
-							->first();
+				$transfer->place = $transfer->place
+								->where('places.id', $transfer->place_id)
+								->first();
+			}
 			return $transfer;
 		}
 
-		public function selected($transfer, $class)
+		public function selected($transfer, $price)
 		{
 			$selected = '';
 			foreach ($transfer->cars as $car) {
-				if($car->class == $class) {
+				if($car->price == $price) {
 					$selected = $car->price;
 				}
 			}

@@ -54,6 +54,12 @@
 						<div class="col-md-12 transfer-blog">
 							<h3>{{ $transfer->title }}</h3>
 							{!! preg_replace('/<p>[img]/', '<p class="no-align">[img]', $transfer->blog) !!}
+							<div class="book-now text-center">
+								<a href="{{ url('/book-transfer/' . $transfer->slug) }}" class="btton">
+									<span>Book now</span>
+									<div class="dot"></div>
+								</a>
+							</div>
 							<div class="share row">
 								<strong>Share this</strong>
 								<ul>

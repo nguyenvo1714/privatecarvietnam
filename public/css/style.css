@@ -1505,6 +1505,9 @@ a.title {
     80% {transform: translateX(0) rotate(180deg);}
     100% {transform: translateX(0) rotate(360deg);}
 }
+.btton.share_link {
+	border: 1px solid rgb(69, 106, 187);
+}
 .transfer-blog {
 	padding-bottom: 15px;
 	background-color: #fff;
@@ -1545,6 +1548,9 @@ a.title {
 }
 .transfer-blog .share {
 	margin-top: 10px;
+}
+.share ul li {
+	padding-bottom: 5px;
 }
 /*===========================================================================================================*/
 /*=========================================== Booking Page ==================================================*/

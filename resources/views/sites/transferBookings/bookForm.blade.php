@@ -131,7 +131,7 @@
 									</fieldset>
 									@foreach($transfer->cars as $car)
 										@if($car->price == $selected)
-											<input type="hidden" name="vehicle" value="{{ $car->fleet . ' - ' . $car->capability . ' seats' }}">											
+											<input type="hidden" name="vehicle" value="{{ $car->fleet . ' - ' . $car->capability . ' seats' }}">
 										@endif
 									@endforeach
 								</div>

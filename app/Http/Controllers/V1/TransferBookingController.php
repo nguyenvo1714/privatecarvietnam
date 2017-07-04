@@ -51,6 +51,11 @@ class TransferBookingController extends Controller
         // $car = $this->carRepo->getCarByClass($class);
         $car = '';
         $transfer = $this->transferRepo->findSlug($slug);
+        if ($transfer->is_discount == 1) {
+            foreach ($transfer->cars as $car) {
+                $car->price = $car->price - ($car->price * $transfer->discount_value) / 100;
+            }
+        }
         $selected = $this->transferRepo->selected($transfer, $price);
         return view('/sites.transferBookings.bookForm', [
             'transfer' =>  $transfer,

@@ -320,6 +320,12 @@ class TransferController extends Controller
         $transferNames = $this->transferNameRepo->allT();
         $interestTransfers = $this->transferRepo->interest(4);
         $transfer = $this->transferRepo->findSlug($slug);
+        if ($transfer->is_discount == 1) {
+            foreach ($transfer->cars as $car) {
+                $car->origin_price = $car->price;
+                $car->price = $car->price - ($car->price * $transfer->discount_value) / 100;
+            }
+        }
         $relates = $this->transferRepo->relate($slug, 4);
         return view('/sites.transfers.detailTransfer', [
             'blogs' => $blogs,

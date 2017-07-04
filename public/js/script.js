@@ -50,7 +50,11 @@ $(function() {
 		parent.history.back();
 		return false;
 	});
-
+	// var price = $('select[name=price]').val();
+	var price = $('select[name=price]').on('change', function() {
+		alert($(this).val());
+	})
+	console.log(price);
 	$('#passenger').keyup(function() {
 		cost(price);
 	});

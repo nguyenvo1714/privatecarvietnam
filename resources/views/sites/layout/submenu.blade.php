@@ -140,12 +140,7 @@
             })
         </script>
         <script type="text/javascript">
-            var isDiscount = '{{ ! empty($transfer->is_discount) ? $transfer->is_discount : 0 }}';
-            if(isDiscount == 1) {
-                var price = '{{ ! empty($selected) ? $selected - ($selected * $transfer->discount_value) / 100 : "" }}';
-            } else {
-                var price = '{{ ! empty($selected) ? $selected : "" }}';
-            }
+            
             var baseUrl = '{{ URL::to("/") }}';
             $(function() {
                 var action = '{{ $action }}';

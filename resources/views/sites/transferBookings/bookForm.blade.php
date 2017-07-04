@@ -37,37 +37,12 @@
 												</label>
 												<div class="col-md-10 col-sm-10 col-xs-12 mb20">
 													<select class="form-control col-md-10 col-xs-12" name="price" required>
-														@if($transfer->is_discount == 1)
-															@foreach($transfer->cars as $car)
-																<option value="{{ $car->price }}" {{ $selected == $car->price ? 'selected' : ''  }}>{{ $car->fleet }} ( {{ (int)$car->capability . ' seats - ' . $car->price . '&#36;'}} )</option>
-															@endforeach
-														@else
-															@foreach($transfer->cars as $car)
-																<option value="{{ $car->price }}" {{ $selected == $car->price ? 'selected' : ''  }}>{{ $car->fleet }} ( {{ (int)$car->capability . ' seats - ' . $car->price . '&#36;'}} )</option>
-															@endforeach
-														@endif
+														@foreach($transfer->cars as $car)
+															<option value="{{ $car->price }}" {{ $selected == $car->price ? 'selected' : ''  }}>{{ $car->fleet }} ( {{ $car->capability . ' - ' . $car->price . '&#36;'}} )</option>
+														@endforeach
 													</select>
 												</div>
 											</div>
-											<!-- <div class="form-group">
-												<label class="control-label col-md-12 col-sm-12 col-xs-12" for="price">
-													Type vehicle:
-													@if($transfer->is_discount == 1)
-														<span>
-															{!! ! empty($car->class) ? $car->class . ' ( ' . number_format($car-> price - ($car->price * $transfer->discount_value) / 100) . '<i class="fa fa-dollar"></i> )' : $confirms['class'] . ' ( ' . number_format($confirms['price'] - ($confirms['price'] * $confirms['discount_value']) / 100) . ' <i class="fa fa-dollar"></i> )' !!}
-														</span>
-													@else
-														<span>{!! ! empty($car->class) ? $car->class . ' ( ' . $car-> price . '<i class="fa fa-dollar"></i> )' : $confirms['class'] . ' ( ' . $confirms['price']. ' <i class="fa fa-dollar"></i> )' !!}</span>
-													@endif
-												</label>
-												<input type="hidden" name="class" value="{{ ! empty($car->class) ? $car->class : $confirms['class'] }}">
-												@if($transfer->is_discount == 1)
-													<input type="hidden" name="price" value="{{ ! empty($car->price) ? $car->price - ($car->price * $transfer->discount_value) / 100 : $confirms['price'] }}">
-													<input type="hidden" name="discount_value" value="{{ ! empty($transfer->discount_value) ? $transfer->discount_value : $confirms['discount_value'] }}">
-												@else
-													<input type="hidden" name="price" value="{{ ! empty($car->price) ? $car->price : $confirms['price'] }}">
-												@endif
-											</div> -->
 											<div class="form-group">
 												<label class="control-label col-md-4 col-sm-4 col-xs-12" for="passenger">
 													The number of passengers <span class="required">*</span>
@@ -154,6 +129,11 @@
 												</div>
 											</div>
 									</fieldset>
+									@foreach($transfer->cars as $car)
+										@if($car->price == $selected)
+											<input type="hidden" name="vehicle" value="{{ $car->fleet . ' - ' . $car->capability . ' seats' }}">											
+										@endif
+									@endforeach
 								</div>
 								<div class="button-group">
 									<a href="#" class="back"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
@@ -176,7 +156,13 @@
 										<div class="summary-block">
 											<h6 class="transfer car">Transfer car</h6>
 											<p class="summary-text">
-												Vehicle: {{ ! empty($car->class) ? $car->class : $confirms['class'] }} <br>
+												Vehicle:
+												@foreach($transfer->cars as $car)
+													@if($car->price == $selected)
+														{{ $car->fleet . ' - ' . $car->capability . ' seats' }}
+													@endif
+												@endforeach
+												<br>
 												<small>up to 1 passenger, 1 baggage</small><br>
 												<small>~ 30 minutes of waiting(up to 2 hrs)</small>
 											</p>
@@ -185,9 +171,9 @@
 									<div class="summary-cost">
 										<h3>Transfer cost</h3>
 										<div class="summary-block">
-											<h6 class="vehicle-class">Vehicle {{ ! empty($car->class) ? $car->class : $confirms['class'] }} <span class="pull-right cost">0 <i class="fa fa-dollar"></i></span></s></h6>
+											<h6 class="vehicle-class">Vehicle {{ ! empty($car->class) ? $car->class : $confirms['class'] }} <span class="pull-right cost">0 &nbsp; &#36;</span></s></h6>
 										</div>
-										<h3>Total <span class="pull-right total">0 <i class="fa fa-dollar"></i></span></h3>
+										<h3>Total <span class="pull-right total">0 &#36;</span></h3>
 									</div>
 								</div>
 								<span class="pin-left"><span class="glyphicon glyphicon-pushpin"></span></span>

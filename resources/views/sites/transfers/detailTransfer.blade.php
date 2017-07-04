@@ -33,10 +33,10 @@
 									</div>
 									<div class="col-md-3 col-sm-3 col-xs-12 car-price">
 										@if($transfer->is_discount == 1)
-											<small><i class="pricesaleoff">{{ number_format($car->price) }} <i class="fa fa-dollar"></i></i></small><br>
-											<span><strong>{{ $car->price - ($car->price * $transfer->discount_value) / 100 }}<i class="fa fa-dollar"></i></strong></span>
+											<small><i class="pricesaleoff">{{ number_format($car->origin_price) }} &#36;</i></small><br>
+											<span><strong>{{ $car->price }} &#36;</strong></span>
 										@else
-											<p>{{ $car->price }} <i class="fa fa-dollar"></i></p>
+											<p>{{ $car->price }} &#36;</p>
 										@endif
 										{!! Form::open(['url' => '/book-transfer/' . $transfer->slug, 'method' => 'GET']) !!}
 											{!! Form::hidden('token', base64_encode($car->price)) !!}

@@ -55,6 +55,7 @@
 											</tr>
 											<tr>
 												<td>Vehicle</td>
+												<td>{{ $register['vehicle'] }}</td>
 											</tr>
 											<tr class="striped">
 												<td colspan="2">Route</td>
@@ -95,7 +96,7 @@
 											</tr>
 											<tr>
 												<td><strong>Total</strong></td>
-												<td><strong>{{ number_format($register['passenger'] * $register['price'], 2) }} &#36;</strong></td>
+												<td><strong>{{ $register['passenger'] * $register['price'] }} &#36;</strong></td>
 											</tr>
 										</tbody>
 									</table>
@@ -121,7 +122,7 @@
 										<div class="summary-block">
 											<h6 class="transfer car">Transfer car</h6>
 											<p class="summary-text">
-												Vehicle:  <br>
+												Vehicle: {{ $register['vehicle'] }} <br>
 												<small>up to 1 passenger, 1 baggage</small><br>
 												<small>~ 30 minutes of waiting(up to 2 hrs)</small>
 											</p>
@@ -144,10 +145,10 @@
 										<h3>Transfer cost</h3>
 										<div class="summary-block">
 											<h6 class="vehicle-class">
-												Vehicle  <span class="pull-right">{{ number_format($register['passenger'] * $register['price'], 2) }} &#36;</span>
+												Vehicle  <span class="pull-right">{{ $register['passenger'] * $register['price'] }} &#36;</span>
 											</h6>
 										</div>
-										<h3>Total <span class="pull-right">{{ number_format($register['passenger'] * $register['price'], 2) }} &#36;</span></h3>
+										<h3>Total <span class="pull-right">{{ $register['passenger'] * $register['price'] }} &#36;</span></h3>
 									</div>
 								</div>
 								<span class="pin-left"><span class="glyphicon glyphicon-pushpin"></span></span>
@@ -161,9 +162,6 @@
 	</div>
 	{!! Form::open(['url' =>  '/book-transfer/' . $transfer->slug, 'method' => 'POST', 'id' => 'back_to_register']) !!}
 		<input type="hidden" name="token" value="{{ base64_encode($register['price']) }}">
-		@if($transfer->is_discount == 1)
-			<input type="hidden" name="discount_value" value="{{ $register['discount_value'] }}">
-		@endif
 		<input type="hidden" name="passenger" value="{{ $register['passenger'] }}">
 		<input type="hidden" name="pickupAddress" value="{{ $register['pickup_address'] }}">
 		<input type="hidden" name="departureDate" value="{{ $register['departure_date'] }}">

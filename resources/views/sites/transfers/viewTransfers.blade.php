@@ -24,7 +24,7 @@
 											{{ $transfer->title }}
 										</a>
 										<div class="desc">
-											{{ $transfer->description }}
+											{{ $transfer->description . ' ...' }}
 										</div>
 									</div>
 								</div>

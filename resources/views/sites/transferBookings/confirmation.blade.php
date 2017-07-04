@@ -24,11 +24,10 @@
 									</h5>
 									<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
 								</div>
-								{!! Form::open(['url' => '/book-transfer/complete', 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'complete']) !!}
+								{!! Form::open(['url' => 'complete', 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'complete']) !!}
 								<div class="block-form">
 									<input type="hidden" name="trip" value="{{ $transfer->pick_up->name }} - {{ $transfer->place->name }}" id="trip">
 									<input type="hidden" name="duration" value="{{ $transfer->duration }}" id="duration">
-									<input type="hidden" name="class" value="{{ $register['class'] }}" id="class">
 									<input type="hidden" name="price" value="{{ $register['price'] }}" id="price">
 									<input type="hidden" name="passenger" value="{{ $register['passenger'] }}" id="passenger">
 									<input type="hidden" name="pickup_address" value="{{ $register['pickup_address'] }}" id="pickupAddress">
@@ -56,7 +55,7 @@
 											</tr>
 											<tr>
 												<td>Vehicle</td>
-												<td>{{ $register['class'] }}</td>
+												<td>{{ $register['vehicle'] }}</td>
 											</tr>
 											<tr class="striped">
 												<td colspan="2">Route</td>
@@ -97,7 +96,7 @@
 											</tr>
 											<tr>
 												<td><strong>Total</strong></td>
-												<td><strong>{{ number_format($register['passenger'] * $register['price'], 2) }} <i class="fa fa-dollar"></i></strong></td>
+												<td><strong>{{ $register['passenger'] * $register['price'] }} &#36;</strong></td>
 											</tr>
 										</tbody>
 									</table>
@@ -123,7 +122,7 @@
 										<div class="summary-block">
 											<h6 class="transfer car">Transfer car</h6>
 											<p class="summary-text">
-												Vehicle: {{ $register['class'] }} <br>
+												Vehicle: {{ $register['vehicle'] }} <br>
 												<small>up to 1 passenger, 1 baggage</small><br>
 												<small>~ 30 minutes of waiting(up to 2 hrs)</small>
 											</p>
@@ -146,10 +145,10 @@
 										<h3>Transfer cost</h3>
 										<div class="summary-block">
 											<h6 class="vehicle-class">
-												Vehicle {{ $register['class'] }} <span class="pull-right">{{ number_format($register['passenger'] * $register['price'], 2) }} <i class="fa fa-dollar"></i></span>
+												Vehicle  <span class="pull-right">{{ $register['passenger'] * $register['price'] }} &#36;</span>
 											</h6>
 										</div>
-										<h3>Total <span class="pull-right">{{ number_format($register['passenger'] * $register['price'], 2) }} <i class="fa fa-dollar"></i></span></h3>
+										<h3>Total <span class="pull-right">{{ $register['passenger'] * $register['price'] }} &#36;</span></h3>
 									</div>
 								</div>
 								<span class="pin-left"><span class="glyphicon glyphicon-pushpin"></span></span>
@@ -161,12 +160,8 @@
 			</div>
 		</section>
 	</div>
-	{!! Form::open(['url' =>  '/book-transfer/' . $transfer->slug . '/' . $register['class'], 'method' => 'POST', 'id' => 'back_to_register']) !!}
-		<input type="hidden" name="class" value="{{ $register['class'] }}">
-		<input type="hidden" name="price" value="{{ $register['price'] }}">
-		@if($transfer->is_discount == 1)
-			<input type="hidden" name="discount_value" value="{{ $register['discount_value'] }}">
-		@endif
+	{!! Form::open(['url' =>  '/book-transfer/' . $transfer->slug, 'method' => 'POST', 'id' => 'back_to_register']) !!}
+		<input type="hidden" name="token" value="{{ base64_encode($register['price']) }}">
 		<input type="hidden" name="passenger" value="{{ $register['passenger'] }}">
 		<input type="hidden" name="pickupAddress" value="{{ $register['pickup_address'] }}">
 		<input type="hidden" name="departureDate" value="{{ $register['departure_date'] }}">

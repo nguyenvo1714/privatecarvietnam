@@ -51,6 +51,11 @@ $(function() {
 		return false;
 	});
 
+	var price = $('select[name=price]').val();
+	$('select[name=price]').on('change', function(e) {
+		price = this.value;
+		cost(price);
+	});
 	$('#passenger').keyup(function() {
 		cost(price);
 	});
@@ -138,11 +143,22 @@ $(function() {
 		});
 	});
 
-	// $(document).ajaxStart(function(){
-	//     $('.modal').show();
-	//  }).ajaxStop(function(){
-	//     $('.modal').hide();
-	//  });
+	$('#tagCloud').awesomeCloud({
+		"size" : {
+			"grid" : 9,
+			"normalize": false
+		},
+		"options" : {
+			"color" : "random-dark",
+			"rotationRatio" : 0.35
+		},
+		"shape" : "circle"
+	});
+
+	//disable right click
+	// $('body').on('contextmenu', function(e) {
+	// 	return false;
+	// });
 });
 
 function cost(price) {

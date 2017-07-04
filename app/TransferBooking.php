@@ -11,6 +11,7 @@ class TransferBooking extends Model
     	'trip',
         'duration',
         'passenger',
+        'price',
         'pickup_address',
         'departure_date',
         'departure_time',

@@ -43,14 +43,23 @@ class TransferBookingController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function bookForm(Request $request, $slug, $class)
+    public function bookForm(Request $request, $slug)
     {
+        $price = base64_decode($request->token);
         $transferNames = $this->transferNameRepo->allT();
         $blogs = $this->blogRepo->footer();
-        $car = $this->carRepo->getCarByClass($class);
+        // $car = $this->carRepo->getCarByClass($class);
+        $car = '';
         $transfer = $this->transferRepo->findSlug($slug);
+        if ($transfer->is_discount == 1) {
+            foreach ($transfer->cars as $car) {
+                $car->price = $car->price - ($car->price * $transfer->discount_value) / 100;
+            }
+        }
+        $selected = $this->transferRepo->selected($transfer, $price);
         return view('/sites.transferBookings.bookForm', [
             'transfer' =>  $transfer,
+            'selected' => $selected,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'car' => $car,

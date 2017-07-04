@@ -57,16 +57,30 @@ class BlogController extends Controller
         $detail = $this->blogRepo->find_by_slug($slug);
         $next =  $this->blogRepo->next($detail->id);
         $prev = $this->blogRepo->prev($detail->id);
+        $tags = $this->blogRepo->all_tag();
+        $latest = $this->blogRepo->get_latest(4);
         // $next = Blog::where('id', '>', $detail->id)->min('id');
-        // var_dump($prev->title);die;
         return view('sites.blogs.content', [
             'transferNames' => $transferNames,
             'blogs' => $blogs,
             'detail' => $detail,
             'relates' => $relates,
             'next' => $next,
-            'prev' => $prev
+            'prev' => $prev,
+            'tags' => $tags,
+            'latest' => $latest
         ]);
     }
 
+    public function get_blog_by_tag($tag_slug)
+    {
+        $transferNames = $this->transferNameRepo->allT();
+        $blogs = $this->blogRepo->footer();
+        $blogTags = $this->blogRepo->get_blog_by_tag($tag_slug, 4);
+        return view('sites.blogs.blogByTag', [
+            'transferNames' => $transferNames,
+            'blogs' => $blogs,
+            'blogTags' => $blogTags
+        ]);
+    }
 }

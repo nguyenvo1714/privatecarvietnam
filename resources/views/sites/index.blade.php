@@ -125,7 +125,7 @@
 									{{ $transfer->title }}
 								</a>
 								<div class="desc">
-									{{ substr($transfer->description, 0, 130) . '...' }}
+									{{ $transfer->description . ' ...' }}
 								</div>
 							</div>
 						</div>
@@ -166,7 +166,7 @@
 									{{ $transfer->title }}
 								</a>
 								<div class="desc">
-									{{ substr($transfer->description, 0, 130) . '...' }}
+									{{ $transfer->description . ' ...' }}
 								</div>
 							</div>
 						</div>

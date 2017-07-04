@@ -27,10 +27,10 @@
 									</div>
 									<div class="col-md-3 col-sm-3 col-xs-12 car-price">
 										@if($transfer->is_discount == 1)
-											<p><i class="pricesaleoff">{{ number_format($car->price) }} <i class="fa fa-dollar"></i></i></p>
-											<p><strong>{{ $car->price - ($car->price * $transfer->discount_value) / 100 }} <i class="fa fa-dollar"></i></strong></p>
+											<p><i class="pricesaleoff">{{ number_format($car->origin_price) }} &#36;</i></p>
+											<p><strong>{{ $car->price }} &#36;</strong></p>
 										@else
-											<p>{{ $car->price }} VNĐ</p>
+											<p>{{ $car->price }} &#36;</p>
 										@endif
 										{!! Form::open(['url' => '/book-transfer/' . $transfer->slug . '/' . $car->class, 'method' => 'GET']) !!}
 											<button type="submit" class="btton">
@@ -47,6 +47,12 @@
 						<div class="col-md-12 transfer-blog">
 							<h3>{{ $transfer->title }}</h3>
 							{!! preg_replace('/<p>[img]/', '<p class="no-align">[img]', $transfer->blog) !!}
+							<div class="book-now text-center">
+								<a href="{{ url('/book-transfer/' . $transfer->slug) }}" class="btton">
+									<span>Book now</span>
+									<div class="dot"></div>
+								</a>
+							</div>
 							<div class="share row">
 								<strong>Share this</strong>
 								<ul>

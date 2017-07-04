@@ -27,10 +27,12 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::get('/airport-transfer', 'TransferController@airportTransfer');
 	Route::get('/airport-transfer/view/{slug}', 'TransferController@viewAirportTransfer');
 	Route::get('/airport-transfer/{slug}', 'TransferController@detailAirportTransfer');
-	Route::get('/book-transfer/{slug}/{class}', 'TransferBookingController@bookForm');
-	Route::post('/book-transfer/{slug}/{class}', 'TransferBookingController@bookForm');
-	Route::post('/book-transfer/confirmation', 'TransferBookingController@confirmation');
-	Route::post('/book-transfer/complete', 'TransferBookingController@complete');
+	Route::get('/book-transfer/{slug}', 'TransferBookingController@bookForm');
+	Route::post('/book-transfer/{slug}', 'TransferBookingController@bookForm');
+	// Route::post('/book-transfer/confirmation', 'TransferBookingController@confirmation');
+	Route::post('/confirmation', 'TransferBookingController@confirmation');
+	// Route::post('/book-transfer/complete', 'TransferBookingController@complete');
+	Route::post('/complete', 'TransferBookingController@complete');
 	Route::post('/find-transfer', 'TransferController@findTransfer');
 	Route::get('/private-transfer-load-more', 'TransferController@transferAjax');
 	Route::get('/airport-transfer-load-more', 'TransferController@transferAjax');
@@ -41,7 +43,7 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::post('/sendContact', 'TransferController@sendContact');
 	Route::get('/deal', 'TransferController@deal');
 	Route::get('/blog/{slug}', 'BlogController@content');
-	Route::get('/blog/tag/{tag_slug}', 'BlogController@content');
+	Route::get('/blog/tag/{tag_slug}', 'BlogController@get_blog_by_tag');
 
 	Route::get('/pick-up', 'TransferController@getPickup');
 	Route::get('/drop-off', 'TransferController@getDropoff');

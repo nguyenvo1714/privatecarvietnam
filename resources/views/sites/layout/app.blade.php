@@ -35,11 +35,9 @@
         {!! Html::script('js/app.js') !!}
         {!! Html::script('js/bootstrap-formhelpers.min.js') !!}
         {!! Html::script('js/fileinput.min.js') !!}
-        <!-- {!! Html::script('js/menu-addon.js') !!} -->
         {!! Html::script('js/jquery-ui.min.js') !!}
         {!! Html::script('js/jquery.validate.min.js') !!}
         {!! Html::script('js/additional-methods.min.js') !!}
-        <!-- {!! Html::script('js/parallax.min.js') !!} -->
         {!! Html::script('js/wow.min.js') !!}
         {!! Html::script('js/owl.carousel.min.js') !!}
         {!! Html::script('js/jquery.validate.min.js') !!}
@@ -78,6 +76,27 @@
             ]); ?>
 
         </script>
+        <style type="text/css">
+            .tagBall {
+                width: 100%;
+                height: 100px;
+                margin: 50px auto;
+                position: relative;
+            }
+        .tag {
+            display: block;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            color: #000;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .tag:hover {
+            border: 1px solid #666;
+        }
+        </style>
         <script type="text/javascript">
             $(function() {
                 $('#pick-up').autocomplete({
@@ -173,6 +192,13 @@
                 padding-top: 70px;
             }
         </style>
+        <script type="text/javascript">
+            $(function() {
+                $('.tagBall').cloudTag({
+                    ballSize: 100
+                });
+            });
+        </script>
     </head>
     <body>
         <div id="app">
@@ -260,7 +286,7 @@
                                 </div>
                                 <div class="media-body">
                                     <h5><a href="#">{{ $blog->title}}</a></h5>
-                                    <p>{{ $blog->description . '...' }}</p>
+                                    <p>{{ $blog->description . ' ...' }}</p>
                                 </div>
                             </div>
                         </li>
@@ -296,8 +322,6 @@
                         <a href="https://www.facebook.com/privatecarvietnam" class="fb"><i class='fa fa-facebook'></i> Facebook</a>
                         <a href="https://instagram.com/privatecarvietnam" class="ins"><i class='fa fa-instagram'></i> Instagram</a>
                         <a href="https://twitter.com/privatecarvietnam" class="tw"><i class='fa fa-twitter'></i> Twitter</a>
-                        <!-- <a href="https://www.tripadvisor.com/Attraction_Review-g293924-d8861377-Reviews-GoAsiaDayTrip_Day_Tour-Hanoi.html"><i class='fa fa-tripadvisor'></i> Tripadvisor</a> -->
-                        <!-- <a href="https://goasiadaytrip.tumblr.com/"><i class='fa fa-tumblr'></i> Tumblr</a> -->
                   </div>
                 </div>
             </div>

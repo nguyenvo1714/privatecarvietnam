@@ -42,7 +42,10 @@
 										<i class="fa fa-clock-o"></i> {{ date_format($detail->created_at, 'M d, Y') }}
 									</li>
 									<li class="tag">
-										<i class="fa fa-tags"></i> <a href="{{ url('/' . $detail->type->slug) }}"> {{ $detail->type->name }}</a>
+										<i class="fa fa-tags"></i>
+										@foreach($detail->tagged as $tagged)
+										<a href="{{ url('/blog/tag/' . $tagged->tag_slug) }}"> {{ $tagged->tag_name }}</a>
+										@endforeach
 									</li>
 								</ul>
 							</div>
@@ -53,11 +56,7 @@
 									<div class="prev col-md-4 col-sm-12">
 										<div class="row">
 											<a href="{{ url('/blog/' . $prev->slug) }}" class="btn btn-default">
-												@if(strlen($prev->title) > 25)
-													<span class="glyphicon glyphicon-step-backward"></span> Prev blog: {{ mb_substr($prev->title, 0, 25) . '...' }}
-												@else
-													<span class="glyphicon glyphicon-step-backward"></span> Prev blog: {{ $prev->title }}
-												@endif
+												<span class="glyphicon glyphicon-step-backward"></span> Prev post: {{ $prev->title . ' ...' }}
 											</a>
 										</div>
 									</div>
@@ -70,12 +69,8 @@
 									@endif
 										<div class="row">
 											<a href="{{ url('/blog/' . $next->slug) }}" class="btn btn-default">
-												<div class="text-left"> Next blog:
-													@if(strlen($next->title) > 25)
-														{{ mb_substr($next->title, 0, 25) . '...' }} <span class="glyphicon glyphicon-step-forward"></span>
-													@else
-														{{ $next->title }} <span class="glyphicon glyphicon-step-forward"></span>
-													@endif
+												<div class="text-left"> Next post:
+													{{ $next->title . ' ...' }} <span class="glyphicon glyphicon-step-forward"></span>
 												</div>
 											</a>
 										</div>
@@ -151,6 +146,33 @@
 									<li><i class="fa fa-hand-o-right"></i> Best price guaranteed</li>
 									<li><i class="fa fa-hand-o-right"></i> 24/7 Customer Support</li>
 								</ul>
+							</div>
+							<div class="why-choose-us no-background">
+								<div class="tag-title">
+									<h4>Latest post</h4>
+								</div>
+								<div class="latest-body">
+									@foreach($latest as $blog)
+										<div class="object">
+											{{ Html::image($blog->img, '', ['class' => 'img-circle']) }}
+											<h6><a href="{{ url('/blog/' . $blog->slug) }}"> {{ $blog->title }}</a></h6>
+										</div>
+									@endforeach
+								</div>
+							</div>
+							<div class="why-choose-us no-background">
+								<div class="tag-title">
+									<h4 class="text-left">Popular tags</h4>
+								</div>
+								<div class="tagCloud" id="tagCloud">
+									@foreach($tags as $tag)
+										<span data-weight="{{ ($tag->count)*18 }}">
+											<a href="{{ url('/blog/tag/' . $tag->slug) }}">
+												{{ $tag->name }}
+											</a>
+										</span>
+									@endforeach
+								</div>
 							</div>
 							<div class="tripvisor no-background">
 								<div class="visor-header">

@@ -2138,3 +2138,25 @@ div.tripvisor {
 	font-size: 15px;
 
 }
+/*===========================================================================================================*/
+/*=================================================== Mail form =============================================*/
+/*===========================================================================================================*/
+.mail-booking {
+	padding: 10px;
+	border: 1px solid #d9dad0;
+	border-radius: 2px;
+	background-color: #fff;
+}
+.mail-booking form textarea {
+	overflow-y: scroll;
+}
+.mail-booking form .form-control, .mail-booking form .submit-mail {
+	margin-bottom: 10px;
+}
+.mail-booking form .submit-mail {
+	outline: 0;
+	padding: 6px 25px;
+	border-radius: 5px;
+	margin: auto;
+	display: block;
+}

@@ -182,6 +182,17 @@
 					<div class="row">
 						<div class="col-md-12">
 							{{ Html::image('img/bandovietnam.jpg', '', ['class' => 'img-responsive mb']) }}
+							<div class="mail-booking">
+								<h4 class="text-center">Book transfer</h4>
+								{!! Form::open(['url' => '/mail-booking', 'method' => 'post', 'class' => 'mail-form']) !!}
+									{!! Form::text('name', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your Name', 'required']) !!}
+									{!! Form::email('email', '', ['placeholder' => 'Your email', 'class' => 'form-control col-md-12 col-xs-12', 'required']) !!}
+									{!! Form::text('phone', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your phone', 'required']) !!}
+									{!! Form::textarea('request', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your request', 'cols' => 6, 'rows' => 5, 'required']) !!}
+									{!! Form::textarea('booking-info','', ['class' => 'form-control col-md-12 col-xs-12', 'rows' => 5, 'placeholder' => 'Time, Pick-up, Drop-off, how many people', 'required']) !!}
+									{!! Form::submit('Send', ['class' => 'btn btn-default submit-mail']) !!}
+								{!! Form::close() !!}
+							</div>
 						</div>
 					</div>
 				</div>

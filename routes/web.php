@@ -31,7 +31,7 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::post('/book-transfer/{slug}', 'TransferBookingController@bookForm');
 	Route::post('/confirmation', 'TransferBookingController@confirmation');
 	Route::post('/complete', 'TransferBookingController@complete');
-	Route::post('/mail-booking', 'TransferController@mailBooking');
+	Route::post('/mail-booking', 'TransferBookingController@mailBooking');
 	Route::post('/find-transfer', 'TransferController@findTransfer');
 	Route::get('/private-transfer-load-more', 'TransferController@transferAjax');
 	Route::get('/airport-transfer-load-more', 'TransferController@transferAjax');

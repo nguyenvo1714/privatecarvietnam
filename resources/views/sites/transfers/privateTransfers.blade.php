@@ -181,7 +181,6 @@
 				<div class="col-md-3">
 					<div class="row">
 						<div class="col-md-12">
-							{{ Html::image('img/bandovietnam.jpg', '', ['class' => 'img-responsive mb']) }}
 							<div class="mail-booking">
 								<h4 class="text-center">Book transfer</h4>
 								{!! Form::open(['url' => '/mail-booking', 'method' => 'post', 'class' => 'mail-form']) !!}
@@ -193,6 +192,7 @@
 									{!! Form::submit('Send', ['class' => 'btn btn-default submit-mail']) !!}
 								{!! Form::close() !!}
 							</div>
+							{{ Html::image('img/bandovietnam.jpg', '', ['class' => 'img-responsive mb']) }}
 						</div>
 					</div>
 				</div>

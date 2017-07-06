@@ -6,12 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ConfirmedEmail;
+use App\Mail\MailBooking;
 use App\TransferBooking;
-use App\Place;
-use App\Blog;
-use App\TransferName;
-use App\Transfer;
-use App\Car;
 use App\Repositories\TransferRepository;
 use App\Repositories\BlogRepository;
 use App\Repositories\TransferNameRepository;
@@ -123,6 +119,12 @@ class TransferBookingController extends Controller
         } else {
             echo '404 not found';
         }
+    }
+
+    public function mailBooking(Request $request)
+    {
+        $input = $request->all();
+        var_dump($input);die;
     }
 
 }

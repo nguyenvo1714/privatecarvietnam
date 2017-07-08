@@ -56,12 +56,10 @@ $(function() {
 		price = this.value;
 		cost(price);
 	});
-	$('#passenger').keyup(function() {
-		cost(price);
-	});
-	if (typeof price !== 'undefined') {
-		cost(price);
-	}
+	cost(price);
+	// if (typeof price !== 'undefined') {
+	// 	cost(price);
+	// }
 
 	$('.back_to_register').click(function(e) {
 		e.preventDefault();
@@ -143,26 +141,25 @@ $(function() {
 		});
 	});
 
-	$('#tagCloud').awesomeCloud({
-		"size" : {
-			"grid" : 9,
-			"normalize": false
-		},
-		"options" : {
-			"color" : "random-dark",
-			"rotationRatio" : 0.35
-		},
-		"shape" : "circle"
-	});
+		$('#tagCloud').awesomeCloud({
+			"size" : {
+				"grid" : 9,
+				"normalize": false
+			},
+			"options" : {
+				"color" : "random-dark",
+				"rotationRatio" : 0.35
+			},
+			"shape" : "circle"
+		});
 
 	//disable right click
-	// $('body').on('contextmenu', function(e) {
-	// 	return false;
-	// });
+	$('body').on('contextmenu', function(e) {
+		return false;
+	});
 });
 
 function cost(price) {
-	var cost = $('#passenger').val() * price;
-	$('.cost').html(cost + '<i class="fa fa-dollar"></i>');
-	$('.total').html(cost + '<i class="fa fa-dollar"></i>');
+	$('.cost').html(price + '&#36;');
+	$('.total').html(price + '&#36;');
 }

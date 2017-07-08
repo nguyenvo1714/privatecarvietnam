@@ -1692,38 +1692,30 @@ fieldset #name-error {
 }
 #bookForm label {
 	display: inline-block;
+	clear: both;
 }
 .spec {
-	width: 100%;
 	padding: unset;
-	/*height: unset;*/
+	position: relative;
 }
-.spec input[type="text"]:focus {
-	border-color: #B6D5F7 #B6D5F7 #B6D5F7 #B6D5F7;
-    outline: none;
-    -moz-box-shadow: 0 0 10px #B6D5F7;
-    -webkit-box-shadow: 0 0 10px #B6D5F7;
-    box-shadow: 0 0 10px #B6D5F7;
+.spec select, .spec input {
+	outline: none;
+	padding: 5px;
 }
-.spec .bfh-countries {
+.spec select {
 	width: 30%;
-	border: unset;
-	outline: none;
-	height: 100%;
-	border-bottom-left-radius: 5px;
-	border-top-left-radius: 5px;
+	position: absolute;
+	left: 0;
+	border-top-right-radius: unset;
+	border-bottom-right-radius: unset;
 }
-.spec .bfh-phone {
-	width: 68.6%;
-	height: 100%;
-	border: unset;
-	padding: 0 5px;
-	border-bottom-right-radius: 5px;
-	border-top-right-radius: 5px;
-	outline: none;
-	font-size: unset;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+.spec input {
+	width: 70%;
+	position: absolute;
+	right: 0;
+	border-left: unset;
+	border-top-left-radius: unset;
+	border-bottom-left-radius: unset;
 }
 span.calendar,
 span.time,
@@ -1744,9 +1736,7 @@ span.calendar {
 span.time,
 span.passenger,
 span.pick-up,
-span.drop-off,
-/*span.email,*/
-span.phone {
+span.drop-off {
 	position: absolute;
 	right: 22px;
 	top: 4px;
@@ -1755,6 +1745,11 @@ span.email {
 	position: absolute;
 	right: 22px;
 	top: 15px;
+}
+span.phone {
+	position: absolute;
+	right: 7px;
+	top: 4px;
 }
 .summary-container {
 	/*position: relative;*/
@@ -2137,4 +2132,37 @@ div.tripvisor {
 .object h6 a {
 	font-size: 15px;
 
+}
+/*===========================================================================================================*/
+/*=================================================== Mail form =============================================*/
+/*===========================================================================================================*/
+.mail-booking {
+	padding: 10px;
+	border: 1px solid #d9dad0;
+	border-radius: 2px;
+	background-color: #fff;
+	margin-bottom: 15px;
+	background-color: #9cc4da;
+}
+.mail-booking h4, .mail-booking .submit-mail {
+	font-family: '.VnUniverse';
+	font-weight: 600;
+	font-size: 2em;
+}
+.mail-booking form textarea {
+	overflow-y: scroll;
+}
+.mail-booking form .form-control, .mail-booking form .submit-mail {
+	margin-bottom: 10px;
+}
+.mail-booking form .submit-mail {
+	outline: 0;
+	padding: 0 25px;
+	border-radius: 5px;
+	margin: auto;
+	font-size: 1.5em;
+	display: block;
+}
+.mail-booking form .mail_form-animation {
+	display: none;
 }

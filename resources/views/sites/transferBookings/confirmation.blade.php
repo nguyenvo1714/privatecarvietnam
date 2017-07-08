@@ -96,7 +96,7 @@
 											</tr>
 											<tr>
 												<td><strong>Total</strong></td>
-												<td><strong>{{ $register['passenger'] * $register['price'] }} &#36;</strong></td>
+												<td><strong>{{ $register['price'] }} &#36;</strong></td>
 											</tr>
 										</tbody>
 									</table>
@@ -145,10 +145,10 @@
 										<h3>Transfer cost</h3>
 										<div class="summary-block">
 											<h6 class="vehicle-class">
-												Vehicle  <span class="pull-right">{{ $register['passenger'] * $register['price'] }} &#36;</span>
+												Vehicle  <span class="pull-right">{{ $register['price'] }} &#36;</span>
 											</h6>
 										</div>
-										<h3>Total <span class="pull-right">{{ $register['passenger'] * $register['price'] }} &#36;</span></h3>
+										<h3>Total <span class="pull-right">{{ $register['price'] }} &#36;</span></h3>
 									</div>
 								</div>
 								<span class="pin-left"><span class="glyphicon glyphicon-pushpin"></span></span>

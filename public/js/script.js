@@ -52,14 +52,15 @@ $(function() {
 	});
 
 	var price = $('select[name=price]').val();
+	var vehicle = $('select[name=price] option:selected').text();
 	$('select[name=price]').on('change', function(e) {
 		price = this.value;
+		vehicle = $(this).find('option:selected').text();
 		cost(price);
+		car_type(vehicle);
 	});
 	cost(price);
-	// if (typeof price !== 'undefined') {
-	// 	cost(price);
-	// }
+	car_type(vehicle);
 
 	$('.back_to_register').click(function(e) {
 		e.preventDefault();
@@ -159,7 +160,14 @@ $(function() {
 	});
 });
 
-function cost(price) {
+function cost(price)
+{
 	$('.cost').html(price + '&#36;');
 	$('.total').html(price + '&#36;');
+}
+
+function car_type(vehicle)
+{
+	$('#vehicle').val(vehicle);
+	$('#vehicle-left').html(vehicle);
 }

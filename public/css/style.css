@@ -2142,6 +2142,12 @@ div.tripvisor {
 	border-radius: 2px;
 	background-color: #fff;
 	margin-bottom: 15px;
+	background-color: #9cc4da;
+}
+.mail-booking h4, .mail-booking .submit-mail {
+	font-family: '.VnUniverse';
+	font-weight: 600;
+	font-size: 2em;
 }
 .mail-booking form textarea {
 	overflow-y: scroll;
@@ -2151,8 +2157,12 @@ div.tripvisor {
 }
 .mail-booking form .submit-mail {
 	outline: 0;
-	padding: 6px 25px;
+	padding: 0 25px;
 	border-radius: 5px;
 	margin: auto;
+	font-size: 1.5em;
 	display: block;
+}
+.mail-booking form .mail_form-animation {
+	display: none;
 }

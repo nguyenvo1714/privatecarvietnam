@@ -11,14 +11,15 @@ class MailBooking extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -28,6 +29,7 @@ class MailBooking extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.mail_booking');
+        return $this->markdown('emails.mail_booking')
+                    ->with(['content' => $this->data]);
     }
 }

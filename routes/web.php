@@ -27,7 +27,7 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::get('/airport-transfer', 'TransferController@airportTransfer');
 	Route::get('/airport-transfer/view/{slug}', 'TransferController@viewAirportTransfer');
 	Route::get('/airport-transfer/{slug}', 'TransferController@detailAirportTransfer');
-	Route::get('/book-transfer/{slug}', 'TransferBookingController@bookForm');
+	Route::get('/book-transfer/{slug}', 'TransferBookingController@bookForm')->name('bookForm');
 	Route::post('/book-transfer/{slug}', 'TransferBookingController@bookForm');
 	Route::post('/confirmation', 'TransferBookingController@confirmation');
 	Route::post('/complete', 'TransferBookingController@complete');

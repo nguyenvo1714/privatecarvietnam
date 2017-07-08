@@ -24,6 +24,7 @@
 									</h5>
 									<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
 								</div>
+								@include('sites.errors.error')
 								{!! Form::open(['url' => '/confirmation', 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'bookForm']) !!}
 										<input type="hidden" name="trip" value="{{ $transfer->transfer_name->name }} - {{ $transfer->place->name }}">
 										<input type="hidden" name="duration" value="{{ $transfer->duration }}">
@@ -103,7 +104,6 @@
 												<div class="col-md-10 col-sm-10 col-xs-12">
 													<input type="email" name="email" id="email" required class="form-control mt" value="{{ !empty($confirms['email']) ? $confirms['email'] : '' }}" onkeyup="testEmailChars(this);">
 													<span class="email"><i class="fa fa-envelope-o"></i></span>
-													<!-- <label id="email-error" class="error" for="email"></label> -->
 												</div>
 											</div>
 											<div class="form-group">
@@ -113,7 +113,7 @@
 												<div class="col-md-7 col-sm-7 col-xs-12 mt20">
 													<div class="spec">
 														<select id="country-phone" class="bfh-countries form-control" data-country="VN" data-flags="true"></select>
-														<input type="text" name="phone" id="phone" required class="bfh-phone form-control" data-country="country-phone" value="{{ !empty($confirms['phone']) ? $confirms['phone'] : '' }}">
+														<input type="text" name="phone" id="phone" required class="bfh-phone form-control" data-country="country-phone" value="{{ !empty($confirms['phone']) ? $confirms['phone'] : '' }}" minlength="8">
 														<span class="phone"><i class="fa fa-phone"></i></span>
 													</div>
 												</div>

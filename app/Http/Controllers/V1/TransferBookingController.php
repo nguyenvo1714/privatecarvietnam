@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\V1;
 
 use Illuminate\Http\Request;
+use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ConfirmedEmail;
@@ -33,6 +34,19 @@ class TransferBookingController extends Controller
         $this->carRepo = $carRepo;
     }
 
+    protected $rules = [
+        'price' => 'required',
+        'passenger' => 'required|numeric',
+        'pickup_address' => 'required',
+        'departure_date' => 'required|date',
+        'departure_time' => 'required',
+        'dropoff_address' => 'required',
+        'name' => 'required',
+        'surname' => 'required',
+        'email' => 'required|email',
+    ];
+
+
     /**
      * Show the form for creating a new resource.
      * @param string $name
@@ -44,8 +58,6 @@ class TransferBookingController extends Controller
         $price = base64_decode($request->token);
         $transferNames = $this->transferNameRepo->allT();
         $blogs = $this->blogRepo->footer();
-        // $car = $this->carRepo->getCarByClass($class);
-        $car = '';
         $transfer = $this->transferRepo->findSlug($slug);
         if ($transfer->is_discount == 1) {
             foreach ($transfer->cars as $car) {
@@ -58,7 +70,6 @@ class TransferBookingController extends Controller
             'selected' => $selected,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'car' => $car,
             'confirms' => $request->all()
         ]);
     }
@@ -70,6 +81,12 @@ class TransferBookingController extends Controller
      */
     public function confirmation(Request $request)
     {
+        $this->validate($request, $this->rules);
+        if ($request->departure_date < date('Y-m-d')) {
+            $error = ['departure_date' => 'Departure date must be greater than or equal current date!'];
+                return redirect()->back()
+                        ->with($error);
+        }
         $transferNames = $this->transferNameRepo->allT();
         $blogs = $this->blogRepo->footer();
         $transfer = $this->transferRepo->findById($request->id);
@@ -97,7 +114,7 @@ class TransferBookingController extends Controller
                 Mail::to($request->email)
                 ->bcc(env('MAIL_FROM_ADDRESS'))
                 ->send(new ConfirmedEmail($input));
-                if( count(Mail::failures()) > 0 ) {
+                if ( count(Mail::failures()) > 0 ) {
                     echo 'check error';die;
                     foreach ($Mail::failures as $failure) {
                         echo $failure . '<br>';
@@ -123,8 +140,25 @@ class TransferBookingController extends Controller
 
     public function mailBooking(Request $request)
     {
-        $input = $request->all();
-        var_dump($input);die;
+        if ($request->ajax()) {
+            $input = $request->all();
+            Mail::to('nguyenvo1714@gmail.com')
+            ->send(new MailBooking($input));
+            if (count(Mail::failures()) > 0) {
+                $data = [
+                    'success' => false,
+                    'message' => 'An error has occured during process, please try again.'
+                ];
+            } else {
+                $data = [
+                    'success' => true,
+                    'message' => 'Thanks you for your booking.'
+                ];
+            }
+            return response()->json($data);
+        } else {
+            echo 'You are not allowed to access.';die;
+        }
     }
 
 }

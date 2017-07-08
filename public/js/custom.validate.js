@@ -90,6 +90,69 @@ $(function() {
 		}
 	});
 
+	$('#mailForm').validate({
+		rules: {
+			name: 'required',
+			email: {
+				required: true,
+				email: true
+			},
+			phone: {
+				required: true,
+				minlength: 6
+			},
+			your_request: 'required',
+			booking_info: 'required'
+		},
+		messages: {
+			name: 'You forgot to input your name',
+			email: 'Please input correct your email',
+			phone: 'You forgot to input your phone number',
+			your_request: 'Please let know us your request',
+			booking_info: 'You forgot to input time, pick-up address,...'
+		},
+		submitHandler: function(form) {
+			$('.mail-booking #mailForm .submit-mail').hide();
+			$('#mailForm .mail_form-animation').show();
+			var token        = $('input[name="_token"]').attr('value');
+			var name         = $('#name').val();
+			var email        = $('#email').val();
+			var phone        = $('#phone').val();
+			var your_request = $('#your_request').val();
+			var booking_info = $('#booking_info').val();
+			var host         = $(form).prop('action');
+			$.ajax({
+				type: 'POST',
+				'url': host,
+				data: {
+					_token: token,
+					name: name,
+					email: email,
+					phone: phone,
+					your_request: your_request,
+					booking_info: booking_info
+				},
+				success: function(data) {
+					if(data.success == true) {
+						$('#name').val('');
+						$('#email').val('');
+						$('#phone').val('');
+						$('#your_request').val('');
+						$('#booking_info').val('');
+						$('.modal').hide();
+						$('.mail-booking #mailForm .submit-mail').show();
+						$('#mailForm .mail_form-animation').hide();
+						alert(data.message)
+					} else {
+						$('.mail-booking #mailForm .submit-mail').show();
+						$('#mailForm .mail_form-animation').hide();
+						alert(data.message);
+					}
+				}
+			});
+		}
+	});
+
 	$('#blogForm').validate({
 		messages: {
 			type_id: "Please select an option",

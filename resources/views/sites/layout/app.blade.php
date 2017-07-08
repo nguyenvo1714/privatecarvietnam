@@ -193,13 +193,6 @@
                 padding-top: 70px;
             }
         </style>
-        <script type="text/javascript">
-            $(function() {
-                $('.tagBall').cloudTag({
-                    ballSize: 100
-                });
-            });
-        </script>
     </head>
     <body>
         <div id="app">

@@ -127,11 +127,7 @@
 												</div>
 											</div>
 									</fieldset>
-									@foreach($transfer->cars as $car)
-										@if($car->price == $selected)
-											<input type="hidden" name="vehicle" value="{{ $car->fleet . ' - ' . $car->capability . ' seats' }}">
-										@endif
-									@endforeach
+									<input type="hidden" name="vehicle" value="" id="vehicle">
 								</div>
 								<div class="button-group">
 									<a href="#" class="back"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
@@ -154,12 +150,7 @@
 										<div class="summary-block">
 											<h6 class="transfer car">Transfer car</h6>
 											<p class="summary-text">
-												Vehicle:
-												@foreach($transfer->cars as $car)
-													@if($car->price == $selected)
-														{{ $car->fleet . ' - ' . $car->capability . ' seats' }}
-													@endif
-												@endforeach
+												Vehicle: <span id="vehicle-left"></span>
 												<br>
 												<small>up to 1 passenger, 1 baggage</small><br>
 												<small>~ 30 minutes of waiting(up to 2 hrs)</small>

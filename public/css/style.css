@@ -226,6 +226,9 @@ body.loading .modal {
 .mt {
 	margin-top: 15px;
 }
+.mb20 {
+	margin-bottom: 20px;
+}
 .mb5 {
 	margin-bottom: 5px;
 }
@@ -526,7 +529,7 @@ li.active a:after {
 }
 .wrapper-input img {
 	position: absolute;
-	top: 10px;
+	top: 15px;
 	right: 5px;
 	display: none;
 }
@@ -806,11 +809,13 @@ a.title {
     font-size: 17px;
     font-weight: bold;
     overflow: hidden;
+    line-height: 20px;
 }
 .boxinfo .desc {
 	padding-top: unset;
 	padding-bottom: unset;
 	overflow: hidden;
+	text-align: justify;
 	font-size: 13px;
 }
 .boxinfo:hover {
@@ -1121,6 +1126,7 @@ a.title {
 	text-transform: capitalize;
 	font-weight: 400;
 	color: #3097d1;
+	font-size: 20px;
 }
 .title .trait a:last-child {
     display: inline-block;
@@ -1403,14 +1409,18 @@ a.title {
 	border-bottom: 1px dotted #999;
 	padding-bottom: 15px;
 }
+.present {
+	position: relative;
+	height: 70px;
+}
 .present img {
-	margin-top: 10px;
+	position: absolute;
+	top: 10px;
 	display: block;
-	width:100%;
+	height: 100%;
 }
 .car-introduce {
 	display: block;
-	padding-top: 3%;
 	text-align: left;
 }
 .car-introduce h4 {
@@ -1419,37 +1429,84 @@ a.title {
 }
 .car-introduce p {
 	margin-bottom: unset;
-	/*padding: unset;*/
 }
 .car-introduce p span.pax {
 	margin-right: 15px;
 }
 .car-price {
-	padding-top: 3%;
 	display: block;
-	text-align: center;
 }
 .car-price p:first-child {
 	margin-top: 15px;
 }
 .car-price p {
-	text-align: center;
+	margin-left: 18%;
 	margin-bottom: 5px;
 }
-.car-price input[type="submit"] {
-	color: #fff;
-	padding: 5px 15px;
-	background: rgba(5, 147, 10, .9);
-	font-size: 1.1em;
-	border-radius: 3px;
-	box-shadow: inset 0px 2px 0px 0px rgb(77, 233, 82);
-	border: 1px solid rgb(20, 129, 24);
+:root {
+	--bg: #3C465C;
+	--primary: #25BD37;
+	--solid: #fff;
+	--btn-w: 10em;
+	--dot-w: calc(var(--btn-w)*.2);
+	--tr-X: calc(var(--btn-w) - var(--dot-w));
 }
-.car-price input[type="submit"]:hover {
-	color: unset;
-	/*background-image:linear-gradient(-1deg, #E58C00 0%, #FFB300 100%);*/
-	background: rgb(53, 202, 57);
-	border:1px solid #E68E00;
+.btton {
+    position: relative;
+    margin: 0 auto;
+    width: var(--btn-w);
+    color: var(--primary);
+    border: .15em solid var(--primary);
+    border-radius: 5em;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1em;
+    line-height: 1em;
+    cursor: pointer;
+    outline: 0;
+    padding: 6px 12px;
+}
+.dot {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--dot-w);
+    height: 100%;
+    border-radius: 100%;
+    transition: all 300ms ease;
+    display: none;
+    outline: 0;
+}
+.dot:after {
+    content: '';
+    position: absolute;
+    left: calc(50% - .4em);
+    top: -.4em;
+    height: .8em;
+    width: .8em;
+    outline: 0;
+    background: var(--primary);
+    border-radius: 1em;
+    border: .25em solid var(--solid);
+    box-shadow: 0 0 .7em var(--solid),
+                0 0 2em var(--primary);
+}
+.btton:hover .dot,
+.btton:focus .dot {
+    animation: atom 2s infinite linear;
+    display: block;
+    outline: 0;
+}
+@keyframes atom {
+    0% {transform: translateX(0) rotate(0);}
+    30%{transform: translateX(var(--tr-X)) rotate(0);}
+    50% {transform: translateX(var(--tr-X)) rotate(180deg);}
+    80% {transform: translateX(0) rotate(180deg);}
+    100% {transform: translateX(0) rotate(360deg);}
+}
+.btton.share_link {
+	border: 1px solid rgb(69, 106, 187);
 }
 .transfer-blog {
 	padding-bottom: 15px;
@@ -1491,6 +1548,9 @@ a.title {
 }
 .transfer-blog .share {
 	margin-top: 10px;
+}
+.share ul li {
+	padding-bottom: 5px;
 }
 /*===========================================================================================================*/
 /*=========================================== Booking Page ==================================================*/
@@ -1632,38 +1692,30 @@ fieldset #name-error {
 }
 #bookForm label {
 	display: inline-block;
+	clear: both;
 }
 .spec {
-	width: 100%;
 	padding: unset;
-	/*height: unset;*/
+	position: relative;
 }
-.spec input[type="text"]:focus {
-	border-color: #B6D5F7 #B6D5F7 #B6D5F7 #B6D5F7;
-    outline: none;
-    -moz-box-shadow: 0 0 10px #B6D5F7;
-    -webkit-box-shadow: 0 0 10px #B6D5F7;
-    box-shadow: 0 0 10px #B6D5F7;
+.spec select, .spec input {
+	outline: none;
+	padding: 5px;
 }
-.spec .bfh-countries {
+.spec select {
 	width: 30%;
-	border: unset;
-	outline: none;
-	height: 100%;
-	border-bottom-left-radius: 5px;
-	border-top-left-radius: 5px;
+	position: absolute;
+	left: 0;
+	border-top-right-radius: unset;
+	border-bottom-right-radius: unset;
 }
-.spec .bfh-phone {
-	width: 68.6%;
-	height: 100%;
-	border: unset;
-	padding: 0 5px;
-	border-bottom-right-radius: 5px;
-	border-top-right-radius: 5px;
-	outline: none;
-	font-size: unset;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+.spec input {
+	width: 70%;
+	position: absolute;
+	right: 0;
+	border-left: unset;
+	border-top-left-radius: unset;
+	border-bottom-left-radius: unset;
 }
 span.calendar,
 span.time,
@@ -1684,9 +1736,7 @@ span.calendar {
 span.time,
 span.passenger,
 span.pick-up,
-span.drop-off,
-/*span.email,*/
-span.phone {
+span.drop-off {
 	position: absolute;
 	right: 22px;
 	top: 4px;
@@ -1695,6 +1745,11 @@ span.email {
 	position: absolute;
 	right: 22px;
 	top: 15px;
+}
+span.phone {
+	position: absolute;
+	right: 7px;
+	top: 4px;
 }
 .summary-container {
 	/*position: relative;*/
@@ -2045,4 +2100,69 @@ dt.small {
 }
 div.tripvisor {
 	margin-bottom: 15px;
+}
+.tagCloud {
+	/*border: 1px solid #036;*/
+	height: 2.3in;
+	margin: 0 auto;
+	padding: 0;
+	page-break-after: always;
+	page-break-inside: avoid;
+	width: 100%;
+}
+.latest-body .object{
+	width: 100%;
+	height: 100px;
+	margin-top: 10px;
+}
+.object img {
+	width: 30%;
+	height: 100%;
+	float: left;
+	/*display: block;*/
+}
+.object h6 {
+	width: 67%;
+	margin-top: 12%;
+	display: inline-block;
+	clear: both;
+	vertical-align: middle;
+	margin-left: 3%;
+}
+.object h6 a {
+	font-size: 15px;
+
+}
+/*===========================================================================================================*/
+/*=================================================== Mail form =============================================*/
+/*===========================================================================================================*/
+.mail-booking {
+	padding: 10px;
+	border: 1px solid #d9dad0;
+	border-radius: 2px;
+	background-color: #fff;
+	margin-bottom: 15px;
+	background-color: #9cc4da;
+}
+.mail-booking h4, .mail-booking .submit-mail {
+	font-family: '.VnUniverse';
+	font-weight: 600;
+	font-size: 2em;
+}
+.mail-booking form textarea {
+	overflow-y: scroll;
+}
+.mail-booking form .form-control, .mail-booking form .submit-mail {
+	margin-bottom: 10px;
+}
+.mail-booking form .submit-mail {
+	outline: 0;
+	padding: 0 25px;
+	border-radius: 5px;
+	margin: auto;
+	font-size: 1.5em;
+	display: block;
+}
+.mail-booking form .mail_form-animation {
+	display: none;
 }

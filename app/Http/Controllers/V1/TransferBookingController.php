@@ -3,15 +3,12 @@
 namespace App\Http\Controllers\V1;
 
 use Illuminate\Http\Request;
+use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ConfirmedEmail;
+use App\Mail\MailBooking;
 use App\TransferBooking;
-use App\Place;
-use App\Blog;
-use App\TransferName;
-use App\Transfer;
-use App\Car;
 use App\Repositories\TransferRepository;
 use App\Repositories\BlogRepository;
 use App\Repositories\TransferNameRepository;
@@ -37,23 +34,42 @@ class TransferBookingController extends Controller
         $this->carRepo = $carRepo;
     }
 
+    protected $rules = [
+        'price' => 'required',
+        'passenger' => 'required|numeric',
+        'pickup_address' => 'required',
+        'departure_date' => 'required|date',
+        'departure_time' => 'required',
+        'dropoff_address' => 'required',
+        'name' => 'required',
+        'surname' => 'required',
+        'email' => 'required|email',
+    ];
+
+
     /**
      * Show the form for creating a new resource.
      * @param string $name
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function bookForm(Request $request, $slug, $class)
+    public function bookForm(Request $request, $slug)
     {
+        $price = base64_decode($request->token);
         $transferNames = $this->transferNameRepo->allT();
         $blogs = $this->blogRepo->footer();
-        $car = $this->carRepo->getCarByClass($class);
         $transfer = $this->transferRepo->findSlug($slug);
+        if ($transfer->is_discount == 1) {
+            foreach ($transfer->cars as $car) {
+                $car->price = $car->price - ($car->price * $transfer->discount_value) / 100;
+            }
+        }
+        $selected = $this->transferRepo->selected($transfer, $price);
         return view('/sites.transferBookings.bookForm', [
             'transfer' =>  $transfer,
+            'selected' => $selected,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
-            'car' => $car,
             'confirms' => $request->all()
         ]);
     }
@@ -65,6 +81,12 @@ class TransferBookingController extends Controller
      */
     public function confirmation(Request $request)
     {
+        $this->validate($request, $this->rules);
+        if ($request->departure_date < date('Y-m-d')) {
+            $error = ['departure_date' => 'Departure date must be greater than or equal current date!'];
+                return redirect()->back()
+                        ->with($error);
+        }
         $transferNames = $this->transferNameRepo->allT();
         $blogs = $this->blogRepo->footer();
         $transfer = $this->transferRepo->findById($request->id);
@@ -92,7 +114,7 @@ class TransferBookingController extends Controller
                 Mail::to($request->email)
                 ->bcc(env('MAIL_FROM_ADDRESS'))
                 ->send(new ConfirmedEmail($input));
-                if( count(Mail::failures()) > 0 ) {
+                if ( count(Mail::failures()) > 0 ) {
                     echo 'check error';die;
                     foreach ($Mail::failures as $failure) {
                         echo $failure . '<br>';
@@ -113,6 +135,29 @@ class TransferBookingController extends Controller
             }
         } else {
             echo '404 not found';
+        }
+    }
+
+    public function mailBooking(Request $request)
+    {
+        if ($request->ajax()) {
+            $input = $request->all();
+            Mail::to('nguyenvo1714@gmail.com')
+            ->send(new MailBooking($input));
+            if (count(Mail::failures()) > 0) {
+                $data = [
+                    'success' => false,
+                    'message' => 'An error has occured during process, please try again.'
+                ];
+            } else {
+                $data = [
+                    'success' => true,
+                    'message' => 'Thanks you for your booking.'
+                ];
+            }
+            return response()->json($data);
+        } else {
+            echo 'You are not allowed to access.';die;
         }
     }
 

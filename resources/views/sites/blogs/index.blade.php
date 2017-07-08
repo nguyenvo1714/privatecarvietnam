@@ -77,7 +77,12 @@
 												</p>
 												<div class="hr"></div>
 												<div class="text-primary">
-													<span class="glyphicon glyphicon-tags"></span> &nbsp; <a href="{{ url('/' . $indexBlog->type->slug) }}" class="color-green"> {{ $indexBlog->type->name }} </a>
+													<span class="glyphicon glyphicon-tags"></span> &nbsp;
+													@foreach($indexBlog->tagged as $tagged)
+													<a href="{{ url('/blog/tag/' . $tagged->tag_slug) }}" class="color-green">
+														{{ $tagged->tag_name }}
+													</a>
+													@endforeach
 													<a href="{{ url('/blog/' . $indexBlog->slug) }}" class="pull-right color-green"> Read more <i class="fa fa-hand-o-right"></i></a>
 												</div>
 											</div>
@@ -95,6 +100,18 @@
 				<div class="col-md-3">
 					<div class="row">
 						<div class="col-md-12">
+							<div class="mail-booking">
+								<h4 class="text-center">Book transfer</h4>
+								{!! Form::open(['url' => '/mail-booking', 'method' => 'post', 'class' => 'mail-form', 'id' => 'mailForm']) !!}
+									{!! Form::text('name', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your Name', 'required', 'id' => 'name']) !!}
+									{!! Form::email('email', '', ['placeholder' => 'Your email', 'class' => 'form-control col-md-12 col-xs-12', 'required', 'id' => 'email']) !!}
+									{!! Form::text('phone', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your phone', 'required', 'id' => 'phone']) !!}
+									{!! Form::textarea('your_request', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your request', 'cols' => 6, 'rows' => 5, 'required', 'id' => 'your_request']) !!}
+									{!! Form::textarea('booking_info','', ['class' => 'form-control col-md-12 col-xs-12', 'rows' => 5, 'placeholder' => 'Time, Pick-up, Drop-off, how many people', 'required', 'id' => 'booking_info']) !!}
+									{!! Form::submit('Send', ['class' => 'btn btn-default submit-mail']) !!}
+									{{ Html::image('img/ajax-search.gif', '', ['class' => 'mail_form-animation submit-mail']) }}
+								{!! Form::close() !!}
+							</div>
 							<!-- <div class="row"> -->
 								<div class="help-booking no-background">
 									<div class="help-title">

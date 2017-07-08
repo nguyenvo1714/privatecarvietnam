@@ -125,7 +125,6 @@
                                 <script>
                                     CKEDITOR.replace( 'my-editor',
                                     {
-                                        extraPlugins: 'embed,autoembed',
                                         height: 500,
                                         filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
                                         filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',

@@ -27,10 +27,11 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::get('/airport-transfer', 'TransferController@airportTransfer');
 	Route::get('/airport-transfer/view/{slug}', 'TransferController@viewAirportTransfer');
 	Route::get('/airport-transfer/{slug}', 'TransferController@detailAirportTransfer');
-	Route::get('/book-transfer/{slug}/{class}', 'TransferBookingController@bookForm');
-	Route::post('/book-transfer/{slug}/{class}', 'TransferBookingController@bookForm');
-	Route::post('/book-transfer/confirmation', 'TransferBookingController@confirmation');
-	Route::post('/book-transfer/complete', 'TransferBookingController@complete');
+	Route::get('/book-transfer/{slug}', 'TransferBookingController@bookForm')->name('bookForm');
+	Route::post('/book-transfer/{slug}', 'TransferBookingController@bookForm');
+	Route::post('/confirmation', 'TransferBookingController@confirmation');
+	Route::post('/complete', 'TransferBookingController@complete');
+	Route::post('/mail-booking', 'TransferBookingController@mailBooking');
 	Route::post('/find-transfer', 'TransferController@findTransfer');
 	Route::get('/private-transfer-load-more', 'TransferController@transferAjax');
 	Route::get('/airport-transfer-load-more', 'TransferController@transferAjax');
@@ -41,6 +42,7 @@ Route::group(['namespace' => 'V1'], function() {
 	Route::post('/sendContact', 'TransferController@sendContact');
 	Route::get('/deal', 'TransferController@deal');
 	Route::get('/blog/{slug}', 'BlogController@content');
+	Route::get('/blog/tag/{tag_slug}', 'BlogController@get_blog_by_tag');
 
 	Route::get('/pick-up', 'TransferController@getPickup');
 	Route::get('/drop-off', 'TransferController@getDropoff');
@@ -66,13 +68,13 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::put('/type/{id}', 'TypeController@update');
 	Route::delete('/type/{id}', 'TypeController@destroy');
 
-	Route::get('/blogs', 'BlogController@index');
-	Route::get('/blog/create', 'BlogController@create');
-	Route::post('/blog', 'BlogController@store');
-	Route::get('/blog/{id}', 'BlogController@show');
-	Route::get('/blog/{id}/edit', 'BlogController@edit');
-	Route::post('/blog/{id}', 'BlogController@update');
-	Route::delete('/blog/{id}', 'BlogController@destroy');
+	Route::get('admin/blogs', 'BlogController@index');
+	Route::get('admin/blog/create', 'BlogController@create');
+	Route::post('admin/blog', 'BlogController@store');
+	Route::get('admin/blog/{id}', 'BlogController@show');
+	Route::get('admin/blog/{id}/edit', 'BlogController@edit');
+	Route::post('admin/blog/{id}', 'BlogController@update');
+	Route::delete('admin/blog/{id}', 'BlogController@destroy');
 
 	Route::get('/tours', 'TourController@index');
 	Route::get('/tour/create', 'TourController@create');

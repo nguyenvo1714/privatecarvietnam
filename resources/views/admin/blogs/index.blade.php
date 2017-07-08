@@ -10,10 +10,6 @@
     <div class="">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
-                <!-- <div class="x_title">
-                    <h2>Form Design <small>different form elements</small></h2>
-                    <div class="clearfix"></div>
-                </div> -->
                 <div class="x_content">
                     <br>
                     <table class="table">
@@ -37,10 +33,10 @@
                                     </a>
                                 </td>
                                 <td style="font-size: 20px;">
-                                    <a href="{{ url('/blog/' . $blog->id . '/edit') }}" id="{{ $blog->id }}" class="call-edit-blog"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a href="{{ url('/admin/blog/' . $blog->id . '/edit') }}" id="{{ $blog->id }}" class="call-edit-blog"><i class="fa fa-pencil-square-o"></i></a>
                                 </td>
                                 <td style="font-size: 20px;">
-                                    {!! Form::open(['url' => '/blog/'.$blog->id, 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")']) !!}
+                                    {!! Form::open(['url' => '/admin/blog/'.$blog->id, 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")']) !!}
                                         {{ method_field('DELETE') }}
                                         <button type="submit" class="naked-button"> <i class="fa fa-trash-o"></i></a>
                                     {!! Form::close() !!}

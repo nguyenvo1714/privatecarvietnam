@@ -19,16 +19,16 @@
 								<strong>Share this</strong>
 								<ul>
 									<li class="google-plus">
-										<a href="{{ url('https://plus.google.com/share?url=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-google-plus"></i> Google</a>
+										<a href="https://plus.google.com/share?url={{ url('/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-google-plus"></i> Google</a>
 									</li>
 									<li class="facebook">
-										<a href="{{ url('https://www.facebook.com/sharer.php?u=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-facebook"></i> Facebook</a>
+										<a href="https://www.facebook.com/sharer.php?u={{ url('/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-facebook"></i> Facebook</a>
 									</li>
 									<li class="twister">
-										<a href="{{ url('https://twitter.com/share?url=/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-twitter"></i> Twister</a>
+										<a href="https://twitter.com/share?url={{ url('/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-twitter"></i> Twister</a>
 									</li>
 									<li class="email">
-										<a href="mailto:?subject={!! $detail->title !!}&body={{ strip_tags($detail->content) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-envelope-o"></i> Email</a>
+										<a href="mailto:?subject={!! $detail->title !!}&body={{ url('/blog/' . $detail->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-envelope-o"></i> Email</a>
 									</li>
 									<li class="print">
 										<a href="{{ url('/blog/' . $detail->slug . '#print') }}" target="_blank" class="btn btn-default share_link" onclick="window.print()"><i class="fa fa-print"></i> Print</a>
@@ -42,7 +42,10 @@
 										<i class="fa fa-clock-o"></i> {{ date_format($detail->created_at, 'M d, Y') }}
 									</li>
 									<li class="tag">
-										<i class="fa fa-tags"></i> <a href="{{ url('/' . $detail->type->slug) }}"> {{ $detail->type->name }}</a>
+										<i class="fa fa-tags"></i>
+										@foreach($detail->tagged as $tagged)
+										<a href="{{ url('/blog/tag/' . $tagged->tag_slug) }}"> {{ $tagged->tag_name }}</a>
+										@endforeach
 									</li>
 								</ul>
 							</div>
@@ -53,11 +56,7 @@
 									<div class="prev col-md-4 col-sm-12">
 										<div class="row">
 											<a href="{{ url('/blog/' . $prev->slug) }}" class="btn btn-default">
-												@if(strlen($prev->title) > 25)
-													<span class="glyphicon glyphicon-step-backward"></span> Prev blog: {{ mb_substr($prev->title, 0, 25) . '...' }}
-												@else
-													<span class="glyphicon glyphicon-step-backward"></span> Prev blog: {{ $prev->title }}
-												@endif
+												<span class="glyphicon glyphicon-step-backward"></span> Prev post: {{ $prev->title . ' ...' }}
 											</a>
 										</div>
 									</div>
@@ -70,12 +69,8 @@
 									@endif
 										<div class="row">
 											<a href="{{ url('/blog/' . $next->slug) }}" class="btn btn-default">
-												<div class="text-left"> Next blog:
-													@if(strlen($next->title) > 25)
-														{{ mb_substr($next->title, 0, 25) . '...' }} <span class="glyphicon glyphicon-step-forward"></span>
-													@else
-														{{ $next->title }} <span class="glyphicon glyphicon-step-forward"></span>
-													@endif
+												<div class="text-left"> Next post:
+													{{ $next->title . ' ...' }} <span class="glyphicon glyphicon-step-forward"></span>
 												</div>
 											</a>
 										</div>
@@ -122,6 +117,18 @@
 				<div class="col-md-3">
 					<div class="row">
 						<div class="col-md-12">
+							<div class="mail-booking">
+								<h4 class="text-center">Book transfer</h4>
+								{!! Form::open(['url' => '/mail-booking', 'method' => 'post', 'class' => 'mail-form', 'id' => 'mailForm']) !!}
+									{!! Form::text('name', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your Name', 'required', 'id' => 'name']) !!}
+									{!! Form::email('email', '', ['placeholder' => 'Your email', 'class' => 'form-control col-md-12 col-xs-12', 'required', 'id' => 'email']) !!}
+									{!! Form::text('phone', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your phone', 'required', 'id' => 'phone']) !!}
+									{!! Form::textarea('your_request', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your request', 'cols' => 6, 'rows' => 5, 'required', 'id' => 'your_request']) !!}
+									{!! Form::textarea('booking_info','', ['class' => 'form-control col-md-12 col-xs-12', 'rows' => 5, 'placeholder' => 'Time, Pick-up, Drop-off, how many people', 'required', 'id' => 'booking_info']) !!}
+									{!! Form::submit('Send', ['class' => 'btn btn-default submit-mail']) !!}
+									{{ Html::image('img/ajax-search.gif', '', ['class' => 'mail_form-animation submit-mail']) }}
+								{!! Form::close() !!}
+							</div>
 							<!-- <div class="row"> -->
 							<div class="blog-title">
 								<div class="hr"></div>
@@ -151,6 +158,33 @@
 									<li><i class="fa fa-hand-o-right"></i> Best price guaranteed</li>
 									<li><i class="fa fa-hand-o-right"></i> 24/7 Customer Support</li>
 								</ul>
+							</div>
+							<div class="why-choose-us no-background">
+								<div class="tag-title">
+									<h4>Latest post</h4>
+								</div>
+								<div class="latest-body">
+									@foreach($latest as $blog)
+										<div class="object">
+											{{ Html::image($blog->img, '', ['class' => 'img-circle']) }}
+											<h6><a href="{{ url('/blog/' . $blog->slug) }}"> {{ $blog->title }}</a></h6>
+										</div>
+									@endforeach
+								</div>
+							</div>
+							<div class="why-choose-us no-background">
+								<div class="tag-title">
+									<h4 class="text-left">Popular tags</h4>
+								</div>
+								<div class="tagCloud" id="tagCloud">
+									@foreach($tags as $tag)
+										<span data-weight="{{ ($tag->count)*18 }}">
+											<a href="{{ url('/blog/tag/' . $tag->slug) }}">
+												{{ $tag->name }}
+											</a>
+										</span>
+									@endforeach
+								</div>
 							</div>
 							<div class="tripvisor no-background">
 								<div class="visor-header">

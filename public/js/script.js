@@ -51,12 +51,16 @@ $(function() {
 		return false;
 	});
 
-	$('#passenger').keyup(function() {
+	var price = $('select[name=price]').val();
+	var vehicle = $('select[name=price] option:selected').text();
+	$('select[name=price]').on('change', function(e) {
+		price = this.value;
+		vehicle = $(this).find('option:selected').text();
 		cost(price);
+		car_type(vehicle);
 	});
-	if (typeof price !== 'undefined') {
-		cost(price);
-	}
+	cost(price);
+	car_type(vehicle);
 
 	$('.back_to_register').click(function(e) {
 		e.preventDefault();
@@ -138,15 +142,32 @@ $(function() {
 		});
 	});
 
-	// $(document).ajaxStart(function(){
-	//     $('.modal').show();
-	//  }).ajaxStop(function(){
-	//     $('.modal').hide();
-	//  });
+		$('#tagCloud').awesomeCloud({
+			"size" : {
+				"grid" : 9,
+				"normalize": false
+			},
+			"options" : {
+				"color" : "random-dark",
+				"rotationRatio" : 0.35
+			},
+			"shape" : "circle"
+		});
+
+	//disable right click
+	$('body').on('contextmenu', function(e) {
+		return false;
+	});
 });
 
-function cost(price) {
-	var cost = $('#passenger').val() * price;
-	$('.cost').html(cost + 'VNĐ');
-	$('.total').html(cost + 'VNĐ');
+function cost(price)
+{
+	$('.cost').html(price + '&#36;');
+	$('.total').html(price + '&#36;');
+}
+
+function car_type(vehicle)
+{
+	$('#vehicle').val(vehicle);
+	$('#vehicle-left').html(vehicle);
 }

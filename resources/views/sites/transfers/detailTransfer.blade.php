@@ -22,7 +22,7 @@
 							<div class="col-md-12 price-box">
 								<div class="row">
 									<div class="present col-md-3 col-sm-3 col-xs-12">
-										{{ Html::image('/storage/' . $car->present, '', ['class' => 'img-responsive']) }}
+										{{ Html::image('/storage/' . $car->present, '', ['class' => '']) }}
 									</div>
 									<div class="col-md-6 col-sm-6 col-xs-12 car-introduce">
 										<h4>{{ $car->class }}</h4>
@@ -33,13 +33,17 @@
 									</div>
 									<div class="col-md-3 col-sm-3 col-xs-12 car-price">
 										@if($transfer->is_discount == 1)
-											<small><i class="pricesaleoff">{{ number_format($car->price) }} VNĐ</i></small><br>
-											<span><strong>{{ $car->price - ($car->price * $transfer->discount_value) / 100 }} VNĐ</strong></span>
+											<small><i class="pricesaleoff">{{ number_format($car->origin_price) }} &#36;</i></small><br>
+											<span><strong>{{ $car->price }} &#36;</strong></span>
 										@else
-											<p>{{ $car->price }} VNĐ</p>
+											<p>{{ $car->price }} &#36;</p>
 										@endif
-										{!! Form::open(['url' => '/book-transfer/' . $transfer->slug . '/' . $car->class, 'method' => 'GET']) !!}
-											<input type="submit" value="Book Transfer">
+										{!! Form::open(['url' => '/book-transfer/' . $transfer->slug, 'method' => 'GET']) !!}
+											{!! Form::hidden('token', base64_encode($car->price)) !!}
+											<button type="submit" class="btton">
+												<span>Book Transfer</span>
+												<div class="dot"></div>
+											</button>
 										{!! Form::close() !!}
 									</div>
 								</div>
@@ -50,23 +54,29 @@
 						<div class="col-md-12 transfer-blog">
 							<h3>{{ $transfer->title }}</h3>
 							{!! preg_replace('/<p>[img]/', '<p class="no-align">[img]', $transfer->blog) !!}
+							<div class="book-now text-center">
+								<a href="{{ url('/book-transfer/' . $transfer->slug) }}" class="btton">
+									<span>Book now</span>
+									<div class="dot"></div>
+								</a>
+							</div>
 							<div class="share row">
 								<strong>Share this</strong>
 								<ul>
 									<li class="google-plus">
-										<a href="{{ url('https://plus.google.com/share?url=/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-google-plus"></i> Google</a>
+										<a href="https://plus.google.com/share?url={{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="btton btn-default share_link"><i class="fa fa-google-plus"></i> Google</a>
 									</li>
 									<li class="facebook">
-										<a href="{{ url('https://www.facebook.com/sharer.php?u=/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-facebook"></i> Facebook</a>
+										<a href="https://www.facebook.com/sharer.php?u={{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="btton btn-default share_link"><i class="fa fa-facebook"></i> Facebook</a>
 									</li>
 									<li class="twister">
-										<a href="{{ url('https://twitter.com/share?url=/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-twitter"></i> Twister</a>
+										<a href="https://twitter.com/share?url={{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="btton btn-default share_link"><i class="fa fa-twitter"></i> Twister</a>
 									</li>
 									<li class="email">
-										<a href="mailto:?subject={!! $transfer->title !!}&body={{ strip_tags($transfer->blog) }}" target="_blank" class="btn btn-default share_link"><i class="fa fa-envelope-o"></i> Email</a>
+										<a href="mailto:?subject={!! $transfer->title !!}&body={{ url('/' . $transfer->type->slug . '/' . $transfer->slug) }}" target="_blank" class="btton btn-default share_link"><i class="fa fa-envelope-o"></i> Email</a>
 									</li>
 									<li class="print">
-										<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug . '#print') }}" target="_blank" class="btn btn-default share_link" onclick="window.print()"><i class="fa fa-print"></i> Print</a>
+										<a href="{{ url('/' . $transfer->type->slug . '/' . $transfer->slug . '#print') }}" target="_blank" class="btton btn-default share_link" onclick="window.print()"><i class="fa fa-print"></i> Print</a>
 									</li>
 								</ul>
 							</div>
@@ -80,6 +90,18 @@
 				</div>
 				<div class="col-md-3">
 					<div class="row">
+						<div class="mail-booking">
+							<h4 class="text-center">Book transfer</h4>
+							{!! Form::open(['url' => '/mail-booking', 'method' => 'post', 'class' => 'mail-form', 'id' => 'mailForm']) !!}
+								{!! Form::text('name', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your Name', 'required', 'id' => 'name']) !!}
+								{!! Form::email('email', '', ['placeholder' => 'Your email', 'class' => 'form-control col-md-12 col-xs-12', 'required', 'id' => 'email']) !!}
+								{!! Form::text('phone', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your phone', 'required', 'id' => 'phone']) !!}
+								{!! Form::textarea('your_request', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your request', 'cols' => 6, 'rows' => 5, 'required', 'id' => 'your_request']) !!}
+								{!! Form::textarea('booking_info','', ['class' => 'form-control col-md-12 col-xs-12', 'rows' => 5, 'placeholder' => 'Time, Pick-up, Drop-off, how many people', 'required', 'id' => 'booking_info']) !!}
+								{!! Form::submit('Send', ['class' => 'btn btn-default submit-mail']) !!}
+								{{ Html::image('img/ajax-search.gif', '', ['class' => 'mail_form-animation submit-mail']) }}
+							{!! Form::close() !!}
+						</div>
 						<div class="map">
 							{{ Html::image('img/bandovietnam.jpg', '', ['class' => 'img-responsive mb']) }}
 						</div>

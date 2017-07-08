@@ -77,7 +77,7 @@
 								</h4>
 								<div class="trait">
 									<a href="{{ url('/' . $interestTransfer->type->slug) }}">
-										<i class="fa fa-tags"></i> {{ $interestTransfer->type->name }}
+										<i class="fa fa-tags"></i> {{ $interestTransfer->cars[0]->price }}&#36;
 									</a>
 									<a href="{{ url('/' . $interestTransfer->type->slug . '/' . $interestTransfer->slug) }}" class="pull-right">Go</a>
 								</div>
@@ -120,7 +120,8 @@
 											<div class="hr"></div>
 											<div class="text-primary">
 												<i class="fa fa-wifi"></i> Free wifi &nbsp;&nbsp;
-												<i class="fa fa-comments-o"></i> English speaking driver
+												<i class="fa fa-comments-o"></i> English speaking driver &nbsp;&nbsp;
+												<i class="fa fa-child"></i> Children seat
 											</div>
 										</div>
 										<div class="col-sm-2">
@@ -153,6 +154,18 @@
 				<div class="col-md-3">
 					<div class="row">
 						<div class="col-md-12">
+							<div class="mail-booking">
+								<h4 class="text-center">Book transfer</h4>
+								{!! Form::open(['url' => '/mail-booking', 'method' => 'post', 'class' => 'mail-form', 'id' => 'mailForm']) !!}
+									{!! Form::text('name', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your Name', 'required', 'id' => 'name']) !!}
+									{!! Form::email('email', '', ['placeholder' => 'Your email', 'class' => 'form-control col-md-12 col-xs-12', 'required', 'id' => 'email']) !!}
+									{!! Form::text('phone', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your phone', 'required', 'id' => 'phone']) !!}
+									{!! Form::textarea('your_request', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your request', 'cols' => 6, 'rows' => 5, 'required', 'id' => 'your_request']) !!}
+									{!! Form::textarea('booking_info','', ['class' => 'form-control col-md-12 col-xs-12', 'rows' => 5, 'placeholder' => 'Time, Pick-up, Drop-off, how many people', 'required', 'id' => 'booking_info']) !!}
+									{!! Form::submit('Send', ['class' => 'btn btn-default submit-mail']) !!}
+									{{ Html::image('img/ajax-search.gif', '', ['class' => 'mail_form-animation submit-mail']) }}
+								{!! Form::close() !!}
+							</div>
 							{{ Html::image('img/bandovietnam.jpg', '', ['class' => 'img-responsive mb']) }}
 						</div>
 					</div>
@@ -204,7 +217,8 @@
 											'<div class="hr"></div>' +
 											'<div class="text-primary">' +
 												'<i class="fa fa-wifi"></i> Free wifi &nbsp;&nbsp;' + 
-												'<i class="fa fa-comments-o"></i> English speaking guide' +
+												'<i class="fa fa-comments-o"></i> English speaking guide &nbsp;&nbsp;' +
+												'<i class="fa fa-child"></i> Children seat' +
 											'</div>' +
 										'</div>' +
 										'<div class="col-sm-2">' +

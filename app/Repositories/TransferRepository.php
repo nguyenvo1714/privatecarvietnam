@@ -21,6 +21,7 @@
 		{
 			$tops = $this->transfer->where('is_hot', 1)->limit($limit)->get();
 			$this->getTransferType($tops);
+			$this->chop_content($tops);
 			return $tops;
 		}
 
@@ -86,12 +87,13 @@
 										->limit($limit)
 										->get();
 			$this->getTransferType($interests);
+			$this->chop_content($interests);
 			return $interests;
 		}
 
 		public function findTransfer($pick_up_id, $place_id)
 		{
-			return $this->transfer->where('pick_up_id', $pick_up_id)
+			return  $this->transfer->where('pick_up_id', $pick_up_id)
 								->where('place_id', $place_id)
 								->first();
 		}
@@ -122,13 +124,26 @@
 		public function findSlug($slug)
 		{
 			$transfer = $this->transfer->findBySlug($slug);
-			$transfer->transfer_name = $transfer->transfer_name
+			if (! empty($transfer)) {
+				$transfer->transfer_name = $transfer->transfer_name
 									->where('transfer_names.id', $transfer->transfer_name_id)
 									->first();
-			$transfer->place = $transfer->place
-							->where('places.id', $transfer->place_id)
-							->first();
+				$transfer->place = $transfer->place
+								->where('places.id', $transfer->place_id)
+								->first();
+			}
 			return $transfer;
+		}
+
+		public function selected($transfer, $price)
+		{
+			$selected = '';
+			foreach ($transfer->cars as $car) {
+				if($car->price == $price) {
+					$selected = $car->price;
+				}
+			}
+			return $selected;
 		}
 
 		public function count($transfer_name_id)
@@ -142,4 +157,18 @@
 	            $transfer->type = $transfer->type->where('id', $transfer->type_id)->first();
 	        }
 	    }
+
+		public function crop_description($transfers)
+		{
+			foreach ($transfers as $transfer) {
+				$transfer->description = substr($transfer->description, 0, 130) . '...';
+			}
+		}
+
+		public function chop_content($transfers)
+		{
+			foreach ($transfers as $transfer) {
+				$transfer->description = implode(' ', array_slice(explode(' ', $transfer->description), 0, 25));
+			}
+		}
 	}

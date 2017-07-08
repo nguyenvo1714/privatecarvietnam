@@ -2,6 +2,7 @@
 
 namespace App;
 
+use \Conner\Tagging\Taggable;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
@@ -10,11 +11,10 @@ class Blog extends Model
 {
     use Sluggable;
     use SluggableScopeHelpers;
+    use Taggable;
 
     protected $table = 'blogs';
-    // protected $connection = 'touringservice';
     protected $fillable  = [
-        'type_id',
         'title',
         'slug',
     	'content',

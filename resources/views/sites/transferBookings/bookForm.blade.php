@@ -24,31 +24,25 @@
 									</h5>
 									<p class="unset-height"><i class="fa fa-clock-o"></i> Duration: ~ {{ $transfer->duration }}</p>
 								</div>
-								{!! Form::open(['url' => '/book-transfer/confirmation', 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'bookForm']) !!}
+								@include('sites.errors.error')
+								{!! Form::open(['url' => '/confirmation', 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'bookForm']) !!}
 										<input type="hidden" name="trip" value="{{ $transfer->transfer_name->name }} - {{ $transfer->place->name }}">
 										<input type="hidden" name="duration" value="{{ $transfer->duration }}">
 										<input type="hidden" name="id" value="{{ $transfer->id }}">
 									<div class="block-form">
 										<fieldset>
 											<h3 class="fieldset-title">Vehicle</h3>
-											<div class="form-group">
-												<label class="control-label col-md-12 col-sm-12 col-xs-12" for="price">
-													Type vehicle:
-													@if($transfer->is_discount == 1)
-														<span>
-															{{ ! empty($car->class) ? $car->class . ' ( ' . number_format($car-> price - ($car->price * $transfer->discount_value) / 100) . 'VNĐ )' : $confirms['class'] . ' ( ' . number_format($confirms['price'] - ($confirms['price'] * $confirms['discount_value']) / 100) . ' VNĐ )' }}
-														</span>
-													@else
-														<span>{{ ! empty($car->class) ? $car->class . ' ( ' . $car-> price . 'VNĐ )' : $confirms['class'] . ' ( ' . $confirms['price']. ' VNĐ )' }}</span>
-													@endif
+											<div class="field item form-group">
+												<label class="control-label col-md-2 col-sm-2 col-xs-12 mb20" for="price">
+													Car type <span class="required">*</span>
 												</label>
-												<input type="hidden" name="class" value="{{ ! empty($car->class) ? $car->class : $confirms['class'] }}">
-												@if($transfer->is_discount == 1)
-													<input type="hidden" name="price" value="{{ ! empty($car->price) ? $car->price - ($car->price * $transfer->discount_value) / 100 : $confirms['price'] }}">
-													<input type="hidden" name="discount_value" value="{{ ! empty($transfer->discount_value) ? $transfer->discount_value : $confirms['discount_value'] }}">
-												@else
-													<input type="hidden" name="price" value="{{ ! empty($car->price) ? $car->price : $confirms['price'] }}">
-												@endif
+												<div class="col-md-10 col-sm-10 col-xs-12 mb20">
+													<select class="form-control col-md-10 col-xs-12" name="price" required>
+														@foreach($transfer->cars as $car)
+															<option value="{{ $car->price }}" {{ $selected == $car->price ? 'selected' : ''  }}>{{ $car->fleet }} ( {{ $car->capability . ' - ' . $car->price . '&#36;'}} )</option>
+														@endforeach
+													</select>
+												</div>
 											</div>
 											<div class="form-group">
 												<label class="control-label col-md-4 col-sm-4 col-xs-12" for="passenger">
@@ -110,7 +104,6 @@
 												<div class="col-md-10 col-sm-10 col-xs-12">
 													<input type="email" name="email" id="email" required class="form-control mt" value="{{ !empty($confirms['email']) ? $confirms['email'] : '' }}" onkeyup="testEmailChars(this);">
 													<span class="email"><i class="fa fa-envelope-o"></i></span>
-													<!-- <label id="email-error" class="error" for="email"></label> -->
 												</div>
 											</div>
 											<div class="form-group">
@@ -118,9 +111,9 @@
 													Phone number (with country code) <span class="required">*</span>
 												</label>
 												<div class="col-md-7 col-sm-7 col-xs-12 mt20">
-													<div class="form-control spec">
-														<select id="country-phone" class="bfh-countries" data-country="VN" data-flags="true"></select>
-														<input type="text" name="phone" id="phone" required class="bfh-phone" data-country="country-phone" value="{{ !empty($confirms['phone']) ? $confirms['phone'] : '' }}">
+													<div class="spec">
+														<select id="country-phone" class="bfh-countries form-control" data-country="VN" data-flags="true"></select>
+														<input type="text" name="phone" id="phone" required class="bfh-phone form-control" data-country="country-phone" value="{{ !empty($confirms['phone']) ? $confirms['phone'] : '' }}" minlength="8">
 														<span class="phone"><i class="fa fa-phone"></i></span>
 													</div>
 												</div>
@@ -130,12 +123,11 @@
 													Notes
 												</label>
 												<div class="col-md-11 col-sm-11 col-xs-12 mt20">
-													<textarea class="form-control" name="note" id="note" rows="10">
-														{{ !empty($confirms['note']) ? $confirms['note'] : '' }}
-													</textarea>
+													<textarea class="form-control textarea" name="note" id="note" rows="10">{{ !empty($confirms['note']) ? $confirms['note'] : '' }}</textarea>
 												</div>
 											</div>
 									</fieldset>
+									<input type="hidden" name="vehicle" value="" id="vehicle">
 								</div>
 								<div class="button-group">
 									<a href="#" class="back"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
@@ -158,7 +150,8 @@
 										<div class="summary-block">
 											<h6 class="transfer car">Transfer car</h6>
 											<p class="summary-text">
-												Vehicle: {{ ! empty($car->class) ? $car->class : $confirms['class'] }} <br>
+												Vehicle: <span id="vehicle-left"></span>
+												<br>
 												<small>up to 1 passenger, 1 baggage</small><br>
 												<small>~ 30 minutes of waiting(up to 2 hrs)</small>
 											</p>
@@ -167,9 +160,9 @@
 									<div class="summary-cost">
 										<h3>Transfer cost</h3>
 										<div class="summary-block">
-											<h6 class="vehicle-class">Vehicle {{ ! empty($car->class) ? $car->class : $confirms['class'] }} <span class="pull-right cost">0 VNĐ</span></s></h6>
+											<h6 class="vehicle-class">Vehicle {{ ! empty($car->class) ? $car->class : $confirms['class'] }} <span class="pull-right cost">0 &nbsp; &#36;</span></s></h6>
 										</div>
-										<h3>Total <span class="pull-right total">0 VNĐ</span></h3>
+										<h3>Total <span class="pull-right total">0 &#36;</span></h3>
 									</div>
 								</div>
 								<span class="pin-left"><span class="glyphicon glyphicon-pushpin"></span></span>

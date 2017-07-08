@@ -34,14 +34,12 @@ class TransferController extends Controller
      */
     public function index()
     {
-        $transfers = $this->transferRepo->top(4);
-        $perpage = 6;
+        $transfers = $this->transferRepo->top(8);
+        $perpage = 8;
         $total_pages = (int)ceil($this->transferRepo->totalHot() / $perpage);
         $dealTransfers = $this->transferRepo->deal();
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        // $pick_ups = $this->transferNameRepo->allPi();
-        // $places = $this->transferNameRepo->allP();
         return view('/sites.index', [
             'transfers' => $transfers,
             'dealTransfers' => $dealTransfers,
@@ -322,6 +320,12 @@ class TransferController extends Controller
         $transferNames = $this->transferNameRepo->allT();
         $interestTransfers = $this->transferRepo->interest(4);
         $transfer = $this->transferRepo->findSlug($slug);
+        if ($transfer->is_discount == 1) {
+            foreach ($transfer->cars as $car) {
+                $car->origin_price = $car->price;
+                $car->price = $car->price - ($car->price * $transfer->discount_value) / 100;
+            }
+        }
         $relates = $this->transferRepo->relate($slug, 4);
         return view('/sites.transfers.detailTransfer', [
             'blogs' => $blogs,

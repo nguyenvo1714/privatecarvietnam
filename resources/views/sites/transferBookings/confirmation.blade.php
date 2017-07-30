@@ -9,11 +9,11 @@
 						<div class="row">
 							<div class="col-md-9">
 								<div class="block-step">
-									<a href="#" class="step 1 active">
+									<a href="javascript:void(0)" class="step 1 active">
 										<span class="label-step"><span>1</span></span>
 										<span class="text-step">Transfer infomations</span>
 									</a>
-									<a href="#" class="step 2">
+									<a href="javascript:void(0)" class="step 2">
 										<span class="label-step"><span>2</span></span>
 										<span class="text-step">Confirmation</span>
 									</a>
@@ -26,10 +26,12 @@
 								</div>
 								{!! Form::open(['url' => 'complete', 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'complete']) !!}
 								<div class="block-form">
+									<input type="hidden" name="transfer_id" value="{{ $transfer->id }}" id="transfer_id">
 									<input type="hidden" name="trip" value="{{ $transfer->pick_up->name }} - {{ $transfer->place->name }}" id="trip">
 									<input type="hidden" name="duration" value="{{ $transfer->duration }}" id="duration">
-									<input type="hidden" name="price" value="{{ $register['price'] }}" id="price">
+									<input type="hidden" name="cost" value="{{ $register['price'] }}" id="cost">
 									<input type="hidden" name="passenger" value="{{ $register['passenger'] }}" id="passenger">
+									<input type="hidden" name="vehicle" value="{{ $register['price'] }}" id="vehicle">
 									<input type="hidden" name="pickup_address" value="{{ $register['pickup_address'] }}" id="pickupAddress">
 									<input type="hidden" name="departure_date" value="{{ $register['departure_date'] }}" id="departureDate">
 									<input type="hidden" name="departure_time" value="{{ $register['departure_time'] }}" id="departureTime">

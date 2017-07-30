@@ -4,14 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TransferBooking extends Model
+class BookingCar extends Model
 {
-    protected $table = 'transfer_booking';
+    protected $table = 'booking_cars';
     protected $fillable = [
+        'transfer_id',
     	'trip',
         'duration',
         'passenger',
-        'price',
+        'cost',
         'pickup_address',
         'departure_date',
         'departure_time',
@@ -22,4 +23,9 @@ class TransferBooking extends Model
         'phone',
         'note'
     ];
+
+    public function transfers()
+    {
+        return $this->hasOne('App\Transfer');
+    }
 }

@@ -19,7 +19,7 @@ Thanks you for your booking, please confirm below information and let us know if
 		</tr>
 		<tr>
 			<td>Vehicle</td>
-			<td>{{ $infos['class'] }}</td>
+			<td>{{ $infos['vehicle'] }}</td>
 		</tr>
 		<tr class="striped" style="background-color: #f9f9f9;font-size: 1.3em;">
 			<td colspan="2">Route</td>
@@ -60,7 +60,7 @@ Thanks you for your booking, please confirm below information and let us know if
 		</tr>
 		<tr>
 			<td><strong>Total</strong></td>
-			<td><strong>{{ number_format($infos['passenger'] * $infos['price'], 2) }} VNĐ</strong></td>
+			<td><strong>{{ number_format($infos['passenger'] * $infos['cost'], 2) }} &#36;</strong></td>
 		</tr>
 	</tbody>
 </table>

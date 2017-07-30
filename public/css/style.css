@@ -2142,12 +2142,16 @@ div.tripvisor {
 	border-radius: 2px;
 	background-color: #fff;
 	margin-bottom: 15px;
-	background-color: #9cc4da;
+	background-color: rgba(50, 182, 36, .9);
 }
 .mail-booking h4, .mail-booking .submit-mail {
+	color: #fff;
 	font-family: '.VnUniverse';
 	font-weight: 600;
 	font-size: 2em;
+}
+.mail-booking .submit-mail {
+	color: #000;
 }
 .mail-booking form textarea {
 	overflow-y: scroll;

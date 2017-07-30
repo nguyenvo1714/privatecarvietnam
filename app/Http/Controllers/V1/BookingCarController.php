@@ -8,13 +8,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ConfirmedEmail;
 use App\Mail\MailBooking;
-use App\TransferBooking;
+use App\BookingCar;
 use App\Repositories\TransferRepository;
 use App\Repositories\BlogRepository;
 use App\Repositories\TransferNameRepository;
 use App\Repositories\CarRepository;
 
-class TransferBookingController extends Controller
+class BookingCarController extends Controller
 {
     protected $transferRepo;
     protected $blogRepo;
@@ -107,9 +107,9 @@ class TransferBookingController extends Controller
     public function complete(Request $request)
     {
         if($request->ajax()) {
-            $transferBooking = new TransferBooking;
+            $bookingCar = new BookingCar;
             $input = $request->all();
-            $result = $transferBooking->create($input);
+            $result = $bookingCar->create($input);
             if($result->id) {
                 Mail::to($request->email)
                 ->bcc(env('MAIL_FROM_ADDRESS'))

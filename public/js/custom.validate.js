@@ -108,7 +108,7 @@ $(function() {
 			name: 'You forgot to input your name',
 			email: 'Please input correct your email',
 			phone: 'You forgot to input your phone number',
-			your_request: 'Please let know us your request',
+			your_request: 'Your request',
 			booking_info: 'You forgot to input time, pick-up address,...'
 		},
 		submitHandler: function(form) {

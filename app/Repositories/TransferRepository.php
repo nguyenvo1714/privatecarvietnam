@@ -4,6 +4,8 @@
 	use App\Transfer;
 	use App\Pickup;
 	use App\Place;
+	use App\BookingCar;
+	use DB;
 
 	/**
 	* 
@@ -69,6 +71,18 @@
 			$interests = $this->transfer->where('is_hot', $is_hot)->limit($limit)->get();
 			$this->getTransferType($interests);
 			return $interests;
+		}
+
+		public function best_sell($limit)
+		{
+			$transfers = DB::table('booking_cars')
+						->select(DB::raw('count(transfers.id) as num, transfers.*'))
+						->leftJoin('transfers', 'booking_cars.transfer_id', '=', 'transfers.id')
+						->having('num', '>', 0)
+						->orderBy('num', 'desc')
+						->limit($limit)
+						->get();
+						var_dump($transfers);die;
 		}
 
 		public function relate($slug, $limit)

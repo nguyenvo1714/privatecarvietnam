@@ -157,9 +157,10 @@ class TransferController extends Controller
         $total_pages = (int)ceil($this->transferNameRepo->count($type) / $perpage);
         $privateTransfers = $this->transferNameRepo->transferType($type, 4);
         $interestTransfers = $this->transferRepo->interest(4);
-        $sells = $this->transferRepo->best_sell(5);
+        $bestSells = $this->transferRepo->best_sell(5);
         return view('/sites.transfers.privateTransfers', [
             'privateTransfers' => $privateTransfers,
+            'bestSells' => $bestSells,
             'total_pages' => $total_pages,
             'perpage' => $perpage,
             'type' => $type,

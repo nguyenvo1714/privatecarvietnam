@@ -2170,3 +2170,18 @@ div.tripvisor {
 .mail-booking form .mail_form-animation {
 	display: none;
 }
+/*===========================================================================================================*/
+/*=================================================== Best Sell =============================================*/
+/*===========================================================================================================*/
+.best-sell {
+	margin-bottom: 15px;
+}
+.best-sell .duration {
+	margin-top: 6px;
+	margin-bottom: unset;
+}
+.best-sell h5 {
+	font-family: 'Roboto Slab', Palatino, Cambria;
+	font-size: 14px;
+	font-weight: 700;
+}

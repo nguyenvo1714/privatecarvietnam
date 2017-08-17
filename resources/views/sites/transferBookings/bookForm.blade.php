@@ -39,7 +39,7 @@
 												<div class="col-md-10 col-sm-10 col-xs-12 mb20">
 													<select class="form-control col-md-10 col-xs-12" name="price" required>
 														@foreach($transfer->cars as $car)
-															<option value="{{ $car->price }}" {{ $selected == $car->price ? 'selected' : ''  }}>{{ $car->fleet }} ( {{ $car->capability . ' - ' . $car->price . '&#36;'}} )</option>
+															<option value="{{ $car->price }}" {{ $selected == $car->price ? 'selected' : ''  }}>{{ $car->fleet }} ( {{ 'Max ' . $car->capability . ' adults - ' . $car->price . '&#36;'}} )</option>
 														@endforeach
 													</select>
 												</div>
@@ -48,9 +48,16 @@
 												<label class="control-label col-md-4 col-sm-4 col-xs-12" for="passenger">
 													The number of passengers <span class="required">*</span>
 												</label>
-												<div class="col-md-8 col-sm-8 col-xs-12 marked">
-													<input id="passenger" class="form-control col-md-7 col-xs-12" name="passenger" required="required" type="text" value="{{ !empty($confirms['passenger']) ? $confirms['passenger'] : '' }}">
+												<div class="col-md-2 col-sm-2 col-xs-4 marked">
+													<input id="passenger" class="form-control col-md-3 col-xs-12" name="passenger" required="required" type="text" value="{{ !empty($confirms['passenger']) ? $confirms['passenger'] : '' }}" placeholder="adult">
 													<span class="passenger"><span class="glyphicon glyphicon-user"></span></span>
+												</div>
+												<div class="col-md-2 col-sm-2 col-xs-4 marked">
+													<input id="passenger" class="form-control col-md-3 col-xs-12" name="passenger" type="text" value="{{ !empty($confirms['passenger']) ? $confirms['passenger'] : '' }}" placeholder="children">
+													<span class="passenger"><span class="glyphicon glyphicon-user"></span></span>
+												</div>
+												<div class="col-md-4 col-sm-4 col-xs-4">
+													How old are your children ?
 												</div>
 											</div>
 										</fieldset>

@@ -171,7 +171,7 @@
 						<div class="col-sm-12">
 							<div align="center" class="mb">
 								<button class="load_more btn btn-primary" id="load_more_button">
-									<i class='fa fa-spinner'></i> Show 4 more transfers
+									<i class='fa fa-spinner'></i> Show 8 more transfers
 								</button>
 								<div class="animation_image" style="display:none;"><img src="img/loading.gif"></div>
 							</div>

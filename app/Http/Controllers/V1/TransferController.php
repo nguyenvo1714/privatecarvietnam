@@ -51,7 +51,7 @@ class TransferController extends Controller
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'total_pages' => $total_pages,
-            'perpage' => $perpage,
+            'perpage' => $limit,
         ]);
     }
 

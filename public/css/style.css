@@ -235,6 +235,9 @@ body.loading .modal {
 .mt {
 	margin-top: 15px;
 }
+.mt10 {
+	margin-top: 10px;
+}
 .mb20 {
 	margin-bottom: 20px;
 }
@@ -1569,6 +1572,26 @@ a.title {
 }
 .page-input {
 	margin-bottom: 20px;
+}
+.radio input.input-radio {
+	position: relative;
+	margin-right: 10px;
+}
+.radio .radio-inline {
+	margin-left: unset;
+}
+.radio .radio-inline:first-child {
+	margin: 0 25px 0 0;
+}
+.input-radio {
+	width: 20px;
+	height: 20px;
+	vertical-align: bottom;
+	outline: 0;
+}
+p.payment-note {
+	font-style: italic;
+	color: #ea3724;
 }
 .block-step {
 	display: block;

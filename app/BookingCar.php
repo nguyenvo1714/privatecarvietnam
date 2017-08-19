@@ -21,7 +21,8 @@ class BookingCar extends Model
         'surname',
         'email',
         'phone',
-        'note'
+        'note',
+        'payment_method',
     ];
 
     public function transfers()

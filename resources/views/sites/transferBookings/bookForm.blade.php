@@ -99,10 +99,10 @@
 												</label>
 												<div class="col-md-9 col-sm-9 col-xs-12 radio">
 													<label class="radio-inline">
-														<input type="radio" name="payment_method" value="Cash to the driver" class="input-radio" required {{ $confirms['payment_method'] == 'Cash to the driver' ? 'checked' : '' }}> Cash to the driver
+														<input type="radio" name="payment_method" value="Cash to the driver" class="input-radio" required {{ ! empty($confirms['payment_method']) && $confirms['payment_method'] == 'Cash to the driver' ? 'checked' : '' }}> Cash to the driver
 													</label>
 													<label class="radio-inline">
-														<input type="radio" name="payment_method" value="Payment online (Credit card)" class="input-radio" {{ $confirms['payment_method'] == 'Payment online (Credit card)' ? 'checked' : '' }}> Payment online (Credit card)
+														<input type="radio" name="payment_method" value="Payment online (Credit card)" class="input-radio" {{ ! empty($confirms['payment_method']) && $confirms['payment_method'] == 'Payment online (Credit card)' ? 'checked' : '' }}> Payment online (Credit card)
 													</label>
 												</div>
 											</div>

@@ -36,7 +36,7 @@ class BookingCarController extends Controller
 
     protected $rules = [
         'price' => 'required',
-        'passenger' => 'required|numeric',
+        'adult' => 'required|numeric',
         'pickup_address' => 'required',
         'departure_date' => 'required|date',
         'departure_time' => 'required',
@@ -109,10 +109,11 @@ class BookingCarController extends Controller
         if($request->ajax()) {
             $bookingCar = new BookingCar;
             $input = $request->all();
+            $input['passenger'] = $request->adult . ' adults + ' . $request->children . ' children';
             $result = $bookingCar->create($input);
             if($result->id) {
-                Mail::to($request->email)
-                ->bcc(env('MAIL_FROM_ADDRESS'))
+                Mail::to(env('MAIL_FROM_ADDRESS'))
+                ->bcc($request->email)
                 ->send(new ConfirmedEmail($input));
                 if ( count(Mail::failures()) > 0 ) {
                     echo 'check error';die;

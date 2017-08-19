@@ -171,7 +171,7 @@
 						<div class="col-sm-12">
 							<div align="center" class="mb">
 								<button class="load_more btn btn-primary" id="load_more_button">
-									<i class='fa fa-spinner'></i> Show 4 more transfers
+									<i class='fa fa-spinner'></i> Show 8 more transfers
 								</button>
 								<div class="animation_image" style="display:none;"><img src="img/loading.gif"></div>
 							</div>
@@ -193,9 +193,22 @@
 									{{ Html::image('img/ajax-search.gif', '', ['class' => 'mail_form-animation submit-mail']) }}
 								{!! Form::close() !!}
 							</div>
-							<div class="best-sell">
-								Best seller
-							</div> 
+							@if (count($bestSells) > 0)
+								<div class="best-sell no-background">
+									<h4>Best seller</h4>
+									@foreach ($bestSells as $bestSell)
+										<div class="media">
+											<a href="{{ url('/' . $bestSell->type->slug . '/' . $bestSell->slug) }}" class="media-left">
+												{{ Html::image('/storage/' . $bestSell->image_thumb, '', ['class' => 'media-object', 'style' => 'width: 60px']) }}
+											</a>
+											<div class="media-body">
+												<h5 class="media-heading"><a href="{{ url('/' . $bestSell->type->slug . '/' . $bestSell->slug) }}">{{ $bestSell->title }}</a></h5>
+												<p class="duration">~ {{ $bestSell->duration }}</p>
+											</div>
+										</div>
+									@endforeach
+								</div>
+							@endif
 							{{ Html::image('img/bandovietnam.jpg', '', ['class' => 'img-responsive mb']) }}
 						</div>
 					</div>

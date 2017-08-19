@@ -21,7 +21,7 @@ $(function() {
 			}
 		},
 		messages: {
-			passenger: "Please input the number of passenger",
+			adult: "Please input the number of passenger",
 			pickupAddress: "Please input a pick-up address",
 			// departureDate: "",
 			departureTime: "Please input departure date and time",
@@ -29,7 +29,8 @@ $(function() {
 			// name: "",
 			surname: "Please input name and surname",
 			email: "Please input a valid email",
-			phone: "Please input a phone number"
+			phone: "Please input a phone number",
+			payment_method: "Please select an option"
 		}
 	});
 

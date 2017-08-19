@@ -75,11 +75,13 @@ $(function() {
 		var duration        = $('#duration').val();
 		var vehicle         = $('#vehicle').val();
 		var cost            = $('#cost').val();
-		var passenger       = $('#passenger').val();
+		var adult           = $('#adult').val();
+		var children        = $('#children').val();
 		var pickup_address  = $('#pickupAddress').val();
 		var departure_date  = $('#departureDate').val();
 		var departure_time  = $('#departureTime').val();
 		var dropoff_address = $('#dropoffAddress').val();
+		var payment_method  = $('#payment_method').val();
 		var name            = $('#name').val();
 		var surname         = $('#surname').val();
 		var email           = $('#email').val();
@@ -97,11 +99,13 @@ $(function() {
 				duration: duration,
 				vehicle: vehicle,
 				cost: cost,
-				passenger: passenger,
+				adult: adult,
+				children: children,
 				pickup_address: pickup_address,
 				departure_date: departure_date,
 				departure_time: departure_time,
 				dropoff_address: dropoff_address,
+				payment_method: payment_method,
 				name: name,
 				surname: surname,
 				email: email,

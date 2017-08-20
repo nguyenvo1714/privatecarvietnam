@@ -70,15 +70,18 @@ $(function() {
 	$('#complete').on('submit', function(e) {
 		e.preventDefault();
 		$('.modal').show();
+		var transfer_id     = $('#transfer_id').val();
 		var trip            = $('#trip').val();
 		var duration        = $('#duration').val();
-		var class1          = $('#class').val();
-		var price           = $('#price').val();
-		var passenger       = $('#passenger').val();
+		var vehicle         = $('#vehicle').val();
+		var cost            = $('#cost').val();
+		var adult           = $('#adult').val();
+		var children        = $('#children').val();
 		var pickup_address  = $('#pickupAddress').val();
 		var departure_date  = $('#departureDate').val();
 		var departure_time  = $('#departureTime').val();
 		var dropoff_address = $('#dropoffAddress').val();
+		var payment_method  = $('#payment_method').val();
 		var name            = $('#name').val();
 		var surname         = $('#surname').val();
 		var email           = $('#email').val();
@@ -91,15 +94,18 @@ $(function() {
 			url:  host,
 			data: {
 				_token: token,
+				transfer_id: transfer_id,
 				trip: trip,
 				duration: duration,
-				class: class1,
-				price: price,
-				passenger: passenger,
+				vehicle: vehicle,
+				cost: cost,
+				adult: adult,
+				children: children,
 				pickup_address: pickup_address,
 				departure_date: departure_date,
 				departure_time: departure_time,
 				dropoff_address: dropoff_address,
+				payment_method: payment_method,
 				name: name,
 				surname: surname,
 				email: email,
@@ -155,9 +161,9 @@ $(function() {
 		});
 
 	//disable right click
-	$('body').on('contextmenu', function(e) {
-		return false;
-	});
+	// $('body').on('contextmenu', function(e) {
+	// 	return false;
+	// });
 });
 
 function cost(price)

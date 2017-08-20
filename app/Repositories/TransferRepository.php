@@ -4,6 +4,9 @@
 	use App\Transfer;
 	use App\Pickup;
 	use App\Place;
+	use App\BookingCar;
+	use App\Type;
+	use DB;
 
 	/**
 	* 
@@ -69,6 +72,36 @@
 			$interests = $this->transfer->where('is_hot', $is_hot)->limit($limit)->get();
 			$this->getTransferType($interests);
 			return $interests;
+		}
+
+		public function best_sell($limit)
+		{
+			$transfers = DB::table('booking_cars')
+						->select(DB::raw('
+							COUNT(booking_cars.id) as num,
+							transfers.slug,
+							transfers.type_id,
+							transfers.title,
+							transfers.duration,
+							transfers.image_thumb
+						'))
+						->leftJoin('transfers', 'booking_cars.transfer_id', '=', 'transfers.id')
+						->where('booking_cars.del_flg', '=', 0)
+						->groupBy(DB::raw('
+							transfers.slug,
+							transfers.type_id,
+							transfers.title,
+							transfers.duration,
+							transfers.image_thumb
+						'))
+						->havingRaw('COUNT(booking_cars.id) > 0')
+						->orderBy(DB::raw('num'), 'desc')
+						->limit($limit)
+						->get();
+			foreach ($transfers as $transfer) {
+				$transfer->type = Type::where('id', $transfer->type_id)->first();
+			}
+			return $transfers;
 		}
 
 		public function relate($slug, $limit)

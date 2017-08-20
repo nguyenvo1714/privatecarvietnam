@@ -16,6 +16,11 @@ class TransferController extends Controller
     protected $blogRepo;
     protected $transferNameRepo;
 
+    const LIMIT_BEST_SELL = 5;
+    const LIMIT = 8;
+    const LIMIT_INTER = 4;
+    const LIMIT_VIEW = 12;
+
     public function __construct(
         TransferRepository $transferRepo,
         BlogRepository $blogRepo,
@@ -34,9 +39,9 @@ class TransferController extends Controller
      */
     public function index()
     {
-        $transfers = $this->transferRepo->top(8);
-        $perpage = 8;
-        $total_pages = (int)ceil($this->transferRepo->totalHot() / $perpage);
+        $transfers = $this->transferRepo->top(self::LIMIT);
+        $limit = self::LIMIT;
+        $total_pages = (int)ceil($this->transferRepo->totalHot() / $limit);
         $dealTransfers = $this->transferRepo->deal();
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
@@ -46,7 +51,7 @@ class TransferController extends Controller
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'total_pages' => $total_pages,
-            'perpage' => $perpage,
+            'perpage' => $limit,
         ]);
     }
 
@@ -152,15 +157,17 @@ class TransferController extends Controller
     {
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $perpage = 4;
+        $limit = self::LIMIT;
         $type = 4;
-        $total_pages = (int)ceil($this->transferNameRepo->count($type) / $perpage);
-        $privateTransfers = $this->transferNameRepo->transferType($type, 4);
-        $interestTransfers = $this->transferRepo->interest(4);
+        $total_pages = (int)ceil($this->transferNameRepo->count($type) / $limit);
+        $privateTransfers = $this->transferNameRepo->transferType($type, self::LIMIT);
+        $interestTransfers = $this->transferRepo->interest(self::LIMIT_INTER);
+        $bestSells = $this->transferRepo->best_sell(self::LIMIT_BEST_SELL);
         return view('/sites.transfers.privateTransfers', [
             'privateTransfers' => $privateTransfers,
+            'bestSells' => $bestSells,
             'total_pages' => $total_pages,
-            'perpage' => $perpage,
+            'perpage' => $limit,
             'type' => $type,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
@@ -204,17 +211,19 @@ class TransferController extends Controller
     {
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $perpage = 4;
+        $limit = self::LIMIT;
         $type = 3;
-        $total_pages = (int)ceil($this->transferNameRepo->count($type) / $perpage);
-        $airportTransfers = $this->transferNameRepo->transferType($type, 4);
-        $interestTransfers = $this->transferRepo->interest(4);
+        $total_pages = (int)ceil($this->transferNameRepo->count($type) / $limit);
+        $airportTransfers = $this->transferNameRepo->transferType($type, self::LIMIT);
+        $interestTransfers = $this->transferRepo->interest(self::LIMIT_INTER);
+        $bestSells = $this->transferRepo->best_sell(self::LIMIT_BEST_SELL);
         return view('/sites.transfers.airportTransfers', [
             'airportTransfers' => $airportTransfers,
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'total_pages' => $total_pages,
-            'perpage' => $perpage,
+            'perpage' => $limit,
+            'bestSells' => $bestSells,
             'type' => $type,
             'interestTransfers' => $interestTransfers
         ]);
@@ -232,11 +241,12 @@ class TransferController extends Controller
     {
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $interestTransfers = $this->transferRepo->interest(4);
+        $interestTransfers = $this->transferRepo->interest(self::LIMIT_INTER);
         $transfer_name = $this->transferNameRepo->findSlug($slug);
-        $transfers = $this->transferRepo->getTransfer(6, $transfer_name->id);
-        $perpage = 6;
-        $total_pages = (int)ceil($this->transferRepo->count($transfer_name->id) / $perpage);
+        $transfers = $this->transferRepo->getTransfer(self::LIMIT_VIEW, $transfer_name->id);
+        $limit = self::LIMIT_VIEW;
+        $total_pages = (int)ceil($this->transferRepo->count($transfer_name->id) / $limit);
+        $bestSells = $this->transferRepo->best_sell(self::LIMIT_BEST_SELL);
         return view('/sites.transfers.viewTransfers', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
@@ -244,8 +254,9 @@ class TransferController extends Controller
             'transfers' => $transfers,
             'name' => $slug,
             'transfer_name' => $transfer_name,
-            'perpage' => $perpage,
+            'perpage' => $limit,
             'total_pages' => $total_pages,
+            'bestSells' => $bestSells
         ]);
     }
 
@@ -290,9 +301,10 @@ class TransferController extends Controller
         $transferNames = $this->transferNameRepo->allT();
         $interestTransfers = $this->transferRepo->interest(4);
         $transfer_name = $this->transferNameRepo->findSlug($slug);
-        $transfers = $this->transferRepo->getTransfer(6, $transfer_name->id);
-        $perpage = 6;
-        $total_pages = (int)ceil($this->transferRepo->count($transfer_name->id) / $perpage);
+        $transfers = $this->transferRepo->getTransfer(self::LIMIT_VIEW, $transfer_name->id);
+        $limit = self::LIMIT_VIEW;
+        $total_pages = (int)ceil($this->transferRepo->count($transfer_name->id) / $limit);
+        $bestSells = $this->transferRepo->best_sell(self::LIMIT_BEST_SELL);
         return view('/sites.transfers.viewAirportTransfers', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
@@ -300,8 +312,9 @@ class TransferController extends Controller
             'transfers' => $transfers,
             'name' => $slug,
             'transfer_name' => $transfer_name,
-            'perpage' => $perpage,
+            'perpage' => $limit,
             'total_pages' => $total_pages,
+            'bestSells' => $bestSells
         ]);
     }
 
@@ -318,7 +331,7 @@ class TransferController extends Controller
     {
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $interestTransfers = $this->transferRepo->interest(4);
+        $interestTransfers = $this->transferRepo->interest(self::LIMIT_INTER);
         $transfer = $this->transferRepo->findSlug($slug);
         if ($transfer->is_discount == 1) {
             foreach ($transfer->cars as $car) {
@@ -326,14 +339,16 @@ class TransferController extends Controller
                 $car->price = $car->price - ($car->price * $transfer->discount_value) / 100;
             }
         }
-        $relates = $this->transferRepo->relate($slug, 4);
+        $relates = $this->transferRepo->relate($slug, self::LIMIT_INTER);
+        $bestSells = $this->transferRepo->best_sell(self::LIMIT_BEST_SELL);
         return view('/sites.transfers.detailTransfer', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'interestTransfers' => $interestTransfers,
             'transfer' => $transfer,
             'name' => $slug,
-            'relates' => $relates
+            'relates' => $relates,
+            'bestSells' => $bestSells,
         ]);
     }
 
@@ -350,16 +365,18 @@ class TransferController extends Controller
     {
         $blogs = $this->blogRepo->footer();
         $transferNames = $this->transferNameRepo->allT();
-        $interestTransfers = $this->transferRepo->interest(4);
+        $interestTransfers = $this->transferRepo->interest(self::LIMIT_INTER);
         $transfer = $this->transferRepo->findSlug($slug);
-        $relates = $this->transferRepo->relate($slug, 4);
+        $relates = $this->transferRepo->relate($slug, self::LIMIT_INTER);
+        $bestSells = $this->transferRepo->best_sell(self::LIMIT_BEST_SELL);
         return view('/sites.transfers.detailAirportTransfer', [
             'blogs' => $blogs,
             'transferNames' => $transferNames,
             'interestTransfers' => $interestTransfers,
             'transfer' => $transfer,
             'name' => $slug,
-            'relates' => $relates
+            'relates' => $relates,
+            'bestSells' => $bestSells,
         ]);
     }
 

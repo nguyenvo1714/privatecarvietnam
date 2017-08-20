@@ -68,4 +68,9 @@ class Transfer extends Model
     {
         return $this->belongsTo('App\TransferName');
     }
+
+    public function booking_cars()
+    {
+        return $this->belongsToMany('App\BookingCar');
+    }
 }

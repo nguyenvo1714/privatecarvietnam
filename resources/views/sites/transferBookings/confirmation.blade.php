@@ -9,11 +9,11 @@
 						<div class="row">
 							<div class="col-md-9">
 								<div class="block-step">
-									<a href="#" class="step 1 active">
+									<a href="javascript:void(0)" class="step 1 active">
 										<span class="label-step"><span>1</span></span>
 										<span class="text-step">Transfer infomations</span>
 									</a>
-									<a href="#" class="step 2">
+									<a href="javascript:void(0)" class="step 2">
 										<span class="label-step"><span>2</span></span>
 										<span class="text-step">Confirmation</span>
 									</a>
@@ -26,14 +26,18 @@
 								</div>
 								{!! Form::open(['url' => 'complete', 'method' => 'POST', 'class' => 'form-label-left', 'id' => 'complete']) !!}
 								<div class="block-form">
+									<input type="hidden" name="transfer_id" value="{{ $transfer->id }}" id="transfer_id">
 									<input type="hidden" name="trip" value="{{ $transfer->pick_up->name }} - {{ $transfer->place->name }}" id="trip">
 									<input type="hidden" name="duration" value="{{ $transfer->duration }}" id="duration">
-									<input type="hidden" name="price" value="{{ $register['price'] }}" id="price">
-									<input type="hidden" name="passenger" value="{{ $register['passenger'] }}" id="passenger">
+									<input type="hidden" name="cost" value="{{ $register['price'] }}" id="cost">
+									<input type="hidden" name="adult" value="{{ $register['adult'] }}" id="adult">
+									<input type="hidden" name="children" value="{{ $register['children'] }}" id="children">
+									<input type="hidden" name="vehicle" value="{{ $register['price'] }}" id="vehicle">
 									<input type="hidden" name="pickup_address" value="{{ $register['pickup_address'] }}" id="pickupAddress">
 									<input type="hidden" name="departure_date" value="{{ $register['departure_date'] }}" id="departureDate">
 									<input type="hidden" name="departure_time" value="{{ $register['departure_time'] }}" id="departureTime">
 									<input type="hidden" name="dropoff_address" value="{{ $register['dropoff_address'] }}" id="dropoffAddress">
+									<input type="hidden" name="payment_method" value="{{ $register['payment_method'] }}" id="payment_method">
 									<input type="hidden" name="name" value="{{ $register['name'] }}" id="name">
 									<input type="hidden" name="surname" value="{{ $register['surname'] }}" id="surname">
 									<input type="hidden" name="email" value="{{ $register['email'] }}" id="email">
@@ -51,7 +55,7 @@
 											</tr>
 											<tr>
 												<td>The number of passenger</td>
-												<td>{{ $register['passenger'] }}</td>
+												<td>{{ $register['adult'] . ' adults + ' . $register['children'] . ' children' }}</td>
 											</tr>
 											<tr>
 												<td>Vehicle</td>
@@ -71,6 +75,13 @@
 											<tr>
 												<td>Departure date and time</td>
 												<td>{{ $register['departure_date'] . ', ' . $register['departure_time'] }}</td>
+											</tr>
+											<tr class="striped">
+												<td colspan="2">Payment</td>
+											</tr>
+											<tr>
+												<td>Payment method</td>
+												<td>{{ $register['payment_method'] }}</td>
 											</tr>
 											<tr class="striped">
 												<td colspan="2">Contact</td>
@@ -103,7 +114,7 @@
 								</div>
 								<div class="button-group">
 									<a href="" class="back_to_register"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
-									<button id="send" type="submit" class="cont-button pull-right">Confirm</button>
+									<button id="send" type="submit" class="cont-button pull-right">Send</button>
 								</div>
 								{!! Form::close() !!}
 							</div>
@@ -128,7 +139,7 @@
 											</p>
 										</div>
 										<div class="summary-block">
-											<h6 class="passenger">Passengers: {{ $register['passenger'] }}</h6>
+											<h6 class="passenger">Passengers: {{ $register['adult'] . ' adults + ' . $register['children'] . ' children'  }}</h6>
 										</div>
 									</div>
 									<div class="summary-contact">
@@ -162,11 +173,13 @@
 	</div>
 	{!! Form::open(['url' =>  '/book-transfer/' . $transfer->slug, 'method' => 'POST', 'id' => 'back_to_register']) !!}
 		<input type="hidden" name="token" value="{{ base64_encode($register['price']) }}">
-		<input type="hidden" name="passenger" value="{{ $register['passenger'] }}">
+		<input type="hidden" name="adult" value="{{ $register['adult'] }}">
+		<input type="hidden" name="children" value="{{ $register['children'] }}">
 		<input type="hidden" name="pickupAddress" value="{{ $register['pickup_address'] }}">
 		<input type="hidden" name="departureDate" value="{{ $register['departure_date'] }}">
 		<input type="hidden" name="departureTime" value="{{ $register['departure_time'] }}">
 		<input type="hidden" name="dropoffAddress" value="{{ $register['dropoff_address'] }}">
+		<input type="hidden" name="payment_method" value="{{ $register['payment_method'] }}" id="payment_method">
 		<input type="hidden" name="name" value="{{ $register['name'] }}">
 		<input type="hidden" name="surname" value="{{ $register['surname'] }}">
 		<input type="hidden" name="email" value="{{ $register['email'] }}">

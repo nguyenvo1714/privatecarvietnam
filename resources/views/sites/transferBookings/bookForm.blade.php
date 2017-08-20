@@ -39,7 +39,7 @@
 												<div class="col-md-10 col-sm-10 col-xs-12 mb20">
 													<select class="form-control col-md-10 col-xs-12" name="price" required>
 														@foreach($transfer->cars as $car)
-															<option value="{{ $car->price }}" {{ $selected == $car->price ? 'selected' : ''  }}>{{ $car->fleet }} ( {{ $car->capability . ' - ' . $car->price . '&#36;'}} )</option>
+															<option value="{{ $car->price }}" {{ $selected == $car->price ? 'selected' : ''  }}>{{ $car->fleet }} ( {{ 'Max ' . $car->capability . ' adults - ' . $car->price . '&#36;'}} )</option>
 														@endforeach
 													</select>
 												</div>
@@ -48,9 +48,14 @@
 												<label class="control-label col-md-4 col-sm-4 col-xs-12" for="passenger">
 													The number of passengers <span class="required">*</span>
 												</label>
-												<div class="col-md-8 col-sm-8 col-xs-12 marked">
-													<input id="passenger" class="form-control col-md-7 col-xs-12" name="passenger" required="required" type="text" value="{{ !empty($confirms['passenger']) ? $confirms['passenger'] : '' }}">
-													<span class="passenger"><span class="glyphicon glyphicon-user"></span></span>
+												<div class="col-md-2 col-sm-2 col-xs-3 marked">
+													<input id="adult" class="form-control col-md-3 col-xs-12" name="adult" required="required" type="text" value="{{ !empty($confirms['adult']) ? $confirms['adult'] : '' }}" placeholder="adult">
+												</div>
+												<div class="col-md-2 col-sm-2 col-xs-3 marked">
+													<input id="children" class="form-control col-md-2 col-xs-12" name="children" type="text" value="{{ !empty($confirms['children']) ? $confirms['children'] : '' }}" placeholder="children">
+												</div>
+												<div class="col-md-4 col-sm-4 col-xs-6">
+													<p>(How old are your children ?)</p>
 												</div>
 											</div>
 										</fieldset>
@@ -61,7 +66,7 @@
 													Pick-up <span class="required">*</span>
 												</label>
 												<div class="col-md-10 col-sm-10 col-xs-12">
-													<input type="text" name="pickup_address" id="pickupAddress" required class="form-control" value="{{ !empty($confirms['pickupAddress']) ? $confirms['pickupAddress'] : '' }}">
+													<input type="text" name="pickup_address" id="pickupAddress" required class="form-control" value="{{ !empty($confirms['pickupAddress']) ? $confirms['pickupAddress'] : '' }}" placeholder="Time - hotel/Airport - flight info">
 													<span class="pick-up"><i class="fa fa-street-view"></i></span>
 												</div>
 											</div>
@@ -87,7 +92,24 @@
 											</div>
 										</fieldset>
 										<fieldset>
-											<h3 class="fieldset-title">Contacs</h3>
+											<h3 class="fieldset-title">Payment method</h3>
+											<div class="form-group">
+												<label class="control-label col-md-3 col-sm-3 col-xs-12 mt10" for="payment_method">
+													Choose an option <span class="required">*</span>
+												</label>
+												<div class="col-md-9 col-sm-9 col-xs-12 radio">
+													<label class="radio-inline">
+														<input type="radio" name="payment_method" value="Cash to the driver" class="input-radio" required {{ ! empty($confirms['payment_method']) && $confirms['payment_method'] == 'Cash to the driver' ? 'checked' : '' }}> Cash to the driver
+													</label>
+													<label class="radio-inline">
+														<input type="radio" name="payment_method" value="Payment online (Credit card)" class="input-radio" {{ ! empty($confirms['payment_method']) && $confirms['payment_method'] == 'Payment online (Credit card)' ? 'checked' : '' }}> Payment online (Credit card)
+													</label>
+												</div>
+											</div>
+											<p class="payment-note">* For payment online method, you will recieve a payment link after booking successfully</p>
+										</fieldset>
+										<fieldset>
+											<h3 class="fieldset-title">Contact</h3>
 											<div class="form-group">
 												<label class="control-label col-md-12" for="name">
 													Name and Surname <span class="required">*</span>
@@ -153,7 +175,7 @@
 												Vehicle: <span id="vehicle-left"></span>
 												<br>
 												<small>up to 1 passenger, 1 baggage</small><br>
-												<small>~ 30 minutes of waiting(up to 2 hrs)</small>
+												<!-- <small>~ 30 minutes of waiting(up to 2 hrs)</small> -->
 											</p>
 										</div>
 									</div>

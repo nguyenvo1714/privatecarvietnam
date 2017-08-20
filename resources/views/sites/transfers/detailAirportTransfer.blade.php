@@ -89,12 +89,28 @@
 								{!! Form::text('name', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your Name', 'required', 'id' => 'name']) !!}
 								{!! Form::email('email', '', ['placeholder' => 'Your email', 'class' => 'form-control col-md-12 col-xs-12', 'required', 'id' => 'email']) !!}
 								{!! Form::text('phone', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your phone', 'required', 'id' => 'phone']) !!}
-								{!! Form::textarea('your_request', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your request', 'cols' => 6, 'rows' => 5, 'required', 'id' => 'your_request']) !!}
 								{!! Form::textarea('booking_info','', ['class' => 'form-control col-md-12 col-xs-12', 'rows' => 5, 'placeholder' => 'Time, Pick-up, Drop-off, how many people', 'required', 'id' => 'booking_info']) !!}
+								{!! Form::textarea('your_request', '', ['class' => 'form-control col-md-12 col-xs-12', 'placeholder' => 'Your request', 'cols' => 6, 'rows' => 5, 'required', 'id' => 'your_request']) !!}
 								{!! Form::submit('Send', ['class' => 'btn btn-default submit-mail']) !!}
 								{{ Html::image('img/ajax-search.gif', '', ['class' => 'mail_form-animation submit-mail']) }}
 							{!! Form::close() !!}
 						</div>
+						@if (count($bestSells) > 0)
+							<div class="best-sell no-background">
+								<h4>Best seller</h4>
+								@foreach ($bestSells as $bestSell)
+									<div class="media">
+										<a href="{{ url('/' . $bestSell->type->slug . '/' . $bestSell->slug) }}" class="media-left">
+											{{ Html::image('/storage/' . $bestSell->image_thumb, '', ['class' => 'media-object', 'style' => 'width: 60px']) }}
+										</a>
+										<div class="media-body">
+											<h5 class="media-heading"><a href="{{ url('/' . $bestSell->type->slug . '/' . $bestSell->slug) }}">{{ $bestSell->title }}</a></h5>
+											<p class="duration">~ {{ $bestSell->duration }}</p>
+										</div>
+									</div>
+								@endforeach
+							</div>
+						@endif
 						<div class="map">
 							{{ Html::image('img/bandovietnam.jpg', '', ['class' => 'img-responsive mb']) }}
 						</div>

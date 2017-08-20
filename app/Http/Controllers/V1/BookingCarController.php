@@ -8,13 +8,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ConfirmedEmail;
 use App\Mail\MailBooking;
-use App\TransferBooking;
+use App\BookingCar;
 use App\Repositories\TransferRepository;
 use App\Repositories\BlogRepository;
 use App\Repositories\TransferNameRepository;
 use App\Repositories\CarRepository;
 
-class TransferBookingController extends Controller
+class BookingCarController extends Controller
 {
     protected $transferRepo;
     protected $blogRepo;
@@ -36,7 +36,7 @@ class TransferBookingController extends Controller
 
     protected $rules = [
         'price' => 'required',
-        'passenger' => 'required|numeric',
+        'adult' => 'required|numeric',
         'pickup_address' => 'required',
         'departure_date' => 'required|date',
         'departure_time' => 'required',
@@ -107,12 +107,13 @@ class TransferBookingController extends Controller
     public function complete(Request $request)
     {
         if($request->ajax()) {
-            $transferBooking = new TransferBooking;
+            $bookingCar = new BookingCar;
             $input = $request->all();
-            $result = $transferBooking->create($input);
+            $input['passenger'] = $request->adult . ' adults + ' . $request->children . ' children';
+            $result = $bookingCar->create($input);
             if($result->id) {
-                Mail::to($request->email)
-                ->bcc(env('MAIL_FROM_ADDRESS'))
+                Mail::to(env('MAIL_FROM_ADDRESS'))
+                ->bcc($request->email)
                 ->send(new ConfirmedEmail($input));
                 if ( count(Mail::failures()) > 0 ) {
                     echo 'check error';die;

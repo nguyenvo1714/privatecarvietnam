@@ -49,7 +49,8 @@ Route::group(['namespace' => 'V1'], function() {
 });
 
 Route::group(['middleware' => ['auth']], function() {
-	Route::get('/admin', 'TransferController@index');
+	// Route::get('/admin', 'TransferController@index');
+	Route::get('/admin', 'HomeController@index');
 
 	Route::get('/pick_ups', 'PlaceController@getPickup');
 	Route::get('/places', 'PlaceController@index');
@@ -123,4 +124,4 @@ Route::group(['middleware' => ['auth']], function() {
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');

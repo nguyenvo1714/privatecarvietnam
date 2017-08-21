@@ -1,13 +1,9 @@
-@extends('layouts.admin')
+@extends('admin.layout.admin')
 @section('content')
     <section class="content">
         <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-xs-12">
                 <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Make sure you input (*) required information</h2>
-                        <div class="clearfix"></div>
-                    </div>
                     <div class="x_content">
                         <br>
                         @include('admin.errors.error')
@@ -20,7 +16,7 @@
                                     <select class="form-control col-md-10 col-xs-12" name="type_id" id="type" required>
                                         <option value="">Choose option</option>
                                     @foreach($types as $type)
-                                        <option value={{ $type->id }}>{{ $type->name }}</option>
+                                        <option value={{ $type->id }} {{ $transfer->type_id == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
                                     @endforeach
                                     </select>
                                 </div>
@@ -30,10 +26,10 @@
                                     Transfer name <span class="required">*</span>
                                 </label>
                                 <div class="col-md-10 col-sm-10 col-xs-12">
-                                    <select class="required form-control col-md-10 col-xs-12" name="transfer_name_id" id="transferName" required onchange="chooseTransferName(this);">
+                                    <select class="form-control col-md-10 col-xs-12" name="transfer_name_id" id="transferName" required">
                                         <option value="">Choose option</option>
                                     @foreach($transferNames as $transferName)
-                                        <option value={{ $transferName->id }}>{{ $transferName->name }}</option>
+                                        <option value={{ $transferName->id }} {{ $transfer->transfer_name_id == $transferName->id ? 'selected' : '' }}>{{ $transferName->name }}</option>
                                     @endforeach
                                     </select>
                                 </div>
@@ -46,7 +42,7 @@
                                     <select class="form-control col-md-10 col-xs-12" name="pick_up_id" required id="pickup-by-transfer-name">
                                         <option value="">Choose option</option>
                                         @foreach($pick_ups as $pick_up)
-                                        <option value={{ $pick_up->id }}>{{ $pick_up->name }}</option>
+                                        <option value={{ $pick_up->id }} {{ $transfer->pick_up_id == $pick_up->id ? 'selected' : '' }}>{{ $pick_up->name }}</option>
                                     @endforeach
                                     </select>
                                 </div>
@@ -59,7 +55,7 @@
                                     <select class="form-control col-md-10 col-xs-12" name="place_id" id="place" required>
                                         <option value="">Choose option</option>
                                     @foreach($places as $place)
-                                        <option value={{ $place->id }}>{{ $place->name }}</option>
+                                        <option value={{ $place->id }} {{ $transfer->place_id == $place->id ? 'selected' : '' }}>{{ $place->name }}</option>
                                     @endforeach
                                     </select>
                                 </div>
@@ -85,7 +81,7 @@
                                     Description
                                 </label>
                                 <div class="col-md-10 col-sm-10 col-xs-12">
-                                    <input id="description" class="form-control col-md-10 col-xs-12" name="description" value="{{ $transfer->description }}" type="text">
+                                    <textarea id="description" class="form-control col-md-10 col-xs-12" name="description" rows="3">{{ $transfer->description }}</textarea>
                                 </div>
                             </div>
                             <div class="field item form-group">
@@ -93,9 +89,9 @@
                                     Image thumbnail<span class="required">*</span>
                                 </label>
                                 <div class="col-md-10 col-sm-10 col-xs-12">
-                                    {{ Html::image('/storage/' . $transfer->image_thumb, 'image thumbnail', ['class' => 'transfer-image']) }}
+                                    <img id="thumb" alt="image_thumb" width="120" height="120">
                                     <br>&nbsp;
-                                    <input id="input-2" name="image_thumb" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
+                                    <input id="image_thumb" name="image_thumb" type="file" onchange="document.getElementById('thumb').src = window.URL.createObjectURL(this.files[0])">
                                 </div>
                             </div>
                             <div class="field item form-group">
@@ -103,9 +99,9 @@
                                     Image header<span class="required">*</span>
                                 </label>
                                 <div class="col-md-10 col-sm-10 col-xs-12">
-                                    {{ Html::image('/storage/' . $transfer->image_head, 'image header', ['class' => 'transfer-image']) }}
+                                    <img id="head" alt="image_head" width="120" height="120">
                                     <br>&nbsp;
-                                    <input id="input-2" name="image_head" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
+                                    <input id="image_head" name="image_head" type="file" onchange="document.getElementById('head').src = window.URL.createObjectURL(this.files[0])">
                                 </div>
                             </div>
                             <div class="field item form-group">
@@ -223,8 +219,8 @@
                             <input type="hidden" id="drivers" data-field-driver="{{ $drivers }}">
                             <div class="form-group" style="margin-top: 15px;">
                                 <div class="col-md-1 col-md-offset-2">
-                                    <button id="add" class="naked-button"><i class="fa fa-plus-square" style="font-size: 20px;"></i></button>
-                                    <button id="remove" class="naked-button" disabled style="float: right"><i class="fa fa-minus-square" style="font-size: 20px;"></i></button>
+                                    <button id="add" class="naked-button"><i class="fa fa-plus-square"></i></button>
+                                    <button id="remove" class="naked-button" disabled style="float: right"><i class="fa fa-minus-square"></i></button>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

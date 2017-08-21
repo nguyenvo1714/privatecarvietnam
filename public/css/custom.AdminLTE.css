@@ -12,6 +12,9 @@
 .content-header>.breadcrumb>li>a {
 	color: #3c8dbc;
 }
+.required {
+	color: #ec463e;
+}
 /*====================== transfers ===========================*/
 .delete {
 	border: unset;

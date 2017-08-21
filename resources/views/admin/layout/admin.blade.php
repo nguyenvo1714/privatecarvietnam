@@ -20,26 +20,35 @@
 	{!! Html::style('css/bootstrap-datepicker.min.css') !!}
 	{!! Html::style('css/daterangepicker.css') !!}
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+	<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+	<!-- <script src="/vendor/laravel-filemanager/js/lfm.js"></script> -->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 		<!-- header -->
-		@include('layouts.header')
+		@include('admin.layout.header')
 
 		<!-- main sidebar -->
-		@include('layouts.sidebar')
+		@include('admin.layout.sidebar')
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Dashboard
-					<small>Control panel</small>
+					{{ str_replace('Controller', '', $controller) }}
+					<!-- <small>Control panel</small> -->
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-					<li class="active">Dashboard</li>
+					@if ($controller == 'HomeController')
+						<li class="active">Dashboard</li>
+					@elseif ($action != 'index')
+						<li><a href="{{ url('/' . strtolower(str_replace('Controller', '', $controller))) . 's' }}">{{ str_replace('Controller', '', $controller) }}</a></li>
+						<li>{{ $action }}</li>
+					@else
+						<li>{{ str_replace('Controller', '', $controller) }}</li>
+					@endif
 				</ol>
 			</section>
 
@@ -50,10 +59,10 @@
 		<!-- /.content-wrapper -->
 
 		<!-- footer -->
-		@include('layouts.footer')
+		@include('admin.layout.footer')
 
 		<!-- Control sidebar -->
-		@include('layouts.control_sidebar')
+		@include('admin.layout.control_sidebar')
 
 	</div>
 
@@ -77,8 +86,7 @@
 	{!! Html::script('js/fastclick.js') !!}
 	{!! Html::script('js/adminlte.min.js') !!}
 	{!! Html::script('js/dashboard.js') !!}
-	<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-	<script src="/vendor/laravel-filemanager/js/lfm.js"></script>
+	
 	<script>
 		window.Laravel = <?php echo json_encode([
 			'csrfToken' => csrf_token(),

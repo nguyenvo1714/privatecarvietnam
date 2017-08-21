@@ -1,0 +1,20 @@
+/*======================== general ===========================*/
+.content-wrapper {
+	background-color: #fff;
+}
+.skin-blue .content-header {
+	padding: 15px;
+	border-bottom: 1px solid #d2d6de;
+}
+.content-header>.breadcrumb {
+	font-size: 14px;
+}
+.content-header>.breadcrumb>li>a {
+	color: #3c8dbc;
+}
+/*====================== transfers ===========================*/
+.delete {
+	border: unset;
+	background-color: unset;
+	color: #ec463e;
+}

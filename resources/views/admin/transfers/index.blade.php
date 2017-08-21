@@ -1,93 +1,63 @@
-@extends('admin.layout.app')
+@extends('layouts.admin')
 @section('content')
-	<div class="page-title">
-        <div class="col-md-6 left-title">
-            <h3>Transfers</h3>
-        </div>
-        <div class="col-md-6 right-title">right title</div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-                <div class="x_content">
-                    <br>
-                    <table class="table">
-                        <thead>
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+                <table class="table table-hover .table-condensed">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Transfer Type</th>
+                            <th>Transfer Name</th>
+                            <th>To</th>
+                            <th>Title</th>
+                            <th>Duration</th>
+                            <th>is hot</th>
+                            <th>is discount</th>
+                            <th>discount value</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($transfers as $transfer)
                             <tr>
-                                <th>ID</th>
-                                <th>Transfer Type</th>
-                                <th>Transfer Name</th>
-                                <th>To</th>
-                                <th>Title</th>
-                                <th>Duration</th>
-                                <th>Description</th>
-                                <!-- <th>Blog</th> -->
-                                <th>is hot</th>
-                                <th>is discount</th>
-                                <th>discount value</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                <td>{{ $transfer->id }}</td>
+                                <td>{{ $transfer->type->name }}</td>
+                                <td>
+                                    {{ $transfer->transfer_name->name }}
+                                </td>
+                                <td>
+                                    {{ $transfer->place->name }}
+                                </td>
+                                <td>{{ $transfer->title }}</td>
+                                <td>{{ $transfer->duration }}</td>
+                                <td>{{ $transfer->is_hot }}</td>
+                                <td>{{ $transfer->is_discount }}</td>
+                                <td>{{ $transfer->discount_value }}</td>
+                                <td>
+                                    <a href="{{ url('/transfer/' . $transfer->id) }}" id="{{ $transfer->id }}" class="call-view-transfer">
+                                        Detail
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ url('/transfer/' . $transfer->id . '/edit') }}" id="{{ $transfer->id }}" >Edit</a>
+                                </td>
+                                <td>
+                                    {!! Form::open(['url' => '/transfer/'. $transfer->id, 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")']) !!}
+                                        {{ method_field('DELETE') }}
+                                        <input type="submit" name="delete" value="Delete" class="delete">
+                                    {!! Form::close() !!}
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($transfers as $transfer)
-                               
-                                    <tr>
-                                        <td>{{ $transfer->blog_id }}</td>
-                                        <td>{{ $transfer->type->name }}</td>
-                                        <td>
-                                            {{ $transfer->transfer_name->name }}
-                                        </td>
-                                        <td>
-                                            {{ $transfer->place->name }}
-                                        </td>
-                                        <td>{{ $transfer->title }}</td>
-                                        <td>{{ $transfer->duration }}</td>
-                                        <td>{{ $transfer->description }}</td>
-                                        <!-- <td>{{ $transfer->blog }}</td> -->
-                                        <td>{{ $transfer->is_hot }}</td>
-                                        <td>{{ $transfer->is_discount }}</td>
-                                        <td>{{ $transfer->discount_value }}</td>
-                                        <td style="font-size: 20px;">
-                                            <a href="{{ url('/transfer/' . $transfer->id) }}" id="{{ $transfer->id }}" class="call-view-transfer">
-                                                <i class="fa fa-eye"></i>
-                                            </a>
-                                        </td>
-                                        <td style="font-size: 20px;">
-                                            <a href="{{ url('/transfer/' . $transfer->id . '/edit') }}" id="{{ $transfer->id }}" ><i class="fa fa-pencil-square-o"></i></a>
-                                        </td>
-                                        <td style="font-size: 20px;">
-                                            {!! Form::open(['url' => '/transfer/'. $transfer->id, 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")']) !!}
-                                                {{ method_field('DELETE') }}
-                                                <button type="submit" class="naked-button"> <i class="fa fa-trash-o"></i></a>
-                                            {!! Form::close() !!}
-                                        </td>
-                                
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                {{ $transfers->links() }}
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
+    </section>
+    <div class="text-center">
+        {{ $transfers->links() }}
     </div>
-<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-                <p>Some text in the modal.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

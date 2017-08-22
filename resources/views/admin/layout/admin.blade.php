@@ -85,6 +85,7 @@
 	{!! Html::script('js/jquery.slimscroll.min.js') !!}
 	{!! Html::script('js/fastclick.js') !!}
 	{!! Html::script('js/adminlte.min.js') !!}
+	{!! Html::script('js/custom.adminlte.js') !!}
 	{!! Html::script('js/dashboard.js') !!}
 	
 	<script>

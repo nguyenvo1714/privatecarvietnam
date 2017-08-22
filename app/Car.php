@@ -13,9 +13,8 @@ class Car extends Model
         'present',
     	'capability',
     	'price',
-    	'class',
         'baggage',
-        'is_active',
+        'active',
     ];
 
     public function driver()

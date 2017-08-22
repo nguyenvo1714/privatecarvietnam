@@ -217,11 +217,10 @@ class TransferController extends Controller
             $transfer->cars()->where('cars.id', $request->id[$i])->update([
                 'fleet'      => $request->fleet[$i],
                 'capability' => $request->capability[$i],
-                'class'      => $request->class[$i],
                 'price'      => $request->price[$i],
                 'baggage'    => $request->baggage[$i],
                 'driver_id'  => $request->driver_id[$i],
-                'is_active'  => $request->is_active[$i],
+                'active'  => $request->active[$i],
             ]);
             if(! empty($request->present[$i])) {
                 $present[$i] = str_replace('public/', '', $request->file('present')[$i]->store('/public'));

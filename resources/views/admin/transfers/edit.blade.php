@@ -131,8 +131,8 @@
                                 <div class="col-md-10 col-sm-10 col-xs-12">
                                     <select class="form-control col-md-10 col-xs-12" name="is_hot" id="hot">
                                         <option value="">Choose option</option>
-                                        <option value=1>1</option>
-                                        <option value=0>0</option>
+                                        <option value=1 {{ $transfer->is_hot == 1 ? 'selected' : '' }}>Yes</option>
+                                        <option value=0 {{ $transfer->is_hot == 0 ? 'selected' : '' }}>No</option>
                                     </select>
                                 </div>
                             </div>
@@ -143,8 +143,8 @@
                                 <div class="col-md-10 col-sm-10 col-xs-12">
                                     <select class="form-control col-md-10 col-xs-12" name="is_discount" id="discount">
                                         <option value="">Choose option</option>
-                                        <option value=1>1</option>
-                                        <option value=0>0</option>
+                                        <option value=1 {{ $transfer->is_hot == 1 ? 'selected' : '' }}>Yes</option>
+                                        <option value=0 {{ $transfer->is_hot == 0 ? 'selected' : '' }}>No</option>
                                     </select>
                                 </div>
                             </div>
@@ -163,10 +163,8 @@
                                             <th>Car fleet</th>
                                             <th>Image</th>
                                             <th>Capability</th>
-                                            <th>Class</th>
-                                            <th>Price</th>
+                                            <th>Price(&#36;)</th>
                                             <th>Baggage</th>
-                                            <th>Driver</th>
                                             <th>Active?</th>
                                         </tr>
                                     </thead>
@@ -179,15 +177,12 @@
                                                 <input type="text" name="fleet[]" id="fleet" class="form-control" required="required" value="{{ $car->fleet }}">
                                             </td>
                                             <td>
-                                                {{ Html::image('/storage/' . $car->present, 'present image', ['class' => 'transfer-image']) }}
+                                                <img id="present{{ $i }}" alt="image_head" width="120" height="120">
                                                 <br>&nbsp;
-                                                <input type="file" name="present[]" id="present" class="form-control" multiple data-show-upload="false" data-show-caption="true">
+                                                <input type="file" name="present[]" id="present" class="form-control" onchange="document.getElementById('present{{ $i }}').src = window.URL.createObjectURL(this.files[0])">
                                             </td>
                                             <td>
                                                 <input type="text" name="capability[]" id="capability" class="form-control" required="required" value="{{ $car->capability }}">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="class[]" id="class" class="form-control" required="required" value="{{ $car->class }}">
                                             </td>
                                             <td>
                                                 <input type="text" name="price[]" id="price" class="form-control" required="required" value="{{ $car->price }}">
@@ -196,18 +191,10 @@
                                                 <input type="text" name="baggage[]" id="baggage" class="form-control" required="required" value="{{ $car->baggage }}">
                                             </td>
                                             <td>
-                                                <select class="form-control col-md-10 col-xs-12" name="driver_id[]" id="driver{{ $i }}">
+                                                <select class="form-control col-md-10 col-xs-12" name="active[]" id="active{{ $i }}">
                                                     <option value="">Choose option</option>
-                                                @foreach($drivers as $driver)
-                                                    <option value={{ $driver->id }}>{{ $driver->full_name }}</option>
-                                                @endforeach
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <select class="form-control col-md-10 col-xs-12" name="is_active[]" id="active{{ $i }}">
-                                                    <option value="">Choose option</option>
-                                                    <option value=0>0</option>
-                                                    <option value=1>1</option>
+                                                    <option value=0 {{ $car->active == 0 ? 'selected' : '' }}>No</option>
+                                                    <option value=1 {{ $car->active == 1 ? 'selected' : '' }}>Yes</option>
                                                 </select>
                                             </td>
                                             @php ($i++)
@@ -226,7 +213,7 @@
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-3">
-                                    <button type="submit" class="btn btn-primary">Cancel</button>
+                                    <a href="{{ url('/transfers') }}" class="btn btn-primary">Cancel</a>
                                     <button id="send" type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </div>

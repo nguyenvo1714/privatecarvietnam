@@ -89,19 +89,21 @@
                                     Image thumbnail<span class="required">*</span>
                                 </label>
                                 <div class="col-md-10 col-sm-10 col-xs-12">
-                                    <img id="thumb" alt="image_thumb" width="120" height="120">
+                                    {{ Html::image('/storage/' . $transfer->image_thumb, 'image_thumb', ['width' => 140, 'height' => 120]) }}
                                     <br>&nbsp;
                                     <input id="image_thumb" name="image_thumb" type="file" onchange="document.getElementById('thumb').src = window.URL.createObjectURL(this.files[0])">
                                 </div>
                             </div>
                             <div class="field item form-group">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="image_head">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="image_head[]">
                                     Image header<span class="required">*</span>
                                 </label>
                                 <div class="col-md-10 col-sm-10 col-xs-12">
-                                    <img id="head" alt="image_head" width="120" height="120">
-                                    <br>&nbsp;
-                                    <input id="image_head" name="image_head" type="file" onchange="document.getElementById('head').src = window.URL.createObjectURL(this.files[0])">
+                                    <ul id="media-list" class="clearfix">
+                                        <li class="myupload">
+                                            <span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" name="image_head[]" multiple click-type="type2" id="picupload" class="picupload"></span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="field item form-group">
@@ -177,7 +179,7 @@
                                                 <input type="text" name="fleet[]" id="fleet" class="form-control" required="required" value="{{ $car->fleet }}">
                                             </td>
                                             <td>
-                                                <img id="present{{ $i }}" alt="image_head" width="120" height="120">
+                                                {{ Html::image('/storage/' . $car->present, 'present', ['width' => 140, 'height' => 120, 'id' => 'present' . $i]) }}
                                                 <br>&nbsp;
                                                 <input type="file" name="present[]" id="present" class="form-control" onchange="document.getElementById('present{{ $i }}').src = window.URL.createObjectURL(this.files[0])">
                                             </td>

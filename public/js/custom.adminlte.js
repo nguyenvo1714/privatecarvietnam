@@ -19,7 +19,7 @@ $(function() {
                     '<input type="text" name="fleet[]" id="fleet" class="form-control" required="required">' +
                 '</td>' +
                 '<td>' +
-					'<img id="present' + (length + 1) +'" alt="image_head" width="120" height="120">' +
+					'<img id="present' + (length + 1) +'" alt="present" width="120" height="120">' +
                     '<input id="present" name="present[]" type="file" class="form-control" onchange="loadFile(event,' + length + ')">' +
                 '</td>' +
                 '<td>' +

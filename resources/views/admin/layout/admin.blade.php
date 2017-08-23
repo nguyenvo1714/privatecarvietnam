@@ -12,6 +12,7 @@
 	{!! Html::style('css/app.css') !!}
 	{!! Html::style('css/font-awesome.min.css') !!}
 	{!! Html::style('css/ionicons.min.css') !!}
+	{!! Html::style('css/jquery.upload.css') !!}
 	{!! Html::style('css/AdminLTE.min.css') !!}
 	{!! Html::style('css/skins/_all-skins.min.css') !!}
 	{!! Html::style('css/custom.AdminLTE.css') !!}
@@ -84,6 +85,7 @@
 	{!! Html::script('js/bootstrap3-wysihtml5.all.min.js') !!}
 	{!! Html::script('js/jquery.slimscroll.min.js') !!}
 	{!! Html::script('js/fastclick.js') !!}
+	{!! Html::script('js/jquery.upload.js') !!}
 	{!! Html::script('js/adminlte.min.js') !!}
 	{!! Html::script('js/custom.adminlte.js') !!}
 	{!! Html::script('js/dashboard.js') !!}

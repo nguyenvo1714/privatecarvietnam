@@ -180,7 +180,7 @@ class TransferController extends Controller
         $transfer = Transfer::find($id);
         if(empty($request->is_discount)) {
             $request->discount_value = 0;
-        }
+        }var_dump($request->file('image_head'));die;
         $transfer->update([
             'type_id'          => $request->type_id, 
             'transfer_name_id' => $request->transfer_name_id,
@@ -239,11 +239,10 @@ class TransferController extends Controller
                         'fleet'      => $request->fleet[$i],
                         'present'    => $present[$i],
                         'capability' => $request->capability[$i],
-                        'class'      => $request->class[$i],
                         'price'      => $request->price[$i],
                         'baggage'    => $request->baggage[$i],
                         'driver_id'  => $request->driver_id[$i],
-                        'is_active'  => $request->is_active[$i],
+                        'active'  => $request->active[$i],
                     ])
                 );
             }

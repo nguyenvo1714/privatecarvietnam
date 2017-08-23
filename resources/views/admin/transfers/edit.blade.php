@@ -95,13 +95,13 @@
                                 </div>
                             </div>
                             <div class="field item form-group">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="image_head[]">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="image_head">
                                     Image header<span class="required">*</span>
                                 </label>
                                 <div class="col-md-10 col-sm-10 col-xs-12">
                                     <ul id="media-list" class="clearfix">
                                         <li class="myupload">
-                                            <span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" name="image_head[]" multiple click-type="type2" id="picupload" class="picupload"></span>
+                                            <span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" name="image[]" multiple click-type="type2" id="picupload" class="picupload"></span>
                                         </li>
                                     </ul>
                                 </div>

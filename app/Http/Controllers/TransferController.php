@@ -192,22 +192,22 @@ class TransferController extends Controller
             'is_discount'      => $request->is_discount,
             'discount_value'   => $request->discount_value
         ]);
-$files = $request->file('image');
-foreach ($files as $file) {
-    var_dump($file);
-}
-die;
-        if (!empty($request->image_thumb)) {
+
+        if ( ! empty($request->image_thumb)) {
             $path_thumb = str_replace('public/', '', $request->file('image_thumb')->store('/public'));
             $transfer->update([
                 'image_thumb'      => $path_thumb, 
             ]);
         }
 
-        if (!empty($request->image_head)) {
-            $path_head = str_replace('public/', '', $request->file('image_head')->store('/public'));
+        if ( ! empty($files = $request->file('image_head'))) {
+            $images = [];
+            foreach ($files as $file) {
+                $path_head = str_replace('public/', '', $file->store('/public'));
+                $images[] = $path_head;
+            }
             $transfer->update([
-                'image_head'      => $path_head, 
+                'image_head'      => implode(',', $images),
             ]);
         }
 

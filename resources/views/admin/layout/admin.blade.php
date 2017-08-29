@@ -85,7 +85,8 @@
 	{!! Html::script('js/bootstrap3-wysihtml5.all.min.js') !!}
 	{!! Html::script('js/jquery.slimscroll.min.js') !!}
 	{!! Html::script('js/fastclick.js') !!}
-	{!! Html::script('js/jquery.upload.js') !!}
+	<!-- {!! Html::script('js/jquery.upload.js') !!} -->
+	{!! Html::script('js/script.upload.js') !!}
 	{!! Html::script('js/adminlte.min.js') !!}
 	{!! Html::script('js/custom.adminlte.js') !!}
 	{!! Html::script('js/dashboard.js') !!}

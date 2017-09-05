@@ -155,6 +155,7 @@ class TransferController extends Controller
         $drivers = Driver::get();
         $transferNames = TransferName::get();
     	$transfer = Transfer::find($id);
+        $transfer->image_head = explode(',', $transfer->image_head);
         return view('admin.transfers.edit', [
             'transfer' => $transfer, 
             'types' => $types,
@@ -196,7 +197,7 @@ class TransferController extends Controller
         if ( ! empty($request->image_thumb)) {
             $path_thumb = str_replace('public/', '', $request->file('image_thumb')->store('/public'));
             $transfer->update([
-                'image_thumb'      => $path_thumb, 
+                'image_thumb' => $path_thumb,
             ]);
         }
 
@@ -207,7 +208,7 @@ class TransferController extends Controller
                 $images[] = $path_head;
             }
             $transfer->update([
-                'image_head'      => implode(',', $images),
+                'image_head' => implode(',', $images),
             ]);
         }
 

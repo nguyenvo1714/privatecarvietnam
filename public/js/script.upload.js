@@ -1,12 +1,29 @@
 $(function() {
 	$('body').on('change', '.picupload', function(event) {
 		var files = event.target.files;
-		for (var i = 0; i < files.length; i++) {
-			var file = files[i];console.log(file);
-			if (file.type.match('image')) {
-
+		var formData = new FormData();
+		var form = $(this)[0].files[0];
+		formData.append('image_head', form);
+		// for (var i = 0; i < files.length; i++) {
+			//var file = files[i];
+			if (files[0].type.match('image')) {
+				var url = $('#transferForm').prop('action');console.log(url);
+				var token = $('input[name="_token"]').attr('value');
+				var flag = 'add';
+				formData.append('_token', token);
+				formData.append('flag', flag);
                 var picReader = new FileReader();
-                picReader.fileName = file.name
+                picReader.fileName = files[0].name;
+                $.ajax({
+					url: url,
+					type: 'POST',
+					data: formData,
+					contentType: false,
+					processData: false,
+					success: function(data) {
+						console.log(data);
+					}
+                });
                 picReader.addEventListener("load", function(event) {
 
                     var picFile = event.target;
@@ -40,8 +57,8 @@ $(function() {
 
                 });
             }
-            picReader.readAsDataURL(file);
-		}
+            picReader.readAsDataURL(files[0]);
+		// }
 	});
 
 

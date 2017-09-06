@@ -177,79 +177,90 @@ class TransferController extends Controller
     public function update(Request $request, $id)
     {
         $transfer = Transfer::find($id);
-        if(empty($request->is_discount)) {
-            $request->discount_value = 0;
-        }
-        $transfer->update([
-            'type_id'          => $request->type_id, 
-            'transfer_name_id' => $request->transfer_name_id,
-            'pick_up_id'       => $request->pick_up_id,
-            'place_id'         => $request->place_id,
-            'title'            => $request->title,
-            'duration'         => $request->duration,
-            'description'      => $request->description, 
-            'blog'             => $request->blog,
-            'is_hot'           => $request->is_hot,
-            'is_discount'      => $request->is_discount,
-            'discount_value'   => $request->discount_value
-        ]);
-
-        if ( ! empty($request->image_thumb)) {
-            $path_thumb = str_replace('public/', '', $request->file('image_thumb')->store('/public'));
-            $transfer->update([
-                'image_thumb' => $path_thumb,
-            ]);
-        }
-
-        if ( ! empty($files = $request->file('image_head'))) {
-            $images = [];
-            foreach ($files as $file) {
-                $path_head = str_replace('public/', '', $file->store('/public'));
-                $images[] = $path_head;
+        if ($request->ajax()) {
+            $path_head = str_replace('public/', '', $request->file('image_head')->store('/public'));
+            $image_head = explode(',', $transfer->image_head);
+            if ($request->flag == 'add') {
+                array_push($image_head, $path_head);
+                $transfer->update(['image_head' => implode(',', $image_head)]);
+                return response()->json([''])
+            } else {
+                //
+            }
+        } else {
+            if(empty($request->is_discount)) {
+                $request->discount_value = 0;
             }
             $transfer->update([
-                'image_head' => implode(',', $images),
+                'type_id'          => $request->type_id,
+                'transfer_name_id' => $request->transfer_name_id,
+                'pick_up_id'       => $request->pick_up_id,
+                'place_id'         => $request->place_id,
+                'title'            => $request->title,
+                'duration'         => $request->duration,
+                'description'      => $request->description,
+                'blog'             => $request->blog,
+                'is_hot'           => $request->is_hot,
+                'is_discount'      => $request->is_discount,
+                'discount_value'   => $request->discount_value
             ]);
-        }
-
-        $total = sizeof($request->fleet);
-        $old = sizeof($request->id);
-        $new = $total - $old;
-        for($i = 0; $i < $old; $i++)
-        {
-            $transfer->cars()->where('cars.id', $request->id[$i])->update([
-                'fleet'      => $request->fleet[$i],
-                'capability' => $request->capability[$i],
-                'price'      => $request->price[$i],
-                'baggage'    => $request->baggage[$i],
-                'driver_id'  => $request->driver_id[$i],
-                'active'  => $request->active[$i],
-            ]);
-            if(! empty($request->present[$i])) {
-                $present[$i] = str_replace('public/', '', $request->file('present')[$i]->store('/public'));
-                $transfer->cars()->where('cars.id', $request->id[$i])->update([
-                    'present'    => $present[$i]
+            if ( ! empty($request->image_thumb)) {
+                $path_thumb = str_replace('public/', '', $request->file('image_thumb')->store('/public'));
+                $transfer->update([
+                    'image_thumb' => $path_thumb,
                 ]);
             }
-        }
-        if($new > 0) {
 
-            for($j = 0; $j < $new; $j ++)
-            {
-                $present[$i] = str_replace('public/', '', $request->file('present')[$i]->store('/public'));
-                $transfer->cars()->save(
-                    new Car([
-                        'fleet'      => $request->fleet[$i],
-                        'present'    => $present[$i],
-                        'capability' => $request->capability[$i],
-                        'price'      => $request->price[$i],
-                        'baggage'    => $request->baggage[$i],
-                        'driver_id'  => $request->driver_id[$i],
-                        'active'  => $request->active[$i],
-                    ])
-                );
+            if ( ! empty($files = $request->file('image_head'))) {
+                $images = [];
+                foreach ($files as $file) {
+                    $path_head = str_replace('public/', '', $file->store('/public'));
+                    $images[] = $path_head;
+                }
+                $transfer->update([
+                    'image_head' => implode(',', $images),
+                ]);
             }
-        } 
+
+            $total = sizeof($request->fleet);
+            $old = sizeof($request->id);
+            $new = $total - $old;
+            for($i = 0; $i < $old; $i++)
+            {
+                $transfer->cars()->where('cars.id', $request->id[$i])->update([
+                    'fleet'      => $request->fleet[$i],
+                    'capability' => $request->capability[$i],
+                    'price'      => $request->price[$i],
+                    'baggage'    => $request->baggage[$i],
+                    'driver_id'  => $request->driver_id[$i],
+                    'active'     => $request->active[$i],
+                ]);
+                if(! empty($request->present[$i])) {
+                    $present[$i] = str_replace('public/', '', $request->file('present')[$i]->store('/public'));
+                    $transfer->cars()->where('cars.id', $request->id[$i])->update([
+                        'present'    => $present[$i]
+                    ]);
+                }
+            }
+            if($new > 0) {
+
+                for($j = 0; $j < $new; $j ++)
+                {
+                    $present[$i] = str_replace('public/', '', $request->file('present')[$i]->store('/public'));
+                    $transfer->cars()->save(
+                        new Car([
+                            'fleet'      => $request->fleet[$i],
+                            'present'    => $present[$i],
+                            'capability' => $request->capability[$i],
+                            'price'      => $request->price[$i],
+                            'baggage'    => $request->baggage[$i],
+                            'driver_id'  => $request->driver_id[$i],
+                            'active'     => $request->active[$i],
+                        ])
+                    );
+                }
+            }
+        }
         return redirect('/transfers');
     }
 

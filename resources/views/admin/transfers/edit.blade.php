@@ -100,20 +100,22 @@
                                 </label>
                                 <div class="col-md-10 col-sm-10 col-xs-12">
                                     <ul id="media-list" class="clearfix">
-                                        @foreach($transfer->image_head as $image)
-                                            <li class="myupload">
-                                                <span>
-                                                    {{ Html::image('/storage/'. $image, 'image_header') }}
-                                                    <div class="post-thumb">
-                                                        <div class="inner-post-thumb">
-                                                            <a href="javascript:void(0);" data-id="" class='remove-pic'><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                            <div></div>
+                                        @if (sizeof($transfer->image_head))
+                                            @foreach($transfer->image_head as $image)
+                                                <li class="myupload">
+                                                    <span>
+                                                        {{ Html::image('/storage/'. $image, 'image_header') }}
+                                                        <div class="post-thumb">
+                                                            <div class="inner-post-thumb">
+                                                                <a href="javascript:void(0);" data-id="{{ $image }}" class='remove-pic'><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                <div></div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <input type="file" name="image_head[]" click-type="type2" id="pickupload" class="picupload">
-                                                </span>
-                                            </li>
-                                        @endforeach
+                                                        <input type="file" name="image_head[]" click-type="type2" id="pickupload" class="picupload">
+                                                    </span>
+                                                </li>
+                                            @endforeach
+                                        @endif
                                         <li class="myupload">
                                             <span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" name="image_head[]" click-type="type2" id="picupload" class="picupload"></span>
                                         </li>

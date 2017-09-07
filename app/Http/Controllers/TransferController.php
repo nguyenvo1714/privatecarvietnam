@@ -178,14 +178,23 @@ class TransferController extends Controller
     {
         $transfer = Transfer::find($id);
         if ($request->ajax()) {
-            $path_head = str_replace('public/', '', $request->file('image_head')->store('/public'));
             $image_head = explode(',', $transfer->image_head);
             if ($request->flag == 'add') {
+                $path_head = str_replace('public/', '', $request->file('image_head')->store('/public'));
                 array_push($image_head, $path_head);
-                $transfer->update(['image_head' => implode(',', $image_head)]);
-                return response()->json([''])
+                $result = $transfer->update(['image_head' => implode(',', $image_head)]);
+                if ( ! $result) {
+                    return response()->json(['status'=> false]);
+                }
+                return response()->json(['status' => true]);
             } else {
-                //
+                $offset = array_search($request->removeItem, $image_head);
+                array_splice($image_head, $offset, 1);
+                $result = $transfer->update(['image_head' => implode(',', $image_head)]);
+                if ( ! $result) {
+                    return response()->json(['status'=> false]);
+                }
+                return response()->json(['status' => true]);
             }
         } else {
             if(empty($request->is_discount)) {

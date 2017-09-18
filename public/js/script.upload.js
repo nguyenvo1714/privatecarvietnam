@@ -22,16 +22,12 @@ $(function() {
 					processData: false,
 					success: function(data) {
 						if (data.status == true) {
-							console.log(data.status);
-							picReader.addEventListener("load", function(event) {
-			                    var picFile = event.target;
-			                    var div = "<img src='" + picFile.result + "'" +
-			                        "title='" + picFile.name + "'/><div  class='post-thumb'><div class='inner-post-thumb'><a href='javascript:void(0);' data-id='" + event.target.fileName + "' class='remove-pic'><i class='fa fa-times' aria-hidden='true'></i></a><div></div>";
+		                    var div = "<img src='/storage/" + data.image_name + "'" +
+		                        "title='" + data.image_name + "'/><div  class='post-thumb'><div class='inner-post-thumb'><a href='javascript:void(0);' data-id='" + event.target.fileName + "' class='remove-pic'><i class='fa fa-times' aria-hidden='true'></i></a><div></div>";
 
-			                    var li = "<li class='myupload'><span><i class='fa fa-plus' aria-hidden='true'></i><input type='file' name='image_head[]'' click-type='type2' id='picupload' class='picupload'></span></li>";
-			                    $("#media-list span i.fa-plus").replaceWith(div);
-			                    $("#media-list").append(li);
-			                });
+		                    var li = "<li class='myupload'><span><i class='fa fa-plus' aria-hidden='true'></i><input type='file' name='image_head[]'' click-type='type2' id='picupload' class='picupload'></span></li>";
+		                    $("#media-list span i.fa-plus").replaceWith(div);
+		                    $("#media-list").append(li);
 						}
 					}
                 });
@@ -72,10 +68,33 @@ $(function() {
 				}
 			}
 		});
-        //var yet = names.indexOf(removeItem);
-        //if (yet != -1) {
-            //names.splice(yet, 1);
-        //}
-        // return array of file name
     });
+
+    //upload of create transfer for image_thumb
+	var input_thumb = $('.image_thumb');
+	var label_thumb = $('.label_thumb');
+	showName = function (files) {
+		label_thumb.text(files.length > 1 ? (input.attr('data-multiple-caption') || '').replace('{name}', files.length) : files[0].name);
+	}
+	input_thumb.on('drop', function(e) {
+		droppedFiles = e.originalEvent.dataTransfer.files; // the files that were dropped
+		showName( droppedFiles );
+	});
+	input_thumb.on('change', function (e) {
+		showName(e.target.files);
+	});
+
+    //upload of create transfer for image_head
+	var input = $('.image_head');
+	var label = $('.label_head');
+	showFiles = function (files) {
+		label.text(files.length > 1 ? (input.attr('data-multiple-caption') || '').replace('{count}', files.length) : files[0].name);
+	}
+	input.on('drop', function(e) {
+		droppedFiles = e.originalEvent.dataTransfer.files; // the files that were dropped
+		showFiles( droppedFiles );
+	});
+	input.on('change', function (e) {
+		showFiles(e.target.files);
+	});
 });

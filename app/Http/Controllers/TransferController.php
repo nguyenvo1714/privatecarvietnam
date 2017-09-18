@@ -88,7 +88,10 @@ class TransferController extends Controller
     {
         $this->validate($request, $this->rules);
         $path_thumb = str_replace('public/', '', $request->file('image_thumb')->store('/public'));
-        $path_head = str_replace('public/', '', $request->file('image_head')->store('/public'));
+        $path_head = [];
+        foreach ($request->file('image_head') as $file) {
+            $path_head[] = str_replace('public/', '', $file->store('/public'));
+        }
         $transfer = new Transfer;
         if(empty($request->is_discount)) {
             $request->discount_value = 0;
@@ -101,7 +104,7 @@ class TransferController extends Controller
             'title'            => $request->title,
             'duration'         => $request->duration,
             'image_thumb'      => $path_thumb,
-            'image_head'       => $path_head, 
+            'image_head'       => implode(',', $path_head),
             'description'      => $request->description, 
             'blog'             => $request->blog,
             'is_hot'           => $request->is_hot,
@@ -186,7 +189,7 @@ class TransferController extends Controller
                 if ( ! $result) {
                     return response()->json(['status'=> false]);
                 }
-                return response()->json(['status' => true]);
+                return response()->json(['status' => true, 'image_name' => $path_head]);
             } else {
                 $offset = array_search($request->removeItem, $image_head);
                 array_splice($image_head, $offset, 1);
@@ -217,17 +220,6 @@ class TransferController extends Controller
                 $path_thumb = str_replace('public/', '', $request->file('image_thumb')->store('/public'));
                 $transfer->update([
                     'image_thumb' => $path_thumb,
-                ]);
-            }
-
-            if ( ! empty($files = $request->file('image_head'))) {
-                $images = [];
-                foreach ($files as $file) {
-                    $path_head = str_replace('public/', '', $file->store('/public'));
-                    $images[] = $path_head;
-                }
-                $transfer->update([
-                    'image_head' => implode(',', $images),
                 ]);
             }
 

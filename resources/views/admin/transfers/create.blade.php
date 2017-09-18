@@ -86,7 +86,8 @@
                             Image thumbnail<span class="required">*</span>
                         </label>
                         <div class="col-md-10 col-sm-10 col-xs-12">
-                            <input id="input-2" name="image_thumb" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
+                            <input id="input-2" name="image_thumb" type="file" class="box_upload image_thumb" data-multiple-caption="{name} files selected">
+                            <label for="image_thumb" class="file-dummy label_thumb"><strong>Choose file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
                         </div>
                     </div>
                     <div class="field item form-group">
@@ -94,11 +95,8 @@
                             Image header<span class="required">*</span>
                         </label>
                         <div class="col-md-10 col-sm-10 col-xs-12">
-                            <ul id="media-list" class="clearfix">
-                                <li class="myupload">
-                                    <span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" name="image_head[]" click-type="type2" id="picupload" class="picupload"></span>
-                                </li>
-                            </ul>
+                            <input type="file" name="image_head[]" click-type="type2" class="box_upload image_head" multiple data-multiple-caption="{count} files selected">
+                            <label for="image_head" class="file-dummy label_head"><strong>Choose file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
                         </div>
                     </div>
                     <div class="field item form-group">

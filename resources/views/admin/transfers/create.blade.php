@@ -3,6 +3,10 @@
     <section class="content">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="title-top">
+                    <a class="action-title">New Transfer</a>
+                    <a class="back pull-right" href="{{ url('/transfers') }}"><i class="fa fa-angle-left"></i> &nbsp; Back to list</a>
+                </div>
                 @include('admin.errors.error')
                 {!! Form::open(['url' => 'transfer', 'method' => 'POST', 'class' => 'form-horizontal form-label-left', 'id' => 'transferForm', 'files' => true]) !!}
                     <div class="field item form-group">

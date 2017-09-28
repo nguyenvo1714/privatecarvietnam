@@ -66,7 +66,68 @@ $(function() {
         }
         return false;
 	});
+
+	$.ajaxSetup({
+	    headers: {
+	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	        }
+	});
+
+	//datatable transferName
+	$('#transferName').DataTable();
+
+	//datatable transfer
+	$('#transfer').DataTable();
+
+	//datatable place
+	$('#place').DataTable();
+
+	//datatable type
+	$('#type').DataTable();
+
+	//delete transferName
+	$('.delete').on('click', function() {
+		var url = $(this).data('url');
+		$('.modal').show();
+		$('.modal-content').data('url', url);
+
+	});
+	$('.confirm').click(function() {
+		var url = $('.modal-content').data('url');
+		$.ajax({
+			type: 'delete',
+			url: url,
+			success: function (data, statusText, xhr) {
+				$('.modal').hide();
+				if (xhr.status == 200) {
+					$('.alert').find('p').text(data.message);
+					$('.alert').show(0).delay(3000).hide(0);
+					window.setTimeout('location.reload()', 3000);
+				}
+				$('.alert').find('p').text(data.message);
+				$('.alert').show(0).delay(3000).hide(0);
+			}
+		});
+	});
+	$('.cancel').click(function() {
+		$('.modal').hide();
+	});
+
 });
 var loadFile = function(event, length) {
 	document.getElementById('present' + (length + 1)).src = URL.createObjectURL(event.target.files[0]);
+}
+
+//limit transferName depend on type
+function chooseTransferName(that)
+{
+	transfer_name_id = that.value;
+	$.ajax({
+		method: 'GET',
+		url: '/pick_ups',
+		data: {'transfer_name_id': transfer_name_id},
+		success: function(option) {
+			$('#pickup-by-transfer-name').html(option);
+		}
+	});
 }

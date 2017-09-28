@@ -51,7 +51,7 @@ $(function() {
 		// }
 	});
 
-
+	//remove image for transfer slide
 	$('body').on('click', '.remove-pic', function() {
 		var that = $(this);
         var removeItem = $(this).attr('data-id');
@@ -68,6 +68,12 @@ $(function() {
 				}
 			}
 		});
+    });
+
+	//remove image
+	$('body').on('click', '.remove-image', function() {
+		var that = $(this);
+		that.parent().parent().parent().find('img').attr('src', '');
     });
 
     //upload of create transfer for image_thumb
@@ -96,5 +102,31 @@ $(function() {
 	});
 	input.on('change', function (e) {
 		showFiles(e.target.files);
+	});
+
+	//upload of create transferName for thumb
+	var input_thumb = $('.thumb');
+	var label_thumb = $('.label_thumb');
+	showName = function (files) {
+		label_thumb.text(files.length > 1 ? (input.attr('data-multiple-caption') || '').replace('{name}', files.length) : files[0].name);
+	}
+	input_thumb.on('drop', function(e) {
+		droppedFiles = e.originalEvent.dataTransfer.files; // the files that were dropped
+		showName( droppedFiles );
+	});
+	input_thumb.on('change', function (e) {
+		showName(e.target.files);
+	});
+
+	//upload of edit  transferName
+	$('body').on('change', '.thumb', function(event) {
+		var file = event.target.files[0];
+		$('.transferName_thumb').attr('src', URL.createObjectURL(file));
+	});
+
+	//upload of edit  transfer
+	$('body').on('change', '.image_thumb', function(event) {
+		var file = event.target.files[0];
+		$('.transfer_thumb').attr('src', URL.createObjectURL(file));
 	});
 });

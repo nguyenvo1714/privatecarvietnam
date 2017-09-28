@@ -20,6 +20,7 @@
 	{!! Html::style('css/jquery-jvectormap.css') !!}
 	{!! Html::style('css/bootstrap-datepicker.min.css') !!}
 	{!! Html::style('css/daterangepicker.css') !!}
+	{!! Html::style('css/datatables.css') !!}
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 	<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 	<!-- <script src="/vendor/laravel-filemanager/js/lfm.js"></script> -->
@@ -74,7 +75,8 @@
 		$.widget.bridge('uibutton', $.ui.button);
 	</script>
 	{!! Html::script('js/raphael.min.js') !!}
-	{!! Html::script('js/morris.min.js') !!}
+	<!-- {!! Html::script('js/dashboard.js') !!} -->
+	<!-- {!! Html::script('js/morris.min.js') !!} -->
 	{!! Html::script('js/jquery.sparkline.min.js') !!}
 	{!! Html::script('js/jquery-jvectormap-1.2.2.min.js') !!}
 	{!! Html::script('js/jquery-jvectormap-world-mill-en.js') !!}
@@ -88,9 +90,8 @@
 	<!-- {!! Html::script('js/jquery.upload.js') !!} -->
 	{!! Html::script('js/script.upload.js') !!}
 	{!! Html::script('js/adminlte.min.js') !!}
+	{!! Html::script('js/datatables.min.js') !!}
 	{!! Html::script('js/custom.adminlte.js') !!}
-	{!! Html::script('js/dashboard.js') !!}
-	
 	<script>
 		window.Laravel = <?php echo json_encode([
 			'csrfToken' => csrf_token(),
@@ -99,5 +100,22 @@
 	<script>
 		{!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/js/lfm.js')) !!}
 	</script>
+	<div class="modal">
+	    <div class="modal-content">
+	        <div class="modal-header">
+	            <a class="modal-title">DELETE</a>
+	            <a href="javascript:void(0)" class="modal-cancel cancel">X</a>
+	        </div>
+	        <div class="modal-body text-center">
+	            {{ Html::image('/img/alert.png', 'alert', ['class' => 'modal-image']) }}
+	            <p class="modal-text">Are your sure want to delete?</p>
+	        </div>
+	        <div class="modal-footer text-center">
+	            <a href="javascript:void(0)" class="btn cancel"">CANCEL</a>
+	            &nbsp;&nbsp;&nbsp;&nbsp;
+	            <a href="javascript:void(0)" class="btn btn-danger confirm" id="yes">DELETE</a>
+	        </div>
+	    </div>
+	</div>
 </body>
 </html>

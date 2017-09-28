@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\TransferName;
 use App\Type;
+use DB;
 
 class TransferNameController extends Controller
 {
@@ -19,8 +20,7 @@ class TransferNameController extends Controller
      */
     public function index()
     {
-        $transferNames = new TransferName;
-        return view('admin.transferNames.index', ['transferNames' => $transferNames->orderBy('created_at')->paginate(10)]);
+        return view('admin.transferNames.index', ['transferNames' => TransferName::get()]);
     }
 
     /**
@@ -109,8 +109,17 @@ class TransferNameController extends Controller
      */
     public function destroy($id)
     {
-        TransferName::find($id)->transfers->delete();
-        TransferName::destroy($id);
-        return redirect('/transferNames');
+        if (request()->ajax()) {
+            $transferName = TransferName::find($id);
+            if ($transferName) {
+                DB::transaction(function () use ($transferName) {
+                    $transferName->transfers()->delete();
+                    $transferName->delete();
+                });
+                return response()->json(['message' => "Item $id has been deleted!"], 200);
+            }
+            return response()->json(['message' => 'Transfer Name not found'], 404);
+        }
+        return response()->json(['message' => 'Method does not allowed!'], 405);
     }
 }

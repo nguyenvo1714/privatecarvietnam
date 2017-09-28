@@ -1,72 +1,43 @@
-@extends('admin.layout.app')
+@extends('admin.layout.admin')
 @section('content')
-	<div class="page-title">
-        <div class="col-md-6 left-title">
-            <h3>Types</h3>
-        </div>
-        <div class="col-md-6 right-title">right title</div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-                <!-- <div class="x_title">
-                    <h2>Form Design <small>different form elements</small></h2>
-                    <div class="clearfix"></div>
-                </div> -->
-                <div class="x_content">
-                    <br>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($types as $type)
-                            <tr>
-                                <td>{{ $type->name }}</td>
-                                <td style="font-size: 20px;">
-                                    <a href="" id="{{ $type->id }}" class="call-view-type" data-toggle="modal" data-target="#myModal">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                </td>
-                                <td style="font-size: 20px;">
-                                    <a href="" id="{{ $type->id }}" class="call-edit-type" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil-square-o"></i></a>
-                                </td>
-                                <td style="font-size: 20px;">
-                                    {!! Form::open(['url' => '/type/'.$type->id, 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")']) !!}
-                                        {{ method_field('DELETE') }}
-                                        <button type="submit" class="naked-button"> <i class="fa fa-trash-o"></i></a>
-                                    {!! Form::close() !!}
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+                <div class="title-top">
+                    <a class="action-title">List Type</a>
+                    <a href="{{ url('/type/create') }}" class="new pull-right"><i class="fa fa-plus-circle"></i> &nbsp;&nbsp;New Type</a>
                 </div>
-                {{ $types->links() }}
+                <div class="alert alert-info alert-dismissable">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <p>Alert</p>
+                </div>
+                <table class="display" cellspacing="0" width="100%" id="type">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach($types as $type)
+                        <tr>
+                            <td>{{ $type->name }}</td>
+                            <td>
+                                <a href="{{ url('/type/' . $type->id . '/edit') }}" id="{{ $type->id }}" class="btn btn-primary edit">Edit <i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                <a href="javascript:void(0)" data-url="{{ url('/type/' . $type->id) }}" class="btn btn-danger delete" id="{{ $type->id }}"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
-<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-md">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-                <p>Some text in the modal.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+    </section>
 @endsection

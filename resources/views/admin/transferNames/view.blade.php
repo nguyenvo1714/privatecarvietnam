@@ -11,34 +11,34 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>{{ $place->name }}</h2>
+                    <h2>{{ $transferName->name }}</h2>
                     <div class="clearfix"></div>
                 </div>
                 <table class="table">
                     <tbody>
                         <tr>
                             <td>Name</td>
-                            <td>{{ $place->name }}</td>
+                            <td>{{ $transferName->name }}</td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td>Is hot</td>
-                            <td>{{ $place->isHot }}</td>
+                            <td>{{ $transferName->isHot }}</td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td>Is New</td>
-                            <td>{{ $place->isNew }}</td>
+                            <td>{{ $transferName->isNew }}</td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td>Create at</td>
-                            <td>{{ $place->created_at }}</td>
+                            <td>{{ $transferName->created_at }}</td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td>Update at</td>
-                            <td>{{ $place->updated_at }}</td>
+                            <td>{{ $transferName->updated_at }}</td>
                             <td>&nbsp;</td>
                         </tr>
                     </tbody>

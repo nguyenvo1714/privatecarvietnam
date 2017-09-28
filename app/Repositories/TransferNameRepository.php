@@ -5,6 +5,7 @@
 	use App\Pickup;
 	use App\Place;
 	use App\Type;
+	use DB;
 
 	/**
 	* 
@@ -16,6 +17,11 @@
 		function __construct(TransferName $transfer_name)
 		{
 			$this->transfer_name = $transfer_name;
+		}
+
+		public function getTransferName()
+		{
+			return $this->transfer_name->get();
 		}
 
 		public function allT()
@@ -52,7 +58,7 @@
 			return $this->transfer_name->findBySlug($slug);
 		}
 
-		public function getTransferName($pickup)
+		public function getTransferNameByPickup($pickup)
 		{
 			return $this->transfer_name->where('name', ucwords($pickup))->first();
 		}
@@ -75,5 +81,17 @@
 		public function count($type_id)
 		{
 			return $this->transfer_name->where('type_id', $type_id)->get()->count();
+		}
+
+		/**
+		 * delete transferName
+		*/
+		public function delete($transferNameId)
+		{
+				$transferName = $this->transfer_name->find($transferNameId);
+			DB::transaction(function () {
+				$transferName->transfers->delete();
+				$transferName->delete();
+			});
 		}
 	}

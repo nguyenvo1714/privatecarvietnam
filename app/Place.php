@@ -3,15 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Place extends Model
 {
+    use SoftDeletes;
+
     protected $table = 'places';
+    protected $dates = ['deleted_at'];
     protected $fillable = [
         'name',
         'transfer_name_id',
-        // 'is_hot',
-        // 'is_new',
     ];
 
     public function tour()

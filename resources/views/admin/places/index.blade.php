@@ -1,81 +1,50 @@
-@extends('admin.layout.app')
+@extends('admin.layout.admin')
 @section('content')
-	<div class="page-title">
-        <div class="col-md-6 left-title">
-            <h3>Places</h3>
-        </div>
-        <div class="col-md-6 right-title">right title</div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-                <!-- <div class="x_title">
-                    <h2>Form Design <small>different form elements</small></h2>
-                    <div class="clearfix"></div>
-                </div> -->
-                <div class="x_content">
-                    <br>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Transfer name</th>
-                                <!-- <th>Is hot</th>
-                                <th>Is new</th> -->
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($places as $place)
-                            <tr>
-                                <td>
-                                    {{ $place->name }}
-                                </td>
-                                <td>
-                                    {{ $place->transfer_name->name }}
-                                </td>
-                                <!-- <td>{{ $place->isHot }}</td>
-                                <td>{{ $place->isNew }}</td> -->
-                                <td style="font-size: 20px;">
-                                    <a href="" id="{{ $place->id }}" class="call-view-place" data-toggle="modal" data-target="#myModal">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                </td>
-                                <td style="font-size: 20px;">
-                                    <a href="{{ url('/place/' . $place->id . '/edit') }}" id="{{ $place->id }}" class="call-edit-place"><i class="fa fa-pencil-square-o"></i></a>
-                                </td>
-                                <td style="font-size: 20px;">
-                                    {!! Form::open(['url' => '/place/'.$place->id, 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")']) !!}
-                                        {{ method_field('DELETE') }}
-                                        <button type="submit" class="naked-button"> <i class="fa fa-trash-o"></i></a>
-                                    {!! Form::close() !!}
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+                <div class="title-top">
+                    <a class="action-title">List Place</a>
+                    <a href="{{ url('/place/create') }}" class="new pull-right"><i class="fa fa-plus-circle"></i> &nbsp;&nbsp;New Place</a>
                 </div>
-                {{ $places->links() }}
+                <div class="alert alert-info alert-dismissable">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <p>Alert</p>
+                </div>
+                <table class="display" cellspacing="0" width="100%" id="place">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Transfer name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Title</th>
+                            <th>Transfer name</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach($places as $place)
+                        <tr>
+                            <td>
+                                {{ $place->name }}
+                            </td>
+                            <td>
+                                {{ $place->transfer_name->name }}
+                            </td>
+                            <td>
+                                <a href="{{ url('/place/' . $place->id . '/edit') }}" id="{{ $place->id }}" class="btn btn-primary edit">Edit <i class="fa fa-pencil-square-o"></i></a>
+                                    &nbsp;&nbsp;
+                                <a href="javascript:void(0)" data-url="{{ url('/place/' . $place->id) }}" class="btn btn-danger delete" id="{{ $place->id }}"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
-<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-md">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-                <p>Some text in the modal.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+    </section>
 @endsection

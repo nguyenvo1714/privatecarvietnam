@@ -15,12 +15,20 @@
 .required {
 	color: #ec463e;
 }
-/*====================== transfers ===========================*/
-.delete {
-	border: unset;
-	background-color: unset;
-	color: #ec463e;
+.btn {
+    border-radius: 8px 0;
 }
+.btn.edit {
+    padding: 0 6px;
+    border-radius: unset;
+    border-top-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+.btn.delete {
+    padding: 5px 6px;
+    border: unset;
+}
+/*====================== transfers ===========================*/
 .box_upload {
 	position: absolute;
     width: 100%;
@@ -31,8 +39,9 @@
     bottom: 0;
     opacity: 0;
     cursor: pointer;
+    display: none;
 }
-#transferForm .file-dummy {
+.file-dummy {
     width: 100%;
     padding: 30px;
     background: rgba(255,255,255,0.2);
@@ -40,7 +49,162 @@
     text-align: center;
     transition: background 0.3s ease-in-out;
 }
-.box_upload:focus + .file-dummy {
-    /*outline: 2px solid rgba(255,255,255,0.5);*/
-    /*outline: -webkit-focus-ring-color auto 5px;*/
-  }
+/*==================Model popup===========*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    width: 40%;
+    background-color: #f5f8fa;
+}
+.modal-header {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 5px;
+}
+.modal-title {
+    font-size: 20px;
+    padding-left: 10px;
+}
+.modal-cancel {
+    padding: 7px;
+    font-size: 18px;
+    display: block;
+    float: right;
+}
+.modal-text {
+    font-size: 18px;
+}
+.btn.cancel {
+    background-color: #ccc;
+}
+.cancel, .confirm {
+    padding: 3px 12px;
+    border-radius: unset;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.modal-footer {
+    border: unset;
+    text-align: center;
+}
+/*-------Animation for modal------*/
+/*For Safari browser*/
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+/*Standard*/
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+/*================Alert======================*/
+.alert {
+    display: none;
+}
+a.close {
+    text-decoration: none;
+}
+/*============new button=============*/
+.new {
+    width: 32px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 15px;
+    border: 2px solid #3097d1;
+    -webkit-transition: width 2s; /* Safari */
+    transition: width 0.5s;
+}
+a.new:hover {
+    width: 167px;
+}
+/*=================title top=============*/
+.title-top {
+    margin-top: -10px;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #3c8dbc;
+}
+.action-title {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.new, .back {
+    text-transform: uppercase;
+    border-radius: 8px 0;
+    border:2px solid #3097d1;
+    padding: 3px 7px;
+}
+/*==================Display image edit==============*/
+.edit-border {
+    float: left;
+    border: 1px solid #ccc;
+    background: #ccc;
+    position: relative;
+    margin: 0 5px 5px 0;
+    width: 102px;
+    height: 102px;
+}
+.edit-border span {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: block;
+    background: #fff;
+}
+.edit-border span i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ccc;
+    font-size: 54px;
+}
+.edit-border span img {
+    width: 100px;
+    height: 100px;
+}
+.edit-border span input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100px;
+}
+.edit-border:hover .post-thumb {
+    display: block;
+}
+a.remove-image {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 12px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: block;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    padding: 3px 0;
+}

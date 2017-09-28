@@ -37,46 +37,60 @@
                     <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#">
+            <li class="">
+                <a href="{{ url('/transfers') }}">
                     <i class="fa fa-pie-chart"></i>
                     <span>Transfers</span>
-                    <span class="pull-right-container">
+                    <!-- <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
-                    </span>
+                    </span> -->
                 </a>
-                <ul class="treeview-menu">
+                <!-- <ul class="treeview-menu">
                     <li>
                         <a href="{{ url('/transfers') }}"><i class="fa fa-circle-o"></i> Index</a>
                     </li>
                     <li>
                         <a href="{{ url('/transfer/create') }}"><i class="fa fa-circle-o"></i> New transfer</a>
                     </li>
-                </ul>
+                </ul> -->
             </li>
-            <!-- <li class="treeview">
-                <a href="#">
+            <li class="">
+                <a href="{{ url('/transferNames') }}">
                     <i class="fa fa-files-o"></i>
-                    <span>Layout Options</span>
+                    <span>Transfer Name</span>
                     <span class="pull-right-container">
                         <span class="label label-primary pull-right">4</span>
                     </span>
                 </a>
-                <ul class="treeview-menu">
+                <!-- <ul class="treeview-menu">
                     <li>
-                        <a href="pages/layout/top-nav.html">
-                            <i class="fa fa-circle-o"></i> Top Navigation
+                        <a href="{{ url('/transferNames') }}">
+                            <i class="fa fa-circle-o"></i> Index
                         </a>
                     </li>
-                    <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                    <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
                     <li>
-                        <a href="pages/layout/collapsed-sidebar.html">
-                            <i class="fa fa-circle-o"></i> Collapsed Sidebar
-                        </a>
+                        <a href="{{ url('/transferName/create') }}"><i class="fa fa-circle-o"></i> New transfer name</a>
                     </li>
-                </ul>
-            </li> -->
+                </ul> -->
+            </li>
+            <li class="">
+                <a href="{{ url('/places') }}">
+                    <i class="fa fa-files-o"></i>
+                    <span>Place</span>
+                    <span class="pull-right-container">
+                        <span class="label label-primary pull-right">4</span>
+                    </span>
+                </a>
+            </li>
+            <li class="">
+                <a href="{{ url('/types') }}">
+                    <i class="fa fa-files-o"></i>
+                    <span>Type</span>
+                    <span class="pull-right-container">
+                        <span class="label label-primary pull-right">4</span>
+                    </span>
+                </a>
+            </li>
             <li>
                 <a href="pages/widgets.html">
                     <i class="fa fa-th"></i> <span>Widgets</span>

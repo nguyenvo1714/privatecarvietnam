@@ -49,7 +49,7 @@ class TransferController extends Controller
     public function index()
     {
     	// $transfers = $this->repository->getTransfers();
-        $transfers = Transfer::paginate(10);
+        $transfers = Transfer::get();
         $this->getTransferType($transfers);
         $this->getTransferName($transfers);
         $this->getPlaceName($transfers);
@@ -217,7 +217,7 @@ class TransferController extends Controller
                 'discount_value'   => $request->discount_value
             ]);
             if ( ! empty($request->image_thumb)) {
-                $path_thumb = str_replace('public/', '', $request->file('image_thumb')->store('/public'));
+                $path_thumb = str_replace('public/', '', $request->file('image_thumb')->store('/public'));//var_dump($path_thumb);die;
                 $transfer->update([
                     'image_thumb' => $path_thumb,
                 ]);
@@ -273,9 +273,18 @@ class TransferController extends Controller
      */
     public function destroy($id)
     {
-        Transfer::find($id)->cars()->delete();
-        Transfer::destroy($id);
-        return redirect('/transfers');
+        if (request()->ajax()) {
+            $transfer = Transfer::find($id);
+            if ($transfer) {
+                DB::transaction(function () use ($transfer) {
+                    $transfer->cars()->delete();
+                    $transfer->delete();
+                });
+                return response()->json(['message' => "Item $id has been deleted!"], 200);
+            }
+            return response()->json(['message' => 'Transfer not found'], 404);
+        }
+        return response()->json(['message' => 'Method does not allowed!'], 405);
     }
 
     public function file() 

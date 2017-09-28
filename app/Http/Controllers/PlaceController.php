@@ -6,6 +6,7 @@ use App\Place;
 use App\Pickup;
 use App\TransferName;
 use Illuminate\Http\Request;
+use DB;
 
 class PlaceController extends Controller
 {
@@ -23,7 +24,7 @@ class PlaceController extends Controller
     public function index()
     {
         $places = new Place;
-        return view('admin.places.index', ['places' => $places->orderBy('created_at')->paginate(10)]);
+        return view('admin.places.index', ['places' => $places->orderBy('created_at')->get()]);
     }
 
     public function getPickup(Request $request)
@@ -113,8 +114,18 @@ class PlaceController extends Controller
      */
     public function destroy($id)
     {
-        Place::destroy($id);
-        Pickup::destroy($id);
-        return redirect('/places');
+        if (request()->ajax()) {
+            $place = Place::find($id);
+            $pickup = Pickup::find($id);
+            if ($place && $pickup) {
+                DB::transaction(function () use ($place, $pickup) {
+                    $place->delete();
+                    $pickup->delete();
+                });
+                return response()->json(['message' => "Item $id has been deleted!"], 200);
+            }
+            return response()->json(['message' => 'Place not found'], 404);
+        }
+        return response()->json(['message' => 'Method does not allowed!'], 405);
     }
 }

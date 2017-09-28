@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Type;
 use Illuminate\Http\Request;
+use DB;
 
 class TypeController extends Controller
 {
@@ -92,8 +93,16 @@ class TypeController extends Controller
      */
     public function destroy($id)
     {
-        Type::find($id)->delete();
-        Type::destroy($id);
-        return redirect('/types');
+        if (request()->ajax()) {
+            $type = Type::find($id);
+            if ($type) {
+                DB::transaction(function () use ($type) {
+                    $type->delete();
+                });
+                return response()->json(['message' => "Item $id has been deleted!"], 200);
+            }
+            return response()->json(['message' => 'Type not found'], 404);
+        }
+        return response()->json(['message' => 'Method does not allowed!'], 405);
     }
 }
